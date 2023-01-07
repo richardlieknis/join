@@ -1,0 +1,16 @@
+Shawn
+- index.html / login
+- add task
+
+Marc
+- contacts
+
+Fabian
+- board
+- templates
+
+Richard
+- summary
+- impressum / datenschutz
+
+nächstes Treffen: dienstag der 10.01.2023
