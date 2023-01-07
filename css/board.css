@@ -1,0 +1,271 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f5f5f5;
+  overflow-x: hidden;
+}
+
+.d-none {
+  display: none !important;
+}
+
+main {
+  margin: 95px 0 0 232px;
+  padding: 80px 60px 0 70px;
+}
+
+.headline {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 100px;
+}
+
+.headline h1 {
+  color: #2a3647;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 61px;
+}
+
+.find-add-task {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.find-container {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  padding: 13px 4px 13px 21px;
+  gap: 10px;
+  width: 251px;
+  height: 51px;
+  background: #ffffff;
+  border: 1px solid #a8a8a8;
+  border-radius: 10px;
+  flex-grow: 0;
+}
+
+.find-container input {
+  height: 19px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  color: #d1d1d1;
+  outline: none;
+  border: none;
+}
+
+.find-add-task button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 10px;
+  width: 137px;
+  height: 51px;
+  background: #2a3647;
+  border: none;
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 21px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 180ms ease-in-out;
+}
+
+.find-add-task button:hover {
+  background: #29abe2;
+  box-shadow: 0px 5px 13px -7px #000000, 0px 5px 10px 1px rgba(0, 0, 0, 0);
+}
+
+.progress-steps {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 21px;
+  line-height: 120%;
+  color: #2a3647;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.progress-header svg:hover path,
+.progress-header svg:hover rect {
+  stroke: hsl(198, 76%, 52%);
+}
+
+.task-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px 19px;
+  margin-bottom: 32px;
+  gap: 18px;
+  width: 250px;
+  background: #ffffff;
+  box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.task-card:hover {
+  transform: rotate(2deg);
+}
+
+.label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 103px;
+  height: 27px;
+  border-radius: 8px;
+  color: #ffffff;
+}
+
+.label.design {
+  background: #ff7a00;
+}
+
+.label.sales {
+  background: #fc71ff;
+}
+
+.label.backoffice {
+  background: #1fd7c1;
+}
+
+.label.media {
+  background: #ffc701;
+}
+
+.label.marketing {
+  background: #0038ff;
+}
+
+.task-card > .title {
+  font-weight: 700;
+}
+
+.task-card > .description {
+  color: #a8a8a8;
+  overflow-wrap: break-word;
+}
+
+.subtasks-progress {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subtasks-progress progress {
+  width: 138px;
+  height: 8px;
+  border: none;
+}
+
+.subtasks-progress progress::-webkit-progress-bar {
+  background-color: #f4f4f4;
+  border-radius: 3px;
+}
+
+.subtasks-progress progress::-webkit-progress-value {
+  background-color: #29abe2;
+  border-radius: 3px;
+}
+
+.subtasks-progress span {
+  font-size: 12px;
+}
+
+.assigned-to-and-priority-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.assigned-to {
+  display: flex;
+}
+
+.assigned-to > div {
+  font-size: 12px;
+  color: #ffffff;
+  width: 35px;
+  height: 35px;
+  border: 1px solid #ffffff;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.assigned-to > div.blue {
+  background: #0190e0;
+}
+
+.assigned-to > div.pink {
+  background: #ee00d6;
+}
+
+.assigned-to > div.green {
+  background: #02cf2f;
+}
+
+.assigned-to > div.orange {
+  background: #ffa800;
+}
+
+.assigned-to > div.violet {
+  background: #9327ff;
+}
+
+.assigned-to > div.dark-blue {
+  background: #2a3647;
+}
+
+.assigned-to > div.red {
+  background: #ff5c00;
+}
+
+.assigned-to > div.dark-green {
+  background: #4e963d;
+}
+
+.assigned-to > div.ligth-blue {
+  background: #32daff;
+}
+
+.assigned-to > div.kings-blue {
+  background: #007cee;
+}
+
+.assigned-to > div:not(:first-child) {
+  margin-left: -5px;
+}
+
+.priority {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

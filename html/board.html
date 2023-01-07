@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Board</title>
+    <link rel="stylesheet" href="../css/board.css" />
+    <link rel="stylesheet" href="../css/templates.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="shortcut icon"
+      href="../src/img/favicon.png"
+      type="image/x-icon"
+    />
+  </head>
+
+  <body onload="init()">
+    <div w3-include-html="../templates/header.html"></div>
+    <div w3-include-html="../templates/navigation.html"></div>
+    <main>
+      <div class="headline">
+        <h1>Board</h1>
+        <div class="find-add-task">
+          <div class="find-container">
+            <input
+              type="text"
+              name="find-task"
+              id="find-task"
+              placeholder="Find Task"
+            />
+            <img src="../src/img/magnifying-glass.svg" />
+          </div>
+          <button>Add task <img src="../src/img/plus-icon.svg" /></button>
+        </div>
+      </div>
+
+      <div class="progress-steps">
+        <div class="todo">
+          <div class="progress-header">
+            <span>To do</span>
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 7.5V22.5"
+                stroke="#2A3647"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M22.5 15.1416L7.5 15.1416"
+                stroke="#2A3647"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <rect
+                x="1"
+                y="1"
+                width="28"
+                height="28"
+                rx="9"
+                stroke="#2A3647"
+                stroke-width="2"
+              />
+            </svg>
+          </div>
+          <div class="tasks" id="todo-tasks">
+            <div class="task-card" id="todo-0" draggable="true">
+              <span class="label design">Design</span>
+              <div class="title">Website redesign</div>
+              <div class="description">
+                Modify the contents of the main website...
+              </div>
+              <div class="subtasks-progress">
+                <progress value="50" max="100"></progress>
+                <span>1/2 Done</span>
+              </div>
+              <div class="assigned-to-and-priority-container">
+                <div class="assigned-to">
+                  <div class="blue">SM</div>
+                  <div class="pink">MV</div>
+                  <div class="green">EV</div>
+                  <!-- <div class="orange">AS</div>
+                  <div class="violet">DE</div>
+                  <div class="dark-blue">+3</div>
+                  <div class="red">MB</div>
+                  <div class="dark-green">BZ</div>
+                  <div class="ligth-blue">RS</div>
+                  <div class="kings-blue">HK</div> -->
+                </div>
+                <div class="priority"><img src="../src/img/low.svg" /></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="in-progress">
+          <div class="progress-header">
+            <span>In progress</span>
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 7.5V22.5"
+                stroke="#2A3647"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M22.5 15.1416L7.5 15.1416"
+                stroke="#2A3647"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <rect
+                x="1"
+                y="1"
+                width="28"
+                height="28"
+                rx="9"
+                stroke="#2A3647"
+                stroke-width="2"
+              />
+            </svg>
+          </div>
+          <div class="tasks" id="in-progress-tasks">
+            <div class="task-card" id="in-progress-0" draggable="true">
+              <span class="label sales">Sales</span>
+              <div class="title">Call potencial clients</div>
+              <div class="description">
+                Make the product presentation to prospective buyers
+              </div>
+              <div class="subtasks-progress d-none">
+                <progress value="0" max="100"></progress>
+                <span>0/2 Done</span>
+              </div>
+              <div class="assigned-to-and-priority-container">
+                <div class="assigned-to">
+                  <div class="orange">AS</div>
+                  <div class="violet">DE</div>
+                  <div class="dark-blue">+2</div>
+                </div>
+                <div class="priority"><img src="../src/img/urgent.svg" /></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="awaiting-feedback">
+          <div class="progress-header">
+            <span>Awaiting Feedback</span>
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 7.5V22.5"
+                stroke="#2A3647"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M22.5 15.1416L7.5 15.1416"
+                stroke="#2A3647"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <rect
+                x="1"
+                y="1"
+                width="28"
+                height="28"
+                rx="9"
+                stroke="#2A3647"
+                stroke-width="2"
+              />
+            </svg>
+          </div>
+          <div class="tasks" id="awaiting-feedback-tasks">
+            <div class="task-card" id="awaiting-feedback-0" draggable="true">
+              <span class="label backoffice">Backoffice</span>
+              <div class="title">Accounting invoices</div>
+              <div class="description">
+                Write open invoices for customer
+              </div>
+              <div class="subtasks-progress d-none">
+                <progress value="0" max="100"></progress>
+                <span>0/2 Done</span>
+              </div>
+              <div class="assigned-to-and-priority-container">
+                <div class="assigned-to">
+                    <div class="red">MB</div>
+                  <div class="violet">AM</div>
+                  <div class="dark-blue">+3</div>
+                </div>
+                <div class="priority"><img src="../src/img/medium.svg" /></div>
+              </div>
+            </div>
+
+            <div class="task-card" id="awaiting-feedback-1" draggable="true">
+              <span class="label media">Media</span>
+              <div class="title">Video cut</div>
+              <div class="description">
+                Edit the new company video
+              </div>
+              <div class="subtasks-progress d-none">
+                <progress value="0" max="100"></progress>
+                <span>0/2 Done</span>
+              </div>
+              <div class="assigned-to-and-priority-container">
+                <div class="assigned-to">
+                    <div class="kings-blue">HK</div>
+                </div>
+                <div class="priority"><img src="../src/img/medium.svg" /></div>
+              </div>
+            </div>
+
+            <div class="task-card" id="awaiting-feedback-1" draggable="true">
+              <span class="label media">Media</span>
+              <div class="title">Video cut</div>
+              <div class="description">
+                Edit the new company video
+              </div>
+              <div class="subtasks-progress d-none">
+                <progress value="0" max="100"></progress>
+                <span>0/2 Done</span>
+              </div>
+              <div class="assigned-to-and-priority-container">
+                <div class="assigned-to">
+                    <div class="kings-blue">HK</div>
+                </div>
+                <div class="priority"><img src="../src/img/medium.svg" /></div>
+              </div>
+            </div>
+
+            <div class="task-card" id="awaiting-feedback-1" draggable="true">
+              <span class="label media">Media</span>
+              <div class="title">Video cut</div>
+              <div class="description">
+                Edit the new company video
+              </div>
+              <div class="subtasks-progress d-none">
+                <progress value="0" max="100"></progress>
+                <span>0/2 Done</span>
+              </div>
+              <div class="assigned-to-and-priority-container">
+                <div class="assigned-to">
+                    <div class="kings-blue">HK</div>
+                </div>
+                <div class="priority"><img src="../src/img/medium.svg" /></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="done">
+          <div class="progress-header">
+            <span>Done</span>
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 7.5V22.5"
+                stroke="#2A3647"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M22.5 15.1416L7.5 15.1416"
+                stroke="#2A3647"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <rect
+                x="1"
+                y="1"
+                width="28"
+                height="28"
+                rx="9"
+                stroke="#2A3647"
+                stroke-width="2"
+              />
+            </svg>
+          </div>
+          <div class="tasks" id="done-tasks">
+            <div class="task-card" id="done-0" draggable="true">
+              <span class="label marketing">Marketing</span>
+              <div class="title">Social media strategy</div>
+              <div class="description">
+                Develop an ad campaign for brand positioning
+              </div>
+              <div class="subtasks-progress">
+                <progress value="100" max="100"></progress>
+                <span>3/3 Done</span>
+              </div>
+              <div class="assigned-to-and-priority-container">
+                <div class="assigned-to">
+                  <div class="dark-green">BZ</div>
+                  <div class="ligth-blue">RS</div>
+                </div>
+                <div class="priority"><img src="../src/img/low.svg" /></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="../js/includeHTML.js"></script>
+    <script src="../js/board.js"></script>
+  </body>
+</html>
