@@ -1,0 +1,18 @@
+{
+    "sourceFile": "up.bat",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1673099019576,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1673099019576,
+            "name": "Commit-0",
+            "content": "git pull\r\ngit add . \r\ngit commit -m \"%*\"\r\ngit push"
+        }
+    ]
+}
