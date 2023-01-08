@@ -15,33 +15,32 @@
     />
   </head>
 
-  <body onload="init()">
+  <body class="overflow-hidden" onload="init()">
     <div w3-include-html="../templates/header.html"></div>
     <div w3-include-html="../templates/navigation.html"></div>
     <main>
       <div class="headline">
         <h1>Board</h1>
-          <div class="find-container">
-            <input
-              type="text"
-              name="find-task"
-              id="find-task"
-              placeholder="Find Task"
-            />
-            <img src="../src/img/magnifying-glass.svg" />
-          </div>
-          <button class="add-button">
-            <span>Add task</span>
-            <img src="../src/img/plus-icon.svg" />
-          </button>
+        <div class="find-container">
+          <input
+            type="text"
+            name="find-task"
+            id="find-task"
+            placeholder="Find Task"
+          />
+          <img src="../src/img/magnifying-glass.svg" />
+        </div>
+        <button class="add-button">
+          <span>Add task</span>
+          <img src="../src/img/plus-icon.svg" />
+        </button>
       </div>
 
       <div class="progress-steps">
         <div class="todo">
           <div class="progress-header">
             <span>To do</span>
-            <div w3-include-html="../templates/add-button.html">
-            </div>
+            <div w3-include-html="../templates/plus-button.html"></div>
           </div>
           <div class="tasks" id="todo-tasks">
             <div class="task-card" id="todo-0" draggable="true">
@@ -56,9 +55,9 @@
               </div>
               <div class="assigned-to-and-priority-container">
                 <div class="assigned-to">
-                  <div class="blue">SM</div>
-                  <div class="pink">MV</div>
-                  <div class="green">EV</div>
+                  <div class="initials blue">SM</div>
+                  <div class="initials pink">MV</div>
+                  <div class="initials green">EV</div>
                 </div>
                 <div class="priority"><img src="../src/img/low.svg" /></div>
               </div>
@@ -69,7 +68,7 @@
         <div class="in-progress">
           <div class="progress-header">
             <span>In progress</span>
-            <div w3-include-html="../templates/add-button.html"></div>
+            <div w3-include-html="../templates/plus-button.html"></div>
           </div>
           <div class="tasks" id="in-progress-tasks">
             <div class="task-card" id="in-progress-0" draggable="true">
@@ -84,9 +83,9 @@
               </div>
               <div class="assigned-to-and-priority-container">
                 <div class="assigned-to">
-                  <div class="orange">AS</div>
-                  <div class="violet">DE</div>
-                  <div class="dark-blue">+2</div>
+                  <div class="initials orange">AS</div>
+                  <div class="initials violet">DE</div>
+                  <div class="initials dark-blue">+2</div>
                 </div>
                 <div class="priority"><img src="../src/img/urgent.svg" /></div>
               </div>
@@ -97,24 +96,22 @@
         <div class="awaiting-feedback">
           <div class="progress-header">
             <span>Awaiting Feedback</span>
-            <div w3-include-html="../templates/add-button.html"></div>
+            <div w3-include-html="../templates/plus-button.html"></div>
           </div>
           <div class="tasks" id="awaiting-feedback-tasks">
             <div class="task-card" id="awaiting-feedback-0" draggable="true">
               <span class="label backoffice">Backoffice</span>
               <div class="title">Accounting invoices</div>
-              <div class="description">
-                Write open invoices for customer
-              </div>
+              <div class="description">Write open invoices for customer</div>
               <div class="subtasks-progress d-none">
                 <progress value="0" max="100"></progress>
                 <span>0/2 Done</span>
               </div>
               <div class="assigned-to-and-priority-container">
                 <div class="assigned-to">
-                    <div class="red">MB</div>
-                  <div class="violet">AM</div>
-                  <div class="dark-blue">+3</div>
+                  <div class="initials red">MB</div>
+                  <div class="initials violet">AM</div>
+                  <div class="initials dark-blue">+3</div>
                 </div>
                 <div class="priority"><img src="../src/img/medium.svg" /></div>
               </div>
@@ -123,16 +120,14 @@
             <div class="task-card" id="awaiting-feedback-1" draggable="true">
               <span class="label media">Media</span>
               <div class="title">Video cut</div>
-              <div class="description">
-                Edit the new company video
-              </div>
+              <div class="description">Edit the new company video</div>
               <div class="subtasks-progress d-none">
                 <progress value="0" max="100"></progress>
                 <span>0/2 Done</span>
               </div>
               <div class="assigned-to-and-priority-container">
                 <div class="assigned-to">
-                    <div class="kings-blue">HK</div>
+                  <div class="kings-blue">HK</div>
                 </div>
                 <div class="priority"><img src="../src/img/medium.svg" /></div>
               </div>
@@ -141,16 +136,14 @@
             <div class="task-card" id="awaiting-feedback-1" draggable="true">
               <span class="label media">Media</span>
               <div class="title">Video cut</div>
-              <div class="description">
-                Edit the new company video
-              </div>
+              <div class="description">Edit the new company video</div>
               <div class="subtasks-progress d-none">
                 <progress value="0" max="100"></progress>
                 <span>0/2 Done</span>
               </div>
               <div class="assigned-to-and-priority-container">
                 <div class="assigned-to">
-                    <div class="kings-blue">HK</div>
+                  <div class="initials kings-blue">HK</div>
                 </div>
                 <div class="priority"><img src="../src/img/medium.svg" /></div>
               </div>
@@ -159,16 +152,14 @@
             <div class="task-card" id="awaiting-feedback-1" draggable="true">
               <span class="label media">Media</span>
               <div class="title">Video cut</div>
-              <div class="description">
-                Edit the new company video
-              </div>
+              <div class="description">Edit the new company video</div>
               <div class="subtasks-progress d-none">
                 <progress value="0" max="100"></progress>
                 <span>0/2 Done</span>
               </div>
               <div class="assigned-to-and-priority-container">
                 <div class="assigned-to">
-                    <div class="kings-blue">HK</div>
+                  <div class="initials kings-blue">HK</div>
                 </div>
                 <div class="priority"><img src="../src/img/medium.svg" /></div>
               </div>
@@ -179,7 +170,7 @@
         <div class="done">
           <div class="progress-header">
             <span>Done</span>
-            <div w3-include-html="../templates/add-button.html"></div>
+            <div w3-include-html="../templates/plus-button.html"></div>
           </div>
           <div class="tasks" id="done-tasks">
             <div class="task-card" id="done-0" draggable="true">
@@ -194,14 +185,112 @@
               </div>
               <div class="assigned-to-and-priority-container">
                 <div class="assigned-to">
-                  <div class="dark-green">BZ</div>
-                  <div class="ligth-blue">RS</div>
+                  <div class="initials dark-green">BZ</div>
+                  <div class="initials ligth-blue">RS</div>
                 </div>
                 <div class="priority"><img src="../src/img/low.svg" /></div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="task-overlay-bg">
+        <div class="task-overlay">
+          <div class="close-button">
+            <img src="../src/img/close-icon.svg" />
+          </div>
+          <button class="edit-icon">
+            <img src="../src/img/edit-icon.svg" />
+          </button>
+          <span class="label sales">Sales</span>
+          <div class="title">Call potencial clients</div>
+          <div class="description">
+            Make the product presentation to prospective buvers
+          </div>
+          <div class="due-date">
+            <span class="title">Due date:</span>
+            <span class="content">05-08-2022</span>
+          </div>
+          <div class="subtasks">
+            <span class="title">Subtasks:</span>
+            <div class="content">
+              <div class="subtask">
+                <input
+                  class="subtask-checkbox"
+                  type="checkbox"
+                  id="subtask-0"
+                  name="subtask-0"
+                  checked
+                />
+                <span>take the phone</span>
+              </div>
+              <div class="subtask">
+                <input
+                  class="subtask-checkbox"
+                  type="checkbox"
+                  id="subtask-1"
+                  name="subtask-1"
+                />
+                <span>enter the number</span>
+              </div>
+              <div class="subtask">
+                <input
+                  class="subtask-checkbox"
+                  type="checkbox"
+                  id="subtask-1"
+                  name="subtask-1"
+                />
+                <span>enter the number</span>
+              </div>
+              <div class="subtask">
+                <input
+                  class="subtask-checkbox"
+                  type="checkbox"
+                  id="subtask-1"
+                  name="subtask-1"
+                />
+                <span>enter the number</span>
+              </div>
+              <div class="subtask">
+                <input
+                  class="subtask-checkbox"
+                  type="checkbox"
+                  id="subtask-1"
+                  name="subtask-1"
+                />
+                <span>enter the number</span>
+              </div>
+            </div>
+          </div>
+          <div class="priority">
+            <span class="title">Priority:</span>
+            <div class="content label urgent">
+              <span>Urgent</span>
+              <img src="../src/img/urgent-white.svg" />
+            </div>
+          </div>
+          <div class="assigned-to">
+            <div class="title">Assigned To:</div>
+            <div class="assigned-person-container">
+              <div class="assigned-person">
+                <span class="initials orange">AS</span>
+                <span class="full-name">Anna Seinfeld</span>
+              </div>
+              <div class="assigned-person">
+                <span class="initials violet">DE</span>
+                <span class="full-name">David Eisenberg</span>
+              </div>
+              <div class="assigned-person">
+                <span class="initials green">EV</span>
+                <span class="full-name">Esther Vogel</span>
+              </div>
+              <div class="assigned-person">
+                <span class="initials blue">SM</span>
+                <span class="full-name">Stefanie Müller</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>

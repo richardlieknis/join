@@ -13,6 +13,10 @@ body {
   display: none !important;
 }
 
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
 main {
   margin: 95px 0 0 232px;
   padding: 80px 60px 0 70px;
@@ -65,7 +69,7 @@ main {
   right: 8px;
 }
 
-.add-button {
+.headline .add-button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -81,10 +85,10 @@ main {
   font-size: 21px;
   color: #ffffff;
   cursor: pointer;
-  transition: all 180ms ease-in-out;
+  transition: background 150ms ease-in-out, box-shadow 150ms ease-in-out;
 }
 
-.find-and-add-task button:hover {
+.headline .add-button:hover {
   background: #29abe2;
   box-shadow: 0px 5px 13px -7px #000000, 0px 5px 10px 1px rgba(0, 0, 0, 0);
 }
@@ -196,16 +200,16 @@ main {
   font-size: 12px;
 }
 
-.assigned-to-and-priority-container {
+.task-card .assigned-to-and-priority-container {
   display: flex;
   justify-content: space-between;
 }
 
-.assigned-to {
+.task-card .assigned-to {
   display: flex;
 }
 
-.assigned-to > div {
+.task-card .assigned-to > .initials {
   font-size: 12px;
   color: #ffffff;
   width: 35px;
@@ -217,57 +221,256 @@ main {
   align-items: center;
 }
 
-.assigned-to > div.blue {
+.blue {
   background: #0190e0;
 }
 
-.assigned-to > div.pink {
+.pink {
   background: #ee00d6;
 }
 
-.assigned-to > div.green {
+.green {
   background: #02cf2f;
 }
 
-.assigned-to > div.orange {
+.orange {
   background: #ffa800;
 }
 
-.assigned-to > div.violet {
+.violet {
   background: #9327ff;
 }
 
-.assigned-to > div.dark-blue {
+.dark-blue {
   background: #2a3647;
 }
 
-.assigned-to > div.red {
+.red {
   background: #ff5c00;
 }
 
-.assigned-to > div.dark-green {
+.dark-green {
   background: #4e963d;
 }
 
-.assigned-to > div.ligth-blue {
+.ligth-blue {
   background: #32daff;
 }
 
-.assigned-to > div.kings-blue {
+.kings-blue {
   background: #007cee;
 }
 
-.assigned-to > div:not(:first-child) {
+.task-card .assigned-to > div:not(:first-child) {
   margin-left: -5px;
 }
 
-.priority {
+.task-card .priority {
   width: 32px;
   height: 32px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+/* task overlay */
+
+.task-overlay-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: hsla(0, 0%, 0%, 0.25);
+  z-index: 1;
+  /* display: none; */
+}
+
+.task-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 50px;
+  gap: 25px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 623px;
+  height: 824px;
+  max-height: 95%;
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  overflow: auto;
+}
+
+.task-overlay .close-button {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.task-overlay .close-button:hover {
+  border: 2px solid #2a3647;
+}
+
+.task-overlay .edit-icon {
+  width: 57px;
+  height: 57px;
+  background: #2a3647;
+  border: none;
+  outline: none;
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background 150ms ease-in-out, box-shadow 150ms ease-in-out;
+}
+
+.task-overlay .edit-icon:hover {
+  background: #29abe2;
+  box-shadow: 0px 5px 13px -7px #000000, 0px 5px 10px 1px rgb(0 0 0 / 0%);
+}
+
+.headline .add-button:active,
+.task-overlay .edit-icon:active {
+  transform: translateY(4px);
+}
+
+.task-overlay > div {
+  display: flex;
+  align-items: center;
+}
+
+.task-overlay > .label {
+  width: 142px;
+  min-height: 40px;
+  font-size: 27px;
+  font-weight: 400;
+}
+
+.task-overlay > .title {
+  color: #000000;
+  font-size: 61px;
+  font-weight: 700;
+}
+
+.task-overlay > .description {
+  font-size: 21px;
+}
+
+.task-overlay > div > .title {
+  font-weight: 700;
+  font-size: 21px;
+  margin-right: 25px;
+}
+
+.task-overlay > div > .content {
+  font-size: 21px;
+}
+
+.task-overlay .subtasks .content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-height: 100px;
+  overflow: auto;
+}
+
+.task-overlay .subtask {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.task-overlay .subtasks input.subtask-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  color: red;
+}
+
+.task-overlay .subtasks input:checked + span {
+  text-decoration: line-through;
+}
+
+.task-overlay .priority {
+  display: flex;
+}
+
+.task-overlay .priority .label {
+  width: 131px;
+  height: 33px;
+  font-size: 21px;
+  padding: 4px 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-overlay .label.urgent {
+  background: #ff3d00;
+}
+
+.task-overlay .label.label.medium {
+  background: #ffa800;
+}
+
+.task-overlay .label.low {
+  background: #7ae229;
+}
+
+.task-overlay .label.urgent img {
+  width: 17px;
+  height: 12px;
+}
+
+.task-overlay .subtasks,
+.task-overlay .assigned-to {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.task-overlay .assigned-to {
+  gap: 25px;
+}
+
+.task-overlay .assigned-person-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.task-overlay .assigned-person {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.task-overlay .assigned-person-container .initials {
+  font-size: 16px;
+  color: #ffffff;
+  width: 45px;
+  height: 45px;
+  border: 1px solid #ffffff;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* movile view */
 
 @media (max-width: 1000px) {
   .add-button {
