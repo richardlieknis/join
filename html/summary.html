@@ -9,9 +9,13 @@
     <link rel="stylesheet" href="/style.css" />
     <link rel="stylesheet" href="../css/summary.css" />
     <link rel="stylesheet" href="../css/fonts.css" />
+    <link rel="stylesheet" href="../css/templates.css" />
+    <script src="../js/includeHTML.js"></script>
 </head>
 
-<body>
+<body onload="init()">
+    <div w3-include-html="../templates/header.html"></div>
+    <div w3-include-html="../templates/navigation.html"></div>
     <div class="summary-container">
         <div class="summ-header">
             <div class="headline">Summary</div>
