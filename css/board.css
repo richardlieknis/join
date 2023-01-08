@@ -66,6 +66,10 @@ main {
   border: none;
 }
 
+.find-container input::placeholder {
+  color: #d1d1d1;
+}
+
 .find-add-task button {
   display: flex;
   flex-direction: row;
