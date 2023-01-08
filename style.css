@@ -91,6 +91,7 @@ body {
     background: linear-gradient(180deg, #F9F9F9 0%, #F0F0F0 100%);
     border: 1px solid #000000;
     border-radius: 3px;
+    cursor: pointer;
 }
 
 .remember-me {
@@ -112,12 +113,13 @@ body {
     height: 51px;
     font-size: 21px;
     font-weight: 700;
-    cursor: pointer;
     transition: ease-in-out 225ms;
 }
 
 .login-btn:hover {
-    background-color: #29ABE2;;
+    cursor: pointer;
+    background-color: #29ABE2;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
 .guest-btn {
@@ -129,11 +131,48 @@ body {
     height: 51px;
     font-size: 21px;
     font-weight: 700;
-    cursor: pointer;
     transition: ease-in-out 225ms;
 }
 
 .guest-btn:hover {
+    cursor: pointer;
     color: #29ABE2;
-    box-shadow: 0px 15px 10px -15px #111;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3)
+}
+
+.sign-up-container {
+    position: absolute;
+    top: 67px;
+    right: 114px;
+}
+
+.sign-up {
+    height: 51px;
+    width: 287px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 35px;
+}
+
+.sign-up span {
+    font-size: 21px;
+    font-weight: 400;
+}
+
+.sign-up-btn {
+    height: 51px;
+    width: 91px;
+    border-radius: 8px;
+    background-color: #2A3647;
+    color: white;
+    border: unset;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.sign-up-btn:hover {
+    cursor: pointer;
+    background-color: #29ABE2;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
 }
