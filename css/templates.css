@@ -55,9 +55,10 @@ nav > img {
   width: 100%;
 }
 
-.nav-elements > li,
+.nav-elements > li > a,
 .legal-notice {
   color: #ffffff;
+  text-decoration: none;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -72,7 +73,7 @@ nav > img {
   background: #091931;
 }
 
-.nav-elements > li > img {
+.nav-elements > li > a > img {
   width: 25px;
   height: 25px;
 }
