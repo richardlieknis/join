@@ -156,3 +156,54 @@
     left: 50%;
     border: 1px solid #D1D1D1;
 }
+
+@media screen {
+    @media(max-width:1600px) {
+        .line {
+            left: 45%;
+        }
+        
+    }
+
+    @media(max-width:1500px) {
+        .subtasks-container {
+            right: 50px;
+        }
+
+        .line {
+            left: 47%;
+        }
+
+        .add-task-btn-container {
+            right: 40px;
+        }
+    }
+
+    @media(max-width:1400px) {
+        .subtasks-container {
+            right: 0px;
+        }
+
+        .add-task-btn-container {
+            right: 0px;
+        }
+
+        .line {
+            left: 50%;
+        }
+    }
+
+    @media(max-width: 1000px) {
+        .line {
+            display: none;
+        }
+
+        .subtasks-container {
+            position: unset;
+        }
+
+        .add-task-btn-container {
+            display: none;
+        }
+    }
+}
