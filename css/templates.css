@@ -1,3 +1,32 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 232px auto;
+  grid-template-rows: 89px auto;
+  grid-template-areas:
+    "nav header"
+    "nav main";
+}
+
+header {
+  grid-area: header;
+}
+
+nav {
+  grid-area: nav;
+}
+
+main {
+  grid-area: main;
+}
+
+header {
+  background: #ffffff;
+  padding: 20px 36px 20px 115px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
 header,
 header > .nav-icons {
   display: flex;
@@ -5,15 +34,8 @@ header > .nav-icons {
   align-items: center;
 }
 
-header {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1;
-  background: #ffffff;
-  padding: 20px 36px 20px 348px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+header > .join-logo-mobile {
+  display: none;
 }
 
 header > .title {
@@ -28,29 +50,27 @@ header > .nav-icons img {
   cursor: pointer;
 }
 
+.title-mobile {
+  display: none;
+}
+
 nav {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 2;
   padding: 66px 0 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 103px;
   background: #2a3647;
-  width: 232px;
+  width: 100%;
 }
 
-nav > img {
+nav > .join-logo-desktop {
   width: 100px;
 }
 
 .nav-elements {
   display: flex;
   flex-direction: column;
-  gap: 25px;
   list-style: none;
   width: 100%;
 }
@@ -84,6 +104,76 @@ nav > img {
 
 @media (max-width: 870px) {
   header {
-    padding-left: 302px;
+    padding-left: 50px;
+  }
+}
+
+@media (max-width: 800px) {
+  body {
+    grid-template-columns: auto;
+    grid-template-rows: 80px auto 80px;
+    grid-template-areas:
+      "header"
+      "main"
+      "nav";
+  }
+
+  header {
+    grid-area: header;
+  }
+
+  nav {
+    grid-area: nav;
+  }
+
+  main {
+    grid-area: main;
+  }
+
+  header {
+    padding: 20px 25px;
+  }
+
+  header > .join-logo-mobile {
+    display: unset;
+    height: 40px;
+  }
+
+  header > .title {
+    display: none;
+  }
+
+  header .help {
+    display: none;
+  }
+
+  nav {
+    height: 80px;
+    padding: 0;
+  }
+
+  nav > .join-logo-desktop,
+  .legal-notice {
+    display: none;
+  }
+
+  nav .nav-elements {
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100%;
+  }
+
+  nav .nav-elements > li {
+    width: 80px;
+  }
+
+  nav .nav-elements > li > a {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: unset;
+    height: 100%;
+    width: 80px;
   }
 }

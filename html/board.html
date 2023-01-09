@@ -15,9 +15,9 @@
     />
   </head>
 
-  <body class="overflow-hidden" onload="init()">
-    <div w3-include-html="../templates/header.html"></div>
-    <div w3-include-html="../templates/navigation.html"></div>
+  <body onload="init()">
+    <header w3-include-html="../templates/header.html"></header>
+    <nav w3-include-html="../templates/navigation.html"></nav>
     <main>
       <div class="headline">
         <h1>Board</h1>
@@ -112,22 +112,6 @@
                   <div class="initials red">MB</div>
                   <div class="initials violet">AM</div>
                   <div class="initials dark-blue">+3</div>
-                </div>
-                <div class="priority"><img src="../src/img/medium.svg" /></div>
-              </div>
-            </div>
-
-            <div class="task-card" id="awaiting-feedback-1" draggable="true">
-              <span class="label media">Media</span>
-              <div class="title">Video cut</div>
-              <div class="description">Edit the new company video</div>
-              <div class="subtasks-progress d-none">
-                <progress value="0" max="100"></progress>
-                <span>0/2 Done</span>
-              </div>
-              <div class="assigned-to-and-priority-container">
-                <div class="assigned-to">
-                  <div class="kings-blue">HK</div>
                 </div>
                 <div class="priority"><img src="../src/img/medium.svg" /></div>
               </div>
