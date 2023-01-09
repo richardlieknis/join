@@ -85,6 +85,11 @@ body {
     align-items: center;
 }
 
+.forgot-password-container {
+    display: flex; 
+    gap: 35px;
+}
+
 .remember-me-box {
     width: 16px;
     height: 16px;
@@ -102,6 +107,11 @@ body {
 .forgot-password {
     text-decoration: none;
     color: #29ABE2;
+}
+
+.continue-btn-container {
+    display: flex;
+    gap: 51px;
 }
 
 .login-btn {
@@ -169,10 +179,51 @@ body {
     border: unset;
     font-size: 16px;
     font-weight: 600;
+    transition: ease-in-out 225ms;
 }
 
 .sign-up-btn:hover {
     cursor: pointer;
     background-color: #29ABE2;
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+@media screen {
+    @media(max-width: 800px) {
+        .log-in {
+            width: 90%;
+            height: 55%;
+            top: 170px;
+        }
+
+        .forgot-password-container {
+            flex-direction: column;
+            width: 90%;
+        }
+
+        .input-login {
+            width: 90%;
+        }
+
+        .continue-btn-container {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .join-logo {
+            left: 2%;
+            top: 2%;
+            width: 100px;
+            height: 100px;
+        }
+
+        .sign-up-container {
+            top: unset;
+            right: unset;
+            bottom: 70px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    }
 }
