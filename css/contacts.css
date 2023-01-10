@@ -239,3 +239,9 @@ a {
 
   padding: 15px 0 22px 0;
 }
+
+.btn-new-contact {
+  position: absolute;
+  bottom: 62px;
+  right: 52px;
+}
