@@ -199,9 +199,6 @@
   }
 
   @media (max-width: 800px) {
-    body {
-      overflow-x: hidden;
-    }
     main {
       overflow-y: auto;
     }
