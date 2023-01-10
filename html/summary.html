@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,76 +11,77 @@
     <link rel="stylesheet" href="../css/templates.css" />
     <link rel="stylesheet" href="/style.css" />
     <script src="../js/includeHTML.js"></script>
-</head>
+  </head>
 
-<body onload="init()">
+  <body onload="init()">
     <header w3-include-html="../templates/header.html"></header>
     <nav w3-include-html="../templates/navigation.html"></nav>
     <main class="summary-container">
-        <div class="summ-header">
-            <div class="headline">Summary</div>
-            <div class="line"></div>
-            <div class="slogan">Everything in a nutshell!</div>
-        </div>
-        <div class="summ-content">
-            <div class="tasks">
-                <!-- ERSTE REIHE -->
-                <div class="task-box grid1">
-                    <div>
-                        <span class="amount">3</span>
-                        <span>Tasks in Board</span>
-                    </div>
-                </div>
-                <div class="task-box grid2">
-                    <div>
-                        <span class="amount">4</span>
-                        <span>Tasks in Progress</span>
-                    </div>
-                </div>
-                <div class="task-box grid3">
-                    <div>
-                        <span class="amount">5</span>
-                        <span>Awaiting Feedback</span>
-                    </div>
-                </div>
-                <!-- ZWEITE REIHE -->
-                <div class="task-box grid4 flexspace">
-                    <div class="urgency">
-                        <img src="../src/img/urgentSymbol.svg" />
-                        <div>
-                            <span class="amount">1</span>
-                            <span>Urgent</span>
-                        </div>
-                    </div>
-                    <div class="line"></div>
-                    <div class="deadline">
-                        <span>January 25, 2023</span>
-                        <span>Upcoming Deadline</span>
-                    </div>
-                </div>
-                <!-- DRITTE REIHE -->
-                <div class="task-box grid5">
-                    <img class="hover-img" src="../src/img/pencilToDo.svg" />
-                    <div>
-                        <span class="amount">1</span>
-                        <span>To-Do</span>
-                    </div>
-                </div>
-                <div class="task-box grid6">
-                    <img class="hover-img" src="../src/img/doneSymbol.svg" />
-                    <div>
-                        <span class="amount">1</span>
-                        <span>Done</span>
-                    </div>
-                </div>
-            </div>
-            <!-- GREETINGS -->
-            <div class="greet">
-                Good morning, <br />
-                <span id="username">Max Mustermann</span>
-            </div>
-        </div>
-    </main>
-</body>
+      <div class="title-mobile">Kanban Project Management Tool</div>
 
+      <div class="summ-header">
+        <div class="headline">Summary</div>
+        <div class="line"></div>
+        <div class="slogan">Everything in a nutshell!</div>
+      </div>
+      <div class="summ-content">
+        <div class="tasks">
+          <!-- ERSTE REIHE -->
+          <div class="task-box grid1">
+            <div>
+              <span class="amount">3</span>
+              <span>Tasks in Board</span>
+            </div>
+          </div>
+          <div class="task-box grid2">
+            <div>
+              <span class="amount">4</span>
+              <span>Tasks in Progress</span>
+            </div>
+          </div>
+          <div class="task-box grid3">
+            <div>
+              <span class="amount">5</span>
+              <span>Awaiting Feedback</span>
+            </div>
+          </div>
+          <!-- ZWEITE REIHE -->
+          <div class="task-box grid4 flexspace">
+            <div class="urgency">
+              <img src="../src/img/urgentSymbol.svg" />
+              <div>
+                <span class="amount">1</span>
+                <span>Urgent</span>
+              </div>
+            </div>
+            <div class="line"></div>
+            <div class="deadline">
+              <span>January 25, 2023</span>
+              <span>Upcoming Deadline</span>
+            </div>
+          </div>
+          <!-- DRITTE REIHE -->
+          <div class="task-box grid5">
+            <img class="hover-img" src="../src/img/pencilToDo.svg" />
+            <div>
+              <span class="amount">1</span>
+              <span>To-Do</span>
+            </div>
+          </div>
+          <div class="task-box grid6">
+            <img class="hover-img" src="../src/img/doneSymbol.svg" />
+            <div>
+              <span class="amount">1</span>
+              <span>Done</span>
+            </div>
+          </div>
+        </div>
+        <!-- GREETINGS -->
+        <div class="greet">
+          Good morning, <br />
+          <span id="username">Max Mustermann</span>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>

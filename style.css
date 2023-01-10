@@ -78,7 +78,7 @@ h1 {
 }
 
 .log-in h1 {
-    width: 315px;
+  width: 315px;
 }
 
 .border-bottom {
@@ -221,6 +221,15 @@ h1 {
 @media screen {
   @media (max-width: 800px) {
     /* from here for login page */
+
+    body {
+      grid-template-columns: auto;
+      grid-template-rows: 89px auto;
+      grid-template-areas:
+        "header"
+        "main"
+        "nav";
+    }
 
     .log-in {
       width: 90%;

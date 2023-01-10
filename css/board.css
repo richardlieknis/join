@@ -15,7 +15,6 @@
 main {
   margin: 0;
   padding: 80px 60px 0 70px;
-  overflow-y: auto;
 }
 
 main .title-mobile {
