@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: #f5f5f5;
+    overflow-x: hidden;
+  }
+  
+  .d-none {
+    display: none !important;
+  }
+  
+  .overflow-hidden {
+    overflow: hidden !important;
+  }
+
+main {
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+  }
+
+.c-main {
+  display: flex;
+  }
+
+.c-list {
+width: 453px;
+}
+
+.c-view {
+  width: 100%;
+}
