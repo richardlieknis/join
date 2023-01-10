@@ -42,7 +42,7 @@
         <div
           class="todo"
           id="todo"
-          ondrop="moveTo('todo')"
+          ondrop="moveTo('todo'); removeHighlight()"
           ondragover="allowDrop(event); highlight('todo')"
           ondragleave="removeHighlight('todo')"
         >
@@ -57,7 +57,7 @@
         <div
           class="in-progress"
           id="inProgress"
-          ondrop="moveTo('inProgress')"
+          ondrop="moveTo('inProgress'); removeHighlight()"
           ondragover="allowDrop(event); highlight('inProgress')"
           ondragleave="removeHighlight('inProgress')"
         >
@@ -72,7 +72,7 @@
         <div
           class="awaiting-feedback"
           id="awaitingFeedback"
-          ondrop="moveTo('awaitingFeedback')"
+          ondrop="moveTo('awaitingFeedback'); removeHighlight()"
           ondragover="allowDrop(event); highlight('awaitingFeedback')"
           ondragleave="removeHighlight('awaitingFeedback')"
         >
@@ -87,10 +87,9 @@
         <div
           class="done"
           id="done"
-          ondrop="moveTo('done')"
+          ondrop="moveTo('done'); removeHighlight()"
           ondragover="allowDrop(event); highlight('done')"
           ondragleave="removeHighlight()"
-          ondragend="removeHighlight()"
         >
           <div class="progress-header">
             <span>Done</span>
