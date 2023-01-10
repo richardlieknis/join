@@ -23,14 +23,6 @@ main {
   overflow-y: auto;
 }
 
-h1 {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 61px;
-  line-height: 120%;
-  color: #000000;
-}
-
 a {
   text-decoration: none;
 }
@@ -49,7 +41,7 @@ a {
 
   overflow-y: auto;
   overflow-x: hidden;
-  scrollbar-color: #A8A8A8;
+  scrollbar-color: #a8a8a8;
 }
 
 .c-view {
@@ -71,7 +63,7 @@ a {
 }
 
 .c-initial-letter-border {
-  border-bottom: 1px solid #D1D1D1;
+  border-bottom: 1px solid #d1d1d1;
   width: 338px;
   height: 5px;
 }
@@ -157,7 +149,7 @@ a {
   font-weight: 400;
   font-size: 16px;
   line-height: 120%;
-  color: #007CEE;
+  color: #007cee;
 }
 
 .c-view-head {
@@ -169,7 +161,7 @@ a {
 }
 
 .c-v-line {
-  background-color: #29ABE2;
+  background-color: #29abe2;
   height: 56px;
   width: 3px;
   border-radius: 5px;
@@ -197,7 +189,7 @@ a {
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  color: #29ABE2;
+  color: #29abe2;
 }
 
 .c-floating-middle {
@@ -222,7 +214,7 @@ a {
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  color: #2A3647;
+  color: #2a3647;
   margin-left: 4px;
 }
 

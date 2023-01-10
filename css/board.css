@@ -33,13 +33,6 @@ main .title-mobile {
   margin-bottom: 100px;
 }
 
-.headline h1 {
-  color: #2a3647;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 61px;
-}
-
 .find-container {
   display: flex;
   align-items: center;

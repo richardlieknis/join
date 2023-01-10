@@ -1,235 +1,244 @@
 @font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    src: local(''),
-        url('src/fonts/inter/Inter-VariableFont_slnt\,wght.ttf') format('ttf'),
-        url('src/fonts/inter/static/Inter-Black.ttf') format('ttf'),
-        url('src/fonts/inter/static/Inter-Bold.ttf') format('ttf'),
-        url('src/fonts/inter/static/Inter-ExtraBold.ttf') format('ttf'),
-        url('src/fonts/inter/static/Inter-ExtraLight.ttf') format('ttf'),
-        url('src/fonts/inter/static/Inter-Light.ttf') format('ttf'),
-        url('src/fonts/inter/static/Inter-Medium.ttf') format('ttf'),
-        url('src/fonts/inter/static/Inter-Regular.ttf') format('ttf'),
-        url('src/fonts/inter/static/Inter-SemiBold.ttf') format('ttf'),
-        url('src/fonts/inter/static/Inter-Thin.ttf') format('ttf'),
+  font-family: "Inter";
+  font-style: normal;
+  src: local(""),
+    url("src/fonts/inter/Inter-VariableFont_slnt\,wght.ttf") format("ttf"),
+    url("src/fonts/inter/static/Inter-Black.ttf") format("ttf"),
+    url("src/fonts/inter/static/Inter-Bold.ttf") format("ttf"),
+    url("src/fonts/inter/static/Inter-ExtraBold.ttf") format("ttf"),
+    url("src/fonts/inter/static/Inter-ExtraLight.ttf") format("ttf"),
+    url("src/fonts/inter/static/Inter-Light.ttf") format("ttf"),
+    url("src/fonts/inter/static/Inter-Medium.ttf") format("ttf"),
+    url("src/fonts/inter/static/Inter-Regular.ttf") format("ttf"),
+    url("src/fonts/inter/static/Inter-SemiBold.ttf") format("ttf"),
+    url("src/fonts/inter/static/Inter-Thin.ttf") format("ttf");
 }
 
+/* general */
+
 body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background-color: #F6F7F8;
-    scroll-behavior: smooth;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #f6f7f8;
+  scroll-behavior: smooth;
+  width: 100dvw;
+  height: 100dvh;
+  display: grid;
+  grid-template-columns: 232px auto;
+  grid-template-rows: 89px auto;
+  grid-template-areas:
+    "nav header"
+    "nav main";
+}
+
+h1 {
+  font-size: 61px;
+  line-height: 120%;
+  color: #000000;
+  font-weight: 700;
 }
 
 /* from here for login page */
 
 .join-logo {
-    width: 100px;
-    height: 122px;
-    position: absolute;
-    left: 5.35%;
-    right: 87.71%;
-    top: 7.81%;
-    bottom: 80.28%;
+  width: 100px;
+  height: 122px;
+  position: absolute;
+  left: 5.35%;
+  right: 87.71%;
+  top: 7.81%;
+  bottom: 80.28%;
 }
 
 .log-in {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 35px 0px;
-    gap: 35px;
-    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
-    border-radius: 30px;
-    position: absolute;
-    width: 652px;
-    top: 274px;
-}
-
-.log-in h1 {
-    width: 315px;
-    font-size: 61px;
-    line-height: 120%;
-    color: #000000;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 35px 0px;
+  gap: 35px;
+  box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+  border-radius: 30px;
+  position: absolute;
+  width: 652px;
+  top: 274px;
 }
 
 .border-bottom {
-    border-bottom: 3px solid #29ABE2;
-    height: 97px;
-    width: 150px;
-    text-align: center;
+  border-bottom: 3px solid #29abe2;
+  height: 97px;
+  width: 150px;
+  text-align: center;
 }
 
 .input-login {
-    width: 422px;
-    height: 51px;
-    border-radius: 10px;
-    padding: 13px 21px;
-    border: 1px solid #D1D1D1;
-    box-sizing: border-box;
+  width: 422px;
+  height: 51px;
+  border-radius: 10px;
+  padding: 13px 21px;
+  border: 1px solid #d1d1d1;
+  box-sizing: border-box;
 }
 
 .background-image-email {
-    background-image: url(src/img/email.svg);
-    background-repeat: no-repeat;
-    background-position: center right 16.5px;
+  background-image: url(src/img/email.svg);
+  background-repeat: no-repeat;
+  background-position: center right 16.5px;
 }
 
 .background-image-password {
-    background-image: url(src/img/password.svg);
-    background-repeat: no-repeat;
-    background-position: center right 16.5px;
+  background-image: url(src/img/password.svg);
+  background-repeat: no-repeat;
+  background-position: center right 16.5px;
 }
 
 .display-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .forgot-password-container {
-    display: flex;
-    gap: 35px;
+  display: flex;
+  gap: 35px;
 }
 
 .remember-me-box {
-    width: 16px;
-    height: 16px;
-    background: linear-gradient(180deg, #F9F9F9 0%, #F0F0F0 100%);
-    border: 1px solid #000000;
-    border-radius: 3px;
-    cursor: pointer;
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(180deg, #f9f9f9 0%, #f0f0f0 100%);
+  border: 1px solid #000000;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
 .remember-me {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 
 .forgot-password {
-    text-decoration: none;
-    color: #29ABE2;
+  text-decoration: none;
+  color: #29abe2;
 }
 
 .continue-btn-container {
-    display: flex;
-    gap: 51px;
+  display: flex;
+  gap: 51px;
 }
 
 .login-btn {
-    border: unset;
-    background-color: #2A3647;
-    color: white;
-    border-radius: 8px;
-    width: 145px;
-    height: 51px;
-    font-size: 21px;
-    font-weight: 700;
-    transition: ease-in-out 225ms;
+  border: unset;
+  background-color: #2a3647;
+  color: white;
+  border-radius: 8px;
+  width: 145px;
+  height: 51px;
+  font-size: 21px;
+  font-weight: 700;
+  transition: ease-in-out 225ms;
 }
 
 .login-btn:hover {
-    cursor: pointer;
-    background-color: #29ABE2;
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  background-color: #29abe2;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
 .guest-btn {
-    border: solid 1px;
-    background-color: #FFFFFF;
-    color: #2A3647;
-    border-radius: 8px;
-    width: 145px;
-    height: 51px;
-    font-size: 21px;
-    font-weight: 700;
-    transition: ease-in-out 225ms;
+  border: solid 1px;
+  background-color: #ffffff;
+  color: #2a3647;
+  border-radius: 8px;
+  width: 145px;
+  height: 51px;
+  font-size: 21px;
+  font-weight: 700;
+  transition: ease-in-out 225ms;
 }
 
 .guest-btn:hover {
-    cursor: pointer;
-    color: #29ABE2;
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  color: #29abe2;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
 .sign-up-container {
-    position: absolute;
-    top: 67px;
-    right: 114px;
+  position: absolute;
+  top: 67px;
+  right: 114px;
 }
 
 .sign-up {
-    height: 51px;
-    width: 287px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 35px;
+  height: 51px;
+  width: 287px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 35px;
 }
 
 .sign-up span {
-    font-size: 21px;
-    font-weight: 400;
+  font-size: 21px;
+  font-weight: 400;
 }
 
 .sign-up-btn {
-    height: 51px;
-    width: 91px;
-    border-radius: 8px;
-    background-color: #2A3647;
-    color: white;
-    border: unset;
-    font-size: 16px;
-    font-weight: 600;
-    transition: ease-in-out 225ms;
+  height: 51px;
+  width: 91px;
+  border-radius: 8px;
+  background-color: #2a3647;
+  color: white;
+  border: unset;
+  font-size: 16px;
+  font-weight: 600;
+  transition: ease-in-out 225ms;
 }
 
 .sign-up-btn:hover {
-    cursor: pointer;
-    background-color: #29ABE2;
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  background-color: #29abe2;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
 @media screen {
-    @media(max-width: 800px) {
+  @media (max-width: 800px) {
+    /* from here for login page */
 
-        /* from here for login page */
-
-        .log-in {
-            width: 90%;
-            height: 55%;
-            top: 170px;
-        }
-
-        .forgot-password-container {
-            flex-direction: column;
-            width: 90%;
-        }
-
-        .input-login {
-            width: 90%;
-        }
-
-        .continue-btn-container {
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .join-logo {
-            left: 2%;
-            top: 2%;
-            width: 100px;
-            height: 100px;
-        }
-
-        .sign-up-container {
-            top: unset;
-            right: unset;
-            bottom: 70px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
+    .log-in {
+      width: 90%;
+      height: 55%;
+      top: 170px;
     }
+
+    .forgot-password-container {
+      flex-direction: column;
+      width: 90%;
+    }
+
+    .input-login {
+      width: 90%;
+    }
+
+    .continue-btn-container {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .join-logo {
+      left: 2%;
+      top: 2%;
+      width: 100px;
+      height: 100px;
+    }
+
+    .sign-up-container {
+      top: unset;
+      right: unset;
+      bottom: 70px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  }
 }
