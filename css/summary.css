@@ -9,8 +9,8 @@ body {
 }
 
 .summary-container {
-    margin-left: 345px;
-    margin-top: 125px;
+    padding: 45px;
+    overflow-y: auto;
 }
 
 .summ-header {
@@ -23,7 +23,7 @@ body {
     font-size: 61px;
     font-family: 'inter';
     font-weight: 700;
-    color: #111;
+    color: #111d;
 }
 
 .summ-header .line {
@@ -41,6 +41,12 @@ body {
     gap: 50px;
     margin-top: 50px;
     align-items: center;
+}
+
+@media (max-width: 1270px) {
+    .summ-content {
+        flex-direction: column-reverse;
+    }
 }
 
 .summ-content .greet {
