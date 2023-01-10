@@ -14,7 +14,7 @@
       type="image/x-icon"
     />
   </head>
-
+  <!-- TODO beim wrapen zwei Divs nebeneinander anzeigen -> dafür zwei progressgruppen in ein div packen -->
   <body onload="init()">
     <header w3-include-html="../templates/header.html"></header>
     <nav w3-include-html="../templates/navigation.html"></nav>
@@ -39,145 +39,65 @@
       </div>
 
       <div class="progress-steps">
-        <div class="todo">
+        <div
+          class="todo"
+          id="todo"
+          ondrop="moveTo('todo')"
+          ondragover="allowDrop(event); highlight('todo')"
+          ondragleave="removeHighlight('todo')"
+        >
           <div class="progress-header">
             <span>To do</span>
             <div w3-include-html="../templates/plus-button.html"></div>
           </div>
-          <div class="tasks" id="todo-tasks">
-            <div class="task-card" id="todo-0" draggable="true">
-              <span class="label design">Design</span>
-              <div class="title">Website redesign</div>
-              <div class="description">
-                Modify the contents of the main website...
-              </div>
-              <div class="subtasks-progress">
-                <progress value="50" max="100"></progress>
-                <span>1/2 Done</span>
-              </div>
-              <div class="assigned-to-and-priority-container">
-                <div class="assigned-to">
-                  <div class="initials blue">SM</div>
-                  <div class="initials pink">MV</div>
-                  <div class="initials green">EV</div>
-                </div>
-                <div class="priority"><img src="../src/img/low.svg" /></div>
-              </div>
-            </div>
-          </div>
+
+          <div class="tasks" id="todo-tasks"></div>
         </div>
 
-        <div class="in-progress">
+        <div
+          class="in-progress"
+          id="inProgress"
+          ondrop="moveTo('inProgress')"
+          ondragover="allowDrop(event); highlight('inProgress')"
+          ondragleave="removeHighlight('inProgress')"
+        >
           <div class="progress-header">
             <span>In progress</span>
             <div w3-include-html="../templates/plus-button.html"></div>
           </div>
-          <div class="tasks" id="in-progress-tasks">
-            <div class="task-card" id="in-progress-0" draggable="true">
-              <span class="label sales">Sales</span>
-              <div class="title">Call potencial clients</div>
-              <div class="description">
-                Make the product presentation to prospective buyers
-              </div>
-              <div class="subtasks-progress d-none">
-                <progress value="0" max="100"></progress>
-                <span>0/2 Done</span>
-              </div>
-              <div class="assigned-to-and-priority-container">
-                <div class="assigned-to">
-                  <div class="initials orange">AS</div>
-                  <div class="initials violet">DE</div>
-                  <div class="initials dark-blue">+2</div>
-                </div>
-                <div class="priority"><img src="../src/img/urgent.svg" /></div>
-              </div>
-            </div>
-          </div>
+
+          <div class="tasks" id="inProgress-tasks"></div>
         </div>
 
-        <div class="awaiting-feedback">
+        <div
+          class="awaiting-feedback"
+          id="awaitingFeedback"
+          ondrop="moveTo('awaitingFeedback')"
+          ondragover="allowDrop(event); highlight('awaitingFeedback')"
+          ondragleave="removeHighlight('awaitingFeedback')"
+        >
           <div class="progress-header">
             <span>Awaiting Feedback</span>
             <div w3-include-html="../templates/plus-button.html"></div>
           </div>
-          <div class="tasks" id="awaiting-feedback-tasks">
-            <div class="task-card" id="awaiting-feedback-0" draggable="true">
-              <span class="label backoffice">Backoffice</span>
-              <div class="title">Accounting invoices</div>
-              <div class="description">Write open invoices for customer</div>
-              <div class="subtasks-progress d-none">
-                <progress value="0" max="100"></progress>
-                <span>0/2 Done</span>
-              </div>
-              <div class="assigned-to-and-priority-container">
-                <div class="assigned-to">
-                  <div class="initials red">MB</div>
-                  <div class="initials violet">AM</div>
-                  <div class="initials dark-blue">+3</div>
-                </div>
-                <div class="priority"><img src="../src/img/medium.svg" /></div>
-              </div>
-            </div>
 
-            <div class="task-card" id="awaiting-feedback-1" draggable="true">
-              <span class="label media">Media</span>
-              <div class="title">Video cut</div>
-              <div class="description">Edit the new company video</div>
-              <div class="subtasks-progress d-none">
-                <progress value="0" max="100"></progress>
-                <span>0/2 Done</span>
-              </div>
-              <div class="assigned-to-and-priority-container">
-                <div class="assigned-to">
-                  <div class="initials kings-blue">HK</div>
-                </div>
-                <div class="priority"><img src="../src/img/medium.svg" /></div>
-              </div>
-            </div>
-
-            <div class="task-card" id="awaiting-feedback-1" draggable="true">
-              <span class="label media">Media</span>
-              <div class="title">Video cut</div>
-              <div class="description">Edit the new company video</div>
-              <div class="subtasks-progress d-none">
-                <progress value="0" max="100"></progress>
-                <span>0/2 Done</span>
-              </div>
-              <div class="assigned-to-and-priority-container">
-                <div class="assigned-to">
-                  <div class="initials kings-blue">HK</div>
-                </div>
-                <div class="priority"><img src="../src/img/medium.svg" /></div>
-              </div>
-            </div>
-          </div>
+          <div class="tasks" id="awaitingFeedback-tasks"></div>
         </div>
 
-        <div class="done">
+        <div
+          class="done"
+          id="done"
+          ondrop="moveTo('done')"
+          ondragover="allowDrop(event); highlight('done')"
+          ondragleave="removeHighlight()"
+          ondragend="removeHighlight()"
+        >
           <div class="progress-header">
             <span>Done</span>
             <div w3-include-html="../templates/plus-button.html"></div>
           </div>
-          <div class="tasks" id="done-tasks">
-            <div class="task-card" id="done-0" draggable="true">
-              <span class="label marketing">Marketing</span>
-              <div class="title">Social media strategy</div>
-              <div class="description">
-                Develop an ad campaign for brand positioning
-              </div>
-              <div class="subtasks-progress">
-                <progress value="100" max="100"></progress>
-                <span>3/3 Done</span>
-              </div>
-              <div class="assigned-to-and-priority-container">
-                <div class="assigned-to">
-                  <div class="initials dark-green">BZ</div>
-                  <div class="initials ligth-blue">RS</div>
-                </div>
-                <div class="priority"><img src="../src/img/low.svg" /></div>
-              </div>
-            </div>
-          </div>
+
+          <div class="tasks" id="done-tasks"></div>
         </div>
       </div>
 
@@ -282,7 +202,7 @@
     </main>
 
     <script src="../js/includeHTML.js"></script>
-    <script src="../js/board.js"></script>
     <script src="../script.js"></script>
+    <script src="../js/board.js"></script>
   </body>
 </html>
