@@ -146,8 +146,7 @@
 .add-task-btn-container {
     display: flex;
     gap: 25px;
-    position: absolute;
-    right: 118px;
+    justify-content: flex-end;
 }
 
 .line {
@@ -155,6 +154,10 @@
     height: 551px;
     left: 50%;
     border: 1px solid #D1D1D1;
+}
+
+.hide {
+    display: none;
 }
 
 @media screen {
@@ -193,7 +196,14 @@
         }
     }
 
-    @media(max-width: 1000px) {
+    @media(max-width: 1350px) {
+        .add-task-container {
+            position: unset;
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+        }
+
         .line {
             display: none;
         }
@@ -204,6 +214,40 @@
 
         .add-task-btn-container {
             display: none;
+        }
+
+        .add-title-container,.add-title,.add-task-input, .add-title-container textarea,.flex-column, .add-title-container select,
+        .subtasks-container
+        {
+            width: 100%;
+        }
+
+        .prio-btn {
+            width: 33%;
+        }
+
+        .prio-btn-resp {
+            display: flex;
+            gap: 8px;
+        }
+    }
+
+    @media(max-width: 800px) {
+        body {
+            overflow-x: hidden;
+        }
+        main {
+            overflow-y: auto;
+        }
+
+        .hide {
+            display: block;
+        }
+    }
+
+    @media(max-width:450px) {
+        .prio-btn {
+            font-size: 18px;
         }
     }
 }
