@@ -43,6 +43,7 @@ a {
   width: 453px;
   min-width: 453px;
   padding: 0 48px 0 48px;
+  background-color: white;
 
   box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.1);
 
@@ -54,6 +55,7 @@ a {
 .c-view {
   width: 100%;
   padding: 82px 85px 0 85px;
+  background-color: #f6f7f8;
 }
 
 .c-initial-letter {
@@ -196,4 +198,44 @@ a {
   font-weight: 400;
   font-size: 16px;
   color: #29ABE2;
+}
+
+.c-floating-middle {
+  display: flex;
+  padding: 30px 0 30px 0;
+  align-items: center;
+}
+
+.c-floating-edit {
+  margin-left: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.c-float-info {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+}
+
+.c-flat-edit-span {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #2A3647;
+  margin-left: 4px;
+}
+
+.c-floating-d-top {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.c-floating-d-bottom {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+
+  padding: 15px 0 22px 0;
 }
