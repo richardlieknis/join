@@ -23,15 +23,28 @@ main {
   overflow-y: auto;
 }
 
+h1 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 61px;
+  line-height: 120%;
+  color: #000000;
+}
+
 .c-main {
   display: flex;
 }
 
 .c-list {
   width: 453px;
+  min-width: 453px;
   padding: 0 48px 0 48px;
 
   box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.1);
+
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-color: #A8A8A8;
 }
 
 .c-view {
@@ -52,6 +65,107 @@ main {
 
 .c-initial-letter-border {
   border-bottom: 1px solid #D1D1D1;
-  width: 323px;
-  height: 15px;
+  width: 338px;
+  height: 5px;
+}
+
+.c-contact-overview {
+  display: flex;
+  padding-top: 15px;
+}
+
+.c-initials {
+  border-radius: 50%;
+  margin: 0 35px 22px 0;
+
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-i-small {
+  height: 42px;
+  min-height: 42px;
+  width: 42px;
+  min-width: 42px;
+}
+
+.c-i-big {
+  height: 120px;
+  min-height: 120px;
+  width: 120px;
+  min-width: 120px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 47px;
+}
+
+.color-1 {
+  background-color: #ff7a00;
+}
+
+.color-2 {
+  background-color: #ff7a00;
+}
+
+.color-3 {
+  background-color: #9327ff;
+}
+
+.color-4 {
+  background-color: #29abe2;
+}
+
+.color-5 {
+  background-color: #fc71ff;
+}
+
+.color-6 {
+  background-color: #02cf2f;
+}
+
+.color-7 {
+  background-color: #af1616;
+}
+
+.color-8 {
+  background-color: #462f8a;
+}
+
+.color-9 {
+  background-color: #ff7a00;
+}
+
+
+
+.c-list-name {
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 120%;
+  margin-bottom: 5px;
+}
+
+.c-list-mail {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  color: #007CEE;
+}
+
+.c-view-head {
+  display: flex;
+  padding: 82px 85px 0 85px;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.c-v-line {
+  background-color: #29ABE2;
+  height: 56px;
+  width: 3px;
+  border-radius: 5px;
 }
