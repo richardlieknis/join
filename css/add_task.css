@@ -147,6 +147,7 @@
     display: flex;
     gap: 25px;
     justify-content: flex-end;
+    width: 90%;
 }
 
 .line {
@@ -178,7 +179,7 @@
         }
 
         .add-task-btn-container {
-            right: 40px;
+            width: 95%;
         }
     }
 
@@ -188,7 +189,7 @@
         }
 
         .add-task-btn-container {
-            right: 0px;
+            width: 100%;
         }
 
         .line {
