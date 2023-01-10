@@ -1,6 +1,6 @@
 body {
-  width: 100vw;
-  height: 100vh;
+  width: 100dvw;
+  height: 100dvh;
   display: grid;
   grid-template-columns: 232px auto;
   grid-template-rows: 89px auto;
@@ -25,6 +25,8 @@ header {
   background: #ffffff;
   padding: 20px 36px 20px 115px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
 }
 
 header,
@@ -38,7 +40,7 @@ header > .join-logo-mobile {
   display: none;
 }
 
-header > .title {
+header > .title-desktop {
   font-size: 21px;
 }
 
@@ -48,10 +50,6 @@ header > .nav-icons {
 
 header > .nav-icons img {
   cursor: pointer;
-}
-
-.title-mobile {
-  display: none;
 }
 
 nav {
@@ -139,7 +137,7 @@ nav > .join-logo-desktop {
     height: 40px;
   }
 
-  header > .title {
+  header > .title-desktop {
     display: none;
   }
 

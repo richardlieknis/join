@@ -23,6 +23,10 @@ main {
   overflow-y: auto;
 }
 
+main .title-mobile {
+  display: none;
+}
+
 .headline {
   display: flex;
   align-items: center;
@@ -178,10 +182,12 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
 }
 
 .subtasks-progress progress {
-  width: 138px;
+  flex: 1;
+  /* width: 138px; */
   height: 8px;
   border: none;
 }
@@ -283,7 +289,7 @@ main {
   left: 0;
   background: hsla(0, 0%, 0%, 0.25);
   z-index: 2;
-  /* display: none; */
+  display: none;
 }
 
 .task-overlay {
@@ -521,6 +527,27 @@ main {
 
   .task-card {
     width: auto;
+  }
+}
+
+@media (max-width: 800px) {
+  main {
+    padding-top: 30px;
+  }
+
+  main .title-mobile {
+    font-size: 16px;
+    display: block;
+    margin: 0 0 25px 0;
+  }
+}
+
+@media (max-width: 630px) {
+  .task-overlay {
+    width: 100%;
+    height: 100%;
+    max-height: unset;
+    border-radius: 0;
   }
 }
 
