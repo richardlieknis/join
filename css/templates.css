@@ -36,7 +36,7 @@ header > .nav-icons {
   align-items: center;
 }
 
-header > a > .join-logo-mobile {
+header > .join-logo-mobile {
   display: none;
 }
 
@@ -69,7 +69,6 @@ nav > .join-logo-desktop {
 .nav-elements {
   display: flex;
   flex-direction: column;
-  gap: 10px;
   list-style: none;
   width: 100%;
 }
@@ -133,7 +132,7 @@ nav > .join-logo-desktop {
     padding: 20px 25px;
   }
 
-  header > a > .join-logo-mobile {
+  header > .join-logo-mobile {
     display: unset;
     height: 40px;
   }
