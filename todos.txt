@@ -14,3 +14,26 @@ Richard
 - impressum / datenschutz
 
 nächstes Treffen: dienstag der 10.01.2023 um 18 Uhr
+
+---
+
+Shawn
+- Backend
+- login
+
+Marc
+- add contacts
+- add tasks
+
+Fabian
+- board drag and drop
+
+Richard
+- Kontrolle
+    - ob alles responsive ist
+    - 
+- Bugs
+- Logos verlinken
+- Animationen (Add Task / Add Contact / login / Startbildschirm Handy)
+
+nächstes Treffen: Samstag der 14.01.2023 um 10 Uhr
