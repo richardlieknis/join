@@ -20,6 +20,8 @@ body {
     background-color: #F6F7F8;
 }
 
+/* from here for login page */
+
 .join-logo {
     width: 100px;
     height: 122px;
@@ -86,7 +88,7 @@ body {
 }
 
 .forgot-password-container {
-    display: flex; 
+    display: flex;
     gap: 35px;
 }
 
@@ -190,6 +192,9 @@ body {
 
 @media screen {
     @media(max-width: 800px) {
+
+        /* from here for login page */
+
         .log-in {
             width: 90%;
             height: 55%;
