@@ -31,6 +31,10 @@ h1 {
   color: #000000;
 }
 
+a {
+  text-decoration: none;
+}
+
 .c-main {
   display: flex;
 }
@@ -49,6 +53,7 @@ h1 {
 
 .c-view {
   width: 100%;
+  padding: 82px 85px 0 85px;
 }
 
 .c-initial-letter {
@@ -138,8 +143,6 @@ h1 {
   background-color: #ff7a00;
 }
 
-
-
 .c-list-name {
   font-weight: 400;
   font-size: 21px;
@@ -157,7 +160,7 @@ h1 {
 
 .c-view-head {
   display: flex;
-  padding: 82px 85px 0 85px;
+  margin-bottom: 82px;
 
   justify-content: space-between;
   align-items: center;
@@ -168,4 +171,29 @@ h1 {
   height: 56px;
   width: 3px;
   border-radius: 5px;
+}
+
+.c-float-head {
+  display: flex;
+  align-items: center;
+}
+
+.c-foad-h-right {
+  min-height: 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.c-float-name {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 47px;
+}
+
+.c-add-task {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #29ABE2;
 }
