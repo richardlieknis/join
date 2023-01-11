@@ -2,8 +2,6 @@
 
 async function init() {
   await includeHTML();
-  await downloadFromServer();
-  users = JSON.parse(backend.getItem('users')) || [];
 }
 
 async function includeHTML() {

@@ -1,3 +1,8 @@
+async function loadUsers() {
+    await downloadFromServer();
+    users = JSON.parse(backend.getItem('users')) || [];
+}
+
 function loadSignUp() {
     let signUp = document.getElementById('login-page');
 
@@ -9,7 +14,22 @@ function backToLogin() {
     window.location.href = 'index.html';
 }
 
+async function addUser() {
+    let user = document.getElementById('name');
+    let email = document.getElementById('email');
+    let password = document.getElementById('password');
+    users.push({name: user.value, email: email.value, password: password.value});
+    await backend.setItem('users', JSON.stringify(users));
+    window.location.href = 'index.html?msg=<b>You have successfully registered!</b>';
+}
 
+const urlParams = new URLSearchParams(window.location.search);
+const msg = urlParams.get('msg');
+if (msg) {
+    document.getElementById('sign-up-msg').innerHTML = msg;
+} else{
+
+}
 
 function signUpTemplate() {
     return /*html*/`
@@ -20,9 +40,9 @@ function signUpTemplate() {
         </div>
     </div>
     <form onsubmit="addUser(); return false;">
-        <input id="name" class="input-login background-image-name" placeholder="Name" type="text">
-        <input id="email" class="input-login background-image-email" placeholder="Email" type="email" src="src/img/email.svg">
-        <input id="password" class="input-login background-image-password" placeholder="Password" type="password" src="src/img/password.svg">
+        <input required id="name" class="input-login background-image-name" placeholder="Name" type="text">
+        <input required id="email" class="input-login background-image-email" placeholder="Email" type="email" src="src/img/email.svg">
+        <input required id="password" class="input-login background-image-password" placeholder="Password" type="password" src="src/img/password.svg">
     <div class="continue-btn-container">
         <button class="login-btn">Sign up</button>
     </div>
