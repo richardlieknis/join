@@ -4,6 +4,7 @@
   left: 355px;
   bottom: 183px;
   right: 123px;
+  overflow: unset;
 }
 
 .add-title-container {
