@@ -1,4 +1,4 @@
 "use strict";
 
-const tasks = [];
-const contacts = [];
+let tasks = [];
+let contacts = [];
