@@ -20,7 +20,7 @@
   min-width: 250px;
   height: 200px;
   border-radius: 30px;
-  border: 1px solid #a8a8a8;
+  border: 1px dashed #a8a8a8;
   /* background-color: #0038ff; */
 }
 
