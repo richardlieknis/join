@@ -144,6 +144,12 @@ h1 {
   gap: 51px;
 }
 
+form {  
+  display: flex;
+  flex-direction: column;
+  gap: 29px;
+}
+
 .login-btn {
   border: unset;
   background-color: #2a3647;

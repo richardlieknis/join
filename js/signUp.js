@@ -1,4 +1,4 @@
-function signUp() {
+function loadSignUp() {
     let signUp = document.getElementById('login-page');
 
     signUp.innerHTML = '';
@@ -10,6 +10,10 @@ function backToLogin() {
     document.getElementById('login-page').innerHTML += logInTemplate();
 }
 
+function signUp() {
+    
+}
+
 function signUpTemplate() {
     return /*html*/`
     <div class="border-bottom display-center">
@@ -18,9 +22,11 @@ function signUpTemplate() {
             <h1>Sign up</h1>
         </div>
     </div>
+    <form onsubmit="signUp(); return false;">
         <input class="input-login background-image-name" placeholder="Name" type="text">
         <input class="input-login background-image-email" placeholder="Email" type="email" src="src/img/email.svg">
         <input class="input-login background-image-password" placeholder="Password" type="password" src="src/img/password.svg">
+    </form>
         <div class="continue-btn-container">
             <button class="login-btn">Sign up</button>
     </div>`;
@@ -33,11 +39,11 @@ function logInTemplate() {
             <h1>Log in</h1>
         </div>
     </div>
-    <input class="input-login background-image-email" placeholder="Email" type="email"
-        src="src/img/email.svg">
-    <input class="input-login background-image-password" placeholder="Password" type="password"
-        src="src/img/password.svg">
-    <div class="forgot-password-container">
+    <form>
+        <input class="input-login background-image-email" placeholder="Email" type="email" src="src/img/email.svg">
+        <input class="input-login background-image-password" placeholder="Password" type="password" src="src/img/password.svg">
+    </form>
+        <div class="forgot-password-container">
         <div class="remember-me">
             <div class="remember-me-box"></div>
             <span>Remember me</span>
@@ -48,6 +54,6 @@ function logInTemplate() {
     </div>
     <div class="continue-btn-container">
         <button class="login-btn">Log in</button>
-        <button class="guest-btn">Guest Log in</button>
+        <a href="../html/summary.html"><button class="guest-btn">Guest Log in</button></a>
     </div>`;
 }
