@@ -20,12 +20,14 @@ const dummyData = [
         email: "sandra.mueller@gmx.de",
         phone: "+4994937394",
         color: "blue",
+        initials: "SM",
       },
       {
         name: "Manuel Vogel",
         email: "manu.vogel@gmail.com",
         phone: "+49934798347",
         color: "pink",
+        initials: "SM",
       },
     ],
     priority: "low",
@@ -43,12 +45,14 @@ const dummyData = [
         email: "anton.so@gmx.net",
         phone: "+4998747394",
         color: "dark-blue",
+        initials: "SM",
       },
       {
         name: "Denise Eibold",
         email: "denise.e@gmail.com",
         phone: "+494556657",
         color: "red",
+        initials: "SM",
       },
     ],
     priority: "urgent",
@@ -69,12 +73,14 @@ const dummyData = [
         email: "sandra.mueller@gmx.de",
         phone: "+4994937394",
         color: "blue",
+        initials: "SM",
       },
       {
         name: "Manuel Vogel",
         email: "manu.vogel@gmail.com",
         phone: "+49934798347",
         color: "pink",
+        initials: "SM",
       },
     ],
     priority: "low",
@@ -92,12 +98,14 @@ const dummyData = [
         email: "anton.so@gmx.net",
         phone: "+4998747394",
         color: "dark-blue",
+        initials: "SM",
       },
       {
         name: "Denise Eibold",
         email: "denise.e@gmail.com",
         phone: "+494556657",
         color: "red",
+        initials: "SM",
       },
     ],
     priority: "urgent",
@@ -118,12 +126,14 @@ const dummyData = [
         email: "sandra.mueller@gmx.de",
         phone: "+4994937394",
         color: "blue",
+        initials: "SM",
       },
       {
         name: "Manuel Vogel",
         email: "manu.vogel@gmail.com",
         phone: "+49934798347",
         color: "pink",
+        initials: "SM",
       },
     ],
     priority: "low",
@@ -141,12 +151,14 @@ const dummyData = [
         email: "anton.so@gmx.net",
         phone: "+4998747394",
         color: "dark-blue",
+        initials: "SM",
       },
       {
         name: "Denise Eibold",
         email: "denise.e@gmail.com",
         phone: "+494556657",
         color: "red",
+        initials: "SM",
       },
     ],
     priority: "urgent",
@@ -167,12 +179,14 @@ const dummyData = [
         email: "sandra.mueller@gmx.de",
         phone: "+4994937394",
         color: "blue",
+        initials: "SM",
       },
       {
         name: "Manuel Vogel",
         email: "manu.vogel@gmail.com",
         phone: "+49934798347",
         color: "pink",
+        initials: "SM",
       },
     ],
     priority: "low",
@@ -190,12 +204,14 @@ const dummyData = [
         email: "anton.so@gmx.net",
         phone: "+4998747394",
         color: "dark-blue",
+        initials: "SM",
       },
       {
         name: "Denise Eibold",
         email: "denise.e@gmail.com",
         phone: "+494556657",
         color: "red",
+        initials: "SM",
       },
     ],
     priority: "urgent",
@@ -275,15 +291,14 @@ function getDoneSubtasksInPercent(task) {
 function getAssignedPersonsInitialsHtml(task) {
   let assignedPersonsHtml = "";
   for (let assignedPerson of task.assignedTo) {
-    assignedPersonsHtml += `<div class="initials ${
-      assignedPerson.color
-    }">${getInitials(assignedPerson.name)}</div>`;
+    assignedPersonsHtml += `<div class="initials ${assignedPerson.color}">${assignedPerson.initials}</div>`;
   }
   return assignedPersonsHtml;
 }
 
 function getInitials(name) {
-  const [forename, lastname] = [name.split(" ")[0], name.split(" ")[1]];
+  const fullname = name.split(" ");
+  const [forename, lastname] = [fullname[0], fullname[fullname.length - 1]];
   return forename[0] + lastname[0];
 }
 
