@@ -42,9 +42,10 @@
         <div
           class="todo"
           id="todo"
-          ondrop="moveTo('todo'); removeHighlight()"
-          ondragover="allowDrop(event); highlight('todo')"
-          ondragleave="removeHighlight('todo')"
+          ondragstart="getCategoryOfDraggedElement('todo')"
+          ondrop="moveTo('todo')"
+          ondrag="addPlaceholder()"
+          ondragover="allowDrop(event)"
         >
           <div class="progress-header">
             <span>To do</span>
@@ -57,9 +58,10 @@
         <div
           class="in-progress"
           id="inProgress"
-          ondrop="moveTo('inProgress'); removeHighlight()"
-          ondragover="allowDrop(event); highlight('inProgress')"
-          ondragleave="removeHighlight('inProgress')"
+          ondragstart="getCategoryOfDraggedElement('inProgress')"
+          ondrop="moveTo('inProgress')"
+          ondrag="addPlaceholder()"
+          ondragover="allowDrop(event)"
         >
           <div class="progress-header">
             <span>In progress</span>
@@ -72,9 +74,10 @@
         <div
           class="awaiting-feedback"
           id="awaitingFeedback"
-          ondrop="moveTo('awaitingFeedback'); removeHighlight()"
-          ondragover="allowDrop(event); highlight('awaitingFeedback')"
-          ondragleave="removeHighlight('awaitingFeedback')"
+          ondragstart="getCategoryOfDraggedElement('awaitingFeedback')"
+          ondrop="moveTo('awaitingFeedback')"
+          ondrag="addPlaceholder()"
+          ondragover="allowDrop(event)"
         >
           <div class="progress-header">
             <span>Awaiting Feedback</span>
@@ -87,9 +90,10 @@
         <div
           class="done"
           id="done"
-          ondrop="moveTo('done'); removeHighlight()"
-          ondragover="allowDrop(event); highlight('done')"
-          ondragleave="removeHighlight()"
+          ondragstart="getCategoryOfDraggedElement('done')"
+          ondrop="moveTo('done')"
+          ondrag="addPlaceholder()"
+          ondragover="allowDrop(event)"
         >
           <div class="progress-header">
             <span>Done</span>

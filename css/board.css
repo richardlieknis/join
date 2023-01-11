@@ -16,6 +16,15 @@
   background: red;
 }
 
+.task-card-placeholder {
+  width: 250px;
+  min-width: 250px;
+  height: 200px;
+  border-radius: 30px;
+  border: 1px solid #a8a8a8;
+  /* background-color: #0038ff; */
+}
+
 main {
   margin: 0;
   padding: 80px 60px 0 70px;

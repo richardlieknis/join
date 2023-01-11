@@ -2,6 +2,7 @@
 
 const categories = ["todo", "inProgress", "awaitingFeedback", "done"];
 let currentDraggedElement;
+let categoryOfDraggedElement;
 
 const dummyData = [
   {
@@ -216,11 +217,13 @@ function updateHtml(category) {
   progressStepHtmlContainer.innerHTML = "";
 
   for (let task of progressStep) {
-    progressStepHtmlContainer.innerHTML += generateTaskCartHtml(task);
+    progressStepHtmlContainer.innerHTML += generateTaskCardtHtml(task);
   }
+  progressStepHtmlContainer.innerHTML += generatePlaceholderHtml(category);
 }
 
-function generateTaskCartHtml(task) {
+// prettier-ignore
+function generateTaskCardtHtml(task) {
   return `
         <div class="task-card" id="${
           task.category
@@ -231,12 +234,8 @@ function generateTaskCartHtml(task) {
                 ${task.description}
             </div>
             <div class="subtasks-progress ${checkIfSubtasksAreEmpty(task)}">
-                <progress value="${getDoneSubtasksInPercent(
-                  task
-                )}" max="100"></progress>
-                <span>${getDoneSubtasks(task)}/${
-    task.subtasks.length
-  } Done</span>
+                <progress value="${getDoneSubtasksInPercent(task)}" max="100"><progress>
+                <span>${getDoneSubtasks(task)}/${task.subtasks.length} Done</span>
             </div>
             <div class="assigned-to-and-priority-container">
                 <div class="assigned-to">
@@ -247,6 +246,12 @@ function generateTaskCartHtml(task) {
                 }.svg" /></div>
             </div>
         </div>
+  `;
+}
+
+function generatePlaceholderHtml(category) {
+  return `
+        <div class="task-card-placeholder ${category}-task-card-placeholder d-none"></div>
   `;
 }
 
@@ -295,13 +300,18 @@ function moveTo(category) {
   render();
 }
 
-function highlight(id) {
-  document.querySelector(`#${id}`).classList.add("highlight");
+function getCategoryOfDraggedElement(category) {
+  categoryOfDraggedElement = category;
 }
 
-function removeHighlight() {
-  for (let category of categories)
-    document.querySelector(`#${category}`).classList.remove("highlight");
+function addPlaceholder() {
+  const placeholder = document.querySelectorAll(".task-card-placeholder");
+
+  for (let place of placeholder) {
+    const category = place.classList[1].split("-")[0];
+    if (!(categoryOfDraggedElement === category))
+      place.classList.remove("d-none");
+  }
 }
 
 render();
