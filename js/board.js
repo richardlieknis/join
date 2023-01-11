@@ -1,6 +1,8 @@
 "use strict";
 
 const categories = ["todo", "inProgress", "awaitingFeedback", "done"];
+let currentTasksArray = tasks;
+let filteredTasks = [];
 let currentDraggedElement;
 let categoryOfDraggedElement;
 
@@ -8,7 +10,7 @@ const dummyData = [
   {
     id: 0,
     label: "design",
-    title: "Website redesign",
+    title: "task a",
     description: "Modify the contents of the main website...",
     subtasks: [
       { title: "subtask 1", done: true },
@@ -36,7 +38,7 @@ const dummyData = [
   {
     id: 1,
     label: "sales",
-    title: "Call potencial clients",
+    title: "task b",
     description: "Make the product presentation to prospective buyers",
     subtasks: [],
     assignedTo: [
@@ -60,8 +62,8 @@ const dummyData = [
   },
   {
     id: 2,
-    label: "design",
-    title: "Website redesign",
+    label: "backoffice",
+    title: "task c",
     description: "Modify the contents of the main website...",
     subtasks: [
       { title: "subtask 1", done: true },
@@ -88,8 +90,8 @@ const dummyData = [
   },
   {
     id: 3,
-    label: "sales",
-    title: "Call potencial clients",
+    label: "media",
+    title: "task d",
     description: "Make the product presentation to prospective buyers",
     subtasks: [],
     assignedTo: [
@@ -113,8 +115,8 @@ const dummyData = [
   },
   {
     id: 4,
-    label: "design",
-    title: "Website redesign",
+    label: "marketing",
+    title: "task e",
     description: "Modify the contents of the main website...",
     subtasks: [
       { title: "subtask 1", done: true },
@@ -141,8 +143,8 @@ const dummyData = [
   },
   {
     id: 5,
-    label: "sales",
-    title: "Call potencial clients",
+    label: "backoffice",
+    title: "task f",
     description: "Make the product presentation to prospective buyers",
     subtasks: [],
     assignedTo: [
@@ -166,8 +168,8 @@ const dummyData = [
   },
   {
     id: 6,
-    label: "design",
-    title: "Website redesign",
+    label: "marketing",
+    title: "task g",
     description: "Modify the contents of the main website...",
     subtasks: [
       { title: "subtask 1", done: true },
@@ -194,8 +196,8 @@ const dummyData = [
   },
   {
     id: 7,
-    label: "sales",
-    title: "Call potencial clients",
+    label: "media",
+    title: "task h",
     description: "Make the product presentation to prospective buyers",
     subtasks: [],
     assignedTo: [
@@ -222,16 +224,14 @@ const dummyData = [
 tasks.push(...dummyData);
 
 function render() {
-  for (let category of categories) updateHtml(category);
+  for (let category of categories) updateHtml(category, currentTasksArray);
 }
 
-function updateHtml(category) {
-  const progressStep = tasks.filter((todo) => todo.category === category);
-  const progressStepHtmlContainer = document.querySelector(
-    `#${category}-tasks`
-  );
+// prettier-ignore
+function updateHtml(category, tasksArrayToRender) {
+  const progressStep = tasksArrayToRender.filter((task) => task.category === category);
+  const progressStepHtmlContainer = document.querySelector(`#${category}-tasks`);
   progressStepHtmlContainer.innerHTML = "";
-
   for (let task of progressStep) {
     progressStepHtmlContainer.innerHTML += generateTaskCardtHtml(task);
   }
@@ -241,9 +241,7 @@ function updateHtml(category) {
 // prettier-ignore
 function generateTaskCardtHtml(task) {
   return `
-        <div class="task-card" id="${
-          task.category
-        }-0" draggable="true" ondragstart="startDragging(${task.id})">
+        <div class="task-card" draggable="true" ondragstart="startDragging(${task.id})">
             <span class="label ${task.label}">${task.label}</span>
             <div class="title">${task.title}</div>
             <div class="description">
