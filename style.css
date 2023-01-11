@@ -141,6 +141,7 @@ h1 {
 
 .continue-btn-container {
   display: flex;
+  justify-content: center;
   gap: 51px;
 }
 
