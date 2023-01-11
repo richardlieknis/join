@@ -28,7 +28,21 @@ const msg = urlParams.get('msg');
 if (msg) {
     document.getElementById('sign-up-msg').innerHTML = msg;
 } else{
+    document.getElementById('sign-up-msg').style = 'display: none'
+}
 
+function login() {
+    let email = document.getElementById('email');
+    let password = document.getElementById('password');
+    let user = users.find(u => u.email == email.value && u.password == password.value);
+    console.log(user);
+    if(user) {
+        log('User gefunden!')
+    }
+}
+
+function guest() {
+    window.location.href = '../html/summary.html'
 }
 
 function signUpTemplate() {

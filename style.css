@@ -117,6 +117,7 @@ h1 {
 
 .forgot-password-container {
   display: flex;
+  justify-content: center;
   gap: 35px;
 }
 
@@ -257,9 +258,14 @@ form {
       top: 170px;
     }
 
+    .remember-me {
+      justify-content: center;
+    }
+
     .forgot-password-container {
       flex-direction: column;
       width: 90%;
+      text-align: center;
     }
 
     .input-login {
@@ -268,6 +274,7 @@ form {
 
     .continue-btn-container {
       flex-direction: column;
+      align-items: center;
       gap: 10px;
     }
 

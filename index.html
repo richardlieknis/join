@@ -26,12 +26,11 @@
                     <h1>Log in</h1>
                 </div>
             </div>
-            <form>
-                <input required class="input-login background-image-email" placeholder="Email" type="email"
+            <form onsubmit="login(); return false;">
+                <input id="email" required class="input-login background-image-email" placeholder="Email" type="email"
                     src="src/img/email.svg">
-                <input required class="input-login background-image-password" placeholder="Password" type="password"
+                <input id="password" required class="input-login background-image-password" placeholder="Password" type="password"
                     src="src/img/password.svg">
-            </form>
             <div class="forgot-password-container">
                 <div class="remember-me">
                     <div class="remember-me-box"></div>
@@ -43,8 +42,9 @@
             </div>
             <div class="continue-btn-container">
                 <button class="login-btn">Log in</button>
-                <a href="html/summary.html"><button class="guest-btn">Guest Log in</button></a>
+                <button onclick="guest()" class="guest-btn">Guest Log in</button>
             </div>
+        </form>
 
             <div id="sign-up-msg"></div>
         </div>
