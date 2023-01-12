@@ -41,8 +41,10 @@ a {
 
 .c-view {
   width: 100%;
+  max-width: 950px;
   padding: 82px 85px 0 85px;
   background-color: #f6f7f8;
+  position: relative;
 }
 
 .c-initial-letter {
@@ -150,6 +152,7 @@ a {
 .c-view-head {
   display: flex;
   margin-bottom: 82px;
+  max-width: 520px;
 
   justify-content: space-between;
   align-items: center;
@@ -231,4 +234,12 @@ a {
   position: absolute;
   bottom: 62px;
   right: 52px;
+  padding: 12px 10px 12px 10px;
+
+  display: flex;
+  align-items: center;
+}
+
+.btn-new-contact img {
+  margin-left: 10px;
 }
