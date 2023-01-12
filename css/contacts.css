@@ -31,6 +31,7 @@ a {
   min-width: 453px;
   padding: 0 48px 0 48px;
   background-color: white;
+  position: relative;
 
   box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.1);
 
@@ -73,6 +74,7 @@ a {
   border-radius: 10px;
   gap: 35px;
   cursor: pointer;
+  border: solid transparent 1px;
 }
 
 .c-contact-overview:hover {
@@ -275,4 +277,40 @@ a {
 
 .btn-new-contact img {
   margin-left: 10px;
+}
+
+.c-view-mobile {
+  z-index: 10;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #f6f7f8;
+  padding: 82px 0 0 58px;
+}
+
+@media (max-width: 1350px) {
+ .c-list {
+  width: 100%;
+ }
+
+ .c-view {
+  display: none;
+ }
+
+ .c-contact-overview {
+  width: 338px;
+ }
+
+ .c-contact-overview-2 {
+  width: 338px;
+ }
+}
+
+@media (max-width: 1350px) {
+  .c-list {
+    min-width: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

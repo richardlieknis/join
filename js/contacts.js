@@ -22,3 +22,7 @@ function removeHightlightContact() {
     // });
     // let allContactIds =
 }
+
+function showContactDetail() {
+    
+}
