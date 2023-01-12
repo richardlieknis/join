@@ -51,6 +51,46 @@ h1 {
   border-radius: 1.5rem;
 }
 
+.btn-primary {
+  background: #2a3647;
+  border: none;
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 21px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 150ms ease-in-out, box-shadow 150ms ease-in-out;
+}
+
+.btn-primary:active {
+  transform: translateY(4px);
+}
+
+.btn-primary:hover {
+  background: #29abe2;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary {
+  background-color: #f6f7f8;
+  border: 1px solid #2a3647;
+  color: #2a3647;
+  border-radius: 8px;
+  transition: background 150ms ease-in-out, box-shadow 150ms ease-in-out;
+  cursor: pointer;
+}
+
+.btn-secondary:active {
+  transform: translateY(4px);
+}
+
+.btn-secondary:hover {
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
+  color: #29abe2;
+  border-color: #29abe2;
+}
+
 /* from here for login page */
 
 .join-logo {
@@ -144,7 +184,7 @@ h1 {
   gap: 51px;
 }
 
-form {  
+form {
   display: flex;
   justify-content: center;
   align-items: center;
