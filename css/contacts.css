@@ -63,16 +63,38 @@ a {
   border-bottom: 1px solid #d1d1d1;
   width: 338px;
   height: 5px;
+  margin-bottom: 14px;
 }
 
 .c-contact-overview {
   display: flex;
-  padding-top: 15px;
+  align-items: center;
+  padding: 15px 25px 15px 25px;
+  border-radius: 10px;
+  gap: 35px;
+  cursor: pointer;
 }
+
+.c-contact-overview:hover {
+  background: rgb(240, 240, 240);
+  background: linear-gradient(0deg, rgba(240, 240, 240, 1) 0%, rgba(248, 248, 248, 1) 100%);
+}
+
+.c-contact-overview-2 {
+  display: flex;
+  align-items: center;
+  padding: 15px 25px 15px 25px;
+  border-radius: 10px;
+  gap: 35px;
+  cursor: pointer;
+  background-color: #2a3647 !important;
+  border: solid white 1px;
+}
+
+
 
 .c-initials {
   border-radius: 50%;
-  margin: 0 35px 22px 0;
 
   color: white;
   display: flex;
@@ -85,6 +107,11 @@ a {
   min-height: 42px;
   width: 42px;
   min-width: 42px;
+
+}
+
+.c-i-small-border {
+  border: solid white 1px;
 }
 
 .c-i-big {
@@ -92,6 +119,7 @@ a {
   min-height: 120px;
   width: 120px;
   min-width: 120px;
+  margin: 0 35px 22px 0;
 
   font-style: normal;
   font-weight: 500;
@@ -139,6 +167,10 @@ a {
   font-size: 21px;
   line-height: 120%;
   margin-bottom: 5px;
+}
+
+.c-list-name2 {
+  color: white !important;
 }
 
 .c-list-mail {
