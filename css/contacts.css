@@ -232,6 +232,7 @@ a {
   margin-left: 60px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .c-float-info {
