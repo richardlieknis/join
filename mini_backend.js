@@ -1,6 +1,5 @@
 let jsonFromServer = {};
 let BASE_SERVER_URL;
-setURL('https://gruppe-join-422.developerakademie.net/smallest_backend/');
 
 const backend = {
     setItem: function(key, item) {
@@ -25,7 +24,7 @@ window.onload = async function() {
 async function downloadFromServer() {
     let result = await loadJSONFromServer();
     jsonFromServer = JSON.parse(result);
-    console.log('Loaded');
+    console.log('Loaded', result);
 }
 
 function setURL(url) {

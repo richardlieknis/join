@@ -64,7 +64,7 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  width: 100%;
+  right: 0;
   align-items: flex-end;
   gap: 14px;
 }
@@ -160,6 +160,10 @@
 
 @media screen {
   @media (max-width: 1350px) {
+    .hide {
+      display: block;
+    }
+
     .add-task-container {
       position: unset;
       display: flex;
@@ -202,10 +206,6 @@
   @media (max-width: 800px) {
     main {
       overflow-y: auto;
-    }
-
-    .hide {
-      display: block;
     }
   }
 
