@@ -43,7 +43,7 @@ function signUpTemplate() {
         <input required id="email" class="input-login background-image-email" placeholder="Email" type="email" src="src/img/email.svg">
         <input required id="password" class="input-login background-image-password" placeholder="Password" type="password" src="src/img/password.svg">
     <div class="continue-btn-container">
-        <button class="login-btn">Sign up</button>
+        <button style="width: 145px; height: 51px" class="btn-primary">Sign up</button>
     </div>
     </form>`;
 }
