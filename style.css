@@ -282,12 +282,6 @@ form {
             align-items: center;
             gap: 10px;
         }
-        .join-logo {
-            left: 2%;
-            top: 2%;
-            width: 100px;
-            height: 100px;
-        }
         .sign-up-container {
             top: unset;
             right: unset;

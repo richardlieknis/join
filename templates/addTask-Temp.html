@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/add_task.css" />
+    <link rel="stylesheet" href="../css/modules.css" />
+</head>
+
+<body>
+    <div class="add-task-container modules">
+        <div style="display: flex; justify-content: space-between">
+            <h1>Add Task</h1>
+            <button class="create-btn hide" style="height: 51px; width: 145px" class="btn-primary">
+          Create <img src="../src/img/hook.svg" />
+        </button>
+        </div>
+        <div class="add-title-container">
+            <div class="add-title flex-column gap-8px">
+                <span>Title</span>
+                <input class="add-task-input" placeholder="Enter a title" />
+            </div>
+            <div class="flex-column gap-8px">
+                <span>Description</span>
+                <textarea placeholder="Enter a Description"></textarea>
+            </div>
+            <div class="flex-column gap-8px">
+                <span>Category</span>
+                <select class="select-resp" name="Select task category">
+            <option value="" disabled selected hidden>
+              Select task category
+            </option>
+            <option>New category</option>
+            <option>Sales</option>
+            <option>Backoffice</option>
+          </select>
+            </div>
+            <div class="flex-column gap-8px">
+                <span>Assigned to</span>
+                <select class="select-resp" name="Select contacts to assign">
+            <option value="" disabled selected hidden>
+              Select contacts to assign
+            </option>
+          </select>
+            </div>
+            <div class="line"></div>
+            <div class="subtasks-container">
+                <div class="flex-column gap-8px">
+                    <span>Due date</span>
+                    <input class="add-task-input img-date" placeholder="dd/mm/yyyy" />
+                </div>
+                <div class="flex-column gap-8px">
+                    <span>Prio</span>
+                    <div class="prio-btn-resp">
+                        <button class="prio-btn">
+                Urgent <img src="../src/img/urgent.svg" />
+              </button>
+                        <button class="prio-btn">
+                Medium <img src="../src/img/medium.svg" />
+              </button>
+                        <button class="prio-btn">
+                Low <img src="../src/img/low.svg" />
+              </button>
+                    </div>
+                </div>
+                <div class="flex-column gap-8px">
+                    <span>Subtasks</span>
+                    <input class="add-task-input img-plus" placeholder="Add new subtask" />
+                </div>
+            </div>
+        </div>
+        <div class="add-task-btn-container">
+            <button class="clear-btn">Clear <img src="../src/img/x.svg" /></button>
+            <button class="create-btn">
+          Create Task <img src="../src/img/hook.svg" />
+        </button>
+        </div>
+    </div>
+</body>
+
+</html>
