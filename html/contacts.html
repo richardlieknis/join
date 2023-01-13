@@ -220,11 +220,11 @@
           <div class="c-initials c-i-big color-2 c-new-initials">AM</div>
 
           <div class="c-new-input">
-            <img class="c-new-close" src="../src/img/close-icon.svg" alt="">
+            <img class="c-new-close pointer" src="../src/img/close-icon.svg" alt="">
 
-            <form action="">
+            <form action="" style="align-items: flex-start;" onsubmit="createContact(); return false">
               <div class="c-new-input-div input">
-                <input type="text" class="c-new-input" placeholder="Name" name="" id="c-new-name">
+                <input required type="text" class="c-new-input" placeholder="Name" name="" id="c-new-name">
                 <img src="../src/img/input-field-name.svg" alt="">
               </div>
 
@@ -237,6 +237,12 @@
                 <input type="tel" class="c-new-input" placeholder="Phone" name="" id="c-new-tel">
                 <img src="../src/img/input-field-tel.svg" alt="">
               </div>
+
+              <div>
+                <button class="c-new-btn-1 btn-secondary gap-18">Cancel<img src="../src/img/x.svg" /></button>
+                <button type="submit" class="c-new-btn-2 btn-primary">
+                  Create contact<img src="../src/img/hook.svg" />
+                </button>
             </form>
           </div>
 
@@ -248,7 +254,9 @@
   </main>
 
   <script src="../js/includeHTML.js"></script>
+  <script src="../script.js"></script>
   <script src="../js/contacts.js"></script>
+  <script src="../js/editContacts.js"></script>
 </body>
 
 </html>

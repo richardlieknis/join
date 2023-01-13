@@ -76,6 +76,8 @@ h1 {
   border-radius: 8px;
   transition: background 150ms ease-in-out, box-shadow 150ms ease-in-out;
   cursor: pointer;
+  font-weight: 400;
+  font-size: 21px;
 }
 
 .btn-secondary:active {
