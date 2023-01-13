@@ -18,8 +18,9 @@
     background-color: #f5f5f5;
     position: absolute;
     opacity: 0;
-    animation: fadeBackground 2s ease-in-out;
+    animation: fadeBackground 1.6s ease-in-out;
     animation-direction: normal;
+    z-index: -10;
 }
 
 .logo-animation {
