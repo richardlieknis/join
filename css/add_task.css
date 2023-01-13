@@ -24,14 +24,8 @@
   height: 51px;
   box-sizing: border-box;
   padding: 13px 21px;
-  border-radius: 10px;
-  border: 1px solid #d1d1d1;
   font-weight: 400;
   font-size: 21px;
-}
-
-::placeholder {
-  color: #d1d1d1;
 }
 
 .flex-column {

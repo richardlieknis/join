@@ -112,6 +112,15 @@ h1 {
   justify-content: center;
 }
 
+.add-task-input {
+  border-radius: 10px;
+  border: 1px solid #d1d1d1;
+}
+
+::placeholder {
+  color: #d1d1d1;
+}
+
 /* from here for login page */
 
 .join-logo {
