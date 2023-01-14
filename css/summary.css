@@ -45,72 +45,6 @@
     align-items: center;
 }
 
-@media (min-width: 800px) {
-    .title-mobile {
-        display: none;
-    }
-}
-
-@media (max-width: 1270px) {
-    .greet {
-        display: none;
-    }
-}
-
-@media (max-width: 850px) {
-    .tasks {
-        font-size: 16px;
-        gap: 10px !important;
-        grid-auto-rows: minmax(140px, auto) !important;
-    }
-    .task-box .amount {
-        font-size: 40px;
-    }
-    .task-box {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        min-width: 100px !important;
-    }
-    .flexspace {
-        padding: 0 20px !important;
-    }
-    .task-box .line {
-        height: 100px !important;
-    }
-}
-
-@media (max-width: 560px) {
-    .summary-container {
-        padding: 20px;
-    }
-    .summ-header {
-        flex-direction: column;
-        align-items: flex-start;
-        line-height: 15px;
-        margin-top: 30px;
-    }
-    .summ-header .line {
-        display: none;
-    }
-    .summ-header .mobile-line {
-        display: unset;
-    }
-    .task-box {
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 400px) {
-    .tasks {
-        gap: 10px !important;
-        grid-auto-rows: minmax(110px, auto) !important;
-    }
-    .task-box .line {
-        height: 80px !important;
-    }
-}
-
 .summ-content .greet {
     font-size: 48px;
     color: #2a3647;
@@ -238,4 +172,118 @@
     filter: invert(1);
 }
 
-@media (max-width: 800px) {}
+
+/* +#+#+#+#+#+#+#+ MEDIA QUERYS & ANIMATION +#+#+#+#+#+#+#+*/
+
+.mobile-background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #f5f5f5;
+    position: absolute;
+    opacity: 0;
+    animation: fadeBackground 1.6s ease-in-out;
+    animation-direction: normal;
+    z-index: -10;
+}
+
+.mobile-greet {
+    font-size: 48px;
+    color: #2a3647;
+    font-weight: 700;
+}
+
+.mobile-greet span {
+    color: #29abe2;
+}
+
+@keyframes fadeBackground {
+    0% {
+        opacity: 100%;
+        z-index: 10;
+    }
+    50% {
+        opacity: 100%;
+    }
+    99% {
+        opacity: 0%;
+        z-index: 10;
+    }
+    100% {
+        z-index: -1;
+    }
+}
+
+@media (min-width: 800px) {
+    .title-mobile {
+        display: none;
+    }
+}
+
+@media (max-width: 1270px) {
+    .greet {
+        display: none;
+    }
+}
+
+@media (min-width: 1270px) {
+    .mobile-background {
+        display: none;
+    }
+}
+
+@media (max-width: 850px) {
+    .tasks {
+        font-size: 16px;
+        gap: 10px !important;
+        grid-auto-rows: minmax(140px, auto) !important;
+    }
+    .task-box .amount {
+        font-size: 40px;
+    }
+    .task-box {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-width: 100px !important;
+    }
+    .flexspace {
+        padding: 0 20px !important;
+    }
+    .task-box .line {
+        height: 100px !important;
+    }
+}
+
+@media (max-width: 560px) {
+    .summary-container {
+        padding: 20px;
+    }
+    .summ-header {
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: 15px;
+        margin-top: 30px;
+    }
+    .summ-header .line {
+        display: none;
+    }
+    .summ-header .mobile-line {
+        display: unset;
+    }
+    .task-box {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .tasks {
+        gap: 10px !important;
+        grid-auto-rows: minmax(110px, auto) !important;
+    }
+    .task-box .line {
+        height: 80px !important;
+    }
+}

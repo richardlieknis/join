@@ -13,11 +13,18 @@
     <link rel="stylesheet" href="/style.css" />
     <script src="../js/includeHTML.js"></script>
     <script src="../mini_backend.js"></script>
+    <script src="../js/summary.js"></script>
 </head>
 
-<body onload="init()">
+<body onload="init(), initSummary()">
     <header w3-include-html="../templates/header.html"></header>
     <nav w3-include-html="../templates/navigation.html"></nav>
+    <div id="mobile-anim" class="mobile-background d-none">
+        <div class="mobile-greet">
+            <div id="timeMsg"></div>
+            <span id="username">Max Mustermann</span>
+        </div>
+    </div>
     <main class="summary-container">
         <div class="title-mobile">Kanban Project Management Tool</div>
 
@@ -81,7 +88,7 @@
             </div>
             <!-- GREETINGS -->
             <div class="greet">
-                Good morning, <br />
+                <div id="timeMsgDesk">Good morning,</div>
                 <span id="username">Max Mustermann</span>
             </div>
         </div>
