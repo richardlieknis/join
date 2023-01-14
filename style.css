@@ -197,6 +197,7 @@ form {
 .guest-btn {
     background-color: #ffffff;
     height: 51px;
+    width: 145px;
     font-size: 21px;
     font-weight: 700;
 }
