@@ -1,173 +1,199 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .summary-container {
-  padding: 45px;
-  overflow-y: auto;
+    padding: 45px;
+    overflow-y: auto;
 }
 
 .summ-header {
-  display: flex;
-  align-items: center;
-  gap: 30px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }
 
 .summ-header .headline {
-  font-size: 61px;
-  font-family: "inter";
-  font-weight: 700;
-  color: #111d;
+    font-size: 61px;
+    font-family: "inter";
+    font-weight: 700;
+    color: #111d;
 }
 
 .summ-header .line {
-  border-right: 3px solid #29abe2;
-  height: 70px;
+    border-right: 3px solid #29abe2;
+    height: 70px;
 }
 
 .summ-header .slogan {
-  font-size: 22px;
-  color: #2a3647;
+    font-size: 22px;
+    color: #2a3647;
 }
 
 .summ-content {
-  display: flex;
-  gap: 50px;
-  margin-top: 50px;
-  align-items: center;
+    display: flex;
+    gap: 50px;
+    margin-top: 50px;
+    align-items: center;
+}
+
+@media (min-width: 800px) {
+    .title-mobile {
+        display: none;
+    }
 }
 
 @media (max-width: 1270px) {
-  .summ-content {
-    flex-direction: column-reverse;
-  }
+    .greet {
+        display: none;
+    }
+}
+
+@media (max-width: 650px) {
+    .tasks {
+        font-size: 16px;
+    }
+    .task-box .amount {
+        font-size: 40px;
+    }
+    .task-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 100px !important;
+    }
+    .flexspace {
+        padding: 0 20px !important;
+    }
 }
 
 .summ-content .greet {
-  font-size: 48px;
-  color: #2a3647;
-  font-weight: 700;
+    font-size: 48px;
+    color: #2a3647;
+    font-weight: 700;
 }
 
 .greet span {
-  color: #29abe2;
+    color: #29abe2;
 }
 
 .tasks {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 20px;
-  grid-auto-rows: minmax(170px, auto);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    grid-auto-rows: minmax(170px, auto);
 }
 
 .tasks .task-box {
-  background-color: #fff;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.05);
-  border-radius: 30px;
-  border: 1px solid #eee;
-  padding: 25px;
-  min-width: 170px;
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  gap: 20px;
-  transition-property: filter, background-color, color, scale, box-shadow;
-  transition-duration: 220ms;
-  transition-timing-function: ease-in-out;
+    background-color: #fff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 30px;
+    border: 1px solid #eee;
+    padding: 25px;
+    min-width: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 20px;
+    transition-property: filter, background-color, color, scale, box-shadow;
+    transition-duration: 220ms;
+    transition-timing-function: ease-in-out;
 }
 
 .grid1 {
-  grid-column: 1/3;
+    grid-column: 1/3;
 }
 
 .grid2 {
-  grid-column: 3/5;
+    grid-column: 3/5;
 }
 
 .grid3 {
-  grid-column: 5/7;
+    grid-column: 5/7;
 }
 
 .grid4 {
-  grid-column: 1/7;
+    grid-column: 1/7;
 }
 
 .grid5 {
-  grid-column: 1/4;
+    grid-column: 1/4;
 }
 
 .grid6 {
-  grid-column: 4/7;
+    grid-column: 4/7;
 }
 
 .task-box div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .task-box img {
-  background-color: #2a3647;
-  padding: 15px;
-  border-radius: 50%;
-  height: 60px;
-  width: 60px;
-  margin: auto 0;
+    background-color: #2a3647;
+    padding: 15px;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    margin: auto 0;
 }
 
 .task-box .urgency {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
 .urgency img {
-  border-radius: unset;
-  background-color: unset;
-  padding: unset;
+    border-radius: unset;
+    background-color: unset;
+    padding: unset;
 }
 
 .task-box .line {
-  border: 1px solid #ddd;
-  height: 120px;
+    border: 1px solid #ddd;
+    height: 120px;
 }
 
 .task-box .deadline span:first-child {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
 }
 
 .amount {
-  font-weight: 700;
-  font-size: 64px;
+    font-weight: 700;
+    font-size: 64px;
 }
 
 .flexspace {
-  justify-content: space-between !important;
-  align-items: center !important;
-  padding: 0 80px !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0 60px !important;
 }
 
 .task-box:hover {
-  color: #fff;
-  background-color: #2a3647;
-  scale: 1.05;
-  box-shadow: 0 4px 5px #5551;
-  cursor: pointer;
+    color: #fff;
+    background-color: #2a3647;
+    scale: 1.05;
+    box-shadow: 0 4px 5px #5551;
+    cursor: pointer;
 }
 
 .task-box .hover-img {
-  filter: invert(0);
-  transition-property: filter;
-  transition-duration: 220ms;
-  transition-timing-function: ease-in-out;
+    filter: invert(0);
+    transition-property: filter;
+    transition-duration: 220ms;
+    transition-timing-function: ease-in-out;
 }
 
 .task-box:hover .hover-img {
-  background-color: #000;
-  filter: invert(1);
+    background-color: #000;
+    filter: invert(1);
 }
+
+@media (max-width: 800px) {}

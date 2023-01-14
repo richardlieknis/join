@@ -1,173 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Join - Contacts</title>
 
-    <link
-      rel="shortcut icon"
-      href="../src/img/favicon.png"
-      type="image/x-icon"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join - Contacts</title>
 
-    <link rel="stylesheet" href="../css/contacts.css" />
-    <link rel="stylesheet" href="../css/contacts-templates/contact-overlays.css">
-    <link rel="stylesheet" href="../css/templates.css" />
-    <link rel="stylesheet" href="../style.css" />
-  </head>
+  <link rel="shortcut icon" href="../src/img/favicon.png" type="image/x-icon" />
 
-  <body onload="init()">
-    <header w3-include-html="../templates/header.html"></header>
-    <nav w3-include-html="../templates/navigation.html"></nav>
+  <link rel="stylesheet" href="../css/contacts.css" />
+  <link rel="stylesheet" href="../css/contacts-templates/contact-overlays.css">
+  <link rel="stylesheet" href="../css/templates.css" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
 
-    <main class="c-main">
-      <div class="c-list">
+<body onload="init()">
+  <header w3-include-html="../templates/header.html"></header>
+  <nav w3-include-html="../templates/navigation.html"></nav>
 
-        <button class="btn-new-mobile btn-primary">
-          <span>New contact</span>
-          <img src="../src/img/new-contact.svg" alt="">
-        </button>
+  <main class="c-main">
+    <div class="c-list">
 
-        <div class="c-letter-div">
-          <div class="c-initial-letter">A</div>
-          <div class="c-initial-letter-border"></div>
-        </div>
+      <button class="btn-new-mobile btn-primary">
+        <span>New contact</span>
+        <img src="../src/img/new-contact.svg" alt="">
+      </button>
 
-        <div id="c-0" class="c-contact-overview" onclick="highlightContact(0), showContactDetail()">
-          <div id="c-i-0" class="c-initials c-i-small color-2">AM</div>
-          <div class="contact-summery">
-            <p id="c-name-0" class="c-list-name">Anton Mayer</p>
-            <p class="c-list-mail">antom@gmail.com</p>
-          </div>
-        </div>
-        <div class="c-contact-overview">
-          <div class="c-initials c-i-small color-3">AS</div>
-          <div class="contact-summery">
-            <p class="c-list-name">Anja Schulz</p>
-            <p class="c-list-mail">schulz@hotmail.com</p>
-          </div>
-        </div>
-
-        <div class="c-letter-div">
-          <div class="c-initial-letter">B</div>
-          <div class="c-initial-letter-border"></div>
-        </div>
-
-        <div class="c-contact-overview">
-          <div class="c-initials c-i-small color-4">BZ</div>
-          <div class="contact-summery">
-            <p class="c-list-name">Benedikt Ziegler</p>
-            <p class="c-list-mail">benedikt@gmail.com</p>
-          </div>
-        </div>
-
-        <div class="c-letter-div">
-          <div class="c-initial-letter">D</div>
-          <div class="c-initial-letter-border"></div>
-        </div>
-
-        <div class="c-contact-overview">
-          <div class="c-initials c-i-small color-5">DE</div>
-          <div class="contact-summery">
-            <p class="c-list-name">David Eisenberg</p>
-            <p class="c-list-mail">davidberg@gmail.com</p>
-          </div>
-        </div>
-
-        <div class="c-letter-div">
-          <div class="c-initial-letter">E</div>
-          <div class="c-initial-letter-border"></div>
-        </div>
-
-        <div class="c-contact-overview">
-          <div class="c-initials c-i-small color-6">EF</div>
-          <div class="contact-summery">
-            <p class="c-list-name">Eva Fischer</p>
-            <p class="c-list-mail">eva@gmail.com</p>
-          </div>
-        </div>
-        <div class="c-contact-overview">
-          <div class="c-initials c-i-small color-7">EM</div>
-          <div class="contact-summery">
-            <p class="c-list-name">Emmanuel Mauer</p>
-            <p class="c-list-mail">emmanuelMa@gmail.com</p>
-          </div>
-        </div>
-
-        <div class="c-letter-div">
-          <div class="c-initial-letter">M</div>
-          <div class="c-initial-letter-border"></div>
-        </div>
-
-        <div class="c-contact-overview">
-          <div class="c-initials c-i-small color-8">MW</div>
-          <div class="contact-summery">
-            <p class="c-list-name">Marc Walter</p>
-            <p class="c-list-mail">m.walter-dev@gmx.de</p>
-          </div>
-        </div>
-        <div class="c-contact-overview">
-          <div class="c-initials c-i-small color-9">MB</div>
-          <div class="contact-summery">
-            <p class="c-list-name">Marcel Bauer</p>
-            <p class="c-list-mail">bauer@gmail.com</p>
-          </div>
-        </div>
-
-        <div class="c-view-mobile">
-
-          <img class="c-mobile-back" src="../src/img/ArrowBackDark.svg" alt="">
-          
-          <div class="c-view-head">
-            <h1>Contacts</h1>
-            <div class="c-v-line"></div>
-            <h2 class="c-h2">Better with a team</h2>
-          </div>
-  
-          <div class="c-floating">
-            <div class="c-float-head">
-              <div class="c-initials c-i-big color-2">AM</div>
-              <div class="c-foad-h-right">
-                <div class="c-float-name">Anton Mayer</div>
-                <div>
-                  <img src="../src/img/plus-icon-blue.svg" alt="" />
-                  <a class="c-add-task" href="#">Add Task</a>
-                </div>
-              </div>
-            </div>
-  
-            <div class="c-floating-middle">
-              <span class="c-float-info">Contact Information</span>
-              <div class="c-floating-edit">
-                <img src="../src/img/pencile-gray.svg" alt="" />
-                <span class="c-flat-edit-span">Edit Contact</span>
-              </div>
-            </div>
-  
-            <div class="c-floating-detail">
-              <p class="c-floating-d-top">Email</p>
-              <p class="c-floating-d-bottom c-list-mail">antom@gmail.com</p>
-            </div>
-            <div class="c-floating-detail">
-              <p class="c-floating-d-top">Phone</p>
-              <p class="c-floating-d-bottom">+49 1111 111 11 1</p>
-            </div>
-          </div>
-  
-          <button class="btn-new-contact btn-primary">
-            <span>New contact</span>
-            <img src="../src/img/new-contact.svg" alt="">
-          </button>
-
-        </div>
-
+      <div class="c-letter-div">
+        <div class="c-initial-letter">A</div>
+        <div class="c-initial-letter-border"></div>
       </div>
 
-     
+      <div id="c-0" class="c-contact-overview" onclick="highlightContact(0), showContactDetail()">
+        <div id="c-i-0" class="c-initials c-i-small color-2">AM</div>
+        <div class="contact-summery">
+          <p id="c-name-0" class="c-list-name">Anton Mayer</p>
+          <p class="c-list-mail">antom@gmail.com</p>
+        </div>
+      </div>
+      <div class="c-contact-overview">
+        <div class="c-initials c-i-small color-3">AS</div>
+        <div class="contact-summery">
+          <p class="c-list-name">Anja Schulz</p>
+          <p class="c-list-mail">schulz@hotmail.com</p>
+        </div>
+      </div>
 
-      <div class="c-view">
+      <div class="c-letter-div">
+        <div class="c-initial-letter">B</div>
+        <div class="c-initial-letter-border"></div>
+      </div>
+
+      <div class="c-contact-overview">
+        <div class="c-initials c-i-small color-4">BZ</div>
+        <div class="contact-summery">
+          <p class="c-list-name">Benedikt Ziegler</p>
+          <p class="c-list-mail">benedikt@gmail.com</p>
+        </div>
+      </div>
+
+      <div class="c-letter-div">
+        <div class="c-initial-letter">D</div>
+        <div class="c-initial-letter-border"></div>
+      </div>
+
+      <div class="c-contact-overview">
+        <div class="c-initials c-i-small color-5">DE</div>
+        <div class="contact-summery">
+          <p class="c-list-name">David Eisenberg</p>
+          <p class="c-list-mail">davidberg@gmail.com</p>
+        </div>
+      </div>
+
+      <div class="c-letter-div">
+        <div class="c-initial-letter">E</div>
+        <div class="c-initial-letter-border"></div>
+      </div>
+
+      <div class="c-contact-overview">
+        <div class="c-initials c-i-small color-6">EF</div>
+        <div class="contact-summery">
+          <p class="c-list-name">Eva Fischer</p>
+          <p class="c-list-mail">eva@gmail.com</p>
+        </div>
+      </div>
+      <div class="c-contact-overview">
+        <div class="c-initials c-i-small color-7">EM</div>
+        <div class="contact-summery">
+          <p class="c-list-name">Emmanuel Mauer</p>
+          <p class="c-list-mail">emmanuelMa@gmail.com</p>
+        </div>
+      </div>
+
+      <div class="c-letter-div">
+        <div class="c-initial-letter">M</div>
+        <div class="c-initial-letter-border"></div>
+      </div>
+
+      <div class="c-contact-overview">
+        <div class="c-initials c-i-small color-8">MW</div>
+        <div class="contact-summery">
+          <p class="c-list-name">Marc Walter</p>
+          <p class="c-list-mail">m.walter-dev@gmx.de</p>
+        </div>
+      </div>
+      <div class="c-contact-overview">
+        <div class="c-initials c-i-small color-9">MB</div>
+        <div class="contact-summery">
+          <p class="c-list-name">Marcel Bauer</p>
+          <p class="c-list-mail">bauer@gmail.com</p>
+        </div>
+      </div>
+
+      <div class="c-view-mobile">
+
+        <img class="c-mobile-back" src="../src/img/ArrowBackDark.svg" alt="">
+
         <div class="c-view-head">
           <h1>Contacts</h1>
           <div class="c-v-line"></div>
@@ -208,15 +157,106 @@
           <span>New contact</span>
           <img src="../src/img/new-contact.svg" alt="">
         </button>
+
       </div>
 
-      <div class="overlay">
-        <div class="c-new-card"></div>
-      </div>
-      
-    </main>
+    </div>
 
-    <script src="../js/includeHTML.js"></script>
-    <script src="../js/contacts.js"></script>
-  </body>
+
+
+    <div class="c-view">
+      <div class="c-view-head">
+        <h1>Contacts</h1>
+        <div class="c-v-line"></div>
+        <h2 class="c-h2">Better with a team</h2>
+      </div>
+
+      <div class="c-floating">
+        <div class="c-float-head">
+          <div class="c-initials c-i-big color-2">AM</div>
+          <div class="c-foad-h-right">
+            <div class="c-float-name">Anton Mayer</div>
+            <div>
+              <img src="../src/img/plus-icon-blue.svg" alt="" />
+              <a class="c-add-task" href="#">Add Task</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="c-floating-middle">
+          <span class="c-float-info">Contact Information</span>
+          <div class="c-floating-edit">
+            <img src="../src/img/pencile-gray.svg" alt="" />
+            <span class="c-flat-edit-span">Edit Contact</span>
+          </div>
+        </div>
+
+        <div class="c-floating-detail">
+          <p class="c-floating-d-top">Email</p>
+          <p class="c-floating-d-bottom c-list-mail">antom@gmail.com</p>
+        </div>
+        <div class="c-floating-detail">
+          <p class="c-floating-d-top">Phone</p>
+          <p class="c-floating-d-bottom">+49 1111 111 11 1</p>
+        </div>
+      </div>
+
+      <button class="btn-new-contact btn-primary">
+        <span>New contact</span>
+        <img src="../src/img/new-contact.svg" alt="">
+      </button>
+    </div>
+
+    <div class="overlay">
+      <div class="c-new-card">
+
+        <div class="c-new-c-left">
+          <img src="../src/img/join-logo-white.svg" alt="">
+          <p class="c-new-headline">Add contact</p>
+          <p class="c-new-subtible">Tasks are better with a team</p>
+          <div class="c-new-line"></div>
+        </div>
+        <div class="c-new-c-right">
+          <div class="c-initials c-i-big color-2 c-new-initials">AM</div>
+
+          <div class="c-new-input">
+            <img class="c-new-close pointer" src="../src/img/close-icon.svg" alt="">
+
+            <form action="" style="align-items: flex-start;" onsubmit="createContact(); return false">
+              <div class="c-new-input-div input">
+                <input required type="text" class="c-new-input" placeholder="Name" name="" id="c-new-name">
+                <img src="../src/img/input-field-name.svg" alt="">
+              </div>
+
+              <div class="c-new-input-div input">
+                <input type="email" class="c-new-input" placeholder="Email" name="" id="c-new-email">
+                <img src="../src/img/input-field-email.svg" alt="">
+              </div>
+
+              <div class="c-new-input-div input">
+                <input type="tel" class="c-new-input" placeholder="Phone" name="" id="c-new-tel">
+                <img src="../src/img/input-field-tel.svg" alt="">
+              </div>
+
+              <div>
+                <button class="c-new-btn-1 btn-secondary gap-18">Cancel<img src="../src/img/x.svg" /></button>
+                <button type="submit" class="c-new-btn-2 btn-primary">
+                  Create contact<img src="../src/img/hook.svg" />
+                </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="../js/includeHTML.js"></script>
+  <script src="../script.js"></script>
+  <script src="../js/contacts.js"></script>
+  <script src="../js/editContacts.js"></script>
+</body>
+
 </html>
