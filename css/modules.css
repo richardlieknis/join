@@ -1,8 +1,8 @@
 .modules {
     background-color: #fff;
     border-radius: 30px;
-    padding: 20px !important;
-    min-height: 700px;
+    /* padding: 20px !important; */
+    /* min-height: 700px; */
 }
 
 .slideOut {

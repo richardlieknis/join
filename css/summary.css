@@ -190,7 +190,7 @@
 }
 
 .flexspace {
-    justify-content: space-between !important;
+    justify-content: space-around !important;
     align-items: center !important;
     padding: 0 60px;
 }
