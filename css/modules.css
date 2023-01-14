@@ -1,5 +1,6 @@
 .modules {
     background-color: #fff;
-    border-radius: 12px;
-    padding: 40px !important;
+    border-radius: 30px;
+    padding: 20px !important;
+    min-height: 700px;
 }
