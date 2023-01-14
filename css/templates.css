@@ -1,19 +1,19 @@
 nav {
-  grid-area: nav;
+    grid-area: nav;
 }
 
 main {
-  grid-area: main;
-  overflow-y: auto;
+    grid-area: main;
+    overflow-y: auto;
 }
 
 header {
-  grid-area: header;
-  background: #ffffff;
-  padding: 20px 36px 20px 115px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
-  position: relative;
-  z-index: 1;
+    grid-area: header;
+    background: #ffffff;
+    padding: 20px 36px 20px 115px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
 }
 
 .profile {
@@ -23,137 +23,141 @@ header {
 }
 
 header,
-header > .nav-icons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+header>.nav-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-header > .join-logo-mobile {
-  display: none;
+header>.join-logo-mobile {
+    display: none;
 }
 
-header > .title-desktop {
-  font-size: 21px;
+header>.title-desktop {
+    font-size: 21px;
 }
 
-header > .nav-icons {
-  gap: 26px;
+header>.nav-icons {
+    gap: 26px;
 }
 
-header > .nav-icons img {
-  cursor: pointer;
+header>.nav-icons img {
+    cursor: pointer;
 }
 
 nav {
-  padding: 66px 0 0 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 103px;
-  background: #2a3647;
-  width: 100%;
-  overflow: hidden;
+    padding: 66px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 103px;
+    background: #2a3647;
+    width: 100%;
+    overflow: hidden;
 }
 
-nav > .join-logo-desktop {
-  width: 100px;
+nav>.join-logo-desktop {
+    width: 100px;
 }
 
 .nav-elements {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  width: 100%;
-  padding: unset;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    width: 100%;
+    padding: unset;
 }
 
-.nav-elements > li > a,
+.nav-elements>li>a,
 .legal-notice {
-  color: #ffffff;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  width: 100%;
-  padding: 8px 0 8px 53px;
-  cursor: pointer;
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 8px 0 8px 53px;
+    cursor: pointer;
 }
 
 .legal-notice a {
-  display: flex;
-  text-decoration: none;
-  color: #fff;
-  align-items: center;
-  gap: 20px;
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+    align-items: center;
+    gap: 20px;
 }
 
-.nav-elements > li:hover,
-.nav-elements > li.active,
+.nav-elements>li:hover,
+.nav-elements>li.active,
 .legal-notice:hover {
-  background: #091931;
+    background: #091931;
 }
 
-.nav-elements > li > a > img {
-  width: 25px;
-  height: 25px;
+.active {
+    background: #091931;
+}
+
+.nav-elements>li>a>img {
+    width: 25px;
+    height: 25px;
 }
 
 .legal-notice {
-  margin: auto 0 65px;
+    margin: auto 0 65px;
 }
 
 @media (max-width: 870px) {
-  header {
-    padding-left: 50px;
-  }
+    header {
+        padding-left: 50px;
+    }
 }
 
 @media (max-width: 800px) {
-  body {
-    grid-template-columns: auto;
-    grid-template-rows: 80px auto 80px;
-    grid-template-areas: "header" "main" "nav";
-  }
-  header {
-    padding: 20px 25px;
-    height: 79px;
-  }
-  header > .join-logo-mobile {
-    display: unset;
-    height: 40px;
-  }
-  header > .title-desktop {
-    display: none;
-  }
-  header .help {
-    display: none;
-  }
-  nav {
-    height: 80px;
-    padding: 0;
-    position: fixed;
-    bottom: 0;
-  }
-  nav > .join-logo-desktop,
-  .legal-notice {
-    display: none;
-  }
-  nav .nav-elements {
-    flex-direction: row;
-    justify-content: space-around;
-    height: 100%;
-  }
-  nav .nav-elements > li {
-    width: 80px;
-  }
-  nav .nav-elements > li > a {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: unset;
-    height: 100%;
-    width: 80px;
-  }
+    body {
+        grid-template-columns: auto;
+        grid-template-rows: 80px auto 80px;
+        grid-template-areas: "header" "main" "nav";
+    }
+    header {
+        padding: 20px 25px;
+        height: 79px;
+    }
+    header>.join-logo-mobile {
+        display: unset;
+        height: 40px;
+    }
+    header>.title-desktop {
+        display: none;
+    }
+    header .help {
+        display: none;
+    }
+    nav {
+        height: 80px;
+        padding: 0;
+        position: fixed;
+        bottom: 0;
+    }
+    nav>.join-logo-desktop,
+    .legal-notice {
+        display: none;
+    }
+    nav .nav-elements {
+        flex-direction: row;
+        justify-content: space-around;
+        height: 100%;
+    }
+    nav .nav-elements>li {
+        width: 80px;
+    }
+    nav .nav-elements>li>a {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: unset;
+        height: 100%;
+        width: 80px;
+    }
 }

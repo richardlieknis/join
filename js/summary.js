@@ -1,7 +1,6 @@
 function initSummary() {
     checkLastPage();
     showWelcomeMsg();
-
 }
 
 function getCurrentHour() {
