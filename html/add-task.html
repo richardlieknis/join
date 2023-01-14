@@ -30,15 +30,15 @@
       <div class="add-title-container">
         <div class="add-title flex-column gap-8px">
           <span>Title</span>
-          <input class="add-task-input input" placeholder="Enter a title" />
+          <input id="task-input-title" class="add-task-input input" placeholder="Enter a title" />
         </div>
         <div class="flex-column gap-8px">
           <span>Description</span>
-          <textarea class="input" placeholder="Enter a Description"></textarea>
+          <textarea id="task-input-description" class="input" placeholder="Enter a Description"></textarea>
         </div>
         <div class="flex-column gap-8px">
           <span>Category</span>
-          <select class="select-resp" name="Select task category">
+          <select id="task-input-category" class="select-resp" name="Select task category">
             <option value="" disabled selected hidden>
               Select task category
             </option>
@@ -49,7 +49,7 @@
         </div>
         <div class="flex-column gap-8px">
           <span>Assigned to</span>
-          <select class="select-resp" name="Select contacts to assign">
+          <select id="task-input-assignedTo" class="select-resp" name="Select contacts to assign">
             <option value="" disabled selected hidden>
               Select contacts to assign
             </option>
@@ -59,7 +59,7 @@
         <div class="subtasks-container">
           <div class="flex-column gap-8px">
             <span>Due date</span>
-            <input class="add-task-input img-date input" placeholder="dd/mm/yyyy" />
+            <input id="task-input-dueDate" class="add-task-input img-date input" placeholder="dd/mm/yyyy" />
           </div>
           <div class="flex-column gap-8px">
             <span>Prio</span>
@@ -77,7 +77,7 @@
           </div>
           <div class="flex-column gap-8px">
             <span>Subtasks</span>
-            <input
+            <input id="task-input-subtasks"
               class="add-task-input img-plus input"
               placeholder="Add new subtask"
             />
@@ -93,5 +93,7 @@
     </main>
     
     <script src="../js/includeHTML.js"></script>
+    <script src="../script.js"></script>
+    <script src="../js/editTasks.js"></script>
   </body>
 </html>

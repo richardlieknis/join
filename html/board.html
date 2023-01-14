@@ -18,6 +18,12 @@
   <body onload="init()">
     <header w3-include-html="../templates/header.html"></header>
     <nav w3-include-html="../templates/navigation.html"></nav>
+    <div id="addTaskOverlay" onclick="closeAddTask()" class="overlay d-none">
+      <div
+        onclick="dontClose(event)"
+        w3-include-html="../templates/addTask-Temp.html"
+      ></div>
+    </div>
     <main>
       <div class="title-mobile">Kanban Project Management Tool</div>
 
@@ -32,7 +38,7 @@
           />
           <img src="../src/img/magnifying-glass.svg" />
         </div>
-        <button class="add-button btn-primary">
+        <button onclick="openAddTask()" class="add-button btn-primary">
           <span>Add task</span>
           <img src="../src/img/plus-icon.svg" />
         </button>
@@ -207,5 +213,6 @@
     <script src="../script.js"></script>
     <script src="../js/board.js"></script>
     <script src="../js/search.js"></script>
+    <script src="../js/showOverlay.js"></script>
   </body>
 </html>
