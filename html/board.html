@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,147 +8,211 @@
     <link rel="stylesheet" href="../css/board.css" />
     <link rel="stylesheet" href="../css/templates.css" />
     <link rel="stylesheet" href="../style.css" />
-    <link rel="shortcut icon" href="../src/img/favicon.png" type="image/x-icon" />
-    <script src="../js/showOverlay.js"></script>
-</head>
+    <link
+      rel="shortcut icon"
+      href="../src/img/favicon.png"
+      type="image/x-icon"
+    />
+  </head>
 
-<body onload="init()">
+  <body onload="init()">
     <header w3-include-html="../templates/header.html"></header>
     <nav w3-include-html="../templates/navigation.html"></nav>
     <div id="addTaskOverlay" onclick="closeAddTask()" class="overlay d-none">
-        <div onclick="dontClose(event)" w3-include-html="../templates/addTask-Temp.html"></div>
+      <div
+        onclick="dontClose(event)"
+        w3-include-html="../templates/addTask-Temp.html"
+      ></div>
     </div>
     <main>
-        <div class="title-mobile">Kanban Project Management Tool</div>
+      <div class="title-mobile">Kanban Project Management Tool</div>
 
-        <div class="headline">
-            <h1>Board</h1>
-            <div class="find-container">
-                <input type="text" name="find-task" id="find-task" placeholder="Find Task" />
-                <img src="../src/img/magnifying-glass.svg" />
-            </div>
-            <button onclick="openAddTask()" class="add-button btn-primary">
+      <div class="headline">
+        <h1>Board</h1>
+        <div class="find-container">
+          <input
+            type="text"
+            name="find-task"
+            id="find-task"
+            placeholder="Find Task"
+          />
+          <img src="../src/img/magnifying-glass.svg" />
+        </div>
+        <button onclick="openAddTask()" class="add-button btn-primary">
           <span>Add task</span>
           <img src="../src/img/plus-icon.svg" />
         </button>
+      </div>
+
+      <div class="progress-steps">
+        <div
+          class="todo"
+          id="todo"
+          ondragstart="getCategoryOfDraggedElement('todo')"
+          ondrop="moveTo('todo')"
+          ondrag="addPlaceholder()"
+          ondragover="allowDrop(event)"
+        >
+          <div class="progress-header">
+            <span>To do</span>
+            <div w3-include-html="../templates/plus-button.html"></div>
+          </div>
+
+          <div class="tasks" id="todo-tasks"></div>
         </div>
 
-        <div class="progress-steps">
-            <div class="todo" id="todo" ondragstart="getCategoryOfDraggedElement('todo')" ondrop="moveTo('todo')" ondrag="addPlaceholder()" ondragover="allowDrop(event)">
-                <div class="progress-header">
-                    <span>To do</span>
-                    <div onclick="openAddTask()" w3-include-html="../templates/plus-button.html"></div>
-                </div>
+        <div
+          class="in-progress"
+          id="inProgress"
+          ondragstart="getCategoryOfDraggedElement('inProgress')"
+          ondrop="moveTo('inProgress')"
+          ondrag="addPlaceholder()"
+          ondragover="allowDrop(event)"
+        >
+          <div class="progress-header">
+            <span>In progress</span>
+            <div w3-include-html="../templates/plus-button.html"></div>
+          </div>
 
-                <div class="tasks" id="todo-tasks"></div>
-            </div>
-
-            <div class="in-progress" id="inProgress" ondragstart="getCategoryOfDraggedElement('inProgress')" ondrop="moveTo('inProgress')" ondrag="addPlaceholder()" ondragover="allowDrop(event)">
-                <div class="progress-header">
-                    <span>In progress</span>
-                    <div onclick="openAddTask()" w3-include-html="../templates/plus-button.html"></div>
-                </div>
-
-                <div class="tasks" id="inProgress-tasks"></div>
-            </div>
-
-            <div class="awaiting-feedback" id="awaitingFeedback" ondragstart="getCategoryOfDraggedElement('awaitingFeedback')" ondrop="moveTo('awaitingFeedback')" ondrag="addPlaceholder()" ondragover="allowDrop(event)">
-                <div class="progress-header">
-                    <span>Awaiting Feedback</span>
-                    <div onclick="openAddTask()" w3-include-html="../templates/plus-button.html"></div>
-                </div>
-
-                <div class="tasks" id="awaitingFeedback-tasks"></div>
-            </div>
-
-            <div class="done" id="done" ondragstart="getCategoryOfDraggedElement('done')" ondrop="moveTo('done')" ondrag="addPlaceholder()" ondragover="allowDrop(event)">
-                <div class="progress-header">
-                    <span>Done</span>
-                    <div onclick="openAddTask()" w3-include-html="../templates/plus-button.html"></div>
-                </div>
-
-                <div class="tasks" id="done-tasks"></div>
-            </div>
+          <div class="tasks" id="inProgress-tasks"></div>
         </div>
 
-        <div class="task-overlay-bg overlay d-none">
-            <div class="task-overlay">
-                <div class="close-button">
-                    <img src="../src/img/close-icon.svg" />
-                </div>
-                <button class="edit-icon btn-primary">
+        <div
+          class="awaiting-feedback"
+          id="awaitingFeedback"
+          ondragstart="getCategoryOfDraggedElement('awaitingFeedback')"
+          ondrop="moveTo('awaitingFeedback')"
+          ondrag="addPlaceholder()"
+          ondragover="allowDrop(event)"
+        >
+          <div class="progress-header">
+            <span>Awaiting Feedback</span>
+            <div w3-include-html="../templates/plus-button.html"></div>
+          </div>
+
+          <div class="tasks" id="awaitingFeedback-tasks"></div>
+        </div>
+
+        <div
+          class="done"
+          id="done"
+          ondragstart="getCategoryOfDraggedElement('done')"
+          ondrop="moveTo('done')"
+          ondrag="addPlaceholder()"
+          ondragover="allowDrop(event)"
+        >
+          <div class="progress-header">
+            <span>Done</span>
+            <div w3-include-html="../templates/plus-button.html"></div>
+          </div>
+
+          <div class="tasks" id="done-tasks"></div>
+        </div>
+      </div>
+      <div class="task-overlay-bg overlay d-none">
+        <div class="task-overlay">
+          <div class="close-button">
+            <img src="../src/img/close-icon.svg" />
+          </div>
+          <button class="edit-icon btn-primary">
             <img src="../src/img/edit-icon.svg" />
           </button>
-                <span class="label sales">Sales</span>
-                <div class="title">Call potencial clients</div>
-                <div class="description">
-                    Make the product presentation to prospective buvers
-                </div>
-                <div class="due-date">
-                    <span class="title">Due date:</span>
-                    <span class="content">05-08-2022</span>
-                </div>
-                <div class="subtasks">
-                    <span class="title">Subtasks:</span>
-                    <div class="content">
-                        <div class="subtask">
-                            <input class="subtask-checkbox" type="checkbox" id="subtask-0" name="subtask-0" checked />
-                            <span>take the phone</span>
-                        </div>
-                        <div class="subtask">
-                            <input class="subtask-checkbox" type="checkbox" id="subtask-1" name="subtask-1" />
-                            <span>enter the number</span>
-                        </div>
-                        <div class="subtask">
-                            <input class="subtask-checkbox" type="checkbox" id="subtask-1" name="subtask-1" />
-                            <span>enter the number</span>
-                        </div>
-                        <div class="subtask">
-                            <input class="subtask-checkbox" type="checkbox" id="subtask-1" name="subtask-1" />
-                            <span>enter the number</span>
-                        </div>
-                        <div class="subtask">
-                            <input class="subtask-checkbox" type="checkbox" id="subtask-1" name="subtask-1" />
-                            <span>enter the number</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="priority">
-                    <span class="title">Priority:</span>
-                    <div class="content label urgent">
-                        <span>Urgent</span>
-                        <img src="../src/img/urgent-white.svg" />
-                    </div>
-                </div>
-                <div class="assigned-to">
-                    <div class="title">Assigned To:</div>
-                    <div class="assigned-person-container">
-                        <div class="assigned-person">
-                            <span class="initials orange">AS</span>
-                            <span class="full-name">Anna Seinfeld</span>
-                        </div>
-                        <div class="assigned-person">
-                            <span class="initials violet">DE</span>
-                            <span class="full-name">David Eisenberg</span>
-                        </div>
-                        <div class="assigned-person">
-                            <span class="initials green">EV</span>
-                            <span class="full-name">Esther Vogel</span>
-                        </div>
-                        <div class="assigned-person">
-                            <span class="initials blue">SM</span>
-                            <span class="full-name">Stefanie Müller</span>
-                        </div>
-                    </div>
-                </div>
+          <span class="label sales">Sales</span>
+          <div class="title">Call potencial clients</div>
+          <div class="description">
+            Make the product presentation to prospective buvers
+          </div>
+          <div class="due-date">
+            <span class="title">Due date:</span>
+            <span class="content">05-08-2022</span>
+          </div>
+          <div class="subtasks">
+            <span class="title">Subtasks:</span>
+            <div class="content">
+              <div class="subtask">
+                <input
+                  class="subtask-checkbox"
+                  type="checkbox"
+                  id="subtask-0"
+                  name="subtask-0"
+                  checked
+                />
+                <span>take the phone</span>
+              </div>
+              <div class="subtask">
+                <input
+                  class="subtask-checkbox"
+                  type="checkbox"
+                  id="subtask-1"
+                  name="subtask-1"
+                />
+                <span>enter the number</span>
+              </div>
+              <div class="subtask">
+                <input
+                  class="subtask-checkbox"
+                  type="checkbox"
+                  id="subtask-1"
+                  name="subtask-1"
+                />
+                <span>enter the number</span>
+              </div>
+              <div class="subtask">
+                <input
+                  class="subtask-checkbox"
+                  type="checkbox"
+                  id="subtask-1"
+                  name="subtask-1"
+                />
+                <span>enter the number</span>
+              </div>
+              <div class="subtask">
+                <input
+                  class="subtask-checkbox"
+                  type="checkbox"
+                  id="subtask-1"
+                  name="subtask-1"
+                />
+                <span>enter the number</span>
+              </div>
             </div>
+          </div>
+          <div class="priority">
+            <span class="title">Priority:</span>
+            <div class="content label urgent">
+              <span>Urgent</span>
+              <img src="../src/img/urgent-white.svg" />
+            </div>
+          </div>
+          <div class="assigned-to">
+            <div class="title">Assigned To:</div>
+            <div class="assigned-person-container">
+              <div class="assigned-person">
+                <span class="initials orange">AS</span>
+                <span class="full-name">Anna Seinfeld</span>
+              </div>
+              <div class="assigned-person">
+                <span class="initials violet">DE</span>
+                <span class="full-name">David Eisenberg</span>
+              </div>
+              <div class="assigned-person">
+                <span class="initials green">EV</span>
+                <span class="full-name">Esther Vogel</span>
+              </div>
+              <div class="assigned-person">
+                <span class="initials blue">SM</span>
+                <span class="full-name">Stefanie Müller</span>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </main>
 
     <script src="../js/includeHTML.js"></script>
     <script src="../script.js"></script>
     <script src="../js/board.js"></script>
     <script src="../js/search.js"></script>
-</body>
-
+    <script src="../js/showOverlay.js"></script>
+  </body>
 </html>
