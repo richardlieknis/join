@@ -1,86 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add Task</title>
-    <link
-      rel="shortcut icon"
-      href="../src/img/favicon.png"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="../css/add_task.css" />
-    <link rel="stylesheet" href="../css/templates.css" />
-    <link rel="stylesheet" href="../style.css" />
-  </head>
 
-  <body onload="init()">
-    <header w3-include-html="../templates/header.html"></header>
-    <nav w3-include-html="../templates/navigation.html"></nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Task</title>
+  <link rel="shortcut icon" href="../src/img/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../css/add_task.css" />
+  <link rel="stylesheet" href="../css/templates.css" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
 
-    <main class="add-task-container">
-      <span style="font-size: 21px" class="hide"
-        >Kanban Project Management Tool</span
-      >
-      <div style="display: flex; justify-content: space-between;">
-        <h1>Add Task</h1>
-        <button class="create-btn hide" style="height: 51px; width: 145px;" class="btn-primary">Create <img src="../src/img/hook.svg"></button>
-      </div>
-      <div class="add-title-container">
-        <div class="add-title flex-column gap-8px">
-          <span>Title</span>
-          <input id="task-input-title" class="add-task-input input" placeholder="Enter a title" />
-        </div>
-        <div class="flex-column gap-8px">
-          <span>Description</span>
-          <textarea id="task-input-description" class="input" placeholder="Enter a Description"></textarea>
-        </div>
-        <div class="flex-column gap-8px">
-          <span>Category</span>
-          <select id="task-input-category" class="select-resp" name="Select task category">
-            <option value="" disabled selected hidden>
-              Select task category
-            </option>
-            <option>New category</option>
-            <option>Sales</option>
-            <option>Backoffice</option>
-          </select>
-        </div>
-        <div class="flex-column gap-8px">
-          <span>Assigned to</span>
-          <select id="task-input-assignedTo" class="select-resp" name="Select contacts to assign">
-            <option value="" disabled selected hidden>
-              Select contacts to assign
-            </option>
-          </select>
+<body onload="init()">
+  <header w3-include-html="../templates/header.html"></header>
+  <nav w3-include-html="../templates/navigation.html"></nav>
+
+  <main>
+    <div>
+      <div class="add-task-container">
+        <div class="add-title-container">
+          <span class="hide">Kanban Project Management Tool</span>
+          <div class="create-resp">
+            <h1>Add Task</h1>
+            <button class="create-btn hide" style="height: 51px; width: 145px;" class="btn-primary">Create <img
+                src="../src/img/hook.svg"></button>
+          </div>
+          <div class="add-title flex-column gap-8px">
+            <span>Title</span>
+            <input id="task-input-title" class="add-task-input input" placeholder="Enter a title" />
+          </div>
+          <div class="flex-column gap-8px">
+            <span>Description</span>
+            <textarea id="task-input-description" class="input" placeholder="Enter a Description"></textarea>
+          </div>
+          <div class="flex-column gap-8px">
+            <span>Category</span>
+            <select id="task-input-category" class="select-resp" name="Select task category">
+              <option value="" disabled selected hidden>
+                Select task category
+              </option>
+              <option>New category</option>
+              <option>Sales</option>
+              <option>Backoffice</option>
+            </select>
+          </div>
+          <div class="flex-column gap-8px">
+            <span>Assigned to</span>
+            <select id="task-input-assignedTo" class="select-resp" name="Select contacts to assign">
+              <option value="" disabled selected hidden>
+                Select contacts to assign
+              </option>
+            </select>
+          </div>
         </div>
         <div class="line"></div>
-        <div class="subtasks-container">
-          <div class="flex-column gap-8px">
-            <span>Due date</span>
-            <input id="task-input-dueDate" class="add-task-input img-date input" placeholder="dd/mm/yyyy" />
-          </div>
-          <div class="flex-column gap-8px">
-            <span>Prio</span>
-            <div class="prio-btn-resp">
-              <button class="prio-btn">
-                Urgent <img src="../src/img/urgent.svg" />
-              </button>
-              <button class="prio-btn">
-                Medium <img src="../src/img/medium.svg" />
-              </button>
-              <button class="prio-btn">
-                Low <img src="../src/img/low.svg" />
-              </button>
+        <div class="display-center">
+          <div class="subtasks-container">
+            <div class="flex-column gap-8px">
+              <span>Due date</span>
+              <input id="task-input-dueDate" class="add-task-input img-date input" placeholder="dd/mm/yyyy" />
             </div>
-          </div>
-          <div class="flex-column gap-8px">
-            <span>Subtasks</span>
-            <input id="task-input-subtasks"
-              class="add-task-input img-plus input"
-              placeholder="Add new subtask"
-            />
+            <div class="flex-column gap-8px">
+              <span>Prio</span>
+              <div class="prio-btn-resp">
+                <button class="prio-btn">
+                  Urgent <img src="../src/img/urgent.svg" />
+                </button>
+                <button class="prio-btn">
+                  Medium <img src="../src/img/medium.svg" />
+                </button>
+                <button class="prio-btn">
+                  Low <img src="../src/img/low.svg" />
+                </button>
+              </div>
+            </div>
+            <div class="flex-column gap-8px">
+              <span>Subtasks</span>
+              <input id="task-input-subtasks" class="add-task-input img-plus input" placeholder="Add new subtask" />
+            </div>
           </div>
         </div>
       </div>
@@ -90,10 +88,12 @@
           Create Task <img src="../src/img/hook.svg" />
         </button>
       </div>
-    </main>
-    
-    <script src="../js/includeHTML.js"></script>
-    <script src="../script.js"></script>
-    <script src="../js/editTasks.js"></script>
-  </body>
+    </div>
+  </main>
+
+  <script src="../js/includeHTML.js"></script>
+  <script src="../script.js"></script>
+  <script src="../js/editTasks.js"></script>
+</body>
+
 </html>

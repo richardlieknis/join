@@ -1,10 +1,8 @@
 .add-task-container {
-  position: absolute;
-  top: 171px;
-  left: 355px;
-  bottom: 183px;
-  right: 123px;
+  display: flex;
+  justify-content: space-between;
   overflow: unset;
+  padding: 45px;
 }
 
 .add-title-container {
@@ -33,12 +31,15 @@
   flex-direction: column;
 }
 
+span {
+  font-size: 21px;
+}
+
 .add-title-container textarea {
   padding: 18px 21px;
   width: 422px;
   height: 119px;
   box-sizing: border-box;
-  font-size: 21px;
   resize: none;
 }
 
@@ -55,8 +56,6 @@
 .subtasks-container {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  right: 0;
   align-items: flex-end;
   gap: 14px;
 }
@@ -136,14 +135,14 @@
   display: flex;
   gap: 25px;
   justify-content: flex-end;
-  width: 100%;
+  padding-right: 45px;
 }
 
 .line {
-  position: absolute;
   height: 551px;
-  left: 50%;
   border: 1px solid #d1d1d1;
+  position: relative;
+  top: 162px;
 }
 
 .hide {
@@ -154,6 +153,12 @@
   @media (max-width: 1350px) {
     .hide {
       display: block;
+    }
+
+    .create-resp {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
     }
 
     .add-task-container {
