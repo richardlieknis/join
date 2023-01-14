@@ -4,3 +4,39 @@
     padding: 20px !important;
     min-height: 700px;
 }
+
+.slideOut {
+    animation: slideOut 600ms ease-in-out;
+}
+
+.slideIn {
+    animation: slideIn 600ms ease-in-out;
+}
+
+.line {
+    display: none;
+}
+
+.add-task-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(3000px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateX(0px);
+    }
+    100% {
+        transform: translateX(3000px);
+    }
+}
