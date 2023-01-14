@@ -1,4 +1,4 @@
-let idCounter = 0;
+let taskIdCounter = 0;
 let subtasks = [];
 
 function createTask() {
@@ -7,4 +7,29 @@ function createTask() {
   const category = document.getElementById("task-input-category");
   const assignedTo = document.getElementById("task-input-assignedTo");
   const dueDate = document.getElementById("task-input-dueDate");
+
+  pushToTasksArray(titel.value, description.value, category.value, assignedTo.value, dueDate.value);
+  clearTasksInputFields(titel, description, category, assignedTo, dueDate);
+}
+
+
+function pushToTasksArray(titel, description, category, assignedTo, dueDate) {
+  const task = {
+    id: taskIdCounter,
+    titel: titel,
+    description: description,
+    category: category,
+    assignedTo: assignedTo,
+    dueDate: dueDate
+  }
+  tasks.push(task);
+  taskIdCounter++;
+}
+
+function clearTasksInputFields(titel, description, category, assignedTo, dueDate) {
+  titel.value = "";
+  description.value = "";
+  category.value = "";
+  assignedTo.value = "";
+  dueDate.value = "";
 }
