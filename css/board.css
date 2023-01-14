@@ -21,10 +21,9 @@
   height: 200px;
   border-radius: 30px;
   border: 1px dashed #a8a8a8;
-  /* background-color: #0038ff; */
 }
 
-main {
+main.board-container {
   margin: 0;
   padding: 80px 60px 0 70px;
 }
