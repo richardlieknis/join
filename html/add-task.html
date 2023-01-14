@@ -28,11 +28,15 @@
           </div>
           <div class="add-title flex-column gap-8px">
             <span>Title</span>
-            <input id="task-input-title" class="add-task-input input" placeholder="Enter a title" />
+            <form>
+              <input id="task-input-title" class="add-task-input input" placeholder="Enter a title" />
+            </form>
           </div>
           <div class="flex-column gap-8px">
             <span>Description</span>
-            <textarea id="task-input-description" class="input" placeholder="Enter a Description"></textarea>
+            <form>
+              <textarea id="task-input-description" class="input" placeholder="Enter a Description"></textarea>
+            </form>
           </div>
           <div class="flex-column gap-8px">
             <span>Category</span>
@@ -59,7 +63,9 @@
           <div class="subtasks-container">
             <div class="flex-column gap-8px">
               <span>Due date</span>
-              <input id="task-input-dueDate" class="add-task-input img-date input" placeholder="dd/mm/yyyy" />
+              <form>
+                <input id="task-input-dueDate" class="add-task-input img-date input" placeholder="dd/mm/yyyy" />
+              </form>
             </div>
             <div class="flex-column gap-8px">
               <span>Prio</span>
@@ -77,7 +83,9 @@
             </div>
             <div class="flex-column gap-8px">
               <span>Subtasks</span>
-              <input id="task-input-subtasks" class="add-task-input img-plus input" placeholder="Add new subtask" />
+              <form>
+                <input id="task-input-subtasks" class="add-task-input img-plus input" placeholder="Add new subtask" />
+              </form>
             </div>
           </div>
         </div>
