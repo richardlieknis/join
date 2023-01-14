@@ -204,6 +204,7 @@ form {
   align-items: center;
   flex-direction: column;
   gap: 29px;
+  width: 90%;
 }
 
 .guest-btn {

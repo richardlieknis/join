@@ -5,10 +5,10 @@ async function loadUsers() {
     users = JSON.parse(backend.getItem('users')) || [];
 }
 
-async function login() {
+function login() {
     let email = document.getElementById('email-login');
     let password = document.getElementById('password-login');
-    let user = users.find(u => u.email.toLowerCase() == email.value.toLowerCase() && u.password == password.value);
+    let user = users.find(u => u.email == email.value && u.password == password.value);
     if(user) {
         console.log('User gefunden!');
         window.location.href = '../html/summary.html';

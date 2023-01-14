@@ -18,7 +18,7 @@ async function addUser() {
     let name = document.getElementById('name-signup');
     let email = document.getElementById('email-signup');
     let password = document.getElementById('password-signup');
-    users.push({name: name.value, email: email.value.toLowerCase(), password: password.value});
+    users.push({name: name.value, email: email.value, password: password.value});
     await backend.setItem('users', JSON.stringify(users));
     window.location.href = 'index.html?msg=<b>You have successfully registered!</b>';
 }
