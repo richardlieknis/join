@@ -288,6 +288,7 @@ main .title-mobile {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-size: 21px;
   width: 623px;
   height: 824px;
   max-height: 95%;
@@ -297,9 +298,9 @@ main .title-mobile {
   overflow: auto;
 }
 
-.task-overlay .close-button {
-  width: 40px;
-  height: 40px;
+.close-button {
+  width: 30px;
+  height: 30px;
   position: fixed;
   top: 40px;
   right: 40px;
@@ -310,7 +311,7 @@ main .title-mobile {
   border-radius: 10px;
 }
 
-.task-overlay .close-button:hover {
+.close-button:hover {
   border: 2px solid #2a3647;
 }
 
@@ -351,10 +352,6 @@ main .title-mobile {
   margin-right: 25px;
 }
 
-.task-overlay > div > .content {
-  font-size: 21px;
-}
-
 .task-overlay .subtasks {
   width: 100%;
 }
@@ -390,19 +387,19 @@ main .title-mobile {
 }
 
 .task-overlay .priority .label {
-  width: 131px;
+  width: unset;
   height: 33px;
   font-size: 21px;
   padding: 4px 18px;
   display: flex;
-  justify-content: space-between;
+  gap: 12px;
 }
 
 .task-overlay .label.urgent {
   background: #ff3d00;
 }
 
-.task-overlay .label.label.medium {
+.task-overlay .label.medium {
   background: #ffa800;
 }
 
@@ -410,7 +407,7 @@ main .title-mobile {
   background: #7ae229;
 }
 
-.task-overlay .label.urgent img {
+.task-overlay .label img {
   width: 17px;
   height: 12px;
 }
@@ -427,9 +424,10 @@ main .title-mobile {
   gap: 25px;
 }
 
-.task-overlay .assigned-person-container {
+.task-overlay .assigned-persons-container {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 25px;
 }
 
@@ -439,7 +437,7 @@ main .title-mobile {
   gap: 25px;
 }
 
-.task-overlay .assigned-person-container .initials {
+.task-overlay .assigned-persons-container .initials {
   font-size: 16px;
   color: #ffffff;
   width: 45px;

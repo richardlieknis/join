@@ -109,101 +109,39 @@
           <div class="tasks" id="done-tasks"></div>
         </div>
       </div>
-      <div class="task-overlay-bg overlay d-none">
-        <div class="task-overlay">
-          <div class="close-button">
+      <div
+        class="overlay d-none"
+        id="taskOverlayBg"
+        onclick="closeTaskOverlay()"
+      >
+        <div class="task-overlay" onclick="dontClose(event)">
+          <div class="close-button" onclick="closeTaskOverlay()">
             <img src="../src/img/close-icon.svg" />
           </div>
           <button class="edit-icon btn-primary">
             <img src="../src/img/edit-icon.svg" />
           </button>
-          <span class="label sales">Sales</span>
-          <div class="title">Call potencial clients</div>
-          <div class="description">
-            Make the product presentation to prospective buvers
-          </div>
+          <span class="label" id="label"></span>
+          <div class="title" id="title"></div>
+          <div class="description" id="description"></div>
           <div class="due-date">
             <span class="title">Due date:</span>
-            <span class="content">05-08-2022</span>
+            <span id="dueDate"></span>
           </div>
-          <div class="subtasks">
+          <div class="subtasks" id="subtasksContainer">
             <span class="title">Subtasks:</span>
-            <div class="content">
-              <div class="subtask">
-                <input
-                  class="subtask-checkbox"
-                  type="checkbox"
-                  id="subtask-0"
-                  name="subtask-0"
-                  checked
-                />
-                <span>take the phone</span>
-              </div>
-              <div class="subtask">
-                <input
-                  class="subtask-checkbox"
-                  type="checkbox"
-                  id="subtask-1"
-                  name="subtask-1"
-                />
-                <span>enter the number</span>
-              </div>
-              <div class="subtask">
-                <input
-                  class="subtask-checkbox"
-                  type="checkbox"
-                  id="subtask-1"
-                  name="subtask-1"
-                />
-                <span>enter the number</span>
-              </div>
-              <div class="subtask">
-                <input
-                  class="subtask-checkbox"
-                  type="checkbox"
-                  id="subtask-1"
-                  name="subtask-1"
-                />
-                <span>enter the number</span>
-              </div>
-              <div class="subtask">
-                <input
-                  class="subtask-checkbox"
-                  type="checkbox"
-                  id="subtask-1"
-                  name="subtask-1"
-                />
-                <span>enter the number</span>
-              </div>
-            </div>
+            <div class="content" id="subtasks"></div>
           </div>
           <div class="priority">
             <span class="title">Priority:</span>
-            <div class="content label urgent">
-              <span>Urgent</span>
-              <img src="../src/img/urgent-white.svg" />
-            </div>
+            <div class="label urgent" id="priority"></div>
           </div>
-          <div class="assigned-to">
+          <div class="assigned-to" id="assignedToContainer">
             <div class="title">Assigned To:</div>
-            <div class="assigned-person-container">
-              <div class="assigned-person">
-                <span class="initials orange">AS</span>
-                <span class="full-name">Anna Seinfeld</span>
-              </div>
-              <div class="assigned-person">
-                <span class="initials violet">DE</span>
-                <span class="full-name">David Eisenberg</span>
-              </div>
-              <div class="assigned-person">
-                <span class="initials green">EV</span>
-                <span class="full-name">Esther Vogel</span>
-              </div>
-              <div class="assigned-person">
-                <span class="initials blue">SM</span>
-                <span class="full-name">Stefanie Müller</span>
-              </div>
-            </div>
+            <div
+              class="assigned-persons-container"
+              id="assignedPersonsContainer"
+            ></div>
           </div>
         </div>
       </div>
