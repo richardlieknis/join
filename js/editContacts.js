@@ -6,8 +6,10 @@ function createContact() {
     const name = document.getElementById('c-new-name');
     const email = document.getElementById('c-new-email');
     const tel = document.getElementById('c-new-tel');
+    const color = getColor();
+    const initials = getInitials(name);
 
-    pushToArray(name.value, email.value, tel.value);
+    pushToArray(name.value, email.value, tel.value, color, initials);
     cleanInputFields(name, email, tel);
 }
 
@@ -17,13 +19,13 @@ function cleanInputFields(name, email, tel) {
     tel.value = "";
 }
 
-function pushToArray(name, email, tel) {
-    let color = getColor();
+function pushToArray(name, email, tel, color, initials) {
     const contact = {
         name: name,
         email: email,
         phone: tel,
-        color: color
+        color: color,
+        initials: initials
     }
     contacts.push(contact);
 }
@@ -44,12 +46,14 @@ function getInitials(name) {
     const firstName = names[0];
     let lastName = names[names.length - 1];
     let initials = "";
-
-
-
+    let firstLetter = firstName.charAt(0);
+    let secondLetter = lastName.charAt(0);
 
     if (firstName == lastName) {
-        initials = firstName;
+        initials = firstLetter;
     }
-    
+    else {
+        initials = firstLetter + secondLetter;
+    }
+    return initials;
 }
