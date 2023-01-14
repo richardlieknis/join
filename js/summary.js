@@ -1,6 +1,7 @@
 function initSummary() {
-    showWelcomeMsg();
     checkLastPage();
+    showWelcomeMsg();
+
 }
 
 function getCurrentHour() {
@@ -18,9 +19,11 @@ function setCurrentTimeMsg() {
 }
 
 function showWelcomeMsg() {
-    let docTimeMsg = document.getElementById('timeMsgDesk');
+    let timeMsgDesk = document.getElementById('timeMsgDesk');
+    let timeMsgMobile = document.getElementById('timeMsgMobile');
     let timeMsg = setCurrentTimeMsg();
-    docTimeMsg.innerHTML = timeMsg;
+    timeMsgDesk.innerHTML = timeMsg;
+    timeMsgMobile.innerHTML = timeMsg;
 }
 
 function checkLastPage() {
