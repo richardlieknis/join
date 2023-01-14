@@ -60,6 +60,8 @@
 @media (max-width: 850px) {
     .tasks {
         font-size: 16px;
+        gap: 10px !important;
+        grid-auto-rows: minmax(140px, auto) !important;
     }
     .task-box .amount {
         font-size: 40px;
@@ -72,6 +74,9 @@
     }
     .flexspace {
         padding: 0 20px !important;
+    }
+    .task-box .line {
+        height: 100px !important;
     }
 }
 
