@@ -27,6 +27,12 @@
     height: 70px;
 }
 
+.summ-header .mobile-line {
+    display: none;
+    border-top: 3px solid #29abe2;
+    width: 70px;
+}
+
 .summ-header .slogan {
     font-size: 22px;
     color: #2a3647;
@@ -81,10 +87,22 @@
     }
     .summ-header .line {
         display: none;
-        transform: rotate(90deg);
+    }
+    .summ-header .mobile-line {
+        display: unset;
     }
     .task-box {
         font-size: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .tasks {
+        gap: 10px !important;
+        grid-auto-rows: minmax(110px, auto) !important;
+    }
+    .task-box .line {
+        height: 80px !important;
     }
 }
 
