@@ -1,8 +1,11 @@
+main {
+  padding: 55px;
+}
+
 .add-task-container {
   display: flex;
   justify-content: space-between;
   overflow: unset;
-  padding: 45px;
 }
 
 .add-title-container {
@@ -135,7 +138,6 @@ span {
   display: flex;
   gap: 25px;
   justify-content: flex-end;
-  padding-right: 45px;
 }
 
 .line {
@@ -151,6 +153,10 @@ span {
 
 @media screen {
   @media (max-width: 1350px) {
+    main {
+      padding: unset;
+    }
+
     .hide {
       display: block;
     }
