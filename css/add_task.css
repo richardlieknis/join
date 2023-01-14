@@ -4,6 +4,7 @@
   left: 355px;
   bottom: 183px;
   right: 123px;
+  overflow: unset;
 }
 
 .add-title-container {
@@ -196,7 +197,7 @@
 
   @media (max-width: 800px) {
     main {
-      overflow-y: auto;
+      overflow-y: auto !important;
     }
   }
 
