@@ -2,65 +2,66 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Join - Login</title>
-    <link rel="shortcut icon" href="../src/img/favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="css/login-anim.css" />
-    <script src="mini_backend.js"></script>
-    <script src="script.js"></script>
-    <script src="js/log-in.js"></script>
-    <script src="js/forgotPassword.js"></script>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join - Login</title>
+  <link rel="shortcut icon" href="../src/img/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/login-anim.css" />
+  <script src="mini_backend.js"></script>
+  <script src="script.js"></script>
+  <script src="js/log-in.js"></script>
+  <script src="js/forgotPassword.js"></script>
 
 </head>
 
 <body onload="loadUsers()" class="display-center">
-    <div class="sign-up-container">
-        <div class="sign-up">
-            <span>Not a Join user?</span>
-            <button onclick="loadSignUp()" class="sign-up-btn">Sign up</button>
+  <div class="sign-up-container">
+    <div class="sign-up">
+      <span>Not a Join user?</span>
+      <button onclick="loadSignUp()" class="sign-up-btn">Sign up</button>
+    </div>
+  </div>
+  <img class="join-logo logo-animation" src="src/img/join-logo-blue.svg" />
+  <div class="start-background"></div>
+  <div class="display-center log-in-resp">
+    <div id="login-page" class="log-in">
+      <div class="border-bottom display-center">
+        <div>
+          <h1>Log in</h1>
         </div>
-    </div>
-    <img class="join-logo logo-animation" src="src/img/join-logo-blue.svg" />
-    <div class="start-background"></div>
-    <div class="display-center log-in-resp">
-        <div id="login-page" class="log-in">
-            <div class="border-bottom display-center">
-                <div>
-                    <h1>Log in</h1>
-                </div>
-            </div>
-            <form class="log-in-resp" onsubmit="login(); return false;">
-                <input id="email-login" required class="input-login background-image-email" placeholder="Email" type="email" src="src/img/email.svg" />
-                <input id="password-login" required class="input-login background-image-password" placeholder="Password" type="password" src="src/img/password.svg" />
-                <div id="not-exist"></div>
-                <div class="forgot-password-container">
-                    <div class="remember-me">
-                        <div class="remember-me-box"></div>
-                        <span>Remember me</span>
-                    </div>
-                    <div>
-                        <a onclick="forgotPassword()" class="forgot-password" href="#">Forgot my password</a
-              >
-            </div>
-          </div>
-          <div class="continue-btn-container">
-            <button style="width: 145px; height: 51px" class="btn-primary">
-              Log in
-            </button>
-            <button onclick="guest()" class="guest-btn btn-secondary">
-              Guest Log in
-            </button>
-          </div>
-        </form>
-
-        <div id="sign-up-msg"></div>
       </div>
+      <form class="log-in-resp" onsubmit="login(); return false;">
+        <input id="email-login" required class="input-login background-image-email" placeholder="Email" type="email"
+          src="src/img/email.svg" />
+        <input id="password-login" required class="input-login background-image-password" placeholder="Password"
+          type="password" src="src/img/password.svg" />
+        <div id="not-exist"></div>
+        <div class="forgot-password-container">
+          <div class="remember-me">
+            <input type="checkbox" value="isRememberMe" id="rememberMe"><label for="rememberMe">Remember me</label>
+          </div>
+          <div>
+            <a onclick="forgotPassword()" class="forgot-password" href="#">Forgot my password</a>
+          </div>
+        </div>
+        <div class="continue-btn-container">
+          <button style="width: 145px; height: 51px" class="btn-primary">
+            Log in
+          </button>
+          <button onclick="guest()" class="guest-btn btn-secondary">
+            Guest Log in
+          </button>
+        </div>
+      </form>
+
+      <div id="sign-up-msg"></div>
     </div>
+  </div>
 
-    <script src="js/sign-up.js"></script>
+  <script src="js/sign-up.js"></script>
 
-  </body>
+</body>
+
 </html>

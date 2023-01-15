@@ -173,18 +173,14 @@ h1 {
   gap: 35px;
 }
 
-.remember-me-box {
-  width: 16px;
-  height: 16px;
-  background: linear-gradient(180deg, #f9f9f9 0%, #f0f0f0 100%);
-  border: 1px solid #000000;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
 .remember-me {
   display: flex;
   gap: 20px;
+}
+
+#rememberMe {
+  cursor: pointer;
+  width: 16px;
 }
 
 .forgot-password {

@@ -8,12 +8,19 @@ if (msg) {
     document.getElementById('sign-up-msg').style = 'display: none';
 }
 
+/**
+ * This function load the Sign Up page
+ * 
+ */
 function loadSignUp() {
     let signUp = document.getElementById('login-page');
     signUp.innerHTML = '';
     signUp.innerHTML += signUpTemplate();
 }
-
+/**
+ * This function add a User and save it on the Backend
+ * 
+ */
 async function addUser() {
     let name = document.getElementById('name-signup');
     let email = document.getElementById('email-signup');
@@ -26,6 +33,28 @@ async function addUser() {
 function backToLogin() {
     window.location.href = 'index.html';
 }
+
+const rmCheck = document.getElementById("rememberMe"),
+    emailInput = document.getElementById("email-login");
+
+    if (localStorage.checkbox && localStorage.checkbox !== "") {
+        rmCheck.setAttribute("checked", "checked");
+        emailInput.value = localStorage.username;
+      } else {
+        rmCheck.removeAttribute("checked");
+        emailInput.value = "";
+      }
+
+function isRememberMe() {
+    if (rmCheck.checked && emailInput.value !== "") {
+      localStorage.username = emailInput.value;
+      localStorage.checkbox = rmCheck.value;
+    } else {
+      localStorage.username = "";
+      localStorage.checkbox = "";
+    }
+  }
+
 
 function signUpTemplate() {
     return /*html*/`
