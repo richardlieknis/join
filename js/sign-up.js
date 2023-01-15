@@ -4,7 +4,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const msg = urlParams.get('msg');
 if (msg) {
     document.getElementById('sign-up-msg').innerHTML = msg;
-} else{
+} else {
     document.getElementById('sign-up-msg').style = 'display: none';
 }
 
@@ -18,7 +18,7 @@ async function addUser() {
     let name = document.getElementById('name-signup');
     let email = document.getElementById('email-signup');
     let password = document.getElementById('password-signup');
-    users.push({name: name.value, email: email.value, password: password.value});
+    users.push({ name: name.value, email: email.value, password: password.value });
     await backend.setItem('users', JSON.stringify(users));
     window.location.href = 'index.html?msg=<b>You have successfully registered!</b>';
 }
