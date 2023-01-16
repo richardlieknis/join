@@ -7,6 +7,7 @@ setURL('https://gruppe-join-422.developerakademie.net/smallest_backend');
 async function loadUsers() {
     await downloadFromServer();
     users = JSON.parse(backend.getItem('users')) || [];
+    email = getEmailUrlParameters();
 }
 
 /**
