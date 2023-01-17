@@ -262,6 +262,10 @@ form {
   cursor: pointer;
 }
 
+.forgot-password h1 {
+  width: 626px;
+}
+
 @media screen {
   @media (max-width: 800px) {
 
@@ -307,6 +311,24 @@ form {
       width: 100%;
       display: flex;
       justify-content: center;
+    }
+
+    .forgot-password h1 {
+      font-size: 50px;
+    }
+  }
+
+  @media(max-width: 600px) {
+    .log-in {
+      justify-content: center;
+    }
+
+    .forgot-password h1 {
+      width: unset;
+    }
+
+    .border-bottom {
+      height: unset;
     }
   }
 }

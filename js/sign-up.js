@@ -31,7 +31,7 @@ async function addUser() {
 }
 
 function backToLogin() {
-    window.location.href = 'index.html';
+    window.location.href = '../index.html';
 }
 
 const rmCheck = document.getElementById("rememberMe"),
