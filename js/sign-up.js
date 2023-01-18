@@ -1,5 +1,8 @@
 setURL('https://gruppe-join-422.developerakademie.net/smallest_backend');
-
+/**
+ * This function is used for the message after successful registration
+ * 
+ */
 const urlParams = new URLSearchParams(window.location.search);
 const msg = urlParams.get('msg');
 if (msg) {
@@ -45,7 +48,10 @@ const rmCheck = document.getElementById("rememberMe"),
         rmCheck.removeAttribute("checked");
         emailInput.value = "";
       }
-
+/**
+ * This function is need for the remember me check box
+ * 
+ */
 function isRememberMe() {
     if (rmCheck.checked && emailInput.value !== "") {
       localStorage.username = emailInput.value;

@@ -1,10 +1,18 @@
+/**
+ * This function load the forgot password page
+ * 
+ */
 function forgotPassword() {
     document.getElementById('login-page').innerHTML = '';
     document.getElementById('login-page').style = 'width: 826px; height: 462px'
     document.getElementById('login-page').innerHTML += forgotPasswordTemplate();
     document.getElementById('sign-up').classList.add('d-none');
 }
-
+/**
+ * This function is used to send the mail with a password reset link to the user
+ * 
+ * 
+ */
 async function sendMail(event) {
     event.preventDefault();
     let formData = new FormData(event.target); // Create a FormData based on Form Element in HTML
@@ -16,7 +24,6 @@ async function sendMail(event) {
     }
     setTimeout(function(){location.href='../index.html'} , 3000);   
 }
-
 
 function action(formData) {
     const input = 'https://gruppe-join-422.developerakademie.net/join/send_mail.php';
@@ -30,7 +37,10 @@ function action(formData) {
         requestInit
     );
 }
-
+/**
+ * This function is need to reset your password
+ * 
+ */
 async function resetPassword() {
     let newPassword = document.getElementById('new-password');
     let confirmPassword = document.getElementById('confirm-password');
@@ -50,7 +60,10 @@ async function resetPassword() {
         }
     }
 }
-
+/**
+ * This function is need to get the URL parameter from the email link, to reset your password
+ * 
+ */
 function getEmailUrlParameters() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
