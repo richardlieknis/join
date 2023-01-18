@@ -28,6 +28,26 @@ function action(formData) {
     );
 }
 
+async function resetPassword() {
+    let newPassword = document.getElementById('new-password');
+    let confirmPassword = document.getElementById('confirm-password');
+    let email = getEmailUrlParameters();
+
+    let user = users.find(u => u.email === email);
+    if (user.email === email) {
+        if (newPassword.value === confirmPassword.value) {
+            user.password = newPassword.value;
+            await backend.setItem('users', JSON.stringify(users));
+            console.log('Password reset successful!');
+            window.location.href = '../index.html';
+        } else {
+            console.log('Passwords do not match');
+            newPassword.value = '';
+            confirmPassword.value = '';
+        }
+    }
+}
+
 function getEmailUrlParameters() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
