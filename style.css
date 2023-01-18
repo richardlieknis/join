@@ -206,7 +206,7 @@ form {
 .guest-btn {
   background-color: #ffffff;
   height: 51px;
-    width: 145px;
+  width: 145px;
   font-size: 21px;
   font-weight: 700;
 }
@@ -264,6 +264,18 @@ form {
 
 .forgot-password h1 {
   width: 626px;
+}
+
+.send-mail {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 @media screen {
@@ -329,6 +341,22 @@ form {
 
     .border-bottom {
       height: unset;
+    }
+
+    .send-mail img {
+      width: 400px;
+    }
+  }
+
+  @media(max-width: 450px) {
+    .send-mail img {
+      width: 300px;
+    }
+
+    .position-arrow {
+      left: 15px;
+      top: 15px;
+      width: 20px;
     }
   }
 }

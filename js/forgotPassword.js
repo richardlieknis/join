@@ -9,11 +9,13 @@ async function sendMail(event) {
     let formData = new FormData(event.target); // Create a FormData based on Form Element in HTML
     let response = await action(formData);
     if (response.ok) {
-        document.getElementById('login-page').innerHTML += /*html*/`<div>
+        document.getElementById('email-send').innerHTML += /*html*/`<div class="send-mail">
             <img src="../src/img/send-mail.svg">
         </div>`;
     }
+    setTimeout(function(){location.href='../index.html'} , 3000);   
 }
+
 
 function action(formData) {
     const input = 'https://gruppe-join-422.developerakademie.net/join/send_mail.php';
