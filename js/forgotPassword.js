@@ -2,6 +2,7 @@ function forgotPassword() {
     document.getElementById('login-page').innerHTML = '';
     document.getElementById('login-page').style = 'width: 826px; height: 462px'
     document.getElementById('login-page').innerHTML += forgotPasswordTemplate();
+    document.getElementById('sign-up').classList.add('d-none');
 }
 
 async function sendMail(event) {
