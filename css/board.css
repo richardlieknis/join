@@ -283,10 +283,6 @@ main .title-mobile {
   align-items: flex-start;
   gap: 25px;
   padding: 50px;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   font-size: 21px;
   width: 623px;
   height: 824px;
