@@ -22,7 +22,7 @@ async function sendMail(event) {
             <img src="../src/img/send-mail.svg">
         </div>`;
     }
-    setTimeout(function(){location.href='../index.html'} , 3000);   
+    setTimeout(function(){location.href='index.html'} , 3000);   
 }
 
 function action(formData) {
@@ -74,7 +74,7 @@ function getEmailUrlParameters() {
 function forgotPasswordTemplate() {
     return /*html*/`
     <div class="border-bottom display-center">
-        <img onclick="backToLogin()" class="position-arrow" src="../src/img/blueBackArrow.svg">
+        <img onclick="backToLogin()" class="position-arrow" src="src/img/blueBackArrow.svg">
         <div class="forgot-password">
             <h1>I forgot my password</h1>
         </div>

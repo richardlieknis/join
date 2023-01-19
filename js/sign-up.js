@@ -35,7 +35,7 @@ async function addUser() {
 }
 
 function backToLogin() {
-    window.location.href = '../index.html';
+    window.location.href = 'index.html';
 }
 
 const rmCheck = document.getElementById("rememberMe"),
@@ -66,7 +66,7 @@ function isRememberMe() {
 function signUpTemplate() {
     return /*html*/`
     <div class="border-bottom display-center">
-        <img onclick="backToLogin()" class="position-arrow" src="../src/img/blueBackArrow.svg">
+        <img onclick="backToLogin()" class="position-arrow" src="src/img/blueBackArrow.svg">
         <div>
             <h1>Sign up</h1>
         </div>
