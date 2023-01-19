@@ -288,6 +288,7 @@ main .title-mobile {
   width: 623px;
   height: 824px;
   max-height: 95%;
+  position: relative;
   background: #ffffff;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
@@ -297,7 +298,7 @@ main .title-mobile {
 .close-button {
   width: 30px;
   height: 30px;
-  position: fixed;
+  position: absolute;
   top: 40px;
   right: 40px;
   cursor: pointer;
@@ -315,7 +316,7 @@ main .title-mobile {
   width: 57px;
   height: 57px;
   outline: none;
-  position: fixed;
+  position: absolute;
   right: 40px;
   bottom: 40px;
 }
