@@ -72,30 +72,34 @@
         </div>
         <div class="overlay d-none" id="taskOverlayBg" onclick="closeTaskOverlay()">
             <div class="task-overlay" onclick="dontClose(event)">
-                <div class="close-button" onclick="closeTaskOverlay()">
-                    <img src="../src/img/close-icon.svg" />
+                <div class="task-overlay-buttons">
+                    <div class="close-button" onclick="closeTaskOverlay()">
+                        <img src="../src/img/close-icon.svg" />
+                    </div>
+                    <button class="edit-icon btn-primary">
+                        <img src="../src/img/edit-icon.svg" />
+                    </button>
                 </div>
-                <button class="edit-icon btn-primary">
-            <img src="../src/img/edit-icon.svg" />
-          </button>
-                <span class="label" id="label"></span>
-                <div class="title" id="title"></div>
-                <div class="description" id="description"></div>
-                <div class="due-date">
-                    <span class="title">Due date:</span>
-                    <span id="dueDate"></span>
-                </div>
-                <div class="subtasks" id="subtasksContainer">
-                    <span class="title">Subtasks:</span>
-                    <div class="content" id="subtasks"></div>
-                </div>
-                <div class="priority">
-                    <span class="title">Priority:</span>
-                    <div class="label urgent" id="priority"></div>
-                </div>
-                <div class="assigned-to" id="assignedToContainer">
-                    <div class="title">Assigned To:</div>
-                    <div class="assigned-persons-container" id="assignedPersonsContainer"></div>
+                <div class="task-overlay-content">
+                    <span class="label" id="label"></span>
+                    <div class="title" id="title"></div>
+                    <div class="description" id="description"></div>
+                    <div class="due-date">
+                        <span class="title">Due date:</span>
+                        <span id="dueDate"></span>
+                    </div>
+                    <div class="subtasks" id="subtasksContainer">
+                        <span class="title">Subtasks:</span>
+                        <div class="content" id="subtasks"></div>
+                    </div>
+                    <div class="priority">
+                        <span class="title">Priority:</span>
+                        <div class="label urgent" id="priority"></div>
+                    </div>
+                    <div class="assigned-to" id="assignedToContainer">
+                        <div class="title">Assigned To:</div>
+                        <div class="assigned-persons-container" id="assignedPersonsContainer"></div>
+                    </div>
                 </div>
             </div>
         </div>

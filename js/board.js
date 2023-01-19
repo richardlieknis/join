@@ -193,6 +193,12 @@ const dummyData = [
     subtasks: [
       { title: "subtask 1", done: true },
       { title: "subtask 2", done: true },
+      { title: "subtask 1", done: true },
+      { title: "subtask 2", done: true },
+      { title: "subtask 1", done: true },
+      { title: "subtask 2", done: true },
+      { title: "subtask 1", done: true },
+      { title: "subtask 2", done: true },
     ],
     assignedTo: [
       {
@@ -208,6 +214,20 @@ const dummyData = [
         phone: "+49934798347",
         color: "pink",
         initials: "SM",
+      },
+      {
+        name: "Anton Sommer",
+        email: "anton.so@gmx.net",
+        phone: "+4998747394",
+        color: "dark-blue",
+        initials: "AS",
+      },
+      {
+        name: "Denise Eibold",
+        email: "denise.e@gmail.com",
+        phone: "+494556657",
+        color: "red",
+        initials: "DE",
       },
     ],
     priority: "low",
