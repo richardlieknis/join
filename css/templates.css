@@ -94,6 +94,10 @@ nav>.join-logo-desktop {
     gap: 20px;
 }
 
+.legal-notice span {
+    font-size: 16px;
+}
+
 .nav-elements>li:hover,
 .nav-elements>li.active,
 .legal-notice:hover {

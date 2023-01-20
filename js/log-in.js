@@ -34,7 +34,11 @@ function saveLoggedUserLocal(user) {
     localStorage.setItem('loggedUser', loggedUser);
 }
 
-function guest() {
+async function guest() {
+    document.getElementById('email-login').value = 'guest@join-422.com';
+    document.getElementById('password-login').value = 'guest1234';
+    loggedUser = 'Guest';
+    localStorage.setItem('loggedUser', loggedUser);
     window.location.href = '../html/summary.html';
 }
 

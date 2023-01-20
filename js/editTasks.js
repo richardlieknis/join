@@ -12,6 +12,14 @@ function createTask() {
   clearTasksInputFields(titel, description, category, assignedTo, dueDate);
 }
 
+async function saveTasksToBackend() {
+  await backend.setItem('tasks', JSON.stringify(tasks));
+}
+
+async function loadTasksFromBackend() {
+  await downloadFromServer();
+  tasks = JSON.parse(backend.getItem('tasks')) || [];
+}
 
 function pushToTasksArray(titel, description, category, assignedTo, dueDate) {
   const task = {

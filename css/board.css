@@ -135,6 +135,7 @@ main .title-mobile {
 }
 
 .label {
+  font-size: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -278,25 +279,162 @@ main .title-mobile {
 /* task overlay */
 
 .task-overlay {
+  display: grid;
+  grid-template-columns: auto 0px;
+  grid-template-areas: "content buttons";
+  width: 623px;
+  height: 824px;
+  max-height: 95%;
+  position: relative;
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+}
+
+.task-overlay-content {
+  grid-area: content;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 25px;
   padding: 50px;
   font-size: 21px;
-  width: 623px;
-  height: 824px;
-  max-height: 95%;
-  background: #ffffff;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 30px;
   overflow: auto;
+}
+
+.task-overlay-content > div {
+  display: flex;
+  align-items: center;
+}
+
+.task-overlay-content > .label {
+  width: 142px;
+  min-height: 40px;
+  font-size: 27px;
+  font-weight: 400;
+}
+
+.task-overlay-content > .title {
+  color: #000000;
+  font-size: 61px;
+  font-weight: 700;
+}
+
+.task-overlay-content > .description {
+  font-size: 21px;
+}
+
+.task-overlay-content > div > .title {
+  font-weight: 700;
+  font-size: 21px;
+  margin-right: 25px;
+}
+
+.task-overlay-content .subtasks {
+  width: 100%;
+}
+
+.task-overlay-content .subtasks .content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 100px;
+  overflow: auto;
+}
+
+.task-overlay-content .subtask {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.task-overlay-content .subtasks input.subtask-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  color: red;
+}
+
+.task-overlay-content .subtasks input:checked + span {
+  text-decoration: line-through;
+}
+
+.task-overlay-content .priority {
+  display: flex;
+}
+
+.task-overlay-content .priority .label {
+  width: unset;
+  height: 33px;
+  font-size: 21px;
+  padding: 4px 18px;
+  display: flex;
+  gap: 12px;
+}
+
+.task-overlay-content .label.urgent {
+  background: #ff3d00;
+}
+
+.task-overlay-content .label.medium {
+  background: #ffa800;
+}
+
+.task-overlay-content .label.low {
+  background: #7ae229;
+}
+
+.task-overlay-content .label img {
+  width: 17px;
+  height: 12px;
+}
+
+.task-overlay-content .subtasks,
+.task-overlay-content .assigned-to {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.task-overlay-content .assigned-to {
+  gap: 25px;
+}
+
+.task-overlay-content .assigned-persons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
+}
+
+.task-overlay-content .assigned-person {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.task-overlay-content .assigned-persons-container .initials {
+  font-size: 16px;
+  color: #ffffff;
+  width: 45px;
+  height: 45px;
+  border: 1px solid #ffffff;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-overlay-buttons {
+  grid-area: buttons;
 }
 
 .close-button {
   width: 30px;
   height: 30px;
-  position: fixed;
+  position: absolute;
   top: 40px;
   right: 40px;
   cursor: pointer;
@@ -310,138 +448,13 @@ main .title-mobile {
   border: 2px solid #2a3647;
 }
 
-.task-overlay .edit-icon {
+.edit-icon {
   width: 57px;
   height: 57px;
   outline: none;
-  position: fixed;
+  position: absolute;
   right: 40px;
   bottom: 40px;
-}
-
-.task-overlay > div {
-  display: flex;
-  align-items: center;
-}
-
-.task-overlay > .label {
-  width: 142px;
-  min-height: 40px;
-  font-size: 27px;
-  font-weight: 400;
-}
-
-.task-overlay > .title {
-  color: #000000;
-  font-size: 61px;
-  font-weight: 700;
-}
-
-.task-overlay > .description {
-  font-size: 21px;
-}
-
-.task-overlay > div > .title {
-  font-weight: 700;
-  font-size: 21px;
-  margin-right: 25px;
-}
-
-.task-overlay .subtasks {
-  width: 100%;
-}
-
-.task-overlay .subtasks .content {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-height: 100px;
-  overflow: auto;
-}
-
-.task-overlay .subtask {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-}
-
-.task-overlay .subtasks input.subtask-checkbox {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  color: red;
-}
-
-.task-overlay .subtasks input:checked + span {
-  text-decoration: line-through;
-}
-
-.task-overlay .priority {
-  display: flex;
-}
-
-.task-overlay .priority .label {
-  width: unset;
-  height: 33px;
-  font-size: 21px;
-  padding: 4px 18px;
-  display: flex;
-  gap: 12px;
-}
-
-.task-overlay .label.urgent {
-  background: #ff3d00;
-}
-
-.task-overlay .label.medium {
-  background: #ffa800;
-}
-
-.task-overlay .label.low {
-  background: #7ae229;
-}
-
-.task-overlay .label img {
-  width: 17px;
-  height: 12px;
-}
-
-.task-overlay .subtasks,
-.task-overlay .assigned-to {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 15px;
-}
-
-.task-overlay .assigned-to {
-  gap: 25px;
-}
-
-.task-overlay .assigned-persons-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 25px;
-}
-
-.task-overlay .assigned-person {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-}
-
-.task-overlay .assigned-persons-container .initials {
-  font-size: 16px;
-  color: #ffffff;
-  width: 45px;
-  height: 45px;
-  border: 1px solid #ffffff;
-  border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /* queries */
@@ -518,7 +531,7 @@ main .title-mobile {
 }
 
 @media (max-width: 630px) {
-  .task-overlay {
+  .task-overlay-content {
     width: 100%;
     height: 100%;
     max-height: unset;
