@@ -28,17 +28,24 @@ function login() {
     }
     isRememberMe();
 }
-
+/**
+ *This function saved the logged User in the local storage
+ * 
+ * @param {*} user - this is the name from the logged user
+ */
 function saveLoggedUserLocal(user) {
     loggedUser = user.name;
     localStorage.setItem('loggedUser', loggedUser);
 }
-
+/**
+ * This function is used for the log-in as guest
+ * 
+ */
 async function guest() {
     document.getElementById('email-login').value = 'guest@join-422.com';
     document.getElementById('password-login').value = 'guest1234';
     loggedUser = 'Guest';
     localStorage.setItem('loggedUser', loggedUser);
-    window.location.href = '../html/summary.html';
+    window.location.href = 'html/summary.html';
 }
 

@@ -34,7 +34,10 @@ function checkLastPage() {
         mobileAnim.classList.remove('d-none');
     }
 }
-
+/**
+ * This function is used for greeting the User with his name
+ * 
+ */
 function greetingWithNameDesk() {
     document.getElementById('userNameDesk').innerHTML = localStorage.getItem('loggedUser');
 }

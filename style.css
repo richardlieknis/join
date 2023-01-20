@@ -290,6 +290,8 @@ form {
 
     .log-in-resp {
       width: 90%;
+      flex-direction: column;
+      gap: 12px;
     }
 
     .log-in {
@@ -317,16 +319,15 @@ form {
     }
 
     .sign-up-container {
-      top: unset;
-      right: unset;
-      bottom: 70px;
-      width: 100%;
-      display: flex;
-      justify-content: center;
+      display: none;
     }
 
     .forgot-password h1 {
       font-size: 50px;
+    }
+
+    .sign-up-container-resp {
+      display: flex !important;
     }
   }
 
@@ -357,6 +358,10 @@ form {
       left: 15px;
       top: 15px;
       width: 20px;
+    }
+
+    form {
+      gap: 10px;
     }
   }
 }
