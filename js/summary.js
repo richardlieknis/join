@@ -23,6 +23,8 @@ function showWelcomeMsg() {
     let timeMsg = setCurrentTimeMsg();
     timeMsgDesk.innerHTML = timeMsg;
     timeMsgMobile.innerHTML = timeMsg;
+    greetingWithNameDesk();
+    greetingWithNameMobile();
 }
 
 function checkLastPage() {
@@ -31,4 +33,12 @@ function checkLastPage() {
         let mobileAnim = document.getElementById("mobile-anim");
         mobileAnim.classList.remove('d-none');
     }
+}
+
+function greetingWithNameDesk() {
+    document.getElementById('userNameDesk').innerHTML = localStorage.getItem('loggedUser');
+}
+
+function greetingWithNameMobile() {
+    document.getElementById('userNameMobile').innerHTML = localStorage.getItem('loggedUser');
 }

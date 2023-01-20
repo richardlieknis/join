@@ -19,7 +19,7 @@ function login() {
     let password = document.getElementById('password-login');
     let user = users.find(u => u.email == email.value && u.password == password.value);
     if (user) {
-        console.log('User gefunden!');
+        saveLoggedUserLocal(user);
         window.location.href = '../html/summary.html';
     } else {
         document.getElementById('not-exist').innerHTML = /*html*/`<span style="color: red; font-size: 14px">This user does not exist</span>`;
@@ -27,6 +27,11 @@ function login() {
         password.value = '';
     }
     isRememberMe();
+}
+
+function saveLoggedUserLocal(user) {
+    loggedUser = user.name;
+    localStorage.setItem('loggedUser', loggedUser);
 }
 
 function guest() {

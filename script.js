@@ -3,6 +3,7 @@
 let users = [];
 let tasks = [];
 let contacts = [];
+let loggedUser;
 
 async function saveTasksToBackend() {
     await backend.setItem('tasks', JSON.stringify(tasks));
