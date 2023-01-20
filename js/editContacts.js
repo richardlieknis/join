@@ -14,6 +14,15 @@ function createContact() {
     clearContacsInputFields(name, email, tel);
     }
 
+    async function saveContactsToBackend() {
+        await backend.setItem('contacts', JSON.stringify(contacts));
+    }
+    
+    async function loadContactsFromBackend() {
+        await downloadFromServer();
+        contacts = JSON.parse(backend.getItem('contacts')) || [];
+    }
+
 function clearContacsInputFields(name, email, tel) {
     name.value = "";
     email.value = "";
@@ -60,3 +69,4 @@ function getInitials(name) {
     }
     return initials;
 }
+
