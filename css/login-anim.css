@@ -70,8 +70,8 @@
 @media (max-width: 800px) {
     .join-logo {
         position: absolute;
-        top: 30px;
-        left: 30px;
+        top: 15px;
+        left: 15px;
         width: 60px;
         height: auto;
     }
@@ -90,8 +90,8 @@
         }
         100% {
             width: 60px;
-            top: 30px;
-            left: 30px;
+            top: 15px;
+            left: 15px;
             height: auto;
         }
     }

@@ -364,4 +364,10 @@ form {
       gap: 10px;
     }
   }
+
+  @media(max-width: 400px) {
+    body {
+      align-items: flex-end !important;
+    }
+  }
 }
