@@ -40,15 +40,15 @@
                         <div class="left">
                             <div class="inputBlock">
                                 <span class="inputTitle">Title</span>
-                                <input type="text" placeholder="Enter a title" />
+                                <input id="task-input-title" type="text" placeholder="Enter a title" />
                             </div>
                             <div class="inputBlock">
                                 <span class="inputTitle">Description</span>
-                                <textarea placeholder="Enter a description"></textarea>
+                                <textarea id="task-input-description" placeholder="Enter a description"></textarea>
                             </div>
                             <div class="inputBlock">
                                 <span class="inputTitle">Category</span>
-                                <select id="taskCategorys">
+                                <select id="task-input-category">
                     <option value="new">New Category</option>
                     <option value="sales">Sales</option>
                     <option value="backoffice">Backoffice</option>
@@ -56,7 +56,7 @@
                             </div>
                             <div class="inputBlock">
                                 <span class="inputTitle">Assigned to</span>
-                                <select id="taskAssignments">
+                                <select id="task-input-assignedTo">
                     <option class="option" value="new">
                       You (Name of current User)
                     </option>
@@ -94,7 +94,7 @@
                                 <span class="inputTitle">Subtasks</span>
 
                                 <div class="addSubTask">
-                                    <input type="text" />
+                                    <input id="task-input-subtasks" type="text" />
                                     <div class="addSubTaskBtn">
                                         <img src="../src/img/plus.svg" alt="" />
                                     </div>
