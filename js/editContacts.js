@@ -1,10 +1,12 @@
 "use strict"
+setURL('https://gruppe-join-422.developerakademie.net/smallest_backend');
+
 const colors = ["#ff7a00", "#9327ff", "#29abe2", "#fc71ff", "#02cf2f", "#af1616", "#462f8a"]
 let currentColor = 0;
 let contactIdCounter = 0;
 
 async function createContact() {
-    
+    await loadContactsFromBackend()
     const name = document.getElementById('c-new-name');
     const email = document.getElementById('c-new-email');
     const tel = document.getElementById('c-new-tel');
@@ -13,17 +15,24 @@ async function createContact() {
 
     pushToContactsArray(name.value, email.value, tel.value, color, initials);
     clearContacsInputFields(name, email, tel);
-    // await saveContactsToBackend();
-    }
+    await saveContactsToBackend();
+}
 
-    async function saveContactsToBackend() {
-        await backend.setItem('contacts', JSON.stringify(contacts));
-    }
-    
-    async function loadContactsFromBackend() {
-        await downloadFromServer();
-        contacts = JSON.parse(backend.getItem('contacts')) || [];
-    }
+async function saveContactsToBackend() {
+    await backend.setItem('contacts', JSON.stringify(contacts));
+}
+
+async function loadContactsFromBackend() {
+    await downloadFromServer();
+    contacts = JSON.parse(backend.getItem('contacts')) || [];
+}
+
+async function setContactIdCounter() {
+    await downloadFromServer();
+    contactIdCounter = await backend.getItem('contactIdCounter');
+    contactIdCounter++;
+    await backend.setItem('contactIdCounter', contactIdCounter);
+}
 
 function clearContacsInputFields(name, email, tel) {
     name.value = "";

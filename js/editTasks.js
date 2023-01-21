@@ -1,7 +1,10 @@
+setURL('https://gruppe-join-422.developerakademie.net/smallest_backend');
+
 let taskIdCounter = 0;
 let subtasks = [];
 
-function createTask() {
+async function createTask() {
+  await loadTasksToBackend();
   const titel = document.getElementById("task-input-title");
   const description = document.getElementById("task-input-description");
   const category = document.getElementById("task-input-category");
