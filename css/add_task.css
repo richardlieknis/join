@@ -64,12 +64,6 @@ span {
   gap: 14px;
 }
 
-.img-date {
-  background-image: url(../src/img/date.svg);
-  background-repeat: no-repeat;
-  background-position: center right 15.5px;
-}
-
 .img-plus {
   background-image: url(../src/img/plus.svg);
   background-repeat: no-repeat;
