@@ -205,10 +205,13 @@ form {
 
 .guest-btn {
   background-color: #ffffff;
-  height: 51px;
-  width: 145px;
   font-size: 21px;
   font-weight: 700;
+}
+
+.login-btn-width {
+  height: 51px;
+  width: 145px;
 }
 
 .sign-up-container {
@@ -291,21 +294,16 @@ form {
     .log-in-resp {
       width: 90%;
       flex-direction: column;
-      gap: 12px;
+      gap: 35px;
     }
 
     .log-in {
       width: 90%;
     }
 
-    .remember-me {
-      justify-content: center;
-    }
-
     .forgot-password-container {
-      flex-direction: column;
+      flex-direction: column-reverse;
       width: 90%;
-      text-align: center;
     }
 
     .input-login {
@@ -323,7 +321,7 @@ form {
     }
 
     .forgot-password h1 {
-      font-size: 50px;
+      font-size: 40px;
     }
 
     .sign-up-container-resp {
@@ -337,7 +335,7 @@ form {
     }
 
     .forgot-password h1 {
-      width: unset;
+      width: 315px;
     }
 
     .border-bottom {
@@ -350,6 +348,10 @@ form {
   }
 
   @media(max-width: 450px) {
+    h1 {
+      font-size: 47px;
+    }
+
     .send-mail img {
       width: 300px;
     }
@@ -363,11 +365,25 @@ form {
     form {
       gap: 10px;
     }
+
+    .input-login {
+      height: 41px;
+    }
+
+    .btn-resp {
+      height: 51px;
+      width: 180px;
+      font-size: 16px;
+    }
   }
 
   @media(max-width: 400px) {
     body {
       align-items: flex-end !important;
+    }
+
+    .log-in-resp {
+      gap: 12px;
     }
   }
 }

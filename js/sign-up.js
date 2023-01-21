@@ -34,10 +34,6 @@ async function addUser() {
     window.location.href = 'index.html?msg=<b>You have successfully registered!</b>';
 }
 
-function backToLogin() {
-    window.location.href = 'index.html';
-}
-
 const rmCheck = document.getElementById("rememberMe"),
     emailInput = document.getElementById("email-login");
 
