@@ -3,7 +3,8 @@ const colors = ["#ff7a00", "#9327ff", "#29abe2", "#fc71ff", "#02cf2f", "#af1616"
 let currentColor = 0;
 let contactIdCounter = 0;
 
-function createContact() {
+async function createContact() {
+    
     const name = document.getElementById('c-new-name');
     const email = document.getElementById('c-new-email');
     const tel = document.getElementById('c-new-tel');
@@ -12,6 +13,7 @@ function createContact() {
 
     pushToContactsArray(name.value, email.value, tel.value, color, initials);
     clearContacsInputFields(name, email, tel);
+    // await saveContactsToBackend();
     }
 
     async function saveContactsToBackend() {
@@ -53,6 +55,12 @@ function getColor() {
     return color;
 }
 
+/**
+ * This function returns the first letter of the first word and the first letter of the last word of a string in upper case(e. g. initials of a name).
+ * 
+ * @param {string} name This is the (full) name of a person
+ * @returns 
+ */
 function getInitials(name) {
     const names = name.split(" ");
     const firstName = names[0];
@@ -62,10 +70,11 @@ function getInitials(name) {
     let secondLetter = lastName.charAt(0);
 
     if (firstName == lastName) {
-        initials = firstLetter;
+        initials = firstLetter.toUpperCase();
     }
     else {
         initials = firstLetter + secondLetter;
+        initials = initials.toUpperCase();
     }
     return initials;
 }

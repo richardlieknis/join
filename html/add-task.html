@@ -10,9 +10,11 @@
     <link rel="stylesheet" href="../css/add_task.css" />
     <link rel="stylesheet" href="../css/templates.css" />
     <link rel="stylesheet" href="../style.css" />
+
+    <script src="../mini_backend.js"></script>
 </head>
 
-<body onload="init()">
+<body onload="init(), renderAddTask()">
     <header w3-include-html="../templates/header.html"></header>
     <nav w3-include-html="../templates/navigation.html"></nav>
 
@@ -104,8 +106,10 @@
 
     <script src="../js/includeHTML.js"></script>
     <script src="../script.js"></script>
+    <script src="../js/addTasks.js"></script>
     <script src="../js/editTasks.js"></script>
     <script src="../js/activeTab.js"></script>
+   
 </body>
 
 </html>
