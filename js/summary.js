@@ -23,6 +23,8 @@ function showWelcomeMsg() {
     let timeMsg = setCurrentTimeMsg();
     timeMsgDesk.innerHTML = timeMsg;
     timeMsgMobile.innerHTML = timeMsg;
+    greetingWithNameDesk();
+    greetingWithNameMobile();
 }
 
 function checkLastPage() {
@@ -31,4 +33,15 @@ function checkLastPage() {
         let mobileAnim = document.getElementById("mobile-anim");
         mobileAnim.classList.remove('d-none');
     }
+}
+/**
+ * This function is used for greeting the User with his name
+ * 
+ */
+function greetingWithNameDesk() {
+    document.getElementById('userNameDesk').innerHTML = localStorage.getItem('loggedUser');
+}
+
+function greetingWithNameMobile() {
+    document.getElementById('userNameMobile').innerHTML = localStorage.getItem('loggedUser');
 }

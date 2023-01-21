@@ -19,7 +19,7 @@ function login() {
     let password = document.getElementById('password-login');
     let user = users.find(u => u.email == email.value && u.password == password.value);
     if (user) {
-        console.log('User gefunden!');
+        saveLoggedUserLocal(user);
         window.location.href = '../html/summary.html';
     } else {
         document.getElementById('not-exist').innerHTML = /*html*/`<span style="color: red; font-size: 14px">This user does not exist</span>`;
@@ -28,8 +28,24 @@ function login() {
     }
     isRememberMe();
 }
-
-function guest() {
-    window.location.href = '../html/summary.html';
+/**
+ *This function saved the logged User in the local storage
+ * 
+ * @param {*} user - this is the name from the logged user
+ */
+function saveLoggedUserLocal(user) {
+    loggedUser = user.name;
+    localStorage.setItem('loggedUser', loggedUser);
+}
+/**
+ * This function is used for the log-in as guest
+ * 
+ */
+async function guest() {
+    document.getElementById('email-login').value = 'guest@join-422.com';
+    document.getElementById('password-login').value = 'guest1234';
+    loggedUser = 'Guest';
+    localStorage.setItem('loggedUser', loggedUser);
+    window.location.href = 'html/summary.html';
 }
 
