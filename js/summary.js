@@ -1,10 +1,10 @@
 function initSummary() {
-    loadAmount();
+    setAmount();
     checkLastPage();
     showWelcomeMsg();
 }
 
-function loadAmount() {
+function setAmount() {
     document.getElementById('taskAmount').innerHTML = getTaskAmount();
     document.getElementById('urgentAmount').innerHTML = getUrgentAmount();;
     document.getElementById('progressAmount').innerHTML = getCategoryAmount("inProgress");
@@ -13,7 +13,12 @@ function loadAmount() {
     document.getElementById('doneAmount').innerHTML = getCategoryAmount("done");
 }
 
-function getTaskAmount(amountId) {
+
+/**
+ * Get and return the amount of all Tasks on Board
+ * @returns length of all Tasks
+ */
+function getTaskAmount() {
     let allTasks = [];
     dummyData.forEach((e) => {
         allTasks.push(e.category);
@@ -21,7 +26,11 @@ function getTaskAmount(amountId) {
     return allTasks.length;
 }
 
-function getUrgentAmount(amountId) {
+/**
+ * Get and return the amount of all urgent Tasks on Board
+ * @returns length of all Tasks
+ */
+function getUrgentAmount() {
     let allTasks = [];
     dummyData.forEach((e) => {
         if (e.priority === "urgent") {
@@ -31,6 +40,12 @@ function getUrgentAmount(amountId) {
     return allTasks.length;
 }
 
+
+/**
+ * Return the amount of specific Catagory on Board
+ * @param {string} category - name of catagory
+ * @returns - length of same catagory
+ */
 function getCategoryAmount(category) {
     let allTasks = [];
     dummyData.forEach((e) => {
@@ -40,7 +55,6 @@ function getCategoryAmount(category) {
     })
     return allTasks.length;
 }
-
 
 function getCurrentHour() {
     let currentHour = new Date().getHours();
@@ -66,6 +80,10 @@ function showWelcomeMsg() {
     greetingWithNameMobile();
 }
 
+/**
+ * Check if last Page URL ends with 'index.html'.
+ * If true remove display:none
+ */
 function checkLastPage() {
     let lastPageWasIndex = document.referrer.endsWith("index.html");
     if (lastPageWasIndex) {

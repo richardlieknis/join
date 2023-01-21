@@ -1,3 +1,7 @@
+main {
+    overflow: auto;
+}
+
 .main-container {
     margin: 60px 40px 0 40px;
 }

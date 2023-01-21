@@ -10,49 +10,6 @@
     width: 80vw !important;
 }
 
-@media (max-width: 1070px) {
-    .mobile-fullscreen {
-        position: absolute;
-        top: 0;
-        left: 0;
-        margin: unset;
-        width: 100vw !important;
-        height: 100vh !important;
-        border-radius: unset;
-    }
-    .closeBtn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 0 0 0 8px;
-        width: 30px;
-        height: 30px;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        z-index: 20;
-        color: #fff;
-        cursor: pointer;
-    }
-    .createBtn {
-        position: absolute !important;
-        bottom: 0 !important;
-        right: 0 !important;
-    }
-    .relative-btns {
-        position: absolute !important;
-        padding-right: 20px;
-    }
-}
-
-@media (min-width: 1070) {
-    .buttons {
-        position: relative;
-        bottom: 0;
-        right: 0;
-    }
-}
-
 .modules .input-container {
     width: 100%;
 }
@@ -93,5 +50,48 @@
     }
     100% {
         transform: translateX(3000px);
+    }
+}
+
+@media (max-width: 1070px) {
+    .mobile-fullscreen {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: unset;
+        width: 100vw !important;
+        height: 100vh !important;
+        border-radius: unset;
+    }
+    .closeBtn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0 0 0 8px;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 20;
+        color: #fff;
+        cursor: pointer;
+    }
+    .createBtn {
+        position: absolute !important;
+        bottom: 0 !important;
+        right: 0 !important;
+    }
+    .relative-btns {
+        position: absolute !important;
+        padding-right: 20px;
+    }
+}
+
+@media (min-width: 1070) {
+    .buttons {
+        position: relative;
+        bottom: 0;
+        right: 0;
     }
 }
