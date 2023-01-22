@@ -72,7 +72,7 @@ span {
 
 .prio-btn {
   border: none;
-  width: 136px;
+  width: 137px;
   height: 51px;
   background-color: #ffffff;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
@@ -187,7 +187,8 @@ span {
     .add-title-container textarea,
     .flex-column,
     .add-title-container select,
-    .subtasks-container {
+    .subtasks-container,
+    .form-width {
       width: 100%;
     }
 

@@ -200,6 +200,9 @@ form {
   align-items: center;
   flex-direction: column;
   gap: 29px;
+}
+
+.form-login-width {
   width: 90%;
 }
 
@@ -374,16 +377,6 @@ form {
       height: 51px;
       width: 180px;
       font-size: 16px;
-    }
-  }
-
-  @media(max-width: 400px) {
-    body {
-      align-items: flex-end !important;
-    }
-
-    .log-in-resp {
-      gap: 12px;
     }
   }
 }

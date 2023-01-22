@@ -81,7 +81,7 @@ function forgotPasswordTemplate() {
         <span style="text-align: center">
             <b>Don't worry! We will send you an email with the instructions to <br>reset your password.</b>
         </span>
-        <form onsubmit="sendMail(event)">
+        <form class="form-login-width" onsubmit="sendMail(event)">
             <input id="forgot-password" required class="input-login background-image-email" placeholder="Email" name="email" type="email" src="src/img/email.svg">
         <div class="continue-btn-container">
             <button id="mail-btn" type="submit" value="Submit" style="width: 264px; height: 51px" class="btn-primary">Send me the email</button>
