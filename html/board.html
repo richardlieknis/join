@@ -82,12 +82,16 @@
                     </button>
                 </div>
 
-                <div id="taskOverlayContent">
+                <div>
 
-                    <div class="task-overlay-edit-content d-none">
+                    <div class="task-overlay-edit-content d-none" id="taskOverlayEditContent">
                         <div class="task-overlay-edit-category">
                             <span>Category</span>
-                            <div class="category-select-button input">Select category</div>
+                            <div class="category-select-button input">
+                                <span id="currentCategory">Design</span>
+                                <img src="../src/img/dropDownArrow.svg">
+                            </div>
+                            <!-- TODO render categories function -->
                             <div class="categories d-none">
                                 <div id="category-0">Design</div>
                                 <div id="category-1">Marketing</div>
@@ -96,15 +100,15 @@
                         </div>
                         <div class="task-overlay-edit-title">
                             <span>Title</span>
-                            <input class="input" type="text" id="taskOverlayEditTitle">
+                            <input class="input" type="text" id="currentTitle">
                         </div>
                         <div class="task-overlay-edit-description">
                             <span>Description</span>
-                            <textarea class="input" name="task-overlay-edit-desciption" id="task-overlay-edit-desciption" cols="47" rows="3"></textarea>
+                            <textarea class="input" name="task-overlay-edit-desciption" id="currentDescription" cols="47" rows="3"></textarea>
                         </div>
                         <div class="task-overlay-edit-dueDate">
                             <span>Due date</span>
-                            <input class="input" type="date" value="2023-01-22">
+                            <input class="input" type="date" id="currentDueDate">
                         </div>
                         <div class="task-overlay-edit-priority">
                             <span>Priority</span>
@@ -125,17 +129,22 @@
                         </div>
                         <div class="task-overlay-edit-assignedTo">
                             <span>Assigned to</span>
-                            <div class="assignedTo-select-button input">Select contacts to assign</div>
-                            <div class="assignedTo-persons d-none">
+                            <div class="assignedTo-select-button input">
+                                <span>Select contacts to assign</span>
+                                <img src="../src/img/dropDownArrow.svg">
+                            </div>
+                            <div class="contacts d-none">
                                 <div id="assignedTo-0">Sandra Müller</div>
                                 <div id="assignedTo-1">Manuel Vogel</div>
                                 <div id="assignedTo-2">Anton Sommer</div>
+                            </div>
+                            <div class="assigned-contacts" id="assignedContacts">
                             </div>
                         </div>
                     </div>
 
 
-                    <div class="task-overlay-content">
+                    <div class="task-overlay-content" id="taskOverlayContent">
                         <span class="label" id="label"></span>
                         <div class="title" id="title"></div>
                         <div class="description" id="description"></div>

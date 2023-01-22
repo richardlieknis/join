@@ -212,7 +212,8 @@ main .title-mobile {
   display: flex;
 }
 
-.task-card .assigned-to > .initials {
+.task-card .assigned-to > .initials,
+.task-overlay-edit-content > .task-overlay-edit-assignedTo > .assigned-contacts > .initials {
   font-size: 12px;
   color: #ffffff;
   width: 35px;
@@ -458,17 +459,28 @@ main .title-mobile {
   bottom: 40px;
 }
 
+.edit-icon.save-button {
+  width: unset;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 /* task-overlay edit */
 
 .task-overlay-edit-content {
   flex-direction: column;
-  padding: 0 50px;
+  padding: 50px 100px;
   width: 100%;
   gap: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .task-overlay-edit-content > div {
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .task-overlay-edit-content > div > span {
@@ -486,11 +498,13 @@ main .title-mobile {
 .task-overlay-edit-content > .task-overlay-edit-category > .category-select-button,
 .task-overlay-edit-content > .task-overlay-edit-assignedTo > .assignedTo-select-button {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   height: 41px;
   padding: 10px 20px;
   font-size: 16px;
   font-family: 'Inter', sans-serif;
+  text-transform: capitalize;
 }
 
 .task-overlay-edit-content > div > input,
@@ -545,6 +559,14 @@ main .title-mobile {
   background: #7ae229;
 }
 
+.task-overlay-edit-content > .task-overlay-edit-assignedTo > .assigned-contacts {
+  display: flex;
+  margin-top: 10px;
+}
+
+.task-overlay-edit-content > .task-overlay-edit-assignedTo > .assigned-contacts > .initials:not(:first-child) {
+  margin-left: -5px;
+}
 
 /* queries */
 
