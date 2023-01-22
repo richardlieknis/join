@@ -152,8 +152,23 @@ span {
       padding: unset;
     }
 
+    .title-desktop {
+      display: none;
+    }
+
+    .profile, .help {
+      display: none;
+    }
+
     .hide {
       display: block;
+    }
+
+    .create-btn {
+      position: absolute;
+      top: 20px;
+      z-index: 999;
+      right: 25px;
     }
 
     .create-resp {
@@ -205,6 +220,11 @@ span {
   @media (max-width: 800px) {
     main {
       overflow-y: auto !important;
+    }
+
+    .create-btn {
+      right: 25px;
+      top: 35px;
     }
   }
 
