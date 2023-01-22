@@ -380,16 +380,8 @@ form {
       gap: 10px;
     }
 
-    .sign-up-container {
-      display: none;
-    }
-
     .forgot-password h1 {
       font-size: 40px;
-    }
-
-    .sign-up-container-resp {
-      display: flex !important;
     }
   }
 
