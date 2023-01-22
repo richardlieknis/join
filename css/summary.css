@@ -286,4 +286,7 @@
     .task-box .line {
         height: 80px !important;
     }
+    body {
+        align-items: unset !important;
+    }
 }

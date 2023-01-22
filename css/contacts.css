@@ -297,9 +297,9 @@ a {
 }
 
 .btn-new-mobile {
-  position: absolute;
-  top: 17px;
-  right: 10px;
+  position: fixed;
+  top: 95px;
+  right: 25px;
   padding: 14px 10px 14px 10px;
   display: flex;
   gap: 10px;
@@ -329,5 +329,9 @@ a {
 
   .c-contact-overview-2 {
     width: 338px;
+  }
+
+  .btn-new-contact {
+    display: none;
   }
 }
