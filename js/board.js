@@ -373,6 +373,7 @@ function openTaskOverlay(taskId) {
   renderSubtasksContainer(taskId);
   renderPriority(taskId);
   renderAssignedToContainer(taskId);
+  renderTaskOverlayButtons(taskId);
 
   taskOverlayBg.classList.remove("d-none");
 }
@@ -474,4 +475,20 @@ function generateAssignedPersonsHtml(assignedPersonArray, assignedPersonId) {
         <span class="full-name">${assignedPersonArray[assignedPersonId].name}</span>
       </div>
     `;
+}
+
+function renderTaskOverlayButtons(taskId) {
+  const taskOverlayButtonsContainer = document.querySelector("#taskOverlayButtons");
+  taskOverlayButtonsContainer.innerHTML = generateTaskOverlayButtonsHtml(taskId);
+}
+
+function generateTaskOverlayButtonsHtml(taskId) {
+  return `
+      <div class="close-button" onclick="closeTaskOverlay()">
+        <img src="../src/img/close-icon.svg" />
+      </div>
+      <button class="edit-icon btn-primary" onclick="renderEditTask(${taskId})">
+        <img src="../src/img/edit-icon.svg" />
+      </button>
+  `;
 }
