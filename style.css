@@ -196,7 +196,6 @@ h1 {
 }
 
 form {
-<<<<<<< HEAD
   display: flex;
   justify-content: center;
   align-items: center;
@@ -206,14 +205,6 @@ form {
 
 .form-login-width {
   width: 90%;
-=======
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 29px;
-    width: 90%;
->>>>>>> 0a50f10bb007c0b0eb2d743b35f855ad5aee7ebe
 }
 
 .guest-btn {
