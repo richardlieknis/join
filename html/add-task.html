@@ -17,80 +17,6 @@
 <body onload="init(), renderAddTask()">
     <header w3-include-html="../templates/header.html"></header>
     <nav w3-include-html="../templates/navigation.html"></nav>
-<<<<<<< HEAD
-
-    <main>
-        <button class="create-btn hide" style="height: 51px; width: 145px" class="btn-primary">
-            Create <img src="../src/img/hook.svg" />
-          </button>
-        <div>
-            <div class="add-task-container">
-                <div class="add-title-container">
-                    <span style="margin-top: 20px;" class="hide">Kanban Project Management Tool</span>
-                    <div class="create-resp">
-                        <h1>Add Task</h1>
-                    </div>
-                    <div class="add-title flex-column gap-8px">
-                        <span>Title</span>
-                        <form class="form-width">
-                            <input id="task-input-title" class="add-task-input input" placeholder="Enter a title" />
-                        </form>
-                    </div>
-                    <div class="flex-column gap-8px">
-                        <span>Description</span>
-                        <form class="form-width">
-                            <textarea id="task-input-description" class="input" placeholder="Enter a Description"></textarea>
-                        </form>
-                    </div>
-                    <div class="flex-column gap-8px">
-                        <span>Category</span>
-                        <select id="task-input-category" class="select-resp" name="Select task category">
-                <option value="" disabled selected hidden>
-                  Select task category
-                </option>
-                <option>New category</option>
-                <option>Sales</option>
-                <option>Backoffice</option>
-              </select>
-                    </div>
-                    <div class="flex-column gap-8px">
-                        <span>Assigned to</span>
-                        <select id="task-input-assignedTo" class="select-resp" name="Select contacts to assign">
-                <option value="" disabled selected hidden>
-                  Select contacts to assign
-                </option>
-              </select>
-                    </div>
-                </div>
-                <div class="line"></div>
-                <div class="display-center">
-                    <div class="subtasks-container">
-                        <div class="flex-column gap-8px">
-                            <span>Due date</span>
-                            <form class="form-width">
-                                <input id="task-input-dueDate" class="add-task-input input" type="date" placeholder="dd/mm/yyyy" />
-                            </form>
-                        </div>
-                        <div class="flex-column gap-8px">
-                            <span>Prio</span>
-                            <div class="prio-btn-resp">
-                                <button class="prio-btn">
-                    Urgent <img src="../src/img/urgent.svg" />
-                  </button>
-                                <button class="prio-btn">
-                    Medium <img src="../src/img/medium.svg" />
-                  </button>
-                                <button class="prio-btn">
-                    Low <img src="../src/img/low.svg" />
-                  </button>
-                            </div>
-                        </div>
-                        <div class="flex-column gap-8px">
-                            <span>Subtasks</span>
-                            <form class="form-width">
-                                <input id="task-input-subtasks" class="add-task-input img-plus input" placeholder="Add new subtask" />
-                            </form>
-=======
     <div id="addTaskModul" class="add-task-container modules">
         <main>
             <div class="main-container">
@@ -196,7 +122,6 @@
                                     </div>
                                 </div>
                             </div>
->>>>>>> 0a50f10bb007c0b0eb2d743b35f855ad5aee7ebe
                         </div>
                     </div>
                 </form>
