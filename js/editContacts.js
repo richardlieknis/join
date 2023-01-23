@@ -1,8 +1,7 @@
 "use strict"
 setURL('https://gruppe-join-422.developerakademie.net/smallest_backend');
 
-const colors = ["#ff7a00", "#9327ff", "#29abe2", "#fc71ff", "#02cf2f", "#af1616", "#462f8a"]
-let currentColor = 0;
+let currentColor = 1;
 let contactIdCounter = 0;
 
 async function createContact() {
@@ -10,9 +9,10 @@ async function createContact() {
     const name = document.getElementById('c-new-name');
     const email = document.getElementById('c-new-email');
     const tel = document.getElementById('c-new-tel');
-    const color = getColor();
+    const color = await getColor();
     const initials = getInitials(name.value);
 
+    await setContactIdCounter();
     pushToContactsArray(name.value, email.value, tel.value, color, initials);
     clearContacsInputFields(name, email, tel);
     await saveContactsToBackend();
@@ -53,15 +53,21 @@ function pushToContactsArray(name, email, tel, color, initials) {
     contactIdCounter++;
 }
 
-function getColor() {
-    let color = colors[currentColor];
-    if (currentColor < colors.length - 1) {
+async function resetCurrentColor() {
+
+}
+
+async function getColor() {
+    await downloadFromServer();
+    currentColor = await backend.getItem('currentColor');
+    if (currentColor < 7) {
         currentColor++
     }
     else {
-        currentColor = 0;
+        currentColor = 1;
     }
-    return color;
+    await backend.setItem('currentColor', currentColor);
+    return currentColor;
 }
 
 /**
