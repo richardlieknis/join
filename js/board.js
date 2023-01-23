@@ -373,15 +373,15 @@ function addPlaceholder() {
 }
 
 function openTaskOverlay(taskId) {
-  renderCategory(taskId);
-  renderContentOnly(taskId, "title");
-  renderContentOnly(taskId, "description");
-  renderContentOnly(taskId, "dueDate");
-  renderSubtasksContainer(taskId);
-  renderPriority(taskId);
-  renderAssignedToContainer(taskId);
-  renderTaskOverlayButtons(taskId);
-  console.log(taskOverlayContentContainer);
+  const taskIndex = getIndexOfArray(tasks, taskId)
+  renderCategory(taskIndex);
+  renderContentOnly(taskIndex, "title");
+  renderContentOnly(taskIndex, "description");
+  renderContentOnly(taskIndex, "dueDate");
+  renderSubtasksContainer(taskIndex);
+  renderPriority(taskIndex);
+  renderAssignedToContainer(taskIndex);
+  renderTaskOverlayButtons(taskIndex);
   taskOverlayContentContainer.classList.remove('d-none');
   taskOverlayEditContentContainer.classList.add('d-none');
   taskOverlayBg.classList.remove("d-none");
@@ -395,35 +395,35 @@ function closeTaskOverlay() {
 
 render();
 
-function renderCategory(taskId) {
+function renderCategory(taskIndex) {
   const labelContainer = document.querySelector("#label");
   labelContainer.className = "";
   labelContainer.classList.add("label");
-  labelContainer.classList.add(tasks[taskId].label);
-  labelContainer.innerHTML = tasks[taskId].label;
+  labelContainer.classList.add(tasks[taskIndex].label);
+  labelContainer.innerHTML = tasks[taskIndex].label;
 }
 
-function renderContentOnly(taskId, containerId) {
+function renderContentOnly(taskIndex, containerId) {
   const container = document.querySelector(`#${containerId}`);
   container.innerHTML = "";
-  container.innerHTML = tasks[taskId][containerId];
+  container.innerHTML = tasks[taskIndex][containerId];
 }
 
-function renderSubtasksContainer(taskId) {
+function renderSubtasksContainer(taskIndex) {
   const subtaskContainer = document.querySelector("#subtasksContainer");
   const subtaskElementsContainer = document.querySelector("#subtasks");
   subtaskElementsContainer.innerHTML = "";
-  if (tasks[taskId].subtasks.length) {
-    subtaskElementsContainer.innerHTML = renderAllSubtasks(taskId);
+  if (tasks[taskIndex].subtasks.length) {
+    subtaskElementsContainer.innerHTML = renderAllSubtasks(taskIndex);
     subtaskContainer.className = "subtasks";
   } else {
     subtaskContainer.className = "subtasks d-none";
   }
 }
 
-function renderAllSubtasks(taskId) {
+function renderAllSubtasks(taskIndex) {
   let subtasksHtml = "";
-  const subtasksArray = [...tasks[taskId].subtasks];
+  const subtasksArray = [...tasks[taskIndex].subtasks];
   for (let i = 0; i < subtasksArray.length; i++) {
     subtasksHtml += generateSubtaskHtml(subtasksArray, i);
   }
