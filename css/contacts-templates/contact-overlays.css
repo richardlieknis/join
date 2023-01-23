@@ -113,6 +113,14 @@
 
 @media screen {
     @media(max-width: 800px) {
+        .c-new-headline {
+            font-size: 47px;
+        }
+
+        .c-new-subtible {
+            font-size: 23px;
+        }
+
         .c-new-card {
             flex-direction: column;
             height: 100%;
