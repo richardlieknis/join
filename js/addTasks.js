@@ -120,7 +120,9 @@ function deleteSubtaskInput() {
 
 function addSubtaskInput() {
     let subtaskInput = document.getElementById("task-input-subtasks");
-    if (subtaskInput.value === "") return;
+    let errSubtask = document.querySelector(".errorSubtask");
+    if (subtaskInput.value === "") { errSubtask.classList.remove("d-none"); return; }
+    errSubtask.classList.add("d-none");
     subtasks.push(subtaskInput.value);
     getSubtasks();
     deleteSubtaskInput();

@@ -117,6 +117,34 @@ textarea {
     cursor: pointer;
 }
 
+.errorSubtask {
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    transform: translateX(-50%);
+    background-color: #2A3647;
+    padding: 20px;
+    border-radius: 12px;
+    opacity: 0;
+    color: #fff;
+    animation: pop-up 2s normal;
+}
+
+@keyframes pop-up {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 .prioBtns {
     display: flex;
     justify-content: space-between;
