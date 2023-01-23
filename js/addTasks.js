@@ -1,10 +1,7 @@
 "use strict"
 let database;
 
-initTasks();
-
-
-function initTasks() {
+function setDateOfToday() {
     let today = new Date();
 
     let dd = today.getDate();
@@ -29,6 +26,7 @@ function initTasks() {
 function renderAddTask() {
     getContactsToAssign();
     getSubtasks();
+    setDateOfToday();
 }
 
 async function getContactsToAssign() {
@@ -39,7 +37,73 @@ async function getContactsToAssign() {
     });
 }
 
+function choosePriority(prio) {
+    let prioBtns = document.getElementById("prioBtns");
+    let urgent = document.getElementById("urgentBtn");
+    let medium = document.getElementById("mediumBtn");
+    let low = document.getElementById("lowBtn");
 
+    switch (prio) {
+        case "urgent":
+            urgent.style.backgroundColor = "#f83525";
+            medium.style.backgroundColor = "#fff";
+            low.style.backgroundColor = "#fff";
+            urgent.innerHTML = renderPrioBtnClicked("urgent");
+            medium.innerHTML = renderPrioBtnUnclicked("medium");
+            low.innerHTML = renderPrioBtnUnclicked("low");
+            break;
+        case "medium":
+            medium.style.backgroundColor = "#ff7a00";
+            urgent.style.backgroundColor = "#fff";
+            low.style.backgroundColor = "#fff";
+            medium.innerHTML = renderPrioBtnClicked("medium");
+            urgent.innerHTML = renderPrioBtnUnclicked("urgent");
+            low.innerHTML = renderPrioBtnUnclicked("low");
+            break;
+        case "low":
+            low.style.backgroundColor = "#02cf2f";
+            medium.style.backgroundColor = "#fff";
+            urgent.style.backgroundColor = "#fff";
+            low.innerHTML = renderPrioBtnClicked("low");
+            medium.innerHTML = renderPrioBtnUnclicked("medium");
+            urgent.innerHTML = renderPrioBtnUnclicked("urgent");
+            break;
+
+        default:
+            break;
+    }
+}
+
+function renderPrioBtnClicked(prio) {
+    return `
+    <span>${prio.charAt(0).toUpperCase() + prio.slice(1)}</span>
+    <img src="../src/img/${prio}-white.svg" width="18px"/>
+    `;
+}
+
+function renderPrioBtnUnclicked(prio) {
+    return `
+    <span>${prio.charAt(0).toUpperCase() + prio.slice(1)}</span>
+    <img src="../src/img/${prio}.svg" width="18px"/>
+    `;
+}
+
+function renderPrioBtns() {
+    return `
+    <div onclick="choosePriority('urgent')" id="urgentBtn" class="prioBtn">
+                                        <span>Urgent</span>
+                                        <img src="../src/img/urgent.svg" />
+                                    </div>
+                                    <div onclick="choosePriority('medium')" id="mediumBtn" class="prioBtn">
+                                        <span>Medium</span>
+                                        <img src="../src/img/medium.svg" />
+                                    </div>
+                                    <div onclick="choosePriority('low')" id="lowBtn" class="prioBtn">
+                                        <span>Low</span>
+                                        <img src="../src/img/low.svg" />
+                                    </div>
+    `;
+}
 
 function addNewSubtask() {
     let subtaskBtn = document.getElementById("addSubTaskBtn");

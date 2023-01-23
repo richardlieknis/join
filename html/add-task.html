@@ -71,16 +71,16 @@
                             </div>
                             <div class="inputBlock">
                                 <span class="inputTitle">Prio</span>
-                                <div class="prioBtns">
-                                    <div id="urgentBtn" class="prioBtn">
+                                <div id="prioBtns" class="prioBtns">
+                                    <div onclick="choosePriority('urgent')" id="urgentBtn" class="prioBtn">
                                         <span>Urgent</span>
                                         <img src="../src/img/urgent.svg" />
                                     </div>
-                                    <div id="mediumBtn" class="prioBtn">
+                                    <div onclick="choosePriority('medium')" id="mediumBtn" class="prioBtn">
                                         <span>Medium</span>
                                         <img src="../src/img/medium.svg" />
                                     </div>
-                                    <div id="lowBtn" class="prioBtn">
+                                    <div onclick="choosePriority('low')" id="lowBtn" class="prioBtn">
                                         <span>Low</span>
                                         <img src="../src/img/low.svg" />
                                     </div>
