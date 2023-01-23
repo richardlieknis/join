@@ -1,4 +1,5 @@
 function openAddTask() {
+    renderAddTask();
     let addTaskOverlay = document.getElementById("addTaskOverlay");
     let taskModul = document.getElementById('addTaskModul');
     taskModul.classList.add("slideIn");
@@ -36,15 +37,13 @@ async function fillEditContactField(contactId) {
 
     if (contacts[index].email) {
         document.getElementById('c-new-email').value = contacts[index].email;
-    }
-    else {
+    } else {
         document.getElementById('c-new-email').value = "";
     }
 
     if (contacts[index].tel) {
         document.getElementById('c-new-tel').value = contacts[index].tel;
-    }
-    else {
+    } else {
         document.getElementById('c-new-tel').value = "";
 
     }

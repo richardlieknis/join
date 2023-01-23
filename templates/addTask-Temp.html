@@ -26,7 +26,7 @@
                     <div class="left">
                         <div class="inputBlock">
                             <span class="inputTitle">Title</span>
-                            <input id="task-input-title" type="text" placeholder="Enter a title" />
+                            <input required id="task-input-title" type="text" placeholder="Enter a title" />
                         </div>
                         <div class="inputBlock">
                             <span class="inputTitle">Description</span>
@@ -34,7 +34,7 @@
                         </div>
                         <div class="inputBlock">
                             <span class="inputTitle">Category</span>
-                            <select id="task-input-category">
+                            <select required id="task-input-category">
                   <option value="new">New Category</option>
                   <option value="sales">Sales</option>
                   <option value="backoffice">Backoffice</option>
@@ -42,13 +42,9 @@
                         </div>
                         <div class="inputBlock">
                             <span class="inputTitle">Assigned to</span>
-                            <select id="task-input-assignedTo">
+                            <select required id="task-input-assignedTo">
                   <option class="option" value="new">
                     You (Name of current User)
-                  </option>
-                  <option class="option" value="sales">Max Musti</option>
-                  <option class="option" value="backoffice">
-                    Invite new contact
                   </option>
                 </select>
                         </div>
@@ -57,20 +53,20 @@
                     <div class="right">
                         <div class="inputBlock">
                             <span class="inputTitle">Due date</span>
-                            <input type="date" id="task-input-dueDate" />
+                            <input required type="date" id="task-input-dueDate" />
                         </div>
                         <div class="inputBlock">
                             <span class="inputTitle">Prio</span>
-                            <div class="prioBtns">
-                                <div id="urgentBtn" class="prioBtn">
+                            <div id="prioBtns" class="prioBtns">
+                                <div onclick="choosePriority('urgent')" id="urgentBtn" class="prioBtn">
                                     <span>Urgent</span>
                                     <img src="../src/img/urgent.svg" />
                                 </div>
-                                <div id="mediumBtn" class="prioBtn">
+                                <div onclick="choosePriority('medium')" id="mediumBtn" class="prioBtn">
                                     <span>Medium</span>
                                     <img src="../src/img/medium.svg" />
                                 </div>
-                                <div id="lowBtn" class="prioBtn">
+                                <div onclick="choosePriority('low')" id="lowBtn" class="prioBtn">
                                     <span>Low</span>
                                     <img src="../src/img/low.svg" />
                                 </div>
@@ -81,31 +77,14 @@
 
                             <div class="addSubTask">
                                 <input id="task-input-subtasks" type="text" />
-                                <div onclick="addNewSubtask()" class="addSubTaskBtn">
-                                    <img src="../src/img/plus.svg" alt="" />
+                                <div id="addSubTaskBtn" class="addSubTaskBtn">
+                                    <div class="addDeleteBtns">
+                                        <img onclick="addNewSubtask()" src="../src/img/plus.svg" alt="" />
+                                    </div>
                                 </div>
                             </div>
                             <div id="task-checkbox-subtasks">
-                                <div id="subtask0" class="subtask">
-                                    <input type="checkbox" />
-                                    <span>Subtask</span>
-                                </div>
-                                <div id="subtask0" class="subtask">
-                                    <input type="checkbox" />
-                                    <span>Subtask</span>
-                                </div>
-                                <div id="subtask0" class="subtask">
-                                    <input type="checkbox" />
-                                    <span>Subtask</span>
-                                </div>
-                                <div id="subtask0" class="subtask">
-                                    <input type="checkbox" />
-                                    <span>Subtask</span>
-                                </div>
-                                <div id="subtask0" class="subtask">
-                                    <input type="checkbox" />
-                                    <span>Subtask</span>
-                                </div>
+                                <!-- RENDER IN JS -->
                             </div>
                         </div>
                     </div>
