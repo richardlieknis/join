@@ -217,7 +217,8 @@
             <div id="addContactModul" onclick="dontClose(event)" class="c-new-card modules">
 
                 <div class="c-new-c-left">
-                    <img src="../src/img/join-logo-white.svg" alt="">
+                    <img onclick="closeAddContact()" class="close-white" src="../src/img/close-white.svg">
+                    <img class="c-img-resp" src="../src/img/join-logo-white.svg" alt="">
                     <p class="c-new-headline">Add contact</p>
                     <p class="c-new-subtible">Tasks are better with a team</p>
                     <div class="c-new-line"></div>
@@ -244,7 +245,7 @@
                                 <img src="../src/img/input-field-tel.svg" alt="">
                             </div>
 
-                            <div>
+                            <div class="c-btn-resp">
                                 <button class="c-new-btn-1 btn-secondary gap-18">Cancel<img src="../src/img/x.svg" /></button>
                                 <button type="submit" class="c-new-btn-2 btn-primary">
                   Create contact<img src="../src/img/hook.svg" />

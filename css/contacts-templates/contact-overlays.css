@@ -59,9 +59,9 @@
 }
 
 .c-new-close {
-  position: absolute;
-  top: 0;
-  right: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .c-new-input-div {
@@ -105,4 +105,82 @@
 
 .c-new-btn-2 img {
     margin-left: 14px;
+}
+
+.close-white {
+    display: none;
+}
+
+@media screen {
+    @media(max-width: 800px) {
+        .c-new-card {
+            flex-direction: column;
+            height: 100%;
+            overflow-x: hidden;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .c-new-c-left {
+            height: 50%;
+            width: 100%;
+        }
+
+        .c-img-resp {
+            display: none;
+        }
+
+        .c-new-c-right {
+            position: relative;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .c-new-initials {
+            position: absolute;
+            top: -80px;
+            margin-top: unset;
+        }
+
+        .c-i-big {
+            margin: unset;
+        }
+
+        .c-new-input-div {
+            width: 100%;
+        }
+
+        .c-new-input {
+            width: unset;
+        }
+
+        .c-new-btn-1 {
+            display: none;
+        }
+
+        .c-btn-resp {
+            width: 100%;
+            position: absolute;
+            bottom: 50px;
+        }
+
+        .c-new-close {
+            display: none;
+        }
+
+        .close-white {
+            display: flex;
+            width: 40px;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+        }
+
+        .c-new-input form {
+            justify-content: flex-start;
+            margin-top: 20px;
+            gap: 35px;
+        }
+    }
 }
