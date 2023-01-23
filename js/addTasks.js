@@ -20,6 +20,7 @@ function initTasks() {
     // today = yyyy + '/' + mm + '/' + dd;
     today = yyyy + '-' + mm + '-' + dd;
     document.getElementById('task-input-dueDate').value = today;
+    addSubtaskCheckbox();
 }
 
 
@@ -50,9 +51,27 @@ function deleteSubtaskInput() {
 
 function addSubtaskInput() {
     let subtaskInput = document.getElementById("task-input-subtasks");
+    if (subtaskInput.value === "") return;
     subtasks.push(subtaskInput.value);
+    addSubtaskCheckbox();
     deleteSubtaskInput();
+}
 
+function addSubtaskCheckbox() {
+    document.getElementById("task-checkbox-subtasks").innerHTML = "";
+
+    for (let i = 0; i < subtasks.length; i++) {
+        document.getElementById("task-checkbox-subtasks").innerHTML += renderSubtaskCheckbox(i);
+    }
+}
+
+function renderSubtaskCheckbox(index) {
+    return `
+    <div id="subtask${index}" class="subtask">
+        <input type="checkbox" />
+        <span>${subtasks[index]}</span>
+    </div>
+    `;
 }
 
 function renderAddDeleteBtns() {
