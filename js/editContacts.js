@@ -4,6 +4,8 @@ setURL('https://gruppe-join-422.developerakademie.net/smallest_backend');
 let currentColor = 1;
 let contactIdCounter = 0;
 
+// Create contacts
+
 async function createContact() {
     await loadContactsFromBackend()
     const name = document.getElementById('c-new-name');
@@ -94,3 +96,8 @@ function getInitials(name) {
     return initials;
 }
 
+// Edit contacts
+
+function editContact(contactId) {
+
+}
