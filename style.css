@@ -130,6 +130,10 @@ h1 {
     width: 652px;
 }
 
+.width-100 {
+    width: 100%;
+}
+
 .log-in h1 {
     width: 315px;
 }
@@ -162,7 +166,7 @@ h1 {
     background-position: center right 16.5px;
 }
 
-.display-center {
+.display-center, .display-center-body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -285,6 +289,12 @@ form {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
+.position-absolute-0 {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+}
+
 @media screen {
     @media (max-width: 800px) {
         /* from here for login page */
@@ -294,7 +304,6 @@ form {
             grid-template-areas: "header""main""nav";
         }
         .log-in-resp {
-            width: 90%;
             flex-direction: column;
             gap: 35px;
         }
@@ -321,6 +330,9 @@ form {
         }
         .sign-up-container-resp {
             display: flex !important;
+        }
+        .position-absolute-0 {
+            position: unset;
         }
     }
     @media(max-width: 600px) {
@@ -382,53 +394,5 @@ form {
 
     .forgot-password h1 {
       font-size: 40px;
-    }
-  }
-
-  @media(max-width: 600px) {
-    .log-in {
-      justify-content: center;
-    }
-
-    .forgot-password h1 {
-      width: 315px;
-    }
-
-    .border-bottom {
-      height: unset;
-    }
-
-    .send-mail img {
-      width: 400px;
-    }
-  }
-
-  @media(max-width: 450px) {
-    h1 {
-      font-size: 47px;
-    }
-
-    .send-mail img {
-      width: 300px;
-    }
-
-    .position-arrow {
-      left: 15px;
-      top: 15px;
-      width: 20px;
-    }
-
-    form {
-      gap: 10px;
-    }
-
-    .input-login {
-      height: 41px;
-    }
-
-    .btn-resp {
-      height: 51px;
-      width: 180px;
-      font-size: 16px;
     }
   }
