@@ -39,11 +39,7 @@ async function getContactsToAssign() {
     });
 }
 
-function renderContactsToAssign(element) {
-    return `
-      <option class="option" value="${element.id}">${element.name}</option>
-    `;
-}
+
 
 function addNewSubtask() {
     let subtaskBtn = document.getElementById("addSubTaskBtn");
@@ -52,10 +48,9 @@ function addNewSubtask() {
 }
 
 function deleteSubtaskInput() {
-    let subtaskInput = document.getElementById("task-input-subtasks");
     let subtaskBtn = document.getElementById("addSubTaskBtn");
     subtaskBtn.style.width = "50px";
-    subtaskInput.value = "";
+    document.getElementById("task-input-subtasks").value = "";
     subtaskBtn.innerHTML = renderAddBtn();
 }
 
@@ -98,5 +93,11 @@ function renderAddBtn() {
     <div class="addDeleteBtns">
         <img onclick="addNewSubtask()" src="../src/img/plus.svg" alt="" />
     </div>
+    `;
+}
+
+function renderContactsToAssign(element) {
+    return `
+      <option value="${element.id}">${element.name}</option>
     `;
 }
