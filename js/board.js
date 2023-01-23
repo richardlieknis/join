@@ -393,6 +393,7 @@ function closeTaskOverlay() {
   taskOverlayBg.classList.add("d-none");
   taskOverlayContentContainer.classList.remove('d-none');
   taskOverlayEditContentContainer.classList.add('d-none');
+  hideCategories();
 }
 
 render();
@@ -535,6 +536,11 @@ function renderCategories() {
 function showOrHideCategories() {
   const categoriesContainer = document.querySelector('#categoriesContainer');
   categoriesContainer.classList.toggle('d-none');
+}
+
+function hideCategories() {
+  const categoriesContainer = document.querySelector('#categoriesContainer');
+  if (!categoriesContainer.classList.contains('d-none')) categoriesContainer.classList.add('d-none');
 }
 
 function renderCurrentTitle(taskIndex) {
