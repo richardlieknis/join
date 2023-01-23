@@ -24,10 +24,23 @@ async function openEditContact(contactId) {
     let contactModul = document.getElementById('addContactModul');
     contactModul.classList.add("slideIn");
     addContactOverlay.classList.remove('d-none');
-
-    await downloadFromServer();
+    
+        await downloadFromServer();
     contacts = await JSON.parse(backend.getItem('contacts')) || [];
+    let index = getIndexOfContact(contaxtId)
     document.getElementById('c-new-name').value = contacts[1].name;
+}
+
+function getIndexOfContact(contactId) {
+    let index;
+    for (let i = 0; i < contacts.length; i++) {
+        const Id = contacts[i].id;
+        
+        if (contactId == Id) {
+            index = i;
+        }
+    }
+    return index
 }
 
 function closeAddContact() {

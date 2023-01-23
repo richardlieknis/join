@@ -101,3 +101,15 @@ function getInitials(name) {
 function editContact(contactId) {
 
 }
+
+function getIndexOfContact(contactId) {
+    let index;
+    for (let i = 0; i < contacts.length; i++) {
+        const Id = contacts[i].id;
+        
+        if (contactId == Id) {
+            index = i;
+        }
+    }
+    return index
+}
