@@ -57,7 +57,6 @@ function deleteSubtaskInput() {
     subtaskBtn.style.width = "50px";
     subtaskInput.value = "";
     subtaskBtn.innerHTML = renderAddBtn();
-    console.log("Buttons sollten zurück zum Plus wechseln?!?!?!?");
 }
 
 function addSubtaskInput() {
@@ -97,7 +96,7 @@ function renderAddDeleteBtns() {
 function renderAddBtn() {
     return `
     <div class="addDeleteBtns">
-        <img src="../src/img/plus.svg" alt="" />
+        <img onclick="addNewSubtask()" src="../src/img/plus.svg" alt="" />
     </div>
     `;
 }
