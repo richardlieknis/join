@@ -510,7 +510,7 @@ function generateTaskOverlayButtonsHtml(taskIndex) {
 function renderEditTask(taskId) {
   const taskIndex = getIndexOfArray(tasks, taskId)
   renderCurrentCategory(taskIndex);
-  renderCategories();
+  renderCategories(taskIndex);
   renderCurrentTitle(taskIndex);
   rendercurrentDescription(taskIndex);
   renderCurrentDueDate(taskIndex);
@@ -526,10 +526,18 @@ function renderCurrentCategory(taskIndex) {
   currentCategoryContainer.innerHTML = tasks[taskIndex].label;
 }
 
-function renderCategories() {
+function renderCategories(taskIndex) {
   const categoriesContainer = document.querySelector('#categoriesContainer');
+  categoriesContainer.innerHTML = "";
   for (let category of categories) {
-    console.log(category);
+    if (category.name !== tasks[taskIndex].label) {
+      categoriesContainer.innerHTML += `
+      <div onclick="setCategory(${category.name})">
+        <span>${category.name}</span>
+        <div class="category-color color-${category.colorNumber}"></div>
+      </div>
+      `;
+    }
   }
 }
 

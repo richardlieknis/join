@@ -516,6 +516,7 @@ main .title-mobile {
 
 .task-overlay-edit-content > .task-overlay-edit-category > .category-select-button > .categories {
   width: calc(100% + 2px);
+  max-height: 170px;
   position: absolute;
   top: 30px;
   left: -1px;
@@ -526,7 +527,8 @@ main .title-mobile {
   border-radius: 0 0 10px 10px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .task-overlay-edit-content > .task-overlay-edit-category > .category-select-button > .categories > div {
