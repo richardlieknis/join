@@ -92,15 +92,23 @@
                     <div class="task-overlay-edit-content d-none" id="taskOverlayEditContent">
                         <div class="task-overlay-edit-category">
                             <span>Category</span>
-                            <div class="category-select-button input">
-                                <span id="currentCategory">Design</span>
-                                <img src="../src/img/dropDownArrow.svg" />
-                            </div>
-                            <!-- TODO render categories function -->
-                            <div class="categories d-none">
-                                <div id="category-0">Design</div>
-                                <div id="category-1">Marketing</div>
-                                <div id="category-2">Backoffice</div>
+                            <div class="category-select-button input" onclick="showOrHideCategories()">
+                                <div id="currentCategory"></div>
+                                <div class="categories d-none" id="categoriesContainer">
+                                    <div id="category-0">
+                                        <span>Design</span>
+                                        <div class="category-color color-1"></div>
+                                    </div>
+                                    <div id="category-1">
+                                        <span>Marketing</span>
+                                        <div class="category-color color-2"></div>
+                                    </div>
+                                    <div id="category-2">
+                                        <span>Sales</span>
+                                        <div class="category-color color-3"></div>
+                                    </div>
+                                </div>
+                                <img src="../src/img/dropDownArrow.svg">
                             </div>
                         </div>
                         <div class="task-overlay-edit-title">

@@ -2,7 +2,7 @@
 
 setURL('https://gruppe-join-422.developerakademie.net/smallest_backend');
 
-const categories = ["todo", "inProgress", "awaitingFeedback", "done"];
+const progressStepCategories = ["todo", "inProgress", "awaitingFeedback", "done"];
 let filteredTasks = [];
 let currentTasksArray = tasks;
 let currentDraggedElement;
@@ -273,7 +273,7 @@ async function render() {
   await loadTasksFromBackend();
   tasks.push(...dummyData);
   if (!currentTasksArray.length) currentTasksArray = tasks;
-  for (let category of categories) updateHtml(category, currentTasksArray);
+  for (let category of progressStepCategories) updateHtml(category, currentTasksArray);
 }
 
 // prettier-ignore
@@ -449,32 +449,32 @@ function checkIfDone(subtasksArray, subtaskId) {
   if (subtasksArray[subtaskId].done) return "checked";
 }
 
-function renderPriority(taskId) {
+function renderPriority(taskIndex) {
   const priorityContainer = document.querySelector("#priority");
   priorityContainer.className = "";
   priorityContainer.classList.add("label");
-  priorityContainer.classList.add(tasks[taskId].priority);
-  priorityContainer.innerHTML = `<span>${tasks[taskId].priority}</span>`;
-  priorityContainer.innerHTML += `<img src="../src/img/${tasks[taskId].priority}-white.svg" />`;
+  priorityContainer.classList.add(tasks[taskIndex].priority);
+  priorityContainer.innerHTML = `<span>${tasks[taskIndex].priority}</span>`;
+  priorityContainer.innerHTML += `<img src="../src/img/${tasks[taskIndex].priority}-white.svg" />`;
 }
 
-function renderAssignedToContainer(taskId) {
+function renderAssignedToContainer(taskIndex) {
   const assignedToContainer = document.querySelector("#assignedToContainer");
   const assignedPersonsContainer = document.querySelector(
     "#assignedPersonsContainer"
   );
   assignedPersonsContainer.innerHTML = "";
-  if (tasks[taskId].assignedTo.length) {
-    assignedPersonsContainer.innerHTML = renderAllAssignedPersons(taskId);
+  if (tasks[taskIndex].assignedTo.length) {
+    assignedPersonsContainer.innerHTML = renderAllAssignedPersons(taskIndex);
     assignedToContainer.className = "assigned-persons-container";
   } else {
     assignedToContainer.className = "assigned-persons-container d-none";
   }
 }
 
-function renderAllAssignedPersons(taskId) {
+function renderAllAssignedPersons(taskIndex) {
   let assignedPersonHtml = "";
-  const assignedPersonArray = [...tasks[taskId].assignedTo];
+  const assignedPersonArray = [...tasks[taskIndex].assignedTo];
   for (let i = 0; i < assignedPersonArray.length; i++) {
     assignedPersonHtml += generateAssignedPersonsHtml(assignedPersonArray, i);
   }
@@ -490,59 +490,74 @@ function generateAssignedPersonsHtml(assignedPersonArray, assignedPersonId) {
     `;
 }
 
-function renderTaskOverlayButtons(taskId) {
+function renderTaskOverlayButtons(taskIndex) {
   const taskOverlayButtonsContainer = document.querySelector("#taskOverlayButtons");
-  taskOverlayButtonsContainer.innerHTML = generateTaskOverlayButtonsHtml(taskId);
+  taskOverlayButtonsContainer.innerHTML = generateTaskOverlayButtonsHtml(taskIndex);
 }
 
-function generateTaskOverlayButtonsHtml(taskId) {
+function generateTaskOverlayButtonsHtml(taskIndex) {
   return `
       <div class="close-button" onclick="closeTaskOverlay()">
         <img src="../src/img/close-icon.svg" />
       </div>
-      <button class="edit-icon btn-primary" onclick="renderEditTask(${taskId})">
+      <button class="edit-icon btn-primary" onclick="renderEditTask(${taskIndex})">
         <img src="../src/img/edit-icon.svg" />
       </button>
   `;
 }
 
 function renderEditTask(taskId) {
-  renderCurrentCategory(taskId);
-  renderCurrentTitle(taskId);
-  rendercurrentDescription(taskId);
-  renderCurrentDueDate(taskId);
-  renderCurrentPriority(taskId);
-  renderCurrentAssignedPersons(taskId);
-  renderEditTaskOverlayButtons(taskId);
+  const taskIndex = getIndexOfArray(tasks, taskId)
+  renderCurrentCategory(taskIndex);
+  renderCategories();
+  renderCurrentTitle(taskIndex);
+  rendercurrentDescription(taskIndex);
+  renderCurrentDueDate(taskIndex);
+  renderCurrentPriority(taskIndex);
+  renderCurrentAssignedPersons(taskIndex);
+  renderEditTaskOverlayButtons(taskIndex);
   taskOverlayContentContainer.classList.add('d-none');
   taskOverlayEditContentContainer.classList.remove('d-none');
 }
 
-function renderCurrentCategory(taskId) {
-  document.querySelector('#currentCategory').innerHTML = tasks[taskId].label
+function renderCurrentCategory(taskIndex) {
+  const currentCategoryContainer = document.querySelector('#currentCategory');
+  currentCategoryContainer.innerHTML = tasks[taskIndex].label;
 }
 
-function renderCurrentTitle(taskId) {
-  document.querySelector('#currentTitle').value = tasks[taskId].title
+function renderCategories() {
+  const categoriesContainer = document.querySelector('#categoriesContainer');
+  for (let category of categories) {
+    console.log(category);
+  }
 }
 
-function rendercurrentDescription(taskId) {
-  document.querySelector('#currentDescription').value = tasks[taskId].description;
+function showOrHideCategories() {
+  const categoriesContainer = document.querySelector('#categoriesContainer');
+  categoriesContainer.classList.toggle('d-none');
 }
 
-function renderCurrentDueDate(taskId) {
-  document.querySelector('#currentDueDate').value = tasks[taskId].dueDate;
+function renderCurrentTitle(taskIndex) {
+  document.querySelector('#currentTitle').value = tasks[taskIndex].title;
 }
 
-function renderCurrentPriority(taskId) {
+function rendercurrentDescription(taskIndex) {
+  document.querySelector('#currentDescription').value = tasks[taskIndex].description;
+}
+
+function renderCurrentDueDate(taskIndex) {
+  document.querySelector('#currentDueDate').value = tasks[taskIndex].dueDate;
+}
+
+function renderCurrentPriority(taskIndex) {
   removeActiveClassFromPriorityButton();
-  if (tasks[taskId].priority === "urgent") {
+  if (tasks[taskIndex].priority === "urgent") {
     priorityUrgentButton.classList.add('active');
     priorityUrgentButton.childNodes[3].src = "../src/img/urgent-white.svg";
-  } else if (tasks[taskId].priority === "medium") {
+  } else if (tasks[taskIndex].priority === "medium") {
     priorityMediumButton.classList.add('active');
     priorityMediumButton.childNodes[3].src = "../src/img/medium-white.svg";  
-  } else if (tasks[taskId].priority === "low") {
+  } else if (tasks[taskIndex].priority === "low") {
     priorityLowButton.classList.add('active');
     priorityLowButton.childNodes[3].src = "../src/img/low-white.svg";
   }
@@ -558,10 +573,10 @@ function removeActiveClassFromPriorityButton() {
   priorityLowButton.childNodes[3].src = "../src/img/low.svg";
 }
 
-function renderCurrentAssignedPersons(taskId) {
+function renderCurrentAssignedPersons(taskIndex) {
   const assignedContacts = document.querySelector('#assignedContacts');
   assignedContacts.innerHTML = "";
-  for (let assignedPerson of tasks[taskId].assignedTo) {
+  for (let assignedPerson of tasks[taskIndex].assignedTo) {
     assignedContacts.innerHTML += generateCurrentAssignedPersonsHtml(assignedPerson)
   }
 }
@@ -572,24 +587,24 @@ function generateCurrentAssignedPersonsHtml(assignedPerson) {
   `;
 }
 
-function renderEditTaskOverlayButtons(taskId) {
+function renderEditTaskOverlayButtons(taskIndex) {
   const taskOverlayButtonsContainer = document.querySelector("#taskOverlayButtons");
-  taskOverlayButtonsContainer.innerHTML = generateEditTaskOverlayButtonsHtml(taskId);
+  taskOverlayButtonsContainer.innerHTML = generateEditTaskOverlayButtonsHtml(taskIndex);
 }
 
-function generateEditTaskOverlayButtonsHtml(taskId) {
+function generateEditTaskOverlayButtonsHtml(taskIndex) {
   return `
       <div class="close-button" onclick="closeTaskOverlay()">
         <img src="../src/img/close-icon.svg" />
       </div>
-      <button class="edit-icon save-button btn-primary" onclick="saveChanges(${taskId})">
+      <button class="edit-icon save-button btn-primary" onclick="saveChanges(${taskIndex})">
         <span>OK</span>
         <img src="../src/img/hook.svg" />
       </button>
   `;
 }
 
-function saveChanges(taskId) {
+function saveChanges(taskIndex) {
   // TODO save changes
-  openTaskOverlay(taskId);
+  openTaskOverlay(taskIndex);
 }
