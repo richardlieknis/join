@@ -23,7 +23,7 @@
       <button onclick="loadSignUp()" class="sign-up-btn">Sign up</button>
     </div>
   </div>
-  <img class="join-logo logo-animation" src="src/img/join-logo-blue.svg" />
+    <img class="join-logo logo-animation" src="src/img/join-logo-blue.svg" />
   <div class="start-background"></div>
   <div id="email-send" class="display-center log-in-resp">
     <div id="login-page" class="log-in">
@@ -32,7 +32,7 @@
           <h1>Log in</h1>
         </div>
       </div>
-      <form class="log-in-resp" onsubmit="login(); return false;">
+      <form class="log-in-resp form-login-width" onsubmit="login(); return false;">
         <input id="email-login" required class="input-login background-image-email" placeholder="Email" type="email"
           src="src/img/email.svg" />
         <input id="password-login" required class="input-login background-image-password" placeholder="Password"
@@ -47,11 +47,11 @@
           </div>
         </div>
         <div class="continue-btn-container">
-          <button style="width: 145px; height: 51px" class="btn-primary">
+          <button class="login-btn-width btn-primary btn-resp">
             Log in
           </button>
       </form>
-      <button onclick="guest()" class="guest-btn btn-secondary">
+      <button onclick="guest()" class="login-btn-width guest-btn btn-secondary btn-resp">
         Guest Log in
       </button>
     </div>

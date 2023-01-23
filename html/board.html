@@ -72,33 +72,98 @@
         </div>
         <div class="overlay d-none" id="taskOverlayBg" onclick="closeTaskOverlay()">
             <div class="task-overlay" onclick="dontClose(event)">
-                <div class="task-overlay-buttons">
+
+                <div class="task-overlay-buttons" id="taskOverlayButtons">
                     <div class="close-button" onclick="closeTaskOverlay()">
                         <img src="../src/img/close-icon.svg" />
                     </div>
-                    <button class="edit-icon btn-primary">
+                    <button class="edit-icon btn-primary" id="editButton">
                         <img src="../src/img/edit-icon.svg" />
                     </button>
                 </div>
-                <div class="task-overlay-content">
-                    <span class="label" id="label"></span>
-                    <div class="title" id="title"></div>
-                    <div class="description" id="description"></div>
-                    <div class="due-date">
-                        <span class="title">Due date:</span>
-                        <span id="dueDate"></span>
+
+                <div>
+
+                    <div class="task-overlay-edit-content d-none" id="taskOverlayEditContent">
+                        <div class="task-overlay-edit-category">
+                            <span>Category</span>
+                            <div class="category-select-button input">
+                                <span id="currentCategory">Design</span>
+                                <img src="../src/img/dropDownArrow.svg">
+                            </div>
+                            <!-- TODO render categories function -->
+                            <div class="categories d-none">
+                                <div id="category-0">Design</div>
+                                <div id="category-1">Marketing</div>
+                                <div id="category-2">Backoffice</div>
+                            </div>
+                        </div>
+                        <div class="task-overlay-edit-title">
+                            <span>Title</span>
+                            <input class="input" type="text" id="currentTitle">
+                        </div>
+                        <div class="task-overlay-edit-description">
+                            <span>Description</span>
+                            <textarea class="input" name="task-overlay-edit-desciption" id="currentDescription" cols="47" rows="3"></textarea>
+                        </div>
+                        <div class="task-overlay-edit-dueDate">
+                            <span>Due date</span>
+                            <input class="input" type="date" id="currentDueDate">
+                        </div>
+                        <div class="task-overlay-edit-priority">
+                            <span>Priority</span>
+                            <div>
+                                <div class="priority-button urgent active" id="priority-urgent">
+                                    <span>urgent</span>
+                                    <img src="../src/img/urgent.svg">
+                                </div>
+                                <div class="priority-button medium" id="priority-medium">
+                                    <span>medium</span>
+                                    <img src="../src/img/medium.svg">
+                                </div>
+                                <div class="priority-button low" id="priority-low">
+                                    <span>low</span>
+                                    <img src="../src/img/low.svg">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-overlay-edit-assignedTo">
+                            <span>Assigned to</span>
+                            <div class="assignedTo-select-button input">
+                                <span>Select contacts to assign</span>
+                                <img src="../src/img/dropDownArrow.svg">
+                            </div>
+                            <div class="contacts d-none">
+                                <div id="assignedTo-0">Sandra Müller</div>
+                                <div id="assignedTo-1">Manuel Vogel</div>
+                                <div id="assignedTo-2">Anton Sommer</div>
+                            </div>
+                            <div class="assigned-contacts" id="assignedContacts">
+                            </div>
+                        </div>
                     </div>
-                    <div class="subtasks" id="subtasksContainer">
-                        <span class="title">Subtasks:</span>
-                        <div class="content" id="subtasks"></div>
-                    </div>
-                    <div class="priority">
-                        <span class="title">Priority:</span>
-                        <div class="label urgent" id="priority"></div>
-                    </div>
-                    <div class="assigned-to" id="assignedToContainer">
-                        <div class="title">Assigned To:</div>
-                        <div class="assigned-persons-container" id="assignedPersonsContainer"></div>
+
+
+                    <div class="task-overlay-content" id="taskOverlayContent">
+                        <span class="label" id="label"></span>
+                        <div class="title" id="title"></div>
+                        <div class="description" id="description"></div>
+                        <div class="due-date">
+                            <span class="title">Due date:</span>
+                            <span id="dueDate"></span>
+                        </div>
+                        <div class="subtasks" id="subtasksContainer">
+                            <span class="title">Subtasks:</span>
+                            <div class="content" id="subtasks"></div>
+                        </div>
+                        <div class="priority">
+                            <span class="title">Priority:</span>
+                            <div class="label urgent" id="priority"></div>
+                        </div>
+                        <div class="assigned-to" id="assignedToContainer">
+                            <div class="title">Assigned To:</div>
+                            <div class="assigned-persons-container" id="assignedPersonsContainer"></div>
+                        </div>
                     </div>
                 </div>
             </div>

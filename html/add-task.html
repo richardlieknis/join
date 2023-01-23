@@ -10,106 +10,130 @@
     <link rel="stylesheet" href="../css/add_task.css" />
     <link rel="stylesheet" href="../css/templates.css" />
     <link rel="stylesheet" href="../style.css" />
-
+    <link rel="stylesheet" href="../css/fonts.css" />
     <script src="../mini_backend.js"></script>
 </head>
 
 <body onload="init(), renderAddTask()">
     <header w3-include-html="../templates/header.html"></header>
     <nav w3-include-html="../templates/navigation.html"></nav>
-
-    <main>
-        <div>
-            <div class="add-task-container">
-                <div class="add-title-container">
-                    <span class="hide">Kanban Project Management Tool</span>
-                    <div class="create-resp">
+    <div id="addTaskModul" class="add-task-container modules">
+        <main>
+            <div class="main-container">
+                <span class="kanban">Kanban Project Management Tool</span>
+                <form>
+                    <div class="title">
                         <h1>Add Task</h1>
-                        <button class="create-btn hide" style="height: 51px; width: 145px" class="btn-primary">
-                Create <img src="../src/img/hook.svg" />
-              </button>
-                    </div>
-                    <div class="add-title flex-column gap-8px">
-                        <span>Title</span>
-                        <form>
-                            <input id="task-input-title" class="add-task-input input" placeholder="Enter a title" />
-                        </form>
-                    </div>
-                    <div class="flex-column gap-8px">
-                        <span>Description</span>
-                        <form>
-                            <textarea id="task-input-description" class="input" placeholder="Enter a Description"></textarea>
-                        </form>
-                    </div>
-                    <div class="flex-column gap-8px">
-                        <span>Category</span>
-                        <select id="task-input-category" class="select-resp" name="Select task category">
-                <option value="" disabled selected hidden>
-                  Select task category
-                </option>
-                <option>New category</option>
-                <option>Sales</option>
-                <option>Backoffice</option>
-              </select>
-                    </div>
-                    <div class="flex-column gap-8px">
-                        <span>Assigned to</span>
-                        <select id="task-input-assignedTo" class="select-resp" name="Select contacts to assign">
-                <option value="" disabled selected hidden>
-                  Select contacts to assign
-                </option>
-              </select>
-                    </div>
-                </div>
-                <div class="line"></div>
-                <div class="display-center">
-                    <div class="subtasks-container">
-                        <div class="flex-column gap-8px">
-                            <span>Due date</span>
-                            <form>
-                                <input id="task-input-dueDate" class="add-task-input input" type="date" placeholder="dd/mm/yyyy" />
-                            </form>
-                        </div>
-                        <div class="flex-column gap-8px">
-                            <span>Prio</span>
-                            <div class="prio-btn-resp">
-                                <button class="prio-btn">
-                    Urgent <img src="../src/img/urgent.svg" />
-                  </button>
-                                <button class="prio-btn">
-                    Medium <img src="../src/img/medium.svg" />
-                  </button>
-                                <button class="prio-btn">
-                    Low <img src="../src/img/low.svg" />
-                  </button>
+                        <div class="buttons">
+                            <div onclick="clearTaskInputs()" class="clearBtn">
+                                <button>Clear</button>
+                                <img src="../src/img/x.svg" />
+                            </div>
+                            <div onsubmit="createTask(); return false;" class="createBtn">
+                                <button>Create Task</button>
+                                <img src="../src/img/hook.svg" />
                             </div>
                         </div>
-                        <div class="flex-column gap-8px">
-                            <span>Subtasks</span>
-                            <form>
-                                <input id="task-input-subtasks" class="add-task-input img-plus input" placeholder="Add new subtask" />
-                            </form>
+                    </div>
+
+                    <div class="input-container">
+                        <div class="left">
+                            <div class="inputBlock">
+                                <span class="inputTitle">Title</span>
+                                <input id="task-input-title" type="text" placeholder="Enter a title" />
+                            </div>
+                            <div class="inputBlock">
+                                <span class="inputTitle">Description</span>
+                                <textarea id="task-input-description" placeholder="Enter a description"></textarea>
+                            </div>
+                            <div class="inputBlock">
+                                <span class="inputTitle">Category</span>
+                                <select id="task-input-category">
+                    <option value="new">New Category</option>
+                    <option value="sales">Sales</option>
+                    <option value="backoffice">Backoffice</option>
+                  </select>
+                            </div>
+                            <div class="inputBlock">
+                                <span class="inputTitle">Assigned to</span>
+                                <select id="task-input-assignedTo">
+                    <option class="option" value="new">
+                      You (Name of current User)
+                    </option>
+                    <option class="option" value="sales">Max Musti</option>
+                    <option class="option" value="backoffice">
+                      Invite new contact
+                    </option>
+                  </select>
+                            </div>
+                        </div>
+                        <div class="line"></div>
+                        <div class="right">
+                            <div class="inputBlock">
+                                <span class="inputTitle">Due date</span>
+                                <input type="date" id="task-input-dueDate" />
+                            </div>
+                            <div class="inputBlock">
+                                <span class="inputTitle">Prio</span>
+                                <div class="prioBtns">
+                                    <div class="prioBtn">
+                                        <span>Urgent</span>
+                                        <img src="../src/img/urgent.svg" />
+                                    </div>
+                                    <div class="prioBtn">
+                                        <span>Medium</span>
+                                        <img src="../src/img/medium.svg" />
+                                    </div>
+                                    <div class="prioBtn">
+                                        <span>Low</span>
+                                        <img src="../src/img/low.svg" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="inputBlock">
+                                <span class="inputTitle">Subtasks</span>
+
+                                <div class="addSubTask">
+                                    <input id="task-input-subtasks" type="text" />
+                                    <div class="addSubTaskBtn">
+                                        <img src="../src/img/plus.svg" alt="" />
+                                    </div>
+                                </div>
+                                <div id="checkSubtasks">
+                                    <div id="subtask0" class="subtask">
+                                        <input type="checkbox" />
+                                        <span>Subtask</span>
+                                    </div>
+                                    <div id="subtask0" class="subtask">
+                                        <input type="checkbox" />
+                                        <span>Subtask</span>
+                                    </div>
+                                    <div id="subtask0" class="subtask">
+                                        <input type="checkbox" />
+                                        <span>Subtask</span>
+                                    </div>
+                                    <div id="subtask0" class="subtask">
+                                        <input type="checkbox" />
+                                        <span>Subtask</span>
+                                    </div>
+                                    <div id="subtask0" class="subtask">
+                                        <input type="checkbox" />
+                                        <span>Subtask</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
-            <div class="add-task-btn-container">
-                <button class="clear-btn">
-            Clear <img src="../src/img/x.svg" />
-          </button>
-                <button class="create-btn">
-            Create Task <img src="../src/img/hook.svg" />
-          </button>
-            </div>
-        </div>
-    </main>
+        </main>
+    </div>
 
     <script src="../js/includeHTML.js"></script>
     <script src="../script.js"></script>
     <script src="../js/addTasks.js"></script>
     <script src="../js/editTasks.js"></script>
     <script src="../js/activeTab.js"></script>
-   
 </body>
 
 </html>

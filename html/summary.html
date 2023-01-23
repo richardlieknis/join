@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/summary.css" />
     <link rel="stylesheet" href="../css/fonts.css" />
     <link rel="stylesheet" href="../css/templates.css" />
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="../style.css" />
     <script src="../script.js"></script>
     <script src="../js/includeHTML.js"></script>
     <script src="../mini_backend.js"></script>
@@ -24,7 +24,7 @@
     <div id="mobile-anim" class="mobile-background d-none">
         <div class="mobile-greet">
             <div id="timeMsgMobile"></div>
-            <span id="userNameMobile">Max Mustermann</span>
+            <span id="userNameMobile">Guest</span>
         </div>
     </div>
     <main class="summary-container">
@@ -41,19 +41,19 @@
                 <!-- ERSTE REIHE -->
                 <div class="task-box grid1">
                     <div>
-                        <span class="amount">3</span>
+                        <span id="taskAmount" class="amount">0</span>
                         <span>Tasks in Board</span>
                     </div>
                 </div>
                 <div class="task-box grid2">
                     <div>
-                        <span class="amount">4</span>
+                        <span id="progressAmount" class="amount">0</span>
                         <span>Tasks in Progress</span>
                     </div>
                 </div>
                 <div class="task-box grid3">
                     <div>
-                        <span class="amount">5</span>
+                        <span id="feedbackAmount" class="amount">0</span>
                         <span>Awaiting Feedback</span>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                     <div class="urgency">
                         <img src="../src/img/urgentSymbol.svg" />
                         <div>
-                            <span class="amount">1</span>
+                            <span id="urgentAmount" class="amount">0</span>
                             <span>Urgent</span>
                         </div>
                     </div>
@@ -76,14 +76,14 @@
                 <div class="task-box grid5">
                     <img class="hover-img" src="../src/img/pencilToDo.svg" />
                     <div>
-                        <span class="amount">1</span>
+                        <span id="todoAmount" class="amount">0</span>
                         <span>To-Do</span>
                     </div>
                 </div>
                 <div class="task-box grid6">
                     <img class="hover-img" src="../src/img/doneSymbol.svg" />
                     <div>
-                        <span class="amount">1</span>
+                        <span id="doneAmount" class="amount">0</span>
                         <span>Done</span>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
             <!-- GREETINGS -->
             <div class="greet">
                 <div id="timeMsgDesk">Good morning,</div>
-                <span id="userNameDesk">Max Mustermann</span>
+                <span id="userNameDesk">Guest</span>
             </div>
         </div>
     </main>

@@ -20,7 +20,7 @@ function login() {
     let user = users.find(u => u.email == email.value && u.password == password.value);
     if (user) {
         saveLoggedUserLocal(user);
-        window.location.href = '../html/summary.html';
+        window.location.href = 'html/summary.html';
     } else {
         document.getElementById('not-exist').innerHTML = /*html*/`<span style="color: red; font-size: 14px">This user does not exist</span>`;
         email.value = '';
@@ -49,3 +49,6 @@ async function guest() {
     window.location.href = 'html/summary.html';
 }
 
+function backToLogin() {
+    window.location.href = '../index.html';
+}

@@ -34,10 +34,6 @@ async function addUser() {
     window.location.href = 'index.html?msg=<b>You have successfully registered!</b>';
 }
 
-function backToLogin() {
-    window.location.href = 'index.html';
-}
-
 const rmCheck = document.getElementById("rememberMe"),
     emailInput = document.getElementById("email-login");
 
@@ -71,7 +67,7 @@ function signUpTemplate() {
             <h1>Sign up</h1>
         </div>
     </div>
-    <form onsubmit="addUser(); return false;">
+    <form class="form-login-width" onsubmit="addUser(); return false;">
         <input required id="name-signup" class="input-login background-image-name" placeholder="Name" type="text">
         <input required id="email-signup" class="input-login background-image-email" placeholder="Email" type="email" src="src/img/email.svg">
         <input required id="password-signup" class="input-login background-image-password" placeholder="Password" type="password" src="src/img/password.svg">

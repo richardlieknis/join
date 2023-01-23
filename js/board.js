@@ -6,6 +6,11 @@ let filteredTasks = [];
 let currentDraggedElement;
 let categoryOfDraggedElement;
 const taskOverlayBg = document.querySelector("#taskOverlayBg");
+const taskOverlayContentContainer = document.querySelector('#taskOverlayContent');
+const taskOverlayEditContentContainer = document.querySelector('#taskOverlayEditContent');
+const priorityUrgentButton = document.querySelector('#priority-urgent');
+const priorityMediumButton = document.querySelector('#priority-medium');
+const priorityLowButton = document.querySelector('#priority-low');
 
 const dummyData = [
   {
@@ -13,7 +18,7 @@ const dummyData = [
     label: "design",
     title: "task a",
     description: "Modify the contents of the main website...",
-    dueDate: "05-08-2022",
+    dueDate: "2023-02-01",
     subtasks: [],
     assignedTo: [
       {
@@ -39,7 +44,7 @@ const dummyData = [
     label: "sales",
     title: "task b",
     description: "Make the product presentation to prospective buyers",
-    dueDate: "05-08-2022",
+    dueDate: "2023-02-01",
     subtasks: [],
     assignedTo: [
       {
@@ -79,7 +84,7 @@ const dummyData = [
     label: "backoffice",
     title: "task c",
     description: "Modify the contents of the main website...",
-    dueDate: "05-08-2022",
+    dueDate: "2023-02-01",
     subtasks: [
       { title: "subtask 1", done: true },
       { title: "subtask 2", done: false },
@@ -108,7 +113,7 @@ const dummyData = [
     label: "media",
     title: "task d",
     description: "Make the product presentation to prospective buyers",
-    dueDate: "05-08-2022",
+    dueDate: "2023-02-01",
     subtasks: [],
     assignedTo: [
       {
@@ -134,7 +139,7 @@ const dummyData = [
     label: "marketing",
     title: "task e",
     description: "Modify the contents of the main website...",
-    dueDate: "05-08-2022",
+    dueDate: "2023-02-01",
     subtasks: [
       { title: "subtask 1", done: false },
       { title: "subtask 2", done: false },
@@ -163,7 +168,7 @@ const dummyData = [
     label: "backoffice",
     title: "task f",
     description: "Make the product presentation to prospective buyers",
-    dueDate: "05-08-2022",
+    dueDate: "2023-02-01",
     subtasks: [],
     assignedTo: [
       {
@@ -189,7 +194,7 @@ const dummyData = [
     label: "marketing",
     title: "task g",
     description: "Modify the contents of the main website...",
-    dueDate: "05-08-2022",
+    dueDate: "2023-02-01",
     subtasks: [
       { title: "subtask 1", done: true },
       { title: "subtask 2", done: true },
@@ -238,7 +243,7 @@ const dummyData = [
     label: "media",
     title: "task h",
     description: "Make the product presentation to prospective buyers",
-    dueDate: "05-08-2022",
+    dueDate: "2023-02-01",
     subtasks: [],
     assignedTo: [
       {
@@ -366,24 +371,28 @@ function addPlaceholder() {
 }
 
 function openTaskOverlay(taskId) {
-  renderLabel(taskId);
+  renderCategory(taskId);
   renderContentOnly(taskId, "title");
   renderContentOnly(taskId, "description");
   renderContentOnly(taskId, "dueDate");
   renderSubtasksContainer(taskId);
   renderPriority(taskId);
   renderAssignedToContainer(taskId);
-
+  renderTaskOverlayButtons(taskId);
+  taskOverlayContentContainer.classList.remove('d-none');
+  taskOverlayEditContentContainer.classList.add('d-none');
   taskOverlayBg.classList.remove("d-none");
 }
 
 function closeTaskOverlay() {
   taskOverlayBg.classList.add("d-none");
+  taskOverlayContentContainer.classList.remove('d-none');
+  taskOverlayEditContentContainer.classList.add('d-none');
 }
 
 render();
 
-function renderLabel(taskId) {
+function renderCategory(taskId) {
   const labelContainer = document.querySelector("#label");
   labelContainer.className = "";
   labelContainer.classList.add("label");
@@ -474,4 +483,108 @@ function generateAssignedPersonsHtml(assignedPersonArray, assignedPersonId) {
         <span class="full-name">${assignedPersonArray[assignedPersonId].name}</span>
       </div>
     `;
+}
+
+function renderTaskOverlayButtons(taskId) {
+  const taskOverlayButtonsContainer = document.querySelector("#taskOverlayButtons");
+  taskOverlayButtonsContainer.innerHTML = generateTaskOverlayButtonsHtml(taskId);
+}
+
+function generateTaskOverlayButtonsHtml(taskId) {
+  return `
+      <div class="close-button" onclick="closeTaskOverlay()">
+        <img src="../src/img/close-icon.svg" />
+      </div>
+      <button class="edit-icon btn-primary" onclick="renderEditTask(${taskId})">
+        <img src="../src/img/edit-icon.svg" />
+      </button>
+  `;
+}
+
+function renderEditTask(taskId) {
+  renderCurrentCategory(taskId);
+  renderCurrentTitle(taskId);
+  rendercurrentDescription(taskId);
+  renderCurrentDueDate(taskId);
+  renderCurrentPriority(taskId);
+  renderCurrentAssignedPersons(taskId);
+  renderEditTaskOverlayButtons(taskId);
+  taskOverlayContentContainer.classList.add('d-none');
+  taskOverlayEditContentContainer.classList.remove('d-none');
+}
+
+function renderCurrentCategory(taskId) {
+  document.querySelector('#currentCategory').innerHTML = tasks[taskId].label
+}
+
+function renderCurrentTitle(taskId) {
+  document.querySelector('#currentTitle').value = tasks[taskId].title
+}
+
+function rendercurrentDescription(taskId) {
+  document.querySelector('#currentDescription').value = tasks[taskId].description;
+}
+
+function renderCurrentDueDate(taskId) {
+  document.querySelector('#currentDueDate').value = tasks[taskId].dueDate;
+}
+
+function renderCurrentPriority(taskId) {
+  removeActiveClassFromPriorityButton();
+  if (tasks[taskId].priority === "urgent") {
+    priorityUrgentButton.classList.add('active');
+    priorityUrgentButton.childNodes[3].src = "../src/img/urgent-white.svg";
+  } else if (tasks[taskId].priority === "medium") {
+    priorityMediumButton.classList.add('active');
+    priorityMediumButton.childNodes[3].src = "../src/img/medium-white.svg";  
+  } else if (tasks[taskId].priority === "low") {
+    priorityLowButton.classList.add('active');
+    priorityLowButton.childNodes[3].src = "../src/img/low-white.svg";
+  }
+}
+
+function removeActiveClassFromPriorityButton() {
+  const priorityButtons = document.querySelectorAll('.priority-button');
+  for (let priorityButton of priorityButtons) {
+    priorityButton.classList.remove('active');
+  }
+  priorityUrgentButton.childNodes[3].src = "../src/img/urgent.svg";
+  priorityMediumButton.childNodes[3].src = "../src/img/medium.svg";
+  priorityLowButton.childNodes[3].src = "../src/img/low.svg";
+}
+
+function renderCurrentAssignedPersons(taskId) {
+  const assignedContacts = document.querySelector('#assignedContacts');
+  assignedContacts.innerHTML = "";
+  for (let assignedPerson of tasks[taskId].assignedTo) {
+    assignedContacts.innerHTML += generateCurrentAssignedPersonsHtml(assignedPerson)
+  }
+}
+
+function generateCurrentAssignedPersonsHtml(assignedPerson) {
+  return `
+      <div class="initials ${assignedPerson.color}">${assignedPerson.initials}</div>
+  `;
+}
+
+function renderEditTaskOverlayButtons(taskId) {
+  const taskOverlayButtonsContainer = document.querySelector("#taskOverlayButtons");
+  taskOverlayButtonsContainer.innerHTML = generateEditTaskOverlayButtonsHtml(taskId);
+}
+
+function generateEditTaskOverlayButtonsHtml(taskId) {
+  return `
+      <div class="close-button" onclick="closeTaskOverlay()">
+        <img src="../src/img/close-icon.svg" />
+      </div>
+      <button class="edit-icon save-button btn-primary" onclick="saveChanges(${taskId})">
+        <span>OK</span>
+        <img src="../src/img/hook.svg" />
+      </button>
+  `;
+}
+
+function saveChanges(taskId) {
+  // TODO save changes
+  openTaskOverlay(taskId);
 }
