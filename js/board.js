@@ -10,6 +10,8 @@ let categoryOfDraggedElement;
 const taskOverlayBg = document.querySelector("#taskOverlayBg");
 const taskOverlayContentContainer = document.querySelector('#taskOverlayContent');
 const taskOverlayEditContentContainer = document.querySelector('#taskOverlayEditContent');
+const currentCategoryContainer = document.querySelector('#currentCategory');
+const categoriesContainer = document.querySelector('#categoriesContainer');
 const priorityUrgentButton = document.querySelector('#priority-urgent');
 const priorityMediumButton = document.querySelector('#priority-medium');
 const priorityLowButton = document.querySelector('#priority-low');
@@ -510,7 +512,7 @@ function generateTaskOverlayButtonsHtml(taskIndex) {
 function renderEditTask(taskId) {
   const taskIndex = getIndexOfArray(tasks, taskId)
   renderCurrentCategory(taskIndex);
-  renderCategories(taskIndex);
+  renderCategories(tasks[taskIndex].label);
   renderCurrentTitle(taskIndex);
   rendercurrentDescription(taskIndex);
   renderCurrentDueDate(taskIndex);
@@ -522,17 +524,15 @@ function renderEditTask(taskId) {
 }
 
 function renderCurrentCategory(taskIndex) {
-  const currentCategoryContainer = document.querySelector('#currentCategory');
   currentCategoryContainer.innerHTML = tasks[taskIndex].label;
 }
 
-function renderCategories(taskIndex) {
-  const categoriesContainer = document.querySelector('#categoriesContainer');
+function renderCategories(categoryToIgnore) {
   categoriesContainer.innerHTML = "";
   for (let category of categories) {
-    if (category.name !== tasks[taskIndex].label) {
+    if (category.name !== categoryToIgnore) {
       categoriesContainer.innerHTML += `
-      <div onclick="setCategory(${category.name})">
+      <div onclick="setCategory('${category.name}')">
         <span>${category.name}</span>
         <div class="category-color color-${category.colorNumber}"></div>
       </div>
@@ -542,13 +542,16 @@ function renderCategories(taskIndex) {
 }
 
 function showOrHideCategories() {
-  const categoriesContainer = document.querySelector('#categoriesContainer');
   categoriesContainer.classList.toggle('d-none');
 }
 
 function hideCategories() {
-  const categoriesContainer = document.querySelector('#categoriesContainer');
   if (!categoriesContainer.classList.contains('d-none')) categoriesContainer.classList.add('d-none');
+}
+
+function setCategory(category) {
+  currentCategoryContainer.innerHTML = category;
+  renderCategories(category);
 }
 
 function renderCurrentTitle(taskIndex) {
