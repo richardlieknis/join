@@ -341,7 +341,7 @@ main .title-mobile {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  max-height: 100px;
+  max-height: 80px;
   overflow: auto;
 }
 
@@ -409,6 +409,11 @@ main .title-mobile {
   flex-direction: column;
   align-items: flex-start;
   gap: 25px;
+  width: 95%;
+  max-height: 180px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-right: 10px;
 }
 
 .task-overlay-content .assigned-person {

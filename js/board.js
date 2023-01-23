@@ -1,7 +1,8 @@
 "use strict";
 
+setURL('https://gruppe-join-422.developerakademie.net/smallest_backend');
+
 const categories = ["todo", "inProgress", "awaitingFeedback", "done"];
-let currentTasksArray = tasks;
 let filteredTasks = [];
 let currentDraggedElement;
 let categoryOfDraggedElement;
@@ -266,10 +267,11 @@ const dummyData = [
   },
 ];
 
-tasks.push(...dummyData);
 
-function render() {
-  for (let category of categories) updateHtml(category, currentTasksArray);
+async function render() {
+  await loadTasksFromBackend();
+  tasks.push(...dummyData);
+  for (let category of categories) updateHtml(category, tasks);
 }
 
 // prettier-ignore
@@ -379,6 +381,7 @@ function openTaskOverlay(taskId) {
   renderPriority(taskId);
   renderAssignedToContainer(taskId);
   renderTaskOverlayButtons(taskId);
+  console.log(taskOverlayContentContainer);
   taskOverlayContentContainer.classList.remove('d-none');
   taskOverlayEditContentContainer.classList.add('d-none');
   taskOverlayBg.classList.remove("d-none");
