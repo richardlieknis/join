@@ -19,15 +19,12 @@ function initTasks() {
 
     // today = yyyy + '/' + mm + '/' + dd;
     today = yyyy + '-' + mm + '-' + dd;
-
-    console.log(today);
     document.getElementById('task-input-dueDate').value = today;
 }
 
 
 function renderAddTask() {
     getContactsToAssign();
-    console.log('reder');
 }
 
 function getContactsToAssign() {
@@ -35,4 +32,42 @@ function getContactsToAssign() {
     contacts.forEach(element => {
 
     });
+}
+
+function addNewSubtask() {
+    let subtaskBtn = document.getElementById("addSubTaskBtn");
+    subtaskBtn.style.width = "100px";
+    subtaskBtn.innerHTML = renderAddDeleteBtns();
+}
+
+function deleteSubtaskInput() {
+    let subtaskInput = document.getElementById("task-input-subtasks");
+    let subtaskBtn = document.getElementById("addSubTaskBtn");
+    subtaskBtn.style.width = "50px";
+    subtaskInput.value = "";
+    subtaskBtn.innerHTML = renderAddBtn();
+}
+
+function addSubtaskInput() {
+    let subtaskInput = document.getElementById("task-input-subtasks");
+    subtasks.push(subtaskInput.value);
+    deleteSubtaskInput();
+
+}
+
+function renderAddDeleteBtns() {
+    return `
+    <div class="addDeleteBtns">
+        <img onclick="deleteSubtaskInput()" src="../src/img/x.svg" />
+        <div class="line"></div>
+        <img onclick="addSubtaskInput()" src="../src/img/hook.svg" style="filter: invert(1)">
+    </div>`;
+}
+
+function renderAddBtn() {
+    return `
+    <div class="addDeleteBtns">
+        <img src="../src/img/plus.svg" alt="" />
+    </div>
+    `;
 }

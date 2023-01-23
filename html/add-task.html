@@ -40,7 +40,7 @@
                         <div class="left">
                             <div class="inputBlock">
                                 <span class="inputTitle">Title</span>
-                                <input id="task-input-title" type="text" placeholder="Enter a title" />
+                                <input required id="task-input-title" type="text" placeholder="Enter a title" />
                             </div>
                             <div class="inputBlock">
                                 <span class="inputTitle">Description</span>
@@ -48,7 +48,7 @@
                             </div>
                             <div class="inputBlock">
                                 <span class="inputTitle">Category</span>
-                                <select id="task-input-category">
+                                <select required id="task-input-category">
                     <option value="new">New Category</option>
                     <option value="sales">Sales</option>
                     <option value="backoffice">Backoffice</option>
@@ -56,7 +56,7 @@
                             </div>
                             <div class="inputBlock">
                                 <span class="inputTitle">Assigned to</span>
-                                <select id="task-input-assignedTo">
+                                <select required id="task-input-assignedTo">
                     <option class="option" value="new">
                       You (Name of current User)
                     </option>
@@ -71,7 +71,7 @@
                         <div class="right">
                             <div class="inputBlock">
                                 <span class="inputTitle">Due date</span>
-                                <input type="date" id="task-input-dueDate" />
+                                <input required type="date" id="task-input-dueDate" />
                             </div>
                             <div class="inputBlock">
                                 <span class="inputTitle">Prio</span>
@@ -95,8 +95,10 @@
 
                                 <div class="addSubTask">
                                     <input id="task-input-subtasks" type="text" />
-                                    <div onclick="addNewSubtask()" class="addSubTaskBtn">
-                                        <img src="../src/img/plus.svg" alt="" />
+                                    <div id="addSubTaskBtn" onclick="addNewSubtask()" class="addSubTaskBtn">
+                                        <div class="addDeleteBtns">
+                                            <img src="../src/img/plus.svg" alt="" />
+                                        </div>
                                     </div>
                                 </div>
                                 <div id="task-checkbox-subtasks">

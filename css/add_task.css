@@ -19,6 +19,11 @@ main {
     margin-bottom: 15px;
 }
 
+.addDeleteBtns {
+    display: flex;
+    gap: 10px;
+}
+
 .inputBlock .inputTitle {
     font-size: 18px;
 }
@@ -105,7 +110,7 @@ textarea {
     align-items: center;
     justify-content: center;
     height: 50px;
-    width: 50px;
+    min-width: 50px;
     border-radius: 0 10px 10px 0;
     border: 1px solid #d1d1d1;
     border-left: unset;
@@ -250,7 +255,7 @@ button {
     .buttons {
         position: absolute;
         bottom: unset;
-        top: 35px ;
+        top: 35px;
         z-index: 100;
     }
     .clearBtn {
@@ -262,7 +267,6 @@ button {
     .nav-icons {
         display: none !important;
     }
-
     header {
         width: unset !important;
     }

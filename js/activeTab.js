@@ -16,7 +16,6 @@ function getPageName() {
  */
 function setCurrentTab() {
     const path = getPageName();
-    console.log(path);
     let menuToActivate = document.getElementById(path);
     menuToActivate.classList.add('active');
 }
