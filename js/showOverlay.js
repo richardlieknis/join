@@ -19,6 +19,17 @@ function openAddContact() {
     addContactOverlay.classList.remove('d-none');
 }
 
+async function openEditContact(contactId) {
+    let addContactOverlay = document.getElementById("addContactOverlay");
+    let contactModul = document.getElementById('addContactModul');
+    contactModul.classList.add("slideIn");
+    addContactOverlay.classList.remove('d-none');
+
+    await downloadFromServer();
+    contacts = await JSON.parse(backend.getItem('contacts')) || [];
+    document.getElementById('c-new-name').value = contacts[1].name;
+}
+
 function closeAddContact() {
     let contactModul = document.getElementById('addContactModul');
     contactModul.classList.remove("slideIn");
