@@ -15,9 +15,9 @@
 <body onload="init()">
     <header w3-include-html="../templates/header.html"></header>
     <nav w3-include-html="../templates/navigation.html"></nav>
-    <div id="addTaskOverlay" onclick="closeAddTask()" class="overlay d-none">
-        <div onclick="dontClose(event)" w3-include-html="../templates/addTask-Temp.html"></div>
-    </div>
+        <div id="addTaskOverlay" onclick="closeAddTask()" class="overlay d-none">
+            <div onclick="dontClose(event)" w3-include-html="../templates/addTask-Temp.html"></div>
+        </div>
     <main class="board-container">
         <div class="title-mobile">Kanban Project Management Tool</div>
 
@@ -28,13 +28,14 @@
                 <img src="../src/img/magnifying-glass.svg" />
             </div>
             <button onclick="openAddTask()" class="add-button btn-primary">
-          <span>Add task</span>
-          <img src="../src/img/plus-icon.svg" />
-        </button>
+                <span>Add task</span>
+                <img src="../src/img/plus-icon.svg" />
+            </button>
         </div>
 
         <div class="progress-steps">
-            <div class="todo" id="todo" ondragstart="getCategoryOfDraggedElement('todo')" ondrop="moveTo('todo')" ondrag="addPlaceholder()" ondragover="allowDrop(event)">
+            <div class="todo" id="todo" ondragstart="getCategoryOfDraggedElement('todo')" ondrop="moveTo('todo')"
+                ondrag="addPlaceholder()" ondragover="allowDrop(event)">
                 <div class="progress-header">
                     <span>To do</span>
                     <div onclick="openAddTask()" w3-include-html="../templates/plus-button.html"></div>
@@ -43,7 +44,8 @@
                 <div class="tasks" id="todo-tasks"></div>
             </div>
 
-            <div class="in-progress" id="inProgress" ondragstart="getCategoryOfDraggedElement('inProgress')" ondrop="moveTo('inProgress')" ondrag="addPlaceholder()" ondragover="allowDrop(event)">
+            <div class="in-progress" id="inProgress" ondragstart="getCategoryOfDraggedElement('inProgress')"
+                ondrop="moveTo('inProgress')" ondrag="addPlaceholder()" ondragover="allowDrop(event)">
                 <div class="progress-header">
                     <span>In progress</span>
                     <div onclick="openAddTask()" w3-include-html="../templates/plus-button.html"></div>
@@ -52,7 +54,9 @@
                 <div class="tasks" id="inProgress-tasks"></div>
             </div>
 
-            <div class="awaiting-feedback" id="awaitingFeedback" ondragstart="getCategoryOfDraggedElement('awaitingFeedback')" ondrop="moveTo('awaitingFeedback')" ondrag="addPlaceholder()" ondragover="allowDrop(event)">
+            <div class="awaiting-feedback" id="awaitingFeedback"
+                ondragstart="getCategoryOfDraggedElement('awaitingFeedback')" ondrop="moveTo('awaitingFeedback')"
+                ondrag="addPlaceholder()" ondragover="allowDrop(event)">
                 <div class="progress-header">
                     <span>Awaiting Feedback</span>
                     <div onclick="openAddTask()" w3-include-html="../templates/plus-button.html"></div>
@@ -61,7 +65,8 @@
                 <div class="tasks" id="awaitingFeedback-tasks"></div>
             </div>
 
-            <div class="done" id="done" ondragstart="getCategoryOfDraggedElement('done')" ondrop="moveTo('done')" ondrag="addPlaceholder()" ondragover="allowDrop(event)">
+            <div class="done" id="done" ondragstart="getCategoryOfDraggedElement('done')" ondrop="moveTo('done')"
+                ondrag="addPlaceholder()" ondragover="allowDrop(event)">
                 <div class="progress-header">
                     <span>Done</span>
                     <div onclick="openAddTask()" w3-include-html="../templates/plus-button.html"></div>
@@ -104,7 +109,8 @@
                         </div>
                         <div class="task-overlay-edit-description">
                             <span>Description</span>
-                            <textarea class="input" name="task-overlay-edit-desciption" id="currentDescription" cols="47" rows="3"></textarea>
+                            <textarea class="input" name="task-overlay-edit-desciption" id="currentDescription"
+                                cols="47" rows="3"></textarea>
                         </div>
                         <div class="task-overlay-edit-dueDate">
                             <span>Due date</span>

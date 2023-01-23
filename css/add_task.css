@@ -248,19 +248,23 @@ button {
 
 @media (max-width: 800px) {
     .buttons {
-        position: fixed;
-        bottom: unset !important;
-        top: 35px !important;
+        position: absolute;
+        bottom: unset;
+        top: 35px ;
         z-index: 100;
     }
     .clearBtn {
-        display: none !important;
+        display: none;
     }
     h1 {
-        line-height: 30px !important;
+        line-height: 30px;
     }
     .nav-icons {
         display: none !important;
+    }
+
+    header {
+        width: unset !important;
     }
 }
 

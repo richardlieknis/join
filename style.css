@@ -377,9 +377,6 @@ form {
         body {
             align-items: flex !important;
         }
-        .log-in-resp {
-            gap: 12px;
-        }
     }
 
     .input-login {
