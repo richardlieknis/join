@@ -19,28 +19,35 @@ function openAddContact() {
     addContactOverlay.classList.remove('d-none');
 }
 
-async function openEditContact(contactId) {
+function openEditContact(contactId) {
     let addContactOverlay = document.getElementById("addContactOverlay");
     let contactModul = document.getElementById('addContactModul');
     contactModul.classList.add("slideIn");
     addContactOverlay.classList.remove('d-none');
-    
-        await downloadFromServer();
-    contacts = await JSON.parse(backend.getItem('contacts')) || [];
-    let index = getIndexOfContact(contaxtId)
-    document.getElementById('c-new-name').value = contacts[1].name;
+
+    fillEditContactField(contactId);
 }
 
-function getIndexOfContact(contactId) {
-    let index;
-    for (let i = 0; i < contacts.length; i++) {
-        const Id = contacts[i].id;
-        
-        if (contactId == Id) {
-            index = i;
-        }
+async function fillEditContactField(contactId) {
+    await downloadFromServer();
+    contacts = await JSON.parse(backend.getItem('contacts')) || [];
+    let index = getIndexOfArray(contacts, contactId);
+    document.getElementById('c-new-name').value = contacts[index].name;
+
+    if (contacts[index].email) {
+        document.getElementById('c-new-email').value = contacts[index].email;
     }
-    return index
+    else {
+        document.getElementById('c-new-email').value = "";
+    }
+
+    if (contacts[index].tel) {
+        document.getElementById('c-new-tel').value = contacts[index].tel;
+    }
+    else {
+        document.getElementById('c-new-tel').value = "";
+
+    }
 }
 
 function closeAddContact() {
