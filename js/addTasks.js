@@ -1,6 +1,8 @@
 "use strict"
+let database;
 
 initTasks();
+
 
 function initTasks() {
     let today = new Date();
@@ -20,19 +22,27 @@ function initTasks() {
     // today = yyyy + '/' + mm + '/' + dd;
     today = yyyy + '-' + mm + '-' + dd;
     document.getElementById('task-input-dueDate').value = today;
-    addSubtaskCheckbox();
+
 }
 
 
 function renderAddTask() {
     getContactsToAssign();
+    getSubtasks();
 }
 
-function getContactsToAssign() {
-    let contactNames;
-    contacts.forEach(element => {
-
+async function getContactsToAssign() {
+    database = JSON.parse(await loadJSONFromServer());
+    let contactNames = JSON.parse(database.contacts);
+    contactNames.forEach(element => {
+        document.getElementById("task-input-assignedTo").innerHTML += renderContactsToAssign(element);
     });
+}
+
+function renderContactsToAssign(element) {
+    return `
+      <option class="option" value="${element.id}">${element.name}</option>
+    `;
 }
 
 function addNewSubtask() {
@@ -47,17 +57,18 @@ function deleteSubtaskInput() {
     subtaskBtn.style.width = "50px";
     subtaskInput.value = "";
     subtaskBtn.innerHTML = renderAddBtn();
+    console.log("Buttons sollten zurück zum Plus wechseln?!?!?!?");
 }
 
 function addSubtaskInput() {
     let subtaskInput = document.getElementById("task-input-subtasks");
     if (subtaskInput.value === "") return;
     subtasks.push(subtaskInput.value);
-    addSubtaskCheckbox();
+    getSubtasks();
     deleteSubtaskInput();
 }
 
-function addSubtaskCheckbox() {
+function getSubtasks() {
     document.getElementById("task-checkbox-subtasks").innerHTML = "";
 
     for (let i = 0; i < subtasks.length; i++) {
