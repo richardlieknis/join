@@ -16,5 +16,5 @@ function filterTasks() {
   } else {
     currentTasksArray = tasks;
   }
-  render(currentTasksArray);
+  render();
 }

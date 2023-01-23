@@ -4,6 +4,7 @@ setURL('https://gruppe-join-422.developerakademie.net/smallest_backend');
 
 const categories = ["todo", "inProgress", "awaitingFeedback", "done"];
 let filteredTasks = [];
+let currentTasksArray = tasks;
 let currentDraggedElement;
 let categoryOfDraggedElement;
 const taskOverlayBg = document.querySelector("#taskOverlayBg");
@@ -271,7 +272,8 @@ const dummyData = [
 async function render() {
   await loadTasksFromBackend();
   tasks.push(...dummyData);
-  for (let category of categories) updateHtml(category, tasks);
+  if (!currentTasksArray.length) currentTasksArray = tasks;
+  for (let category of categories) updateHtml(category, currentTasksArray);
 }
 
 // prettier-ignore
