@@ -1,24 +1,29 @@
 "use strict"
 
-let today = new Date();
+initTasks();
 
-      let dd = today.getDate();
-      let mm = today.getMonth()+1; //January is 0!
-      let yyyy = today.getFullYear();
+function initTasks() {
+    let today = new Date();
 
-      if(dd<10) {
-          dd = '0'+dd
-      } 
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1; //January is 0!
+    let yyyy = today.getFullYear();
 
-      if(mm<10) {
-          mm = '0'+mm
-      } 
+    if (dd < 10) {
+        dd = '0' + dd
+    }
 
-      // today = yyyy + '/' + mm + '/' + dd;
-       today = yyyy + '-' + mm + '-' + dd;
+    if (mm < 10) {
+        mm = '0' + mm
+    }
 
-      console.log(today);
-      document.getElementById('task-input-dueDate').value = today;
+    // today = yyyy + '/' + mm + '/' + dd;
+    today = yyyy + '-' + mm + '-' + dd;
+
+    console.log(today);
+    document.getElementById('task-input-dueDate').value = today;
+}
+
 
 function renderAddTask() {
     getContactsToAssign();
@@ -28,6 +33,6 @@ function renderAddTask() {
 function getContactsToAssign() {
     let contactNames;
     contacts.forEach(element => {
-        
+
     });
 }
