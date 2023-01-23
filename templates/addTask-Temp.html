@@ -62,15 +62,15 @@
                         <div class="inputBlock">
                             <span class="inputTitle">Prio</span>
                             <div class="prioBtns">
-                                <div class="prioBtn">
+                                <div id="urgentBtn" class="prioBtn">
                                     <span>Urgent</span>
                                     <img src="../src/img/urgent.svg" />
                                 </div>
-                                <div class="prioBtn">
+                                <div id="mediumBtn" class="prioBtn">
                                     <span>Medium</span>
                                     <img src="../src/img/medium.svg" />
                                 </div>
-                                <div class="prioBtn">
+                                <div id="lowBtn" class="prioBtn">
                                     <span>Low</span>
                                     <img src="../src/img/low.svg" />
                                 </div>
@@ -80,12 +80,12 @@
                             <span class="inputTitle">Subtasks</span>
 
                             <div class="addSubTask">
-                                <input type="text" id="task-input-subtasks" />
-                                <div class="addSubTaskBtn">
+                                <input id="task-input-subtasks" type="text" />
+                                <div onclick="addNewSubtask()" class="addSubTaskBtn">
                                     <img src="../src/img/plus.svg" alt="" />
                                 </div>
                             </div>
-                            <div id="checkSubtasks">
+                            <div id="task-checkbox-subtasks">
                                 <div id="subtask0" class="subtask">
                                     <input type="checkbox" />
                                     <span>Subtask</span>
