@@ -260,7 +260,6 @@ button {
     .buttons {
         position: absolute;
         bottom: unset;
-        top: 35px;
         z-index: 100;
     }
     .input-container {
@@ -294,6 +293,10 @@ button {
     }
     header {
         width: unset !important;
+    }
+
+    .buttons {
+        top: 35px;
     }
 }
 
