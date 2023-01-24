@@ -258,7 +258,10 @@ button {
 
 @media (max-width: 1070px) {
     .buttons {
-        position: unset;
+        position: absolute;
+        bottom: unset;
+        top: 35px;
+        z-index: 100;
     }
     .input-container {
         flex-direction: column;
@@ -280,12 +283,6 @@ button {
 }
 
 @media (max-width: 800px) {
-    .buttons {
-        position: absolute;
-        bottom: unset;
-        top: 35px;
-        z-index: 100;
-    }
     .clearBtn {
         display: none;
     }
