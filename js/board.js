@@ -15,6 +15,7 @@ const categoriesContainer = document.querySelector('#categoriesContainer');
 const priorityUrgentButton = document.querySelector('#priority-urgent');
 const priorityMediumButton = document.querySelector('#priority-medium');
 const priorityLowButton = document.querySelector('#priority-low');
+let currentPriority;
 
 const dummyData = [
   {
@@ -273,6 +274,7 @@ const dummyData = [
 
 async function render() {
   await loadTasksFromBackend();
+  tasks = [];
   tasks.push(...dummyData);
   if (!currentTasksArray.length) currentTasksArray = tasks;
   for (let category of progressStepCategories) updateHtml(category, currentTasksArray);
@@ -511,6 +513,7 @@ function generateTaskOverlayButtonsHtml(taskIndex) {
 
 function renderEditTask(taskId) {
   const taskIndex = getIndexOfArray(tasks, taskId)
+  currentPriority = tasks[taskIndex].priority;
   renderCurrentCategory(taskIndex);
   renderCategories(tasks[taskIndex].label);
   renderCurrentTitle(taskIndex);
@@ -566,15 +569,15 @@ function renderCurrentDueDate(taskIndex) {
   document.querySelector('#currentDueDate').value = tasks[taskIndex].dueDate;
 }
 
-function renderCurrentPriority(taskIndex) {
+function renderCurrentPriority() {
   removeActiveClassFromPriorityButton();
-  if (tasks[taskIndex].priority === "urgent") {
+  if (currentPriority === "urgent") {
     priorityUrgentButton.classList.add('active');
     priorityUrgentButton.childNodes[3].src = "../src/img/urgent-white.svg";
-  } else if (tasks[taskIndex].priority === "medium") {
+  } else if (currentPriority === "medium") {
     priorityMediumButton.classList.add('active');
     priorityMediumButton.childNodes[3].src = "../src/img/medium-white.svg";  
-  } else if (tasks[taskIndex].priority === "low") {
+  } else if (currentPriority === "low") {
     priorityLowButton.classList.add('active');
     priorityLowButton.childNodes[3].src = "../src/img/low-white.svg";
   }
@@ -588,6 +591,11 @@ function removeActiveClassFromPriorityButton() {
   priorityUrgentButton.childNodes[3].src = "../src/img/urgent.svg";
   priorityMediumButton.childNodes[3].src = "../src/img/medium.svg";
   priorityLowButton.childNodes[3].src = "../src/img/low.svg";
+}
+
+function setPriority(priority) {
+  currentPriority = priority;
+  renderCurrentPriority();
 }
 
 function renderCurrentAssignedPersons(taskIndex) {
