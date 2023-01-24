@@ -1,5 +1,6 @@
 "use strict"
 let database;
+let priority;
 
 function setDateOfToday() {
     let today = new Date();
@@ -42,6 +43,8 @@ function choosePriority(prio) {
     let urgent = document.getElementById("urgentBtn");
     let medium = document.getElementById("mediumBtn");
     let low = document.getElementById("lowBtn");
+
+    priority = prio;
 
     switch (prio) {
         case "urgent":
@@ -90,18 +93,18 @@ function renderPrioBtnUnclicked(prio) {
 
 function renderPrioBtns() {
     return `
-    <div onclick="choosePriority('urgent')" id="urgentBtn" class="prioBtn">
-                                        <span>Urgent</span>
-                                        <img src="../src/img/urgent.svg" />
-                                    </div>
-                                    <div onclick="choosePriority('medium')" id="mediumBtn" class="prioBtn">
-                                        <span>Medium</span>
-                                        <img src="../src/img/medium.svg" />
-                                    </div>
-                                    <div onclick="choosePriority('low')" id="lowBtn" class="prioBtn">
-                                        <span>Low</span>
-                                        <img src="../src/img/low.svg" />
-                                    </div>
+        <div onclick="choosePriority('urgent')" id="urgentBtn" class="prioBtn">
+                <span>Urgent</span>
+                <img src="../src/img/urgent.svg" />
+        </div>
+        <div onclick="choosePriority('medium')" id="mediumBtn" class="prioBtn">
+            <span>Medium</span>
+            <img src="../src/img/medium.svg" />
+        </div>
+        <div onclick="choosePriority('low')" id="lowBtn" class="prioBtn">
+            <span>Low</span>
+            <img src="../src/img/low.svg" />
+        </div>
     `;
 }
 
@@ -164,6 +167,10 @@ function renderAddBtn() {
 
 function renderContactsToAssign(element) {
     return `
-      <option value="${element.id}">${element.name}</option>
+      <option value="${element.id}">
+        ${element.name}
+        <input type="checkbox"></input>
+      </option>
+      
     `;
 }
