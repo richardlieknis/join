@@ -108,6 +108,7 @@
 }
 
 .close-white {
+    cursor: pointer;
     display: none;
 }
 
@@ -131,8 +132,9 @@
         }
 
         .c-new-c-left {
-            height: 50%;
+            height: 45%;
             width: 100%;
+            border-bottom-left-radius: unset;
         }
 
         .c-img-resp {
@@ -143,6 +145,7 @@
             position: relative;
             justify-content: center;
             width: 100%;
+            height: 55%;
         }
 
         .c-new-initials {
