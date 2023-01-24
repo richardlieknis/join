@@ -212,7 +212,8 @@ function allowDrop(ev) {
 }
 
 function moveTo(category) {
-  tasks[currentDraggedElement].category = category;
+  const taskIndex = getIndexOfArray(tasks, currentDraggedElement);
+  tasks[taskIndex].category = category;
   render();
 }
 
