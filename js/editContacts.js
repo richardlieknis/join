@@ -98,7 +98,23 @@ function getInitials(name) {
 
 // Edit contacts
 
-function editContact(contactId) {
+async function editContact(contactId) {
+    await loadContactsFromBackend();
+    const name = document.getElementById('c-new-name');
+    const email = document.getElementById('c-new-email');
+    const tel = document.getElementById('c-new-tel');
+    const initials = getInitials(name.value);
 
+    pushEditedContact(contactId, name.value, email.value, tel.value, initials);
+}
+
+async function pushEditedContact(contactId, name, email, tel, initials) {
+    const index = getIndexOfArray(contacts, contactId);
+    contacts[index].name = name;
+    contacts[index].email = email;
+    contacts[index].phone = tel;
+    contacts[index].initials = initials;
+
+    await saveContactsToBackend();
 }
 

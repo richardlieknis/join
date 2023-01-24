@@ -30,8 +30,7 @@ function openEditContact(contactId) {
 }
 
 async function fillEditContactField(contactId) {
-    await downloadFromServer();
-    contacts = await JSON.parse(backend.getItem('contacts')) || [];
+    await loadContactsFromBackend();
     let index = getIndexOfArray(contacts, contactId);
     document.getElementById('c-new-name').value = contacts[index].name;
 
@@ -41,12 +40,38 @@ async function fillEditContactField(contactId) {
         document.getElementById('c-new-email').value = "";
     }
 
-    if (contacts[index].tel) {
-        document.getElementById('c-new-tel').value = contacts[index].tel;
+    if (contacts[index].phone) {
+        document.getElementById('c-new-tel').value = contacts[index].phone;
     } else {
         document.getElementById('c-new-tel').value = "";
 
     }
+}
+
+async function fillEditTasksField(taskId) {
+    await loadTasksFromBackend();
+    let index = getIndexOfArray(tasks, taskId);
+    document.getElementById('task-input-title').value = tasks[index].titel;
+
+    if (tasks[index].description) {
+        document.getElementById('task-input-description').value = tasks[index].description;
+    } else {
+        document.getElementById('task-input-description').value = "";
+    }
+
+    if (tasks[index].category) {
+        document.getElementById('task-input-category').value = tasks[index].category;
+    } else {
+        document.getElementById('task-input-category').value = "";
+    }
+
+    if (tasks[index].category) {
+        document.getElementById('task-input-category').value = tasks[index].category;
+    } else {
+        document.getElementById('task-input-category').value = "";
+    }
+
+    
 }
 
 function closeAddContact() {
