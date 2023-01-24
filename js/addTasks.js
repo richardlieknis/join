@@ -217,8 +217,8 @@ function getSubtasks() {
 
 function renderSubtaskCheckbox(index) {
     return `
-    <div id="subtask${index}" class="subtask">
-        <input type="checkbox" />
+    <div  class="subtask">
+        <input id="subtask${index}" type="checkbox" />
         <span>${subtasks[index]}</span>
     </div>
     `;
@@ -259,16 +259,6 @@ function renderCategoryInputFull() {
                       </option>
                       <option value="newCategory">New Category</option>
                     </select>
-    `;
-}
-
-
-function renderCategoryInputOptions() {
-    return `
-                      <option disabled selected>
-                        Select or create a Category!
-                      </option>
-                      <option value="newCategory">New Category</option>
     `;
 }
 
