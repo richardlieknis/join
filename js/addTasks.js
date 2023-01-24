@@ -41,7 +41,6 @@ async function getContactsToAssign() {
 }
 
 function choosePriority(prio) {
-    let prioBtns = document.getElementById("prioBtns");
     let urgent = document.getElementById("urgentBtn");
     let medium = document.getElementById("mediumBtn");
     let low = document.getElementById("lowBtn");
@@ -110,7 +109,13 @@ function getCategories() {
     });
 }
 
-function addColor(color) {
+function addColor(color, element) {
+    let elements = document.getElementsByClassName("colorOption");
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].classList.remove("scaleColor");
+    }
+    element.classList.add("scaleColor");
+
     categoryColor = color;
 }
 
@@ -255,13 +260,13 @@ function renderCategoryInput() {
                                     </div>
                                 </div>
                                 <div class="chooseColor">
-                                <span onclick="addColor(1)" class="color-1 colorOption"></span>
-                                <span onclick="addColor(2)" class="color-2 colorOption"></span>
-                                <span onclick="addColor(3)" class="color-3 colorOption"></span>
-                                <span onclick="addColor(4)" class="color-4 colorOption"></span>
-                                <span onclick="addColor(5)" class="color-5 colorOption"></span>
-                                <span onclick="addColor(6)" class="color-6 colorOption"></span>
-                                <span onclick="addColor(7)" class="color-7 colorOption"></span>
+                                <span onclick="addColor(1, this)" class="color-1 colorOption"></span>
+                                <span onclick="addColor(2, this)" class="color-2 colorOption"></span>
+                                <span onclick="addColor(3, this)" class="color-3 colorOption"></span>
+                                <span onclick="addColor(4, this)" class="color-4 colorOption"></span>
+                                <span onclick="addColor(5, this)" class="color-5 colorOption"></span>
+                                <span onclick="addColor(6, this)" class="color-6 colorOption"></span>
+                                <span onclick="addColor(7, this)" class="color-7 colorOption"></span>
                                 </div>
     `;
 }

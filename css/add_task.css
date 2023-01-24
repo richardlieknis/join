@@ -228,6 +228,11 @@ textarea {
     padding: 1px;
     width: 10px !important;
     height: 10px !important;
+    cursor: pointer;
+}
+
+.scaleColor {
+    scale: 1.4;
 }
 
 .buttons .createBtn {
