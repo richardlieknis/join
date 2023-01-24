@@ -1,6 +1,7 @@
 "use strict"
 let database;
 let priority;
+let categoryColor;
 
 function setDateOfToday() {
     let today = new Date();
@@ -27,6 +28,7 @@ function setDateOfToday() {
 function renderAddTask() {
     getContactsToAssign();
     getSubtasks();
+    getCategories();
     setDateOfToday();
 }
 
@@ -75,6 +77,41 @@ function choosePriority(prio) {
         default:
             break;
     }
+}
+
+function handleCategoryChange() {
+    let currentSelect = document.getElementById('task-input-category');
+    let categoryDiv = document.getElementById('category-selection');
+
+    if (currentSelect.value === 'newCategory') {
+        categoryDiv.innerHTML = renderCategoryInput();
+    }
+}
+
+function addNewCategory() {
+    let newCategoryInput = document.getElementById('new-category-input');
+    let categoryDiv = document.getElementById('category-selection');
+
+    if (newCategoryInput.value === "") return;
+    let createNew = {
+        name: newCategoryInput.value,
+        colorNumber: categoryColor || 1,
+    }
+
+    categories.push(createNew);
+    categoryDiv.innerHTML = renderCategoryInputFull();
+    getCategories();
+}
+
+function getCategories() {
+    let taskCategoryDiv = document.getElementById('task-input-category');
+    categories.forEach(element => {
+        taskCategoryDiv.innerHTML += renderCategoryInputOptionsExtra(element);
+    });
+}
+
+function addColor(color) {
+    categoryColor = color;
 }
 
 function renderPrioBtnClicked(prio) {
@@ -139,6 +176,8 @@ function getSubtasks() {
     }
 }
 
+
+
 function renderSubtaskCheckbox(index) {
     return `
     <div id="subtask${index}" class="subtask">
@@ -172,5 +211,57 @@ function renderContactsToAssign(element) {
         <input type="checkbox"></input>
       </option>
       
+    `;
+}
+
+function renderCategoryInputFull() {
+    return `
+    <select style="width: 100%" required id="task-input-category" onchange="handleCategoryChange()">
+                      <option disabled selected>
+                        Select or create a Category!
+                      </option>
+                      <option value="newCategory">New Category</option>
+                    </select>
+    `;
+}
+
+
+function renderCategoryInputOptions() {
+    return `
+                      <option disabled selected>
+                        Select or create a Category!
+                      </option>
+                      <option value="newCategory">New Category</option>
+    `;
+}
+
+function renderCategoryInputOptionsExtra(category) {
+    return `
+                      <option value="${category}" class="color-${category.colorNumber}">
+                      ${category.name.charAt(0).toUpperCase() + category.name.slice(1)}
+                      </option>
+    `;
+}
+
+
+function renderCategoryInput() {
+    return `
+    <div class="addSubTask">
+                                    <input id="new-category-input" type="text" />
+                                    <div class="addSubTaskBtn">
+                                        <div class="addDeleteBtns">
+                                            <img onclick="addNewCategory()" src="../src/img/plus.svg" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chooseColor">
+                                <span onclick="addColor(1)" class="color-1 colorOption"></span>
+                                <span onclick="addColor(2)" class="color-2 colorOption"></span>
+                                <span onclick="addColor(3)" class="color-3 colorOption"></span>
+                                <span onclick="addColor(4)" class="color-4 colorOption"></span>
+                                <span onclick="addColor(5)" class="color-5 colorOption"></span>
+                                <span onclick="addColor(6)" class="color-6 colorOption"></span>
+                                <span onclick="addColor(7)" class="color-7 colorOption"></span>
+                                </div>
     `;
 }
