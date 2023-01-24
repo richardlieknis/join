@@ -20,73 +20,29 @@ const contactsContainer = document.querySelector('#contactsContainer');
 
 const dummyData = [
   {
-    id: 0,
+    id: 1,
     label: "design",
     title: "task a",
     description: "Modify the contents of the main website...",
     dueDate: "2023-02-01",
     subtasks: [],
-    assignedTo: [
-      {
-        name: "Sandra Müller",
-        email: "sandra.mueller@gmx.de",
-        phone: "+4994937394",
-        color: "blue",
-        initials: "SM",
-      },
-      {
-        name: "Manuel Vogel",
-        email: "manu.vogel@gmail.com",
-        phone: "+49934798347",
-        color: "pink",
-        initials: "MV",
-      },
-    ],
+    assignedTo: [1, 2],
     priority: "low",
     category: "todo",
   },
   {
-    id: 1,
+    id: 2,
     label: "sales",
     title: "task b",
     description: "Make the product presentation to prospective buyers",
     dueDate: "2023-02-01",
     subtasks: [],
-    assignedTo: [
-      {
-        name: "Anton Sommer",
-        email: "anton.so@gmx.net",
-        phone: "+4998747394",
-        color: "dark-blue",
-        initials: "AS",
-      },
-      {
-        name: "Denise Eibold",
-        email: "denise.e@gmail.com",
-        phone: "+494556657",
-        color: "red",
-        initials: "DE",
-      },
-      {
-        name: "Sandra Müller",
-        email: "sandra.mueller@gmx.de",
-        phone: "+4994937394",
-        color: "blue",
-        initials: "SM",
-      },
-      {
-        name: "Manuel Vogel",
-        email: "manu.vogel@gmail.com",
-        phone: "+49934798347",
-        color: "pink",
-        initials: "MV",
-      },
-    ],
+    assignedTo: [2, 4],
     priority: "medium",
     category: "todo",
   },
   {
-    id: 2,
+    id: 3,
     label: "backoffice",
     title: "task c",
     description: "Modify the contents of the main website...",
@@ -95,53 +51,23 @@ const dummyData = [
       { title: "subtask 1", done: true },
       { title: "subtask 2", done: false },
     ],
-    assignedTo: [
-      {
-        name: "Sandra Müller",
-        email: "sandra.mueller@gmx.de",
-        phone: "+4994937394",
-        color: "blue",
-        initials: "SM",
-      },
-      {
-        name: "Manuel Vogel",
-        email: "manu.vogel@gmail.com",
-        phone: "+49934798347",
-        color: "pink",
-        initials: "MV",
-      },
-    ],
+    assignedTo: [1, 3],
     priority: "low",
     category: "inProgress",
   },
   {
-    id: 3,
+    id: 4,
     label: "media",
     title: "task d",
     description: "Make the product presentation to prospective buyers",
     dueDate: "2023-02-01",
     subtasks: [],
-    assignedTo: [
-      {
-        name: "Anton Sommer",
-        email: "anton.so@gmx.net",
-        phone: "+4998747394",
-        color: "dark-blue",
-        initials: "AS",
-      },
-      {
-        name: "Denise Eibold",
-        email: "denise.e@gmail.com",
-        phone: "+494556657",
-        color: "red",
-        initials: "DE",
-      },
-    ],
+    assignedTo: [4],
     priority: "urgent",
     category: "inProgress",
   },
   {
-    id: 4,
+    id: 5,
     label: "marketing",
     title: "task e",
     description: "Modify the contents of the main website...",
@@ -150,53 +76,23 @@ const dummyData = [
       { title: "subtask 1", done: false },
       { title: "subtask 2", done: false },
     ],
-    assignedTo: [
-      {
-        name: "Sandra Müller",
-        email: "sandra.mueller@gmx.de",
-        phone: "+4994937394",
-        color: "blue",
-        initials: "SM",
-      },
-      {
-        name: "Manuel Vogel",
-        email: "manu.vogel@gmail.com",
-        phone: "+49934798347",
-        color: "pink",
-        initials: "MV",
-      },
-    ],
+    assignedTo: [1, 2, 3, 4],
     priority: "low",
     category: "awaitingFeedback",
   },
   {
-    id: 5,
+    id: 6,
     label: "backoffice",
     title: "task f",
     description: "Make the product presentation to prospective buyers",
     dueDate: "2023-02-01",
     subtasks: [],
-    assignedTo: [
-      {
-        name: "Anton Sommer",
-        email: "anton.so@gmx.net",
-        phone: "+4998747394",
-        color: "dark-blue",
-        initials: "AS",
-      },
-      {
-        name: "Denise Eibold",
-        email: "denise.e@gmail.com",
-        phone: "+494556657",
-        color: "red",
-        initials: "DE",
-      },
-    ],
+    assignedTo: [3, 4],
     priority: "urgent",
     category: "awaitingFeedback",
   },
   {
-    id: 6,
+    id: 7,
     label: "marketing",
     title: "task g",
     description: "Modify the contents of the main website...",
@@ -211,62 +107,18 @@ const dummyData = [
       { title: "subtask 1", done: true },
       { title: "subtask 2", done: true },
     ],
-    assignedTo: [
-      {
-        name: "Sandra Müller",
-        email: "sandra.mueller@gmx.de",
-        phone: "+4994937394",
-        color: "blue",
-        initials: "SM",
-      },
-      {
-        name: "Manuel Vogel",
-        email: "manu.vogel@gmail.com",
-        phone: "+49934798347",
-        color: "pink",
-        initials: "SM",
-      },
-      {
-        name: "Anton Sommer",
-        email: "anton.so@gmx.net",
-        phone: "+4998747394",
-        color: "dark-blue",
-        initials: "AS",
-      },
-      {
-        name: "Denise Eibold",
-        email: "denise.e@gmail.com",
-        phone: "+494556657",
-        color: "red",
-        initials: "DE",
-      },
-    ],
+    assignedTo: [2, 3, 4],
     priority: "low",
     category: "done",
   },
   {
-    id: 7,
+    id: 8,
     label: "media",
     title: "task h",
     description: "Make the product presentation to prospective buyers",
     dueDate: "2023-02-01",
     subtasks: [],
-    assignedTo: [
-      {
-        name: "Anton Sommer",
-        email: "anton.so@gmx.net",
-        phone: "+4998747394",
-        color: "dark-blue",
-        initials: "AS",
-      },
-      {
-        name: "Denise Eibold",
-        email: "denise.e@gmail.com",
-        phone: "+494556657",
-        color: "red",
-        initials: "DE",
-      },
-    ],
+    assignedTo: [1],
     priority: "urgent",
     category: "done",
   },
@@ -281,7 +133,6 @@ async function render() {
   for (let category of progressStepCategories) updateHtml(category, currentTasksArray);
 }
 
-// prettier-ignore
 function updateHtml(category, tasksArrayToRender) {
   const progressStep = tasksArrayToRender.filter((task) => task.category === category);
   const progressStepHtmlContainer = document.querySelector(`#${category}-tasks`);
@@ -292,7 +143,6 @@ function updateHtml(category, tasksArrayToRender) {
   progressStepHtmlContainer.innerHTML += generatePlaceholderHtml(category);
 }
 
-// prettier-ignore
 function generateTaskCardtHtml(task) {
   return `
         <div class="task-card" draggable="true" ondragstart="startDragging(${task.id})" onclick="openTaskOverlay(${task.id})">
@@ -339,8 +189,9 @@ function getDoneSubtasksInPercent(task) {
 }
 
 function getAssignedPersonsInitialsHtml(task) {
+  const assignedContacts = contacts.filter(contact => task.assignedTo.includes(contact.id));
   let assignedPersonsHtml = "";
-  for (let assignedPerson of task.assignedTo) {
+  for (let assignedPerson of assignedContacts) {
     assignedPersonsHtml += `<div class="initials ${assignedPerson.color}">${assignedPerson.initials}</div>`;
   }
   return assignedPersonsHtml;
@@ -467,9 +318,7 @@ function renderPriority(taskIndex) {
 
 function renderAssignedToContainer(taskIndex) {
   const assignedToContainer = document.querySelector("#assignedToContainer");
-  const assignedPersonsContainer = document.querySelector(
-    "#assignedPersonsContainer"
-  );
+  const assignedPersonsContainer = document.querySelector("#assignedPersonsContainer");
   assignedPersonsContainer.innerHTML = "";
   if (tasks[taskIndex].assignedTo.length) {
     assignedPersonsContainer.innerHTML = renderAllAssignedPersons(taskIndex);
@@ -481,18 +330,18 @@ function renderAssignedToContainer(taskIndex) {
 
 function renderAllAssignedPersons(taskIndex) {
   let assignedPersonHtml = "";
-  const assignedPersonArray = [...tasks[taskIndex].assignedTo];
-  for (let i = 0; i < assignedPersonArray.length; i++) {
-    assignedPersonHtml += generateAssignedPersonsHtml(assignedPersonArray, i);
+  const assignedContacts = contacts.filter(contact => tasks[taskIndex].assignedTo.includes(contact.id));
+  for (let i = 0; i < assignedContacts.length; i++) {
+    assignedPersonHtml += generateAssignedPersonsHtml(assignedContacts, i);
   }
   return assignedPersonHtml;
 }
 
-function generateAssignedPersonsHtml(assignedPersonArray, assignedPersonId) {
+function generateAssignedPersonsHtml(assignedContacts, assignedContactIndex) {
   return `
       <div class="assigned-person">
-        <span class="initials ${assignedPersonArray[assignedPersonId].color}">${assignedPersonArray[assignedPersonId].initials}</span>
-        <span class="full-name">${assignedPersonArray[assignedPersonId].name}</span>
+        <span class="initials ${assignedContacts[assignedContactIndex].color}">${assignedContacts[assignedContactIndex].initials}</span>
+        <span class="full-name">${assignedContacts[assignedContactIndex].name}</span>
       </div>
     `;
 }
@@ -507,7 +356,7 @@ function generateTaskOverlayButtonsHtml(taskIndex) {
       <div class="close-button" onclick="closeTaskOverlay()">
         <img src="../src/img/close-icon.svg" />
       </div>
-      <button class="edit-icon btn-primary" onclick="renderEditTask(${taskIndex})">
+      <button class="edit-icon btn-primary" onclick="renderEditTask(${tasks[taskIndex].id})">
         <img src="../src/img/edit-icon.svg" />
       </button>
   `;
@@ -601,10 +450,11 @@ function setPriority(priority) {
 }
 
 function renderCurrentAssignedPersons(taskIndex) {
-  const assignedContacts = document.querySelector('#assignedContacts');
-  assignedContacts.innerHTML = "";
-  for (let assignedPerson of tasks[taskIndex].assignedTo) {
-    assignedContacts.innerHTML += generateCurrentAssignedPersonsHtml(assignedPerson)
+  const assignedContacts = contacts.filter(contact => tasks[taskIndex].assignedTo.includes(contact.id));
+  const assignedContactsContainer = document.querySelector('#assignedContacts');
+  assignedContactsContainer.innerHTML = "";
+  for (let assignedPerson of assignedContacts) {
+    assignedContactsContainer.innerHTML += generateCurrentAssignedPersonsHtml(assignedPerson)
   }
 }
 
