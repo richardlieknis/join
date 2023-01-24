@@ -16,6 +16,7 @@ const priorityUrgentButton = document.querySelector('#priority-urgent');
 const priorityMediumButton = document.querySelector('#priority-medium');
 const priorityLowButton = document.querySelector('#priority-low');
 let currentPriority;
+const contactsContainer = document.querySelector('#contactsContainer');
 
 const dummyData = [
   {
@@ -398,6 +399,7 @@ function closeTaskOverlay() {
   taskOverlayContentContainer.classList.remove('d-none');
   taskOverlayEditContentContainer.classList.add('d-none');
   hideCategories();
+  hideContacts();
 }
 
 render();
@@ -610,6 +612,28 @@ function generateCurrentAssignedPersonsHtml(assignedPerson) {
   return `
       <div class="initials ${assignedPerson.color}">${assignedPerson.initials}</div>
   `;
+}
+
+function renderContacts() {
+  categoriesContainer.innerHTML = "";
+  for (let category of categories) {
+    if (category.name !== categoryToIgnore) {
+      categoriesContainer.innerHTML += `
+      <div onclick="setCategory('${category.name}')">
+        <span>${category.name}</span>
+        <div class="category-color color-${category.colorNumber}"></div>
+      </div>
+      `;
+    }
+  }
+}
+
+function showOrHideContacts() {
+  contactsContainer.classList.toggle('d-none');
+}
+
+function hideContacts() {
+  if (!contactsContainer.classList.contains('d-none')) contactsContainer.classList.add('d-none');
 }
 
 function renderEditTaskOverlayButtons(taskIndex) {
