@@ -1,4 +1,6 @@
 "use strict"
+
+
 let database;
 let priority;
 let categoryColor;
@@ -52,6 +54,9 @@ function choosePriority(prio) {
             urgent.style.backgroundColor = "#f83525";
             medium.style.backgroundColor = "#fff";
             low.style.backgroundColor = "#fff";
+            urgent.style.color = "#fff";
+            medium.style.color = "#000";
+            low.style.color = "#000";
             urgent.innerHTML = renderPrioBtnClicked("urgent");
             medium.innerHTML = renderPrioBtnUnclicked("medium");
             low.innerHTML = renderPrioBtnUnclicked("low");
@@ -60,6 +65,9 @@ function choosePriority(prio) {
             medium.style.backgroundColor = "#ff7a00";
             urgent.style.backgroundColor = "#fff";
             low.style.backgroundColor = "#fff";
+            urgent.style.color = "#000";
+            medium.style.color = "#fff";
+            low.style.color = "#000";
             medium.innerHTML = renderPrioBtnClicked("medium");
             urgent.innerHTML = renderPrioBtnUnclicked("urgent");
             low.innerHTML = renderPrioBtnUnclicked("low");
@@ -68,10 +76,24 @@ function choosePriority(prio) {
             low.style.backgroundColor = "#02cf2f";
             medium.style.backgroundColor = "#fff";
             urgent.style.backgroundColor = "#fff";
+            urgent.style.color = "#000";
+            medium.style.color = "#000";
+            low.style.color = "#fff";
             low.innerHTML = renderPrioBtnClicked("low");
             medium.innerHTML = renderPrioBtnUnclicked("medium");
             urgent.innerHTML = renderPrioBtnUnclicked("urgent");
             break;
+        case "none":
+            low.style.backgroundColor = "#fff";
+            medium.style.backgroundColor = "#fff";
+            urgent.style.backgroundColor = "#fff";
+            urgent.style.color = "#000";
+            medium.style.color = "#000";
+            low.style.color = "#000";
+            low.innerHTML = renderPrioBtnUnclicked("low");
+            medium.innerHTML = renderPrioBtnUnclicked("medium");
+            urgent.innerHTML = renderPrioBtnUnclicked("urgent");
+
 
         default:
             break;
@@ -114,9 +136,19 @@ function addColor(color, element) {
     for (let i = 0; i < elements.length; i++) {
         elements[i].classList.remove("scaleColor");
     }
-    element.classList.add("scaleColor");
 
+    element.classList.add("scaleColor");
     categoryColor = color;
+}
+
+function clearTaskInputs() {
+    document.getElementById('task-input-title').value = '';
+    document.getElementById('task-input-description').value = '';
+    document.getElementById('task-input-category').selectedIndex = 0;
+    document.getElementById('task-input-assignedTo').selectedIndex = 0;
+    priority = null;
+    setDateOfToday();
+    choosePriority("none");
 }
 
 function renderPrioBtnClicked(prio) {
@@ -167,7 +199,7 @@ function addSubtaskInput() {
     let subtaskInput = document.getElementById("task-input-subtasks");
     let errSubtask = document.querySelector(".errorSubtask");
     if (subtaskInput.value === "") { errSubtask.classList.remove("d-none"); return; }
-    errSubtask.classList.add("d-none");
+    //errSubtask.classList.add("d-none");
     subtasks.push(subtaskInput.value);
     getSubtasks();
     deleteSubtaskInput();
