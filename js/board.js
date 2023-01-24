@@ -371,7 +371,8 @@ function renderEditTask(taskId) {
   rendercurrentDescription(taskIndex);
   renderCurrentDueDate(taskIndex);
   renderCurrentPriority(taskIndex);
-  renderCurrentAssignedPersons(taskIndex);
+  renderContacts(taskIndex);
+  renderCurrentAssignedContacts(taskIndex);
   renderEditTaskOverlayButtons(taskIndex);
   taskOverlayContentContainer.classList.add('d-none');
   taskOverlayEditContentContainer.classList.remove('d-none');
@@ -449,7 +450,7 @@ function setPriority(priority) {
   renderCurrentPriority();
 }
 
-function renderCurrentAssignedPersons(taskIndex) {
+function renderCurrentAssignedContacts(taskIndex) {
   const assignedContacts = contacts.filter(contact => tasks[taskIndex].assignedTo.includes(contact.id));
   const assignedContactsContainer = document.querySelector('#assignedContacts');
   assignedContactsContainer.innerHTML = "";
@@ -464,18 +465,38 @@ function generateCurrentAssignedPersonsHtml(assignedPerson) {
   `;
 }
 
-function renderContacts() {
-  categoriesContainer.innerHTML = "";
-  for (let category of categories) {
-    if (category.name !== categoryToIgnore) {
-      categoriesContainer.innerHTML += `
-      <div onclick="setCategory('${category.name}')">
-        <span>${category.name}</span>
-        <div class="category-color color-${category.colorNumber}"></div>
+function renderContacts(taskIndex) {
+  contactsContainer.innerHTML = `
+      <div>
+        <span>You</span>
+        <input type="checkbox" />
       </div>
-      `;
+    `;
+  for (let contact of contacts) {
+    if (tasks[taskIndex].assignedTo.includes(contact.id)) {
+      contactsContainer.innerHTML += generateCheckedContactsHtml(contact);
+    } else {
+      contactsContainer.innerHTML += generateUncheckedContactsHtml(contact);
     }
   }
+}
+
+function generateUncheckedContactsHtml(contact) {
+  return `
+    <div>
+      <span>${contact.name}</span>
+      <input type="checkbox"/>
+    </div>
+  `;
+}
+
+function generateCheckedContactsHtml(contact) {
+  return `
+    <div>
+      <span>${contact.name}</span>
+      <input type="checkbox" checked/>
+    </div>
+  `;
 }
 
 function showOrHideContacts() {
