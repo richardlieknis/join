@@ -215,6 +215,26 @@ textarea {
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
+.chooseColor {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 15px;
+}
+
+.colorOption {
+    border-radius: 50%;
+    border: 1px solid rgb(255, 255, 255);
+    padding: 1px;
+    width: 10px !important;
+    height: 10px !important;
+    cursor: pointer;
+}
+
+.scaleColor {
+    scale: 1.4;
+}
+
 .buttons .createBtn {
     background-color: #2A3647;
     color: #fff !important;
@@ -260,7 +280,6 @@ button {
     .buttons {
         position: absolute;
         bottom: unset;
-        top: 35px;
         z-index: 100;
     }
     .input-container {
@@ -294,6 +313,9 @@ button {
     }
     header {
         width: unset !important;
+    }
+    .buttons {
+        top: 35px;
     }
 }
 

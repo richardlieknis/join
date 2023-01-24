@@ -119,15 +119,15 @@
                         <div class="task-overlay-edit-priority">
                             <span>Priority</span>
                             <div>
-                                <div class="priority-button urgent active" id="priority-urgent">
+                                <div class="priority-button urgent active" id="priority-urgent" onclick="setPriority('urgent')">
                                     <span>urgent</span>
                                     <img src="../src/img/urgent.svg" />
                                 </div>
-                                <div class="priority-button medium" id="priority-medium">
+                                <div class="priority-button medium" id="priority-medium" onclick="setPriority('medium')">
                                     <span>medium</span>
                                     <img src="../src/img/medium.svg" />
                                 </div>
-                                <div class="priority-button low" id="priority-low">
+                                <div class="priority-button low" id="priority-low"  onclick="setPriority('low')">
                                     <span>low</span>
                                     <img src="../src/img/low.svg" />
                                 </div>
@@ -135,14 +135,27 @@
                         </div>
                         <div class="task-overlay-edit-assignedTo">
                             <span>Assigned to</span>
-                            <div class="assignedTo-select-button input">
+                            <div class="assignedTo-select-button input" onclick="showOrHideContacts()">
                                 <span>Select contacts to assign</span>
+                                <div class="contacts d-none" id="contactsContainer">
+                                    <div>
+                                        <span>You</span>
+                                        <input type="checkbox">
+                                    </div>
+                                    <div>
+                                        <span>Sandra Müller</span>
+                                        <input type="checkbox">
+                                    </div>
+                                    <div>
+                                        <span>Manuel Vogel</span>
+                                        <input type="checkbox">
+                                    </div>
+                                    <div>
+                                        <span>Anton Sommer</span>
+                                        <input type="checkbox">
+                                    </div>
+                                </div>
                                 <img src="../src/img/dropDownArrow.svg" />
-                            </div>
-                            <div class="contacts d-none">
-                                <div id="assignedTo-0">Sandra Müller</div>
-                                <div id="assignedTo-1">Manuel Vogel</div>
-                                <div id="assignedTo-2">Anton Sommer</div>
                             </div>
                             <div class="assigned-contacts" id="assignedContacts"></div>
                         </div>

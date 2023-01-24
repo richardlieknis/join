@@ -28,7 +28,7 @@
                     <div class="title">
                         <h1>Add Task</h1>
                         <div class="buttons">
-                            <div onclick="clearTaskInputs()" class="clearBtn">
+                            <div onclick="clearTaskInputs(); return false" class="clearBtn">
                                 <button>Clear</button>
                                 <img src="../src/img/x.svg" />
                             </div>
@@ -51,11 +51,14 @@
                             </div>
                             <div class="inputBlock">
                                 <span class="inputTitle">Category</span>
-                                <select required id="task-input-category">
-                    <option value="new">New Category</option>
-                    <option value="sales">Sales</option>
-                    <option value="backoffice">Backoffice</option>
-                  </select>
+                                <div id="category-selection">
+                                    <select style="width: 100%" required id="task-input-category" onchange="handleCategoryChange()">
+                      <option disabled selected>
+                        Select or create a Category!
+                      </option>
+                      <option value="newCategory">New Category</option>
+                    </select>
+                                </div>
                             </div>
                             <div class="inputBlock">
                                 <span class="inputTitle">Assigned to</span>

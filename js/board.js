@@ -15,6 +15,8 @@ const categoriesContainer = document.querySelector('#categoriesContainer');
 const priorityUrgentButton = document.querySelector('#priority-urgent');
 const priorityMediumButton = document.querySelector('#priority-medium');
 const priorityLowButton = document.querySelector('#priority-low');
+let currentPriority;
+const contactsContainer = document.querySelector('#contactsContainer');
 
 const dummyData = [
   {
@@ -273,6 +275,7 @@ const dummyData = [
 
 async function render() {
   await loadTasksFromBackend();
+  tasks = [];
   tasks.push(...dummyData);
   if (!currentTasksArray.length) currentTasksArray = tasks;
   for (let category of progressStepCategories) updateHtml(category, currentTasksArray);
@@ -396,6 +399,7 @@ function closeTaskOverlay() {
   taskOverlayContentContainer.classList.remove('d-none');
   taskOverlayEditContentContainer.classList.add('d-none');
   hideCategories();
+  hideContacts();
 }
 
 render();
@@ -511,6 +515,7 @@ function generateTaskOverlayButtonsHtml(taskIndex) {
 
 function renderEditTask(taskId) {
   const taskIndex = getIndexOfArray(tasks, taskId)
+  currentPriority = tasks[taskIndex].priority;
   renderCurrentCategory(taskIndex);
   renderCategories(tasks[taskIndex].label);
   renderCurrentTitle(taskIndex);
@@ -566,15 +571,15 @@ function renderCurrentDueDate(taskIndex) {
   document.querySelector('#currentDueDate').value = tasks[taskIndex].dueDate;
 }
 
-function renderCurrentPriority(taskIndex) {
+function renderCurrentPriority() {
   removeActiveClassFromPriorityButton();
-  if (tasks[taskIndex].priority === "urgent") {
+  if (currentPriority === "urgent") {
     priorityUrgentButton.classList.add('active');
     priorityUrgentButton.childNodes[3].src = "../src/img/urgent-white.svg";
-  } else if (tasks[taskIndex].priority === "medium") {
+  } else if (currentPriority === "medium") {
     priorityMediumButton.classList.add('active');
     priorityMediumButton.childNodes[3].src = "../src/img/medium-white.svg";  
-  } else if (tasks[taskIndex].priority === "low") {
+  } else if (currentPriority === "low") {
     priorityLowButton.classList.add('active');
     priorityLowButton.childNodes[3].src = "../src/img/low-white.svg";
   }
@@ -590,6 +595,11 @@ function removeActiveClassFromPriorityButton() {
   priorityLowButton.childNodes[3].src = "../src/img/low.svg";
 }
 
+function setPriority(priority) {
+  currentPriority = priority;
+  renderCurrentPriority();
+}
+
 function renderCurrentAssignedPersons(taskIndex) {
   const assignedContacts = document.querySelector('#assignedContacts');
   assignedContacts.innerHTML = "";
@@ -602,6 +612,28 @@ function generateCurrentAssignedPersonsHtml(assignedPerson) {
   return `
       <div class="initials ${assignedPerson.color}">${assignedPerson.initials}</div>
   `;
+}
+
+function renderContacts() {
+  categoriesContainer.innerHTML = "";
+  for (let category of categories) {
+    if (category.name !== categoryToIgnore) {
+      categoriesContainer.innerHTML += `
+      <div onclick="setCategory('${category.name}')">
+        <span>${category.name}</span>
+        <div class="category-color color-${category.colorNumber}"></div>
+      </div>
+      `;
+    }
+  }
+}
+
+function showOrHideContacts() {
+  contactsContainer.classList.toggle('d-none');
+}
+
+function hideContacts() {
+  if (!contactsContainer.classList.contains('d-none')) contactsContainer.classList.add('d-none');
 }
 
 function renderEditTaskOverlayButtons(taskIndex) {
