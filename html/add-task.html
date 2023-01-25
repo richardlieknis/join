@@ -24,7 +24,7 @@
             </div>
             <div class="main-container">
                 <span class="kanban">Kanban Project Management Tool</span>
-                <form>
+                <form onsubmit="createTask(); return false;">
                     <div class="title">
                         <h1>Add Task</h1>
                         <div class="buttons">
@@ -32,8 +32,8 @@
                                 <button>Clear</button>
                                 <img src="../src/img/x.svg" />
                             </div>
-                            <div onsubmit="createTask(); return false;" class="createBtn">
-                                <button>Create Task</button>
+                            <div class="createBtn">
+                                <button type="submit">Create Task</button>
                                 <img src="../src/img/hook.svg" />
                             </div>
                         </div>

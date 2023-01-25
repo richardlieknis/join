@@ -14,7 +14,7 @@ async function createTask() {
     const dueDate = document.getElementById("task-input-dueDate");
 
     await setTasksIdCounter();
-    pushToTasksArray(titel.value, description.value, category.value, assignedTo.value, dueDate.value);
+    pushToTasksArray(titel.value, description.value, category.value, assignedTo.value, dueDate.value, "todo");
     clearTasksInputFields(titel, description, category, assignedTo, dueDate);
     await saveTasksToBackend();
 }
@@ -35,14 +35,16 @@ async function setTasksIdCounter() {
     await backend.setItem('taskIdCounter', taskIdCounter);
 }
 
-function pushToTasksArray(titel, description, category, assignedTo, dueDate) {
+function pushToTasksArray(titel, description, category, assignedTo, dueDate, status) {
     const task = {
         id: taskIdCounter,
         titel: titel,
         description: description,
         category: category,
         assignedTo: assignedTo,
-        dueDate: dueDate
+        dueDate: dueDate,
+        status: status,
+        priority: priority
     }
     tasks.push(task);
     taskIdCounter++;
@@ -54,6 +56,7 @@ function clearTasksInputFields(titel, description, category, assignedTo, dueDate
     category.value = "";
     assignedTo.value = "";
     dueDate.value = "";
+    choosePriority("none")
 }
 
 // Edit Tasks
