@@ -89,7 +89,7 @@
     }
 }
 
-@media (min-width: 1070) {
+@media (min-width: 1070px) {
     .buttons {
         position: relative;
         bottom: 0;

@@ -57,6 +57,7 @@ nav {
 }
 
 nav>.join-logo-desktop {
+    cursor: pointer;
     width: 100px;
 }
 
