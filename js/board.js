@@ -124,11 +124,8 @@ const dummyData = [
   },
 ];
 
-
 async function render() {
   if (!tasks.length) await loadTasksFromBackend();
-  // tasks = [];
-  // tasks.push(...dummyData);
   if (!currentTasksArray.length) {
     currentTasksArray = tasks;
   }
@@ -216,7 +213,6 @@ function allowDrop(ev) {
 function moveTo(status) {
   console.log(status);
   const taskIndex = getIndexOfArray(tasks, currentDraggedElement);
-  console.log(tasks[taskIndex]);
   tasks[taskIndex].status = status;
   render();
 }
@@ -237,7 +233,7 @@ function addPlaceholder() {
 
 function openTaskOverlay(taskId) {
   const taskIndex = getIndexOfArray(tasks, taskId)
-  renderStatus(taskIndex);
+  renderCategory(taskIndex);
   renderContentOnly(taskIndex, "title");
   renderContentOnly(taskIndex, "description");
   renderContentOnly(taskIndex, "dueDate");
@@ -260,12 +256,12 @@ function closeTaskOverlay() {
 
 render();
 
-function renderStatus(taskIndex) {
+function renderCategory(taskIndex) {
   const categoryContainer = document.querySelector("#category");
-  console.log(categoryContainer);
   categoryContainer.className = "";
   categoryContainer.classList.add("category");
-  categoryContainer.classList.add(tasks[taskIndex].category);
+  categoryContainer.classList.add("design");
+  // categoryContainer.classList.add(tasks[taskIndex].category);
   categoryContainer.innerHTML = tasks[taskIndex].category;
 }
 
@@ -472,12 +468,12 @@ function generateCurrentAssignedPersonsHtml(assignedPerson) {
 }
 
 function renderContacts(taskIndex) {
-  contactsContainer.innerHTML = `
-      <div onclick="uncheckContact(dontClose(event))">
-        <span>You</span>
-        <input type="checkbox" />
-      </div>
-    `;
+  // contactsContainer.innerHTML = `
+  //     <div onclick="uncheckContact();dontClose(event);">
+  //       <span>You</span>
+  //       <input type="checkbox" />
+  //     </div>
+  //   `;
   for (let contact of contacts) {
     if (tasks[taskIndex].assignedTo.includes(contact.id)) {
       contactsContainer.innerHTML += generateCheckedContactsHtml(contact);
@@ -487,30 +483,30 @@ function renderContacts(taskIndex) {
   }
 }
 
-function generateUncheckedContactsHtml(contact) {
-  return `
-    <div onclick="uncheckContact(dontClose(event), ${contact.id})">
-      <span>${contact.name}</span>
-      <input type="checkbox"/>
-    </div>
-  `;
-}
-
 function generateCheckedContactsHtml(contact) {
   return `
-    <div onclick="checkContact(dontClose(event), ${contact.id})">
+    <div onclick="checkContact(${contact.id});dontClose(event);">
       <span>${contact.name}</span>
       <input type="checkbox" checked/>
     </div>
   `;
 }
 
-function uncheckContact(contactId, event) {
-  dontClose(event);
+function generateUncheckedContactsHtml(contact) {
+  return `
+    <div onclick="uncheckContact(${contact.id});dontClose(event);">
+      <span>${contact.name}</span>
+      <input type="checkbox"/>
+    </div>
+  `;
 }
 
-function checkContact(contactId, event) {
-  dontClose(event);
+function uncheckContact(contactId) {
+  console.log();
+}
+
+function checkContact(contactId) {
+  console.log();
 }
 
 function showOrHideContacts() {

@@ -130,7 +130,7 @@
                         </div>
                         <div class="task-overlay-edit-assignedTo">
                             <span>Assigned to</span>
-                            <div class="assignedTo-select-button input" onclick="showOrHideContacts()">
+                            <div class="assignedTo-select-button input" onclick="showOrHideContacts(event)">
                                 <span>Select contacts to assign</span>
                                 <div class="contacts d-none" id="contactsContainer"></div>
                                 <img src="../src/img/dropDownArrow.svg" />
@@ -140,7 +140,7 @@
                     </div>
 
                     <div class="task-overlay-content" id="taskOverlayContent">
-                        <span class="label" id="label"></span>
+                        <span class="category" id="category"></span>
                         <div class="title" id="title"></div>
                         <div class="description" id="description"></div>
                         <div class="due-date">
