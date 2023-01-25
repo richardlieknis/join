@@ -126,7 +126,7 @@ const dummyData = [
 
 
 async function render() {
-  await loadTasksFromBackend();
+  if (!tasks.length) await loadTasksFromBackend();
   // tasks = [];
   // tasks.push(...dummyData);
   if (!currentTasksArray.length) {
