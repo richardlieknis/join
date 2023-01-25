@@ -190,4 +190,24 @@ nav>.join-logo-desktop {
         height: 100%;
         width: 80px;
     }
+
+    .desktop-logo-hide {
+        display: none;
+    }
+
+    #user-menu {
+        display: none;
+    }
+
+    #mobile-menu {
+        background-color: #2A3647;
+        position: absolute;
+        top: 79px;
+        right: 0;
+        width: 120px;
+        padding: 10px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        border-top-left-radius: 15px;
+    }
 }

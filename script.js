@@ -75,5 +75,12 @@ function logoutPopUp() {
         userMenu.classList.remove('d-none');
     } else {
         userMenu.classList.add('d-none');
+    } if (window.innerWidth <= 800) {
+        let mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu.classList.contains('d-none')) {
+            mobileMenu.classList.remove('d-none');
+        } else {
+            mobileMenu.classList.add('d-none');
+        }
     }
 }
