@@ -41,7 +41,7 @@ function pushToTasksArray(titel, description, category, assignedTo, dueDate, sta
         titel: titel,
         description: description,
         category: category,
-        assignedTo: assignedTo,
+        assignedTo: [Number(assignedTo)],
         dueDate: dueDate,
         status: status,
         priority: priority,
