@@ -23,6 +23,7 @@ function setDateOfToday() {
     // today = yyyy + '/' + mm + '/' + dd;
     today = yyyy + '-' + mm + '-' + dd;
     document.getElementById('task-input-dueDate').value = today;
+    document.getElementById('task-input-dueDate').min = new Date().toISOString().split("T")[0];
 
 }
 
