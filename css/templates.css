@@ -118,6 +118,25 @@ nav>.join-logo-desktop {
     margin: auto 0 65px;
 }
 
+#user-menu {
+    background-color: #2A3647;
+    position: absolute;
+    top: 89px;
+    right: 35px;
+    width: 110px;
+    padding: 10px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.menu-list {
+    list-style: none;
+    cursor: pointer;
+    color: #7B818A;
+    font-weight: 700;
+}
+
 @media (max-width: 870px) {
     header {
         padding-left: 50px;
