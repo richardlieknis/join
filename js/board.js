@@ -6,7 +6,7 @@ const progressStepCategories = ["todo", "inProgress", "awaitingFeedback", "done"
 let filteredTasks = [];
 let currentTasksArray = tasks;
 let currentDraggedElement;
-let categoryOfDraggedElement;
+let statusOfDraggedElement;
 const taskOverlayBg = document.querySelector("#taskOverlayBg");
 const taskOverlayContentContainer = document.querySelector('#taskOverlayContent');
 const taskOverlayEditContentContainer = document.querySelector('#taskOverlayEditContent');
@@ -21,29 +21,29 @@ const contactsContainer = document.querySelector('#contactsContainer');
 const dummyData = [
   {
     id: 1,
-    label: "design",
+    category: "design",
     title: "task a",
     description: "Modify the contents of the main website...",
     dueDate: "2023-02-01",
     subtasks: [],
     assignedTo: [1, 2],
     priority: "low",
-    category: "todo",
+    status: "todo",
   },
   {
     id: 2,
-    label: "sales",
+    category: "sales",
     title: "task b",
     description: "Make the product presentation to prospective buyers",
     dueDate: "2023-02-01",
     subtasks: [],
     assignedTo: [2, 4],
     priority: "medium",
-    category: "todo",
+    status: "todo",
   },
   {
     id: 3,
-    label: "backoffice",
+    category: "backoffice",
     title: "task c",
     description: "Modify the contents of the main website...",
     dueDate: "2023-02-01",
@@ -53,22 +53,22 @@ const dummyData = [
     ],
     assignedTo: [1, 3],
     priority: "low",
-    category: "inProgress",
+    status: "inProgress",
   },
   {
     id: 4,
-    label: "media",
+    category: "media",
     title: "task d",
     description: "Make the product presentation to prospective buyers",
     dueDate: "2023-02-01",
     subtasks: [],
     assignedTo: [4],
     priority: "urgent",
-    category: "inProgress",
+    status: "inProgress",
   },
   {
     id: 5,
-    label: "marketing",
+    category: "marketing",
     title: "task e",
     description: "Modify the contents of the main website...",
     dueDate: "2023-02-01",
@@ -78,22 +78,22 @@ const dummyData = [
     ],
     assignedTo: [1, 2, 3, 4],
     priority: "low",
-    category: "awaitingFeedback",
+    status: "awaitingFeedback",
   },
   {
     id: 6,
-    label: "backoffice",
+    category: "backoffice",
     title: "task f",
     description: "Make the product presentation to prospective buyers",
     dueDate: "2023-02-01",
     subtasks: [],
     assignedTo: [3, 4],
     priority: "urgent",
-    category: "awaitingFeedback",
+    status: "awaitingFeedback",
   },
   {
     id: 7,
-    label: "marketing",
+    category: "marketing",
     title: "task g",
     description: "Modify the contents of the main website...",
     dueDate: "2023-02-01",
@@ -109,44 +109,46 @@ const dummyData = [
     ],
     assignedTo: [2, 3, 4],
     priority: "low",
-    category: "done",
+    status: "done",
   },
   {
     id: 8,
-    label: "media",
+    category: "media",
     title: "task h",
     description: "Make the product presentation to prospective buyers",
     dueDate: "2023-02-01",
     subtasks: [],
     assignedTo: [1],
     priority: "urgent",
-    category: "done",
+    status: "done",
   },
 ];
 
 
 async function render() {
   await loadTasksFromBackend();
-  tasks = [];
-  tasks.push(...dummyData);
-  if (!currentTasksArray.length) currentTasksArray = tasks;
-  for (let category of progressStepCategories) updateHtml(category, currentTasksArray);
+  // tasks = [];
+  // tasks.push(...dummyData);
+  if (!currentTasksArray.length) {
+    currentTasksArray = tasks;
+  }
+  for (let status of progressStepCategories) updateHtml(status, currentTasksArray);
 }
 
-function updateHtml(category, tasksArrayToRender) {
-  const progressStep = tasksArrayToRender.filter((task) => task.category === category);
-  const progressStepHtmlContainer = document.querySelector(`#${category}-tasks`);
+function updateHtml(status, tasksArrayToRender) {
+  const progressStep = tasksArrayToRender.filter((task) => task.status === status);
+  const progressStepHtmlContainer = document.querySelector(`#${status}-tasks`);
   progressStepHtmlContainer.innerHTML = "";
   for (let task of progressStep) {
     progressStepHtmlContainer.innerHTML += generateTaskCardtHtml(task);
   }
-  progressStepHtmlContainer.innerHTML += generatePlaceholderHtml(category);
+  progressStepHtmlContainer.innerHTML += generatePlaceholderHtml(status);
 }
 
 function generateTaskCardtHtml(task) {
   return `
         <div class="task-card" draggable="true" ondragstart="startDragging(${task.id})" onclick="openTaskOverlay(${task.id})">
-            <span class="label ${task.label}">${task.label}</span>
+            <span class="category ${task.category}">${task.category}</span>
             <div class="title">${task.title}</div>
             <div class="description">
                 ${task.description}
@@ -165,9 +167,9 @@ function generateTaskCardtHtml(task) {
   `;
 }
 
-function generatePlaceholderHtml(category) {
+function generatePlaceholderHtml(status) {
   return `
-        <div class="task-card-placeholder ${category}-task-card-placeholder d-none"></div>
+        <div class="task-card-placeholder ${status}-task-card-placeholder d-none"></div>
   `;
 }
 
@@ -211,29 +213,31 @@ function allowDrop(ev) {
   ev.preventDefault();
 }
 
-function moveTo(category) {
+function moveTo(status) {
+  console.log(status);
   const taskIndex = getIndexOfArray(tasks, currentDraggedElement);
-  tasks[taskIndex].category = category;
+  console.log(tasks[taskIndex]);
+  tasks[taskIndex].status = status;
   render();
 }
 
-function getCategoryOfDraggedElement(category) {
-  categoryOfDraggedElement = category;
+function getStatusOfDraggedElement(status) {
+  statusOfDraggedElement = status;
 }
 
 function addPlaceholder() {
   const placeholder = document.querySelectorAll(".task-card-placeholder");
 
   for (let place of placeholder) {
-    const category = place.classList[1].split("-")[0];
-    if (!(categoryOfDraggedElement === category))
+    const status = place.classList[1].split("-")[0];
+    if (!(statusOfDraggedElement === status))
       place.classList.remove("d-none");
   }
 }
 
 function openTaskOverlay(taskId) {
   const taskIndex = getIndexOfArray(tasks, taskId)
-  renderCategory(taskIndex);
+  renderStatus(taskIndex);
   renderContentOnly(taskIndex, "title");
   renderContentOnly(taskIndex, "description");
   renderContentOnly(taskIndex, "dueDate");
@@ -256,12 +260,13 @@ function closeTaskOverlay() {
 
 render();
 
-function renderCategory(taskIndex) {
-  const labelContainer = document.querySelector("#label");
-  labelContainer.className = "";
-  labelContainer.classList.add("label");
-  labelContainer.classList.add(tasks[taskIndex].label);
-  labelContainer.innerHTML = tasks[taskIndex].label;
+function renderStatus(taskIndex) {
+  const categoryContainer = document.querySelector("#category");
+  console.log(categoryContainer);
+  categoryContainer.className = "";
+  categoryContainer.classList.add("category");
+  categoryContainer.classList.add(tasks[taskIndex].category);
+  categoryContainer.innerHTML = tasks[taskIndex].category;
 }
 
 function renderContentOnly(taskIndex, containerId) {
@@ -311,7 +316,7 @@ function checkIfDone(subtasksArray, subtaskId) {
 function renderPriority(taskIndex) {
   const priorityContainer = document.querySelector("#priority");
   priorityContainer.className = "";
-  priorityContainer.classList.add("label");
+  priorityContainer.classList.add("category");
   priorityContainer.classList.add(tasks[taskIndex].priority);
   priorityContainer.innerHTML = `<span>${tasks[taskIndex].priority}</span>`;
   priorityContainer.innerHTML += `<img src="../src/img/${tasks[taskIndex].priority}-white.svg" />`;
@@ -366,8 +371,8 @@ function generateTaskOverlayButtonsHtml(taskIndex) {
 function renderEditTask(taskId) {
   const taskIndex = getIndexOfArray(tasks, taskId)
   currentPriority = tasks[taskIndex].priority;
-  renderCurrentCategory(taskIndex);
-  renderCategories(tasks[taskIndex].label);
+  renderCurrentStatus(taskIndex);
+  renderCategories(tasks[taskIndex].category);
   renderCurrentTitle(taskIndex);
   rendercurrentDescription(taskIndex);
   renderCurrentDueDate(taskIndex);
@@ -379,8 +384,8 @@ function renderEditTask(taskId) {
   taskOverlayEditContentContainer.classList.remove('d-none');
 }
 
-function renderCurrentCategory(taskIndex) {
-  currentCategoryContainer.innerHTML = tasks[taskIndex].label;
+function renderCurrentStatus(taskIndex) {
+  currentCategoryContainer.innerHTML = tasks[taskIndex].category;
 }
 
 function renderCategories(categoryToIgnore) {

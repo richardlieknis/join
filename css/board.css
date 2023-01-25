@@ -130,7 +130,7 @@ main .title-mobile {
   transform: rotate(2deg);
 }
 
-.label {
+.category {
   font-size: 16px;
   display: flex;
   justify-content: center;
@@ -142,23 +142,23 @@ main .title-mobile {
   text-transform: capitalize;
 }
 
-.label.design {
+.category.design {
   background: #ff7a00;
 }
 
-.label.sales {
+.category.sales {
   background: #fc71ff;
 }
 
-.label.backoffice {
+.category.backoffice {
   background: #1fd7c1;
 }
 
-.label.media {
+.category.media {
   background: #ffc701;
 }
 
-.label.marketing {
+.category.marketing {
   background: #0038ff;
 }
 
@@ -305,7 +305,7 @@ main .title-mobile {
   align-items: center;
 }
 
-.task-overlay-content > .label {
+.task-overlay-content > .category {
   width: 142px;
   min-height: 40px;
   font-size: 27px;
@@ -362,7 +362,7 @@ main .title-mobile {
   display: flex;
 }
 
-.task-overlay-content .priority .label {
+.task-overlay-content .priority .category {
   width: unset;
   height: 33px;
   font-size: 21px;
@@ -371,19 +371,19 @@ main .title-mobile {
   gap: 12px;
 }
 
-.task-overlay-content .label.urgent {
+.task-overlay-content .category.urgent {
   background: #ff3d00;
 }
 
-.task-overlay-content .label.medium {
+.task-overlay-content .category.medium {
   background: #ffa800;
 }
 
-.task-overlay-content .label.low {
+.task-overlay-content .category.low {
   background: #7ae229;
 }
 
-.task-overlay-content .label img {
+.task-overlay-content .category img {
   width: 17px;
   height: 12px;
 }
