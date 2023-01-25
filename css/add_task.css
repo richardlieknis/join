@@ -308,9 +308,6 @@ button {
     h1 {
         line-height: 30px;
     }
-    .nav-icons {
-        display: none !important;
-    }
     header {
         width: unset !important;
     }

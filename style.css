@@ -251,6 +251,7 @@ form {
 }
 
 .sign-up-container {
+    z-index: 999;
     position: absolute;
     top: 67px;
     right: 114px;

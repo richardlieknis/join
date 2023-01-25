@@ -46,6 +46,7 @@ async function guest() {
     document.getElementById('password-login').value = 'guest1234';
     loggedUser = 'Guest';
     localStorage.setItem('loggedUser', loggedUser);
+    document.getElementById('not-exist').style = 'display: none';
     window.location.href = 'html/summary.html';
 }
 

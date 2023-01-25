@@ -1,5 +1,5 @@
-function openAddTask() {
-    renderAddTask();
+function openAddTask(status) {
+    renderAddTask(status);
     let addTaskOverlay = document.getElementById("addTaskOverlay");
     let taskModul = document.getElementById('addTaskModul');
     taskModul.classList.add("slideIn");

@@ -45,7 +45,7 @@
             <div class="todo" id="todo" ondragstart="getCategoryOfDraggedElement('todo')" ondrop="moveTo('todo')" ondrag="addPlaceholder()" ondragover="allowDrop(event)">
                 <div class="progress-header">
                     <span>To do</span>
-                    <div onclick="openAddTask()" w3-include-html="../templates/plus-button.html"></div>
+                    <div onclick="openAddTask('todo')" w3-include-html="../templates/plus-button.html"></div>
                 </div>
 
                 <div class="tasks" id="todo-tasks"></div>
@@ -54,7 +54,7 @@
             <div class="in-progress" id="inProgress" ondragstart="getCategoryOfDraggedElement('inProgress')" ondrop="moveTo('inProgress')" ondrag="addPlaceholder()" ondragover="allowDrop(event)">
                 <div class="progress-header">
                     <span>In progress</span>
-                    <div onclick="openAddTask()" w3-include-html="../templates/plus-button.html"></div>
+                    <div onclick="openAddTask('inProgress')" w3-include-html="../templates/plus-button.html"></div>
                 </div>
 
                 <div class="tasks" id="inProgress-tasks"></div>
@@ -63,7 +63,7 @@
             <div class="awaiting-feedback" id="awaitingFeedback" ondragstart="getCategoryOfDraggedElement('awaitingFeedback')" ondrop="moveTo('awaitingFeedback')" ondrag="addPlaceholder()" ondragover="allowDrop(event)">
                 <div class="progress-header">
                     <span>Awaiting Feedback</span>
-                    <div onclick="openAddTask()" w3-include-html="../templates/plus-button.html"></div>
+                    <div onclick="openAddTask('awaitingFeedback')" w3-include-html="../templates/plus-button.html"></div>
                 </div>
 
                 <div class="tasks" id="awaitingFeedback-tasks"></div>
@@ -72,7 +72,7 @@
             <div class="done" id="done" ondragstart="getCategoryOfDraggedElement('done')" ondrop="moveTo('done')" ondrag="addPlaceholder()" ondragover="allowDrop(event)">
                 <div class="progress-header">
                     <span>Done</span>
-                    <div onclick="openAddTask()" w3-include-html="../templates/plus-button.html"></div>
+                    <div onclick="openAddTask('done')" w3-include-html="../templates/plus-button.html"></div>
                 </div>
 
                 <div class="tasks" id="done-tasks"></div>

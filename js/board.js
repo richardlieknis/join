@@ -468,7 +468,7 @@ function generateCurrentAssignedPersonsHtml(assignedPerson) {
 
 function renderContacts(taskIndex) {
   contactsContainer.innerHTML = `
-      <div>
+      <div onclick="uncheckContact(dontClose(event))">
         <span>You</span>
         <input type="checkbox" />
       </div>
@@ -484,7 +484,7 @@ function renderContacts(taskIndex) {
 
 function generateUncheckedContactsHtml(contact) {
   return `
-    <div>
+    <div onclick="uncheckContact(dontClose(event), ${contact.id})">
       <span>${contact.name}</span>
       <input type="checkbox"/>
     </div>
@@ -493,11 +493,19 @@ function generateUncheckedContactsHtml(contact) {
 
 function generateCheckedContactsHtml(contact) {
   return `
-    <div>
+    <div onclick="checkContact(dontClose(event), ${contact.id})">
       <span>${contact.name}</span>
       <input type="checkbox" checked/>
     </div>
   `;
+}
+
+function uncheckContact(contactId, event) {
+  dontClose(event);
+}
+
+function checkContact(contactId, event) {
+  dontClose(event);
 }
 
 function showOrHideContacts() {
