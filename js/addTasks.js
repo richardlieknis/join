@@ -265,7 +265,7 @@ function renderCategoryInputFull() {
 
 function renderCategoryInputOptionsExtra(category) {
     return `
-                      <option value="${category}" class="color-${category.colorNumber}">
+                      <option value="${category.name}" class="color-${category.colorNumber}">
                       ${category.name.charAt(0).toUpperCase() + category.name.slice(1)}
                       </option>
     `;
