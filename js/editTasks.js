@@ -7,15 +7,15 @@ let subtasks = ["Subtask Test1", "Subtask Test2"];
 
 async function createTask(status) {
     await loadTasksFromBackend();
-    const titel = document.getElementById("task-input-title");
+    const title = document.getElementById("task-input-title");
     const description = document.getElementById("task-input-description");
     const category = document.getElementById("task-input-category");
     const assignedTo = document.getElementById("task-input-assignedTo");
     const dueDate = document.getElementById("task-input-dueDate");
 
     await setTasksIdCounter();
-    pushToTasksArray(titel.value, description.value, category.value, assignedTo.value, dueDate.value, status);
-    clearTasksInputFields(titel, description, category, assignedTo, dueDate);
+    pushToTasksArray(title.value, description.value, category.value, assignedTo.value, dueDate.value, status);
+    clearTasksInputFields(title, description, category, assignedTo, dueDate);
     await saveTasksToBackend();
 }
 
@@ -35,10 +35,10 @@ async function setTasksIdCounter() {
     await backend.setItem('taskIdCounter', taskIdCounter);
 }
 
-function pushToTasksArray(titel, description, category, assignedTo, dueDate, status) {
+function pushToTasksArray(title, description, category, assignedTo, dueDate, status) {
     const task = {
         id: taskIdCounter,
-        titel: titel,
+        title: title,
         description: description,
         category: category,
         assignedTo: [+assignedTo],
@@ -51,8 +51,8 @@ function pushToTasksArray(titel, description, category, assignedTo, dueDate, sta
     taskIdCounter++;
 }
 
-function clearTasksInputFields(titel, description, category, assignedTo, dueDate) {
-    titel.value = "";
+function clearTasksInputFields(title, description, category, assignedTo, dueDate) {
+    title.value = "";
     description.value = "";
     category.value = "";
     assignedTo.value = "";
