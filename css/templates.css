@@ -137,6 +137,10 @@ nav>.join-logo-desktop {
     font-weight: 700;
 }
 
+#mobile-menu {
+    display: none;
+}
+
 @media (max-width: 870px) {
     header {
         padding-left: 50px;
@@ -200,6 +204,7 @@ nav>.join-logo-desktop {
     }
 
     #mobile-menu {
+        display: unset;
         background-color: #2A3647;
         position: absolute;
         top: 79px;
