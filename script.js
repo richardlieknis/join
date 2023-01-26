@@ -35,6 +35,14 @@ let contacts = [
         color: "red",
         initials: "DE",
     },
+    {
+        id: 5,
+        name: "Fritz Müller",
+        email: "denise.e@gmail.com",
+        phone: "+494556657",
+        color: "red",
+        initials: "FM",
+    },
 ];
 let categories = [
     {

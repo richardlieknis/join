@@ -468,6 +468,7 @@ function generateCurrentAssignedPersonsHtml(assignedPerson) {
 }
 
 function renderContacts(taskIndex) {
+  contactsContainer.innerHTML = "";
   // contactsContainer.innerHTML = `
   //     <div onclick="uncheckContact();dontClose(event);">
   //       <span>You</span>
@@ -476,37 +477,39 @@ function renderContacts(taskIndex) {
   //   `;
   for (let contact of contacts) {
     if (tasks[taskIndex].assignedTo.includes(contact.id)) {
-      contactsContainer.innerHTML += generateCheckedContactsHtml(contact);
+      contactsContainer.innerHTML += generateCheckedContactsHtml(contact, taskIndex);
     } else {
-      contactsContainer.innerHTML += generateUncheckedContactsHtml(contact);
+      contactsContainer.innerHTML += generateUncheckedContactsHtml(contact, taskIndex);
     }
   }
 }
 
-function generateCheckedContactsHtml(contact) {
+function generateCheckedContactsHtml(contact, taskIndex) {
+  console.log(contact.id, taskIndex);
   return `
-    <div onclick="checkContact(${contact.id});dontClose(event);">
+    <div onclick="checkContact(${contact.id}, ${taskIndex});dontClose(event);">
       <span>${contact.name}</span>
       <input type="checkbox" checked/>
     </div>
   `;
 }
 
-function generateUncheckedContactsHtml(contact) {
+function generateUncheckedContactsHtml(contact, taskIndex) {
+  console.log(contact.id, taskIndex);
   return `
-    <div onclick="uncheckContact(${contact.id});dontClose(event);">
+    <div onclick="uncheckContact(${contact.id}, ${taskIndex});dontClose(event);">
       <span>${contact.name}</span>
       <input type="checkbox"/>
     </div>
   `;
 }
 
-function uncheckContact(contactId) {
-  console.log();
+function uncheckContact(contactId, taskIndex) {
+  console.log(contactId, taskIndex);
 }
 
-function checkContact(contactId) {
-  console.log();
+function checkContact(contactId, taskIndex) {
+  console.log(contactId, taskIndex);
 }
 
 function showOrHideContacts() {
