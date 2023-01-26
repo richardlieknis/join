@@ -210,11 +210,12 @@ function allowDrop(ev) {
   ev.preventDefault();
 }
 
-function moveTo(status) {
+async function moveTo(status) {
   console.log(status);
   const taskIndex = getIndexOfArray(tasks, currentDraggedElement);
   tasks[taskIndex].status = status;
   render();
+  await saveTasksToBackend();
 }
 
 function getStatusOfDraggedElement(status) {
