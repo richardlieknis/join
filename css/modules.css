@@ -96,9 +96,3 @@
         right: 0;
     }
 }
-
-@media (max-width: 800px) {
-    .buttons {
-        right: 0 !important;
-    }
-}

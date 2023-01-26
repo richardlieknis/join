@@ -9,10 +9,14 @@
     <link rel="stylesheet" href="../css/templates.css" />
     <link rel="stylesheet" href="../css/modules.css" />
     <link rel="stylesheet" href="../css/fonts.css" />
+    <link rel="stylesheet" href="../style.css" />
 </head>
 
 <body>
     <div onload="initTasks()" class="add-task-container">
+
+        <button class="btn-primary add-to-btn-primary hide-over-800px" onclick="createTask(); return false">Create Task<img src="../src/img/hook.svg" /></button>            
+
         <div id="addTaskModul" class="main-container taskOverlay modules padding mobile-fullscreen">
             <form>
                 <div class="title">
@@ -92,7 +96,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="buttons relative-btns" style="position: relative; bottom: 20px; right: 20px">
+                <div class="mobile-hide buttons relative-btns" style="position: relative; bottom: 20px; right: 20px">
                     <div onclick="clearTaskInputs()" class="clearBtn">
                         <button>Clear</button>
                         <img src="../src/img/x.svg" />

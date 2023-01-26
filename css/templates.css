@@ -137,8 +137,8 @@ nav>.join-logo-desktop {
     font-weight: 700;
 }
 
-#mobile-menu {
-    display: none;
+#mobile-menu, .hide-over-800px {
+    display: none !important;
 }
 
 @media (max-width: 870px) {
@@ -151,40 +151,49 @@ nav>.join-logo-desktop {
     body {
         grid-template-columns: auto;
         grid-template-rows: 80px auto 80px;
-        grid-template-areas: "header" "main" "nav";
+        grid-template-areas: "header""main""nav";
     }
+
     header {
         padding: 20px 25px;
         height: 79px;
     }
+
     header>.join-logo-mobile {
         display: unset;
         height: 40px;
     }
+
     header>.title-desktop {
         display: none;
     }
+
     header .help {
         display: none;
     }
+
     nav {
         height: 80px;
         padding: 0;
         position: fixed;
         bottom: 0;
     }
+
     nav>.join-logo-desktop,
     .legal-notice {
         display: none;
     }
+
     nav .nav-elements {
         flex-direction: row;
         justify-content: space-around;
         height: 100%;
     }
+
     nav .nav-elements>li {
         width: 80px;
     }
+
     nav .nav-elements>li>a {
         flex-direction: column;
         justify-content: center;
@@ -214,5 +223,25 @@ nav>.join-logo-desktop {
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
         border-top-left-radius: 15px;
+    }
+
+    .overlay {
+        top: 79px !important;
+    }
+
+    .add-to-btn-primary {
+        z-index: 999;
+        position: absolute;
+        top: -65px;
+        height: 50px;
+        right: 15px;
+        padding: 13px 10px;
+        gap: 10px;
+        display: flex !important;
+        align-items: center;
+    }
+
+    .mobile-hide {
+        display: none !important;
     }
 }
