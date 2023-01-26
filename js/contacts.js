@@ -18,11 +18,19 @@ function highlightContact(contactId) {
 
 function removeHightlightContact() {
     // array.forEach(element => {
-        
+
     // });
     // let allContactIds =
 }
 
-function showContactDetail() {
-    
+async function renderContacts() {
+    await loadContactsFromBackend();
+    const contactList = document.getElementById('contact-list');
+    contactList.innerHTML = '';
+    contactList.innerHTML = contactListHtml();
 }
+
+function showContactDetail() {
+
+}
+
