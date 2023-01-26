@@ -533,15 +533,16 @@ function generateEditTaskOverlayButtonsHtml(taskIndex) {
       <div class="close-button" onclick="closeTaskOverlay()">
         <img src="../src/img/close-icon.svg" />
       </div>
-      <button class="edit-icon save-button btn-primary" onclick="saveChanges(${taskIndex})">
+      <button class="edit-icon save-button btn-primary" onclick="saveChanges(${tasks[taskIndex].id})">
         <span>OK</span>
         <img src="../src/img/hook.svg" />
       </button>
   `;
 }
 
-async function saveChanges(taskIndex) {
+async function saveChanges(tasksId) {
   // TODO save changes
-  openTaskOverlay(taskIndex);
-  await editTask(taskIndex);
+  openTaskOverlay(tasksId);
+  await editTask(tasksId);
+  render();
 }
