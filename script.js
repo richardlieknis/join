@@ -2,48 +2,7 @@
 
 let users = [];
 let tasks = [];
-let contacts = [
-    {
-        id: 1,
-        name: "Sandra Müller",
-        email: "sandra.mueller@gmx.de",
-        phone: "+4994937394",
-        color: "blue",
-        initials: "SM",
-    },
-    {
-        id: 2,
-        name: "Manuel Vogel",
-        email: "manu.vogel@gmail.com",
-        phone: "+49934798347",
-        color: "pink",
-        initials: "MV",
-    },
-    {
-        id: 3,
-        name: "Anton Sommer",
-        email: "anton.so@gmx.net",
-        phone: "+4998747394",
-        color: "dark-blue",
-        initials: "AS",
-    },
-    {
-        id: 4,
-        name: "Denise Eibold",
-        email: "denise.e@gmail.com",
-        phone: "+494556657",
-        color: "red",
-        initials: "DE",
-    },
-    {
-        id: 5,
-        name: "Fritz Müller",
-        email: "denise.e@gmail.com",
-        phone: "+494556657",
-        color: "red",
-        initials: "FM",
-    },
-];
+let contacts = [];
 let categories = [
     {
         'name': 'design',

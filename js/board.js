@@ -126,6 +126,7 @@ const dummyData = [
 
 async function render() {
   if (!tasks.length) await loadTasksFromBackend();
+  if (!contacts.length) await loadContactsFromBackend();
   if (!currentTasksArray.length) {
     currentTasksArray = tasks;
   }
@@ -191,7 +192,7 @@ function getAssignedPersonsInitialsHtml(task) {
   const assignedContacts = contacts.filter(contact => task.assignedTo.includes(contact.id));
   let assignedPersonsHtml = "";
   for (let assignedPerson of assignedContacts) {
-    assignedPersonsHtml += `<div class="initials ${assignedPerson.color}">${assignedPerson.initials}</div>`;
+    assignedPersonsHtml += `<div class="initials color-${assignedPerson.color}">${assignedPerson.initials}</div>`;
   }
   return assignedPersonsHtml;
 }
@@ -216,6 +217,7 @@ async function moveTo(status) {
   tasks[taskIndex].status = status;
   render();
   await saveTasksToBackend();
+  await saveContactsToBackend();
 }
 
 function getStatusOfDraggedElement(status) {
@@ -343,7 +345,7 @@ function renderAllAssignedPersons(taskIndex) {
 function generateAssignedPersonsHtml(assignedContacts, assignedContactIndex) {
   return `
       <div class="assigned-person">
-        <span class="initials ${assignedContacts[assignedContactIndex].color}">${assignedContacts[assignedContactIndex].initials}</span>
+        <span class="initials color-${assignedContacts[assignedContactIndex].color}">${assignedContacts[assignedContactIndex].initials}</span>
         <span class="full-name">${assignedContacts[assignedContactIndex].name}</span>
       </div>
     `;
@@ -464,7 +466,7 @@ function renderCurrentAssignedContacts(taskIndex) {
 
 function generateCurrentAssignedPersonsHtml(assignedPerson) {
   return `
-      <div class="initials ${assignedPerson.color}">${assignedPerson.initials}</div>
+      <div class="initials color-${assignedPerson.color}">${assignedPerson.initials}</div>
   `;
 }
 
