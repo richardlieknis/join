@@ -125,6 +125,13 @@ function addNewCategory() {
     getCategories();
 }
 
+function deleteCategoryInput() {
+    let categoryDiv = document.getElementById('category-selection');
+    document.getElementById("new-category-input").value = "";
+    categoryDiv.innerHTML = renderCategoryInputFull();
+    getCategories();
+}
+
 function getCategories() {
     let taskCategoryDiv = document.getElementById('task-input-category');
     categories.forEach(element => {
@@ -195,6 +202,7 @@ function deleteSubtaskInput() {
     document.getElementById("task-input-subtasks").value = "";
     subtaskBtn.innerHTML = renderAddBtn();
 }
+
 
 function addSubtaskInput() {
     let subtaskInput = document.getElementById("task-input-subtasks");
@@ -275,21 +283,23 @@ function renderCategoryInputOptionsExtra(category) {
 function renderCategoryInput() {
     return `
     <div class="addSubTask">
-                                    <input id="new-category-input" type="text" />
-                                    <div class="addSubTaskBtn">
-                                        <div class="addDeleteBtns">
-                                            <img onclick="addNewCategory()" src="../src/img/plus.svg" alt="" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="chooseColor">
-                                <span onclick="addColor(1, this)" class="color-1 colorOption"></span>
-                                <span onclick="addColor(2, this)" class="color-2 colorOption"></span>
-                                <span onclick="addColor(3, this)" class="color-3 colorOption"></span>
-                                <span onclick="addColor(4, this)" class="color-4 colorOption"></span>
-                                <span onclick="addColor(5, this)" class="color-5 colorOption"></span>
-                                <span onclick="addColor(6, this)" class="color-6 colorOption"></span>
-                                <span onclick="addColor(7, this)" class="color-7 colorOption"></span>
-                                </div>
+            <input id="new-category-input" type="text" />
+            <div class="addSubTaskBtn">
+                <div class="addDeleteBtnsCat">
+                    <img onclick="deleteCategoryInput()" src="../src/img/x.svg" />
+                    <div class="line"></div>
+                    <img onclick="addNewCategory()" style="filter: invert(1)" src="../src/img/hook.svg" alt="" />
+                </div>
+            </div>
+        </div>
+        <div class="chooseColor">
+        <span onclick="addColor(1, this)" class="color-1 colorOption"></span>
+        <span onclick="addColor(2, this)" class="color-2 colorOption"></span>
+        <span onclick="addColor(3, this)" class="color-3 colorOption"></span>
+        <span onclick="addColor(4, this)" class="color-4 colorOption"></span>
+        <span onclick="addColor(5, this)" class="color-5 colorOption"></span>
+        <span onclick="addColor(6, this)" class="color-6 colorOption"></span>
+        <span onclick="addColor(7, this)" class="color-7 colorOption"></span>
+    </div>
     `;
 }

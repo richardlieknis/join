@@ -24,6 +24,12 @@ main {
     gap: 10px;
 }
 
+.addDeleteBtnsCat {
+    display: flex;
+    gap: 10px;
+    width: 80px;
+}
+
 .inputBlock .inputTitle {
     font-size: 18px;
 }
