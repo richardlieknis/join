@@ -15,7 +15,7 @@
 <body>
     <div onload="initTasks()" class="add-task-container">
 
-        <button class="btn-primary add-to-btn-primary hide-over-800px" onclick="createTask(); return false">Create Task<img src="../src/img/hook.svg" /></button>            
+        <button id="mobile-btn-addTask" class="btn-primary add-to-btn-primary hide-over-800px slideIn" onclick="createTask('todo'); return false">Create Task<img src="../src/img/hook.svg" /></button>            
 
         <div id="addTaskModul" class="main-container taskOverlay modules padding mobile-fullscreen">
             <form>
@@ -101,7 +101,7 @@
                         <button>Clear</button>
                         <img src="../src/img/x.svg" />
                     </div>
-                    <div onsubmit="createTask(); return false;" class="createBtn">
+                    <div onsubmit="createTask('todo'); return false;" class="createBtn">
                         <button>Create Task</button>
                         <img src="../src/img/hook.svg" />
                     </div>
