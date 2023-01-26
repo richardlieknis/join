@@ -141,6 +141,10 @@ nav>.join-logo-desktop {
     display: none;
 }
 
+#task-checkbox-subtasks {
+    margin-bottom: 5px;
+}
+
 @media (max-width: 870px) {
     header {
         padding-left: 50px;
