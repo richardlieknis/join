@@ -540,7 +540,8 @@ function generateEditTaskOverlayButtonsHtml(taskIndex) {
   `;
 }
 
-function saveChanges(taskIndex) {
+async function saveChanges(taskIndex) {
   // TODO save changes
   openTaskOverlay(taskIndex);
+  await editTask(taskIndex);
 }

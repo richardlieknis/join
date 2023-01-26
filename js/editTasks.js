@@ -1,7 +1,7 @@
 setURL('https://gruppe-join-422.developerakademie.net/smallest_backend');
 
 let taskIdCounter = 0;
-let subtasks = ["Subtask Test1", "Subtask Test2"];
+let subtasks = [];
 
 // Create tasks
 
@@ -61,3 +61,23 @@ function clearTasksInputFields(title, description, category, assignedTo, dueDate
 }
 
 // Edit Tasks
+
+async function editTask(taskId) {
+    await loadTasksFromBackend();
+    const category = document.getElementById('currentCategory');
+    const title = document.getElementById('currentTitle');
+    const description = document.getElementById('currentDescription');
+    const dueDate = document.getElementById('currentDueDate');
+
+    pushEditedTasks(taskId, category.value, title.value, description.value, dueDate.value);
+}
+
+async function pushEditedTasks(taskId, category, title, description, dueDate) {
+    const index = getIndexOfArray(tasks, taskId);
+    tasks[index].category = category;
+    tasks[index].title = title;
+    tasks[index].description = description;
+    tasks[index].dueDate = dueDate;
+
+    await saveTasksToBackend();
+}
