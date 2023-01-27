@@ -127,8 +127,6 @@ const dummyData = [
 async function render() {
   if (!tasks.length) await loadTasksFromBackend();
   if (!contacts.length) await loadContactsFromBackend();
-  // await loadTasksFromBackend();
-  // await loadContactsFromBackend();
   if (!currentTasksArray.length) {
     currentTasksArray = tasks;
   }
@@ -219,7 +217,7 @@ async function moveTo(status) {
   tasks[taskIndex].status = status;
   console.log(tasks[taskIndex].status);
   await saveTasksToBackend();
-  await saveContactsToBackend();
+  // await saveContactsToBackend();
   render();
 }
 
@@ -516,12 +514,14 @@ async function uncheckContact(contactId, taskIndex) {
     tasks[taskIndex].assignedTo.splice(index, 1);
   }
   renderContacts(taskIndex);
+  renderCurrentAssignedContacts(taskIndex);
   await saveTasksToBackend();
 }
 
 async function checkContact(contactId, taskIndex) {
   tasks[taskIndex].assignedTo.push(contactId);
   renderContacts(taskIndex);
+  renderCurrentAssignedContacts(taskIndex);
   await saveTasksToBackend();
 }
 
@@ -543,7 +543,7 @@ function generateEditTaskOverlayButtonsHtml(taskIndex) {
       <div class="close-button" onclick="closeTaskOverlay()">
         <img src="../src/img/close-icon.svg" />
       </div>
-      <button class="edit-icon delete-button btn-primary" onclick="deleteTask(${tasks[taskIndex].id})">
+      <button class="edit-icon delete-button btn-secondary" onclick="deleteTask(${tasks[taskIndex].id})">
         <img src="../src/img/trash.svg" />
       </button>
       <button class="edit-icon save-button btn-primary" onclick="saveChanges(${tasks[taskIndex].id})">

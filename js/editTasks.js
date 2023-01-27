@@ -63,7 +63,6 @@ function clearTasksInputFields(title, description, category, assignedTo, dueDate
 // Edit Tasks
 
 async function editTask(taskId) {
-    // await loadTasksFromBackend();
     const category = document.getElementById('currentCategory');
     const title = document.getElementById('currentTitle');
     const description = document.getElementById('currentDescription');
