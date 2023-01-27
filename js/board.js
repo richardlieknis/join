@@ -510,9 +510,7 @@ async function uncheckContact(contactId, taskIndex) {
   console.log("uncheck", contactId, taskIndex);
   console.log(tasks[taskIndex].assignedTo);
   const index = tasks[taskIndex].assignedTo.indexOf(contactId);
-  if (index > -1) {
-    tasks[taskIndex].assignedTo.splice(index, 1);
-  }
+  if (index > -1) tasks[taskIndex].assignedTo.splice(index, 1);
   renderContacts(taskIndex);
   renderCurrentAssignedContacts(taskIndex);
   await saveTasksToBackend();
@@ -556,5 +554,13 @@ function generateEditTaskOverlayButtonsHtml(taskIndex) {
 async function saveChanges(taskId) {
   await editTask(taskId);
   openTaskOverlay(taskId);
+  render();
+}
+
+async function deleteTask(taskId) {
+  const taskIndex = getIndexOfArray(tasks, taskId);
+  tasks.splice(taskIndex, 1);
+  await saveTasksToBackend();
+  closeTaskOverlay();
   render();
 }
