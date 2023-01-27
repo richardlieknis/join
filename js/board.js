@@ -508,12 +508,21 @@ function generateUncheckedContactsHtml(contact, taskIndex) {
   `;
 }
 
-function uncheckContact(contactId, taskIndex) {
+async function uncheckContact(contactId, taskIndex) {
   console.log("uncheck", contactId, taskIndex);
+  console.log(tasks[taskIndex].assignedTo);
+  const index = tasks[taskIndex].assignedTo.indexOf(contactId);
+  if (index > -1) {
+    tasks[taskIndex].assignedTo.splice(index, 1);
+  }
+  renderContacts(taskIndex);
+  await saveTasksToBackend();
 }
 
-function checkContact(contactId, taskIndex) {
-  console.log("check", contactId, taskIndex);
+async function checkContact(contactId, taskIndex) {
+  tasks[taskIndex].assignedTo.push(contactId);
+  renderContacts(taskIndex);
+  await saveTasksToBackend();
 }
 
 function showOrHideContacts() {
