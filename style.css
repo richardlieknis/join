@@ -375,6 +375,12 @@ form {
         }
     }
 
+    @media (min-width:800px) {
+        .kanban {
+            display: none;
+        }
+    }
+
     @media(max-width: 600px) {
         .log-in {
             justify-content: center;

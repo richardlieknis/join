@@ -245,6 +245,7 @@ a {
 }
 
 .c-view-mobile {
+  display: none;
   z-index: 10;
   position: absolute;
   height: 100%;
