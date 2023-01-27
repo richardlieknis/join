@@ -1,6 +1,16 @@
-function contactListHtml() {
+function contactListHtml(id, name, email, initials, color) {
     return `
-    <button onclick="openAddContact()" class="btn-new-mobile btn-primary">
+    <div id="c-${id}" class="c-contact-overview" onclick="highlightContact(${id}), showContactDetail()">
+    <div id="c-i-${id}" class="c-initials c-i-small color-${color}">${initials}</div>
+    <div class="contact-summery">
+        <p id="c-name-${id}" class="c-list-name">${name}</p>
+        <p class="c-list-mail">${email}</p>
+    </div>
+    </div>
+    `;
+}
+
+{/* <button onclick="openAddContact()" class="btn-new-mobile btn-primary">
                 <span>New contact</span>
                 <img src="../src/img/new-contact.svg" alt="">
             </button>
@@ -10,13 +20,7 @@ function contactListHtml() {
                 <div class="c-initial-letter-border"></div>
             </div>
 
-            <div id="c-0" class="c-contact-overview" onclick="highlightContact(0), showContactDetail()">
-                <div id="c-i-0" class="c-initials c-i-small color-2">AM</div>
-                <div class="contact-summery">
-                    <p id="c-name-0" class="c-list-name">Anton Mayer</p>
-                    <p class="c-list-mail">antom@gmail.com</p>
-                </div>
-            </div>
+           
             <div class="c-contact-overview">
                 <div class="c-initials c-i-small color-3">AS</div>
                 <div class="contact-summery">
@@ -136,6 +140,4 @@ function contactListHtml() {
                     <img src="../src/img/new-contact.svg" alt="">
                 </button>
 
-            </div>
-    `;
-}
+            </div> */}
