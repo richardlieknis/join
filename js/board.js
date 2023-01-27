@@ -492,7 +492,7 @@ function renderContacts(taskIndex) {
 
 function generateCheckedContactsHtml(contact, taskIndex) {
   return `
-    <div onclick="checkContact(${contact.id}, ${taskIndex});dontClose(event);">
+    <div onclick="uncheckContact(${contact.id}, ${taskIndex});dontClose(event);">
       <span>${contact.name}</span>
       <input type="checkbox" checked/>
     </div>
@@ -501,7 +501,7 @@ function generateCheckedContactsHtml(contact, taskIndex) {
 
 function generateUncheckedContactsHtml(contact, taskIndex) {
   return `
-    <div onclick="uncheckContact(${contact.id}, ${taskIndex});dontClose(event);">
+    <div onclick="checkContact(${contact.id}, ${taskIndex});dontClose(event);">
       <span>${contact.name}</span>
       <input type="checkbox"/>
     </div>
@@ -509,11 +509,11 @@ function generateUncheckedContactsHtml(contact, taskIndex) {
 }
 
 function uncheckContact(contactId, taskIndex) {
-  console.log(contactId, taskIndex);
+  console.log("uncheck", contactId, taskIndex);
 }
 
 function checkContact(contactId, taskIndex) {
-  console.log(contactId, taskIndex);
+  console.log("check", contactId, taskIndex);
 }
 
 function showOrHideContacts() {
