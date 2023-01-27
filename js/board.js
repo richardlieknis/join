@@ -272,7 +272,14 @@ function renderCategory(taskIndex) {
 function renderContentOnly(taskIndex, containerId) {
   const container = document.querySelector(`#${containerId}`);
   container.innerHTML = "";
-  container.innerHTML = tasks[taskIndex][containerId];
+  if (containerId === "dueDate") {
+    const day = tasks[taskIndex][containerId].split('-')[2];
+    const month = tasks[taskIndex][containerId].split('-')[1];
+    const year = tasks[taskIndex][containerId].split('-')[0];
+    container.innerHTML = `${day}.${month}.${year}`;
+  } else {
+    container.innerHTML = tasks[taskIndex][containerId];
+  }
 }
 
 function renderSubtasksContainer(taskIndex) {
