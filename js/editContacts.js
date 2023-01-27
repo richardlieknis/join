@@ -100,9 +100,9 @@ function getInitials(name) {
 
 async function editContact(contactId) {
     await loadContactsFromBackend();
-    const name = document.getElementById('c-new-name');
-    const email = document.getElementById('c-new-email');
-    const tel = document.getElementById('c-new-tel');
+    const name = document.getElementById('c-edit-name');
+    const email = document.getElementById('c-edit-email');
+    const tel = document.getElementById('c-edit-tel');
     const initials = getInitials(name.value);
 
     pushEditedContact(contactId, name.value, email.value, tel.value, initials);

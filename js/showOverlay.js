@@ -15,16 +15,16 @@ function closeAddTask() {
 
 function openAddContact() {
     let addContactOverlay = document.getElementById("addContactOverlay");
-    let contactModul = document.getElementById('addContactModul');
-    contactModul.classList.add("slideIn");
+    let addContactModul = document.getElementById('addContactModul');
+    addContactModul.classList.add("slideIn");
     addContactOverlay.classList.remove('d-none');
 }
 
 function openEditContact(contactId) {
-    let addContactOverlay = document.getElementById("editContactOverlay");
-    let contactModul = document.getElementById('editContactModul');
-    contactModul.classList.add("slideIn");
-    addContactOverlay.classList.remove('d-none');
+    let editContactOverlay = document.getElementById("editContactOverlay");
+    let editContactModul = document.getElementById('editContactModul');
+    editContactModul.classList.add("slideIn");
+    editContactOverlay.classList.remove('d-none');
 
     fillEditContactField(contactId);
 }
