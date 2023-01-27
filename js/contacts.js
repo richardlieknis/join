@@ -64,13 +64,20 @@ function compareStrings(a, b) {
 }
 
 function generateContactList() {
-    let html = ``;
+    let html = addButtonAtContactList();
+
+    let firstLetter = '';
     contacts.forEach(contact => {
         const id = contact.id;
         const name = contact.name;
         const email = contact.email;
         const initials = contact.initials;
         const color = contact.color;
+        if (firstLetter != Array.from(name)[0]) {
+            firstLetter = Array.from(name)[0].toUpperCase();
+            html += adSectionLetter(firstLetter);
+        }
+       
         html += contactListHtml(id, name, email, initials, color);
     });
     return html;
