@@ -78,6 +78,7 @@ async function pushEditedTasks(taskId, category, title, description, dueDate) {
     tasks[index].title = title;
     tasks[index].description = description;
     tasks[index].dueDate = dueDate;
+    tasks[index].priority = currentPriority;
 
     await saveTasksToBackend();
 }
