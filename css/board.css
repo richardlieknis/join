@@ -303,6 +303,7 @@ main .title-mobile {
 .task-overlay-content > div {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .task-overlay-content > .category {
@@ -326,6 +327,7 @@ main .title-mobile {
   font-weight: 700;
   font-size: 21px;
   margin-right: 25px;
+  width: fit-content;
 }
 
 .task-overlay-content .subtasks {
