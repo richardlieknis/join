@@ -91,9 +91,9 @@ function contactListHtml() {
                 </div>
             </div>
 
-            <div class="c-view-mobile">
+            <div id="c-view-mobile" class="c-view-mobile">
 
-                <img class="c-mobile-back" src="../src/img/ArrowBackDark.svg" alt="">
+                <img onclick="goBackToContacts()" class="c-mobile-back" src="../src/img/ArrowBackDark.svg" alt="">
 
                 <div class="c-view-head">
                     <h1>Contacts</h1>

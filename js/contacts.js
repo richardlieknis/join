@@ -31,6 +31,10 @@ async function renderContacts() {
 }
 
 function showContactDetail() {
+    document.getElementById(`c-view-mobile`).style = 'display: unset';
+}
 
+function goBackToContacts() {
+    document.getElementById('c-view-mobile').style = 'display: none';
 }
 
