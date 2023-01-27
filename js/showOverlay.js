@@ -21,8 +21,8 @@ function openAddContact() {
 }
 
 function openEditContact(contactId) {
-    let addContactOverlay = document.getElementById("addContactOverlay");
-    let contactModul = document.getElementById('addContactModul');
+    let addContactOverlay = document.getElementById("editContactOverlay");
+    let contactModul = document.getElementById('editContactModul');
     contactModul.classList.add("slideIn");
     addContactOverlay.classList.remove('d-none');
 
@@ -81,6 +81,13 @@ function closeAddContact() {
     setTimeout(addDisplayNoneContact, 550);
 }
 
+function closeEditContact() {
+    let contactModul = document.getElementById('editContactModul');
+    contactModul.classList.remove("slideIn");
+    contactModul.classList.add("slideOut");
+    setTimeout(editDisplayNoneContact, 550);
+}
+
 function dontClose(e) {
     e.stopPropagation();
 }
@@ -91,4 +98,8 @@ function addDisplayNoneTask() {
 
 function addDisplayNoneContact() {
     addContactOverlay.classList.add("d-none")
+}
+
+function editDisplayNoneContact() {
+    editContactOverlay.classList.add("d-none")
 }
