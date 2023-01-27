@@ -69,7 +69,7 @@ async function editTask(taskId) {
     const description = document.getElementById('currentDescription');
     const dueDate = document.getElementById('currentDueDate');
 
-    pushEditedTasks(taskId, category.value, title.value, description.value, dueDate.value);
+    pushEditedTasks(taskId, category.textContent, title.value, description.value, dueDate.value);
 }
 
 async function pushEditedTasks(taskId, category, title, description, dueDate) {

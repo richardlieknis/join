@@ -604,7 +604,7 @@ main .title-mobile {
 
 .task-overlay-edit-content > .task-overlay-edit-assignedTo > .assignedTo-select-button > .contacts {
   width: calc(100% + 2px);
-  max-height: 170px;
+  max-height: 130px;
   position: absolute;
   top: 30px;
   left: -1px;

@@ -132,7 +132,6 @@ async function render() {
   if (!currentTasksArray.length) {
     currentTasksArray = tasks;
   }
-  console.log(tasks);
   for (let status of progressStepCategories) updateHtml(status, currentTasksArray);
 }
 
