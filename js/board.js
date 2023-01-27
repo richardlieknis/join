@@ -125,11 +125,14 @@ const dummyData = [
 ];
 
 async function render() {
-  if (!tasks.length) await loadTasksFromBackend();
-  if (!contacts.length) await loadContactsFromBackend();
+  // if (!tasks.length) await loadTasksFromBackend();
+  // if (!contacts.length) await loadContactsFromBackend();
+  await loadTasksFromBackend();
+  await loadContactsFromBackend();
   if (!currentTasksArray.length) {
     currentTasksArray = tasks;
   }
+  console.log(tasks);
   for (let status of progressStepCategories) updateHtml(status, currentTasksArray);
 }
 
@@ -215,9 +218,10 @@ async function moveTo(status) {
   console.log(status);
   const taskIndex = getIndexOfArray(tasks, currentDraggedElement);
   tasks[taskIndex].status = status;
-  render();
+  console.log(tasks[taskIndex].status);
   await saveTasksToBackend();
   await saveContactsToBackend();
+  render();
 }
 
 function getStatusOfDraggedElement(status) {
@@ -533,6 +537,9 @@ function generateEditTaskOverlayButtonsHtml(taskIndex) {
       <div class="close-button" onclick="closeTaskOverlay()">
         <img src="../src/img/close-icon.svg" />
       </div>
+      <button class="edit-icon delete-button btn-primary" onclick="deleteTask(${tasks[taskIndex].id})">
+        <img src="../src/img/trash.svg" />
+      </button>
       <button class="edit-icon save-button btn-primary" onclick="saveChanges(${tasks[taskIndex].id})">
         <span>OK</span>
         <img src="../src/img/hook.svg" />
@@ -540,9 +547,8 @@ function generateEditTaskOverlayButtonsHtml(taskIndex) {
   `;
 }
 
-async function saveChanges(tasksId) {
-  // TODO save changes
-  openTaskOverlay(tasksId);
-  await editTask(tasksId);
+async function saveChanges(taskId) {
+  openTaskOverlay(taskId);
+  await editTask(taskId);
   render();
 }

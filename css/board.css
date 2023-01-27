@@ -460,14 +460,6 @@ main .title-mobile {
   bottom: 40px;
 }
 
-.edit-icon.save-button {
-  width: unset;
-  padding: 0 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 /* task-overlay edit */
 
 .task-overlay-edit-content {
@@ -650,6 +642,28 @@ main .title-mobile {
 
 .task-overlay-edit-content > .task-overlay-edit-assignedTo > .contacts {
   background-color: red;
+}
+
+.edit-icon.delete-button {
+  width: 57px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 140px;
+}
+
+.edit-icon.delete-button img {
+  width: 30px;
+  height: 30px;
+}
+
+.edit-icon.save-button {
+  width: unset;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 /* queries */
