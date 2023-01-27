@@ -125,10 +125,10 @@ const dummyData = [
 ];
 
 async function render() {
-  // if (!tasks.length) await loadTasksFromBackend();
-  // if (!contacts.length) await loadContactsFromBackend();
-  await loadTasksFromBackend();
-  await loadContactsFromBackend();
+  if (!tasks.length) await loadTasksFromBackend();
+  if (!contacts.length) await loadContactsFromBackend();
+  // await loadTasksFromBackend();
+  // await loadContactsFromBackend();
   if (!currentTasksArray.length) {
     currentTasksArray = tasks;
   }
@@ -492,7 +492,6 @@ function renderContacts(taskIndex) {
 }
 
 function generateCheckedContactsHtml(contact, taskIndex) {
-  console.log(contact.id, taskIndex);
   return `
     <div onclick="checkContact(${contact.id}, ${taskIndex});dontClose(event);">
       <span>${contact.name}</span>
@@ -502,7 +501,6 @@ function generateCheckedContactsHtml(contact, taskIndex) {
 }
 
 function generateUncheckedContactsHtml(contact, taskIndex) {
-  console.log(contact.id, taskIndex);
   return `
     <div onclick="uncheckContact(${contact.id}, ${taskIndex});dontClose(event);">
       <span>${contact.name}</span>
@@ -548,7 +546,7 @@ function generateEditTaskOverlayButtonsHtml(taskIndex) {
 }
 
 async function saveChanges(taskId) {
-  openTaskOverlay(taskId);
   await editTask(taskId);
+  openTaskOverlay(taskId);
   render();
 }
