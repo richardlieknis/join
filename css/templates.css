@@ -145,6 +145,19 @@ nav>.join-logo-desktop {
     margin-bottom: 5px;
 }
 
+.help-container {
+    padding: 40px;
+    margin-top: 20px;
+}
+
+.help-container h3 {
+    display: inline;
+}
+
+.title-mobile {
+    display: none;
+}
+
 @media (max-width: 870px) {
     header {
         padding-left: 50px;
@@ -247,5 +260,9 @@ nav>.join-logo-desktop {
 
     .mobile-hide {
         display: none !important;
+    }
+
+    .title-mobile {
+        display: unset;
     }
 }
