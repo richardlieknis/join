@@ -244,10 +244,6 @@ nav>.join-logo-desktop {
         border-top-left-radius: 15px;
     }
 
-    .overlay {
-        top: 79px !important;
-    }
-
     .add-to-btn-primary {
         z-index: 999;
         position: absolute;
