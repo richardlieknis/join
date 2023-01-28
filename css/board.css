@@ -548,6 +548,10 @@ main .title-mobile {
   font-family: 'Inter', sans-serif;
 }
 
+.task-overlay-edit-content > div > textarea {
+  resize: none;
+}
+
 .task-overlay-edit-priority > div {
   display: flex;
   gap: 10px;
