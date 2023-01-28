@@ -19,6 +19,8 @@ function highlightContact(contactId) {
     initial.classList.add('c-i-small-border');
     name.classList.add('c-list-name2');
     highlightedContact = contactId;
+    
+    displayContactDetails(contactId);
 }
 
 function unHighlightContact(contactId) {

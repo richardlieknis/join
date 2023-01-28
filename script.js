@@ -51,3 +51,10 @@ function logoutPopUp() {
         }
     }
 }
+
+function removeClassWithPrefix(divId, prefix) {
+    let div = document.getElementById(divId);
+    let classes = div.className.split(" ");
+    let newClasses = classes.filter(c => !c.startsWith(prefix));
+    div.className = newClasses.join(" ");
+}

@@ -105,7 +105,7 @@ async function editContact(contactId) {
     const email = document.getElementById('c-edit-email');
     const tel = document.getElementById('c-edit-tel');
     const initials = getInitials(name.value);
-  
+
     pushEditedContact(contactId, name.value, email.value, tel.value, initials);
 }
 
