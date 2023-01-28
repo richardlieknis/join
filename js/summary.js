@@ -6,13 +6,19 @@ function initSummary() {
     showWelcomeMsg();
 }
 
-function setAmount() {
-    document.getElementById('taskAmount').innerHTML = getTaskAmount();
-    document.getElementById('urgentAmount').innerHTML = getUrgentAmount();;
-    document.getElementById('progressAmount').innerHTML = getCategoryAmount("inProgress");
-    document.getElementById('feedbackAmount').innerHTML = getCategoryAmount("awaitingFeedback");
-    document.getElementById('todoAmount').innerHTML = getCategoryAmount("todo");
-    document.getElementById('doneAmount').innerHTML = getCategoryAmount("done");
+async function setAmount() {
+    document.getElementById('taskAmount').innerHTML = await getTaskAmount();
+    document.getElementById('urgentAmount').innerHTML = await getUrgentAmount();;
+    document.getElementById('progressAmount').innerHTML = await getCategoryAmount("inProgress");
+    document.getElementById('feedbackAmount').innerHTML = await getCategoryAmount("awaitingFeedback");
+    document.getElementById('todoAmount').innerHTML = await getCategoryAmount("todo");
+    document.getElementById('doneAmount').innerHTML = await getCategoryAmount("done");
+}
+
+async function getAllTasks() {
+    database = JSON.parse(await loadJSONFromServer());
+    let tasks = JSON.parse(database.tasks);
+    return tasks;
 }
 
 
@@ -20,9 +26,10 @@ function setAmount() {
  * Get and return the amount of all Tasks on Board
  * @returns length of all Tasks
  */
-function getTaskAmount() {
+async function getTaskAmount() {
     let allTasks = [];
-    dummyData.forEach((e) => {
+    let tasks = await getAllTasks();
+    tasks.forEach((e) => {
         allTasks.push(e.category);
     })
     return allTasks.length;
@@ -32,9 +39,10 @@ function getTaskAmount() {
  * Get and return the amount of all urgent Tasks on Board
  * @returns length of all Tasks
  */
-function getUrgentAmount() {
+async function getUrgentAmount() {
     let allTasks = [];
-    dummyData.forEach((e) => {
+    let tasks = await getAllTasks();
+    tasks.forEach((e) => {
         if (e.priority === "urgent") {
             allTasks.push(e.priority);
         }
@@ -48,10 +56,11 @@ function getUrgentAmount() {
  * @param {string} category - name of catagory
  * @returns - length of same catagory
  */
-function getCategoryAmount(category) {
+async function getCategoryAmount(category) {
     let allTasks = [];
-    dummyData.forEach((e) => {
-        if (e.category === category) {
+    let tasks = await getAllTasks();
+    tasks.forEach((e) => {
+        if (e.status === category) {
             allTasks.push(e.category);
         }
     })
