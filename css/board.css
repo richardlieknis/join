@@ -629,6 +629,17 @@ main .title-mobile {
   padding: 10px 20px;
 }
 
+.task-overlay-edit-content > .task-overlay-edit-assignedTo > .assignedTo-select-button .invite-new-contact > span {
+  text-transform: none;
+}
+
+.task-overlay-edit-content > .task-overlay-edit-assignedTo > .assignedTo-select-button .invite-new-contact > img {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  right: -3px;
+}
+
 .task-overlay-edit-content > .task-overlay-edit-assignedTo > .assignedTo-select-button > .contacts > div:hover {
   background: #d1d1d1;
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 16 16" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs/>
+<clipPath id="ArtboardFrame">
+<rect height="16" width="16" x="0" y="0"/>
+</clipPath>
+<g clip-path="url(#ArtboardFrame)" id="Untitled" vectornator:layerName="Untitled">
+<path d="M11 6C11 7.65685 9.65685 9 8 9C6.34315 9 5 7.65685 5 6C5 4.34315 6.34315 3 8 3C9.65685 3 11 4.34315 11 6Z" fill="#101010" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M2 0C0.89543 0-9.65645e-08 0.895431 0 2L0 14C1.19209e-07 15.1046 0.89543 16 2 16L14 16C15.1046 16 16 15.1046 16 14L16 2C16 0.89543 15.1046-4.82823e-08 14 0L2 0ZM14 1C14.5523 1 15 1.44772 15 2L15 14C15 14.5523 14.5523 15 14 15L14 14C14 13 13 10 8 10C3 10 2 13 2 14L2 15C1.44772 15 1 14.5523 1 14L1 2C1 1.44772 1.44772 1 2 1C2 1 14 1 14 1Z" fill="#101010" fill-rule="nonzero" opacity="1" stroke="none"/>
+</g>
+</svg>

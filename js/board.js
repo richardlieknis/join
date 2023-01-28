@@ -493,6 +493,7 @@ function renderContacts(taskIndex) {
       contactsContainer.innerHTML += generateUncheckedContactsHtml(contact, taskIndex);
     }
   }
+  contactsContainer.innerHTML += generateInviteNewContactHtml(taskIndex);
 }
 
 function generateCheckedContactsHtml(contact, taskIndex) {
@@ -509,6 +510,15 @@ function generateUncheckedContactsHtml(contact, taskIndex) {
     <div onclick="checkContact(${contact.id}, ${taskIndex});dontClose(event);">
       <span>${contact.name}</span>
       <input type="checkbox"/>
+    </div>
+  `;
+}
+
+function generateInviteNewContactHtml(taskIndex) {
+  return `
+    <div class="invite-new-contact" onclick="dontClose(event);">
+      <span>Invite new contact</span>
+      <img src="../src/img/person-square.svg">
     </div>
   `;
 }
