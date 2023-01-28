@@ -46,37 +46,6 @@ a {
     position: relative;
 }
 
-#createdPopup {
-    position: fixed;
-    left: 50%;
-    bottom: 50px;
-    background-color: #2A3647;
-    padding: 20px;
-    border-radius: 12px;
-    opacity: 0;
-    color: #fff;
-    animation: pop-up 3s normal;
-    overflow: hidden;
-    z-index: 3000;
-}
-
-@keyframes pop-up {
-    0% {
-        opacity: 0;
-        transform: translateY(300px);
-    }
-    20% {
-        opacity: 1;
-        transform: translateY(0px);
-    }
-    80% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
 .c-initial-letter {
     height: 65px;
     display: flex;
