@@ -18,112 +18,6 @@ const priorityLowButton = document.querySelector('#priority-low');
 let currentPriority;
 const contactsContainer = document.querySelector('#contactsContainer');
 
-const dummyData = [
-  {
-    id: 1,
-    category: "design",
-    title: "task a",
-    description: "Modify the contents of the main website...",
-    dueDate: "2023-02-01",
-    subtasks: [],
-    assignedTo: [1, 2],
-    priority: "low",
-    status: "todo",
-  },
-  {
-    id: 2,
-    category: "sales",
-    title: "task b",
-    description: "Make the product presentation to prospective buyers",
-    dueDate: "2023-02-01",
-    subtasks: [],
-    assignedTo: [2, 4],
-    priority: "medium",
-    status: "todo",
-  },
-  {
-    id: 3,
-    category: "backoffice",
-    title: "task c",
-    description: "Modify the contents of the main website...",
-    dueDate: "2023-02-01",
-    subtasks: [
-      { title: "subtask 1", done: true },
-      { title: "subtask 2", done: false },
-    ],
-    assignedTo: [1, 3],
-    priority: "low",
-    status: "inProgress",
-  },
-  {
-    id: 4,
-    category: "media",
-    title: "task d",
-    description: "Make the product presentation to prospective buyers",
-    dueDate: "2023-02-01",
-    subtasks: [],
-    assignedTo: [4],
-    priority: "urgent",
-    status: "inProgress",
-  },
-  {
-    id: 5,
-    category: "marketing",
-    title: "task e",
-    description: "Modify the contents of the main website...",
-    dueDate: "2023-02-01",
-    subtasks: [
-      { title: "subtask 1", done: false },
-      { title: "subtask 2", done: false },
-    ],
-    assignedTo: [1, 2, 3, 4],
-    priority: "low",
-    status: "awaitingFeedback",
-  },
-  {
-    id: 6,
-    category: "backoffice",
-    title: "task f",
-    description: "Make the product presentation to prospective buyers",
-    dueDate: "2023-02-01",
-    subtasks: [],
-    assignedTo: [3, 4],
-    priority: "urgent",
-    status: "awaitingFeedback",
-  },
-  {
-    id: 7,
-    category: "marketing",
-    title: "task g",
-    description: "Modify the contents of the main website...",
-    dueDate: "2023-02-01",
-    subtasks: [
-      { title: "subtask 1", done: true },
-      { title: "subtask 2", done: true },
-      { title: "subtask 1", done: true },
-      { title: "subtask 2", done: true },
-      { title: "subtask 1", done: true },
-      { title: "subtask 2", done: true },
-      { title: "subtask 1", done: true },
-      { title: "subtask 2", done: true },
-    ],
-    assignedTo: [2, 3, 4],
-    priority: "low",
-    status: "done",
-  },
-  {
-    id: 8,
-    category: "media",
-    title: "task h",
-    description: "Make the product presentation to prospective buyers",
-    dueDate: "2023-02-01",
-    subtasks: [],
-    assignedTo: [1],
-    priority: "urgent",
-    status: "done",
-  },
-];
-
 async function render() {
   if (!tasks.length) await loadTasksFromBackend();
   if (!contacts.length) await loadContactsFromBackend();
@@ -547,11 +441,21 @@ function showInviteNewContactInput() {
 }
 
 function hideInviteNewContactInput() {
-  document.querySelector('#contactEmail').required = false;
+  document.querySelector('#contactEmail').value = '-';
   document.querySelector('#assignedToSelectButton').classList.remove('d-none');;
   document.querySelector('#inviteNewContactInputContainer').classList.add('d-none');
   hideContacts();
-  document.querySelector('#contactEmail').required = true;
+  document.querySelector('#contactEmail').value = '';
+}
+
+async function addNewContact() {
+  await loadContactsFromBackend();
+  await setContactIdCounter();
+  await getColor();
+  pushToContactsArray('', contactEmail.value, '', currentColor, '')
+  console.log(contacts);
+  await saveContactsToBackend();
+  hideInviteNewContactInput();
 }
 
 function showOrHideContacts() {

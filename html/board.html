@@ -16,6 +16,7 @@
     <script src="../mini_backend.js"></script>
     <script src="../js/editTasks.js"></script>
     <script src="../js/editContacts.js"></script>
+    <script src="../js/js-templates/addTask.js"></script>
     <script src="../js/addTasks.js"></script>
     <script src="../js/js-templates/addTask.js"></script>
     <script src="../js/showOverlay.js"></script>
@@ -138,14 +139,14 @@
                                 <img src="../src/img/dropDownArrow.svg" />
                             </div>
                             <div class="invite-new-contact-input-container input d-none" id="inviteNewContactInputContainer">
-                                <form onsubmit="">
+                                <form onsubmit="addNewContact();return false">
                                     <input type="email" placeholder="Contact email" required id="contactEmail">
                                     <div>
-                                        <button onclick="hideInviteNewContactInput()">
+                                        <button type="reset" onclick="hideInviteNewContactInput()">
                                             <img src="../src/img/close-icon.svg">
                                         </button>
                                         <img src="../src/img/delimiter-vertical.svg">
-                                        <button onclick="addNewContact(this)">
+                                        <button type="submit">
                                             <img src="../src/img/hook-blue.svg">
                                         </button>
                                     </div>
