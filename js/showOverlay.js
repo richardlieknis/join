@@ -1,3 +1,5 @@
+let contactsDetailsDisplayed = false;
+
 function openAddTask(status) {
     renderAddTask(status);
     let addTaskOverlay = document.getElementById("addTaskOverlay");
@@ -33,6 +35,10 @@ async function fillEditContactField(contactId) {
     await loadContactsFromBackend();
     let index = getIndexOfArray(contacts, contactId);
     document.getElementById('c-new-name').value = contacts[index].name;
+    document.getElementById('edit-c-initials').innerHTML = contacts[index].initials;
+    document.getElementById('edit-c-initials').classList.add(`color-${contacts[index].color}`);
+    document.getElementById('editContactOverlay').setAttribute("onclick", `closeEditContact(${contactId})`);
+    document.getElementById('c-edit-close').setAttribute("onclick", `closeEditContact(${contactId})`);
 
     if (contacts[index].email) {
         document.getElementById('c-new-email').value = contacts[index].email;
@@ -81,11 +87,25 @@ function closeAddContact() {
     setTimeout(addDisplayNoneContact, 550);
 }
 
-function closeEditContact() {
+function closeEditContact(contactId) {
+    let index = getIndexOfArray(contacts, contactId);
+    document.getElementById('edit-c-initials').classList.remove(`color-${contacts[index].color}`);
+
     let contactModul = document.getElementById('editContactModul');
     contactModul.classList.remove("slideIn");
     contactModul.classList.add("slideOut");
+
     setTimeout(editDisplayNoneContact, 550);
+}
+
+function contactDetailsSlideIn() {
+    if (contactsDetailsDisplayed == false) {
+        let contactDetails = document.getElementById("contactDetails");
+        contactDetails.classList.add("slideIn");
+        contactDetails.classList.remove("d-none");
+    }
+    
+    contactsDetailsDisplayed = true;
 }
 
 function dontClose(e) {

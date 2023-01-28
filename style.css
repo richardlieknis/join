@@ -48,6 +48,10 @@ h1 {
     border-radius: 1.5rem;
 }
 
+.color-0 {
+    background-color: #d1d1d1;
+}
+
 .color-1 {
     background-color: #ff7a00;
 }
