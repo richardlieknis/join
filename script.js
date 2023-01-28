@@ -3,8 +3,7 @@
 let users = [];
 let tasks = [];
 let contacts = [];
-let categories = [
-    {
+let categories = [{
         'name': 'design',
         'colorNumber': 1
     },
@@ -42,7 +41,8 @@ function logoutPopUp() {
         userMenu.classList.remove('d-none');
     } else {
         userMenu.classList.add('d-none');
-    } if (window.innerWidth <= 800) {
+    }
+    if (window.innerWidth <= 800) {
         let mobileMenu = document.getElementById('mobile-menu');
         if (mobileMenu.classList.contains('d-none')) {
             mobileMenu.classList.remove('d-none');
@@ -57,4 +57,22 @@ function removeClassWithPrefix(divId, prefix) {
     let classes = div.className.split(" ");
     let newClasses = classes.filter(c => !c.startsWith(prefix));
     div.className = newClasses.join(" ");
+}
+
+function showPopup(msg) {
+    document.body.innerHTML += renderPopup(msg);
+
+    let popup = document.getElementById('createdPopup');
+    popup.classList.remove('d-none');
+
+    setTimeout(() => {
+        popup.classList.add('d-none');
+    }, 3000)
+}
+
+function renderPopup(msg) {
+    return `
+        <div id="createdPopup" class="d-none">${msg}</div>
+    `;
+
 }
