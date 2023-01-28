@@ -18,6 +18,7 @@ async function createContact() {
     pushToContactsArray(name.value, email.value, tel.value, color, initials);
     clearContacsInputFields(name, email, tel);
     await saveContactsToBackend();
+    showPopup();
 }
 
 async function saveContactsToBackend() {
@@ -64,8 +65,7 @@ async function getColor() {
     currentColor = await backend.getItem('currentColor');
     if (currentColor < 7) {
         currentColor++
-    }
-    else {
+    } else {
         currentColor = 1;
     }
     await backend.setItem('currentColor', currentColor);
@@ -88,8 +88,7 @@ function getInitials(name) {
 
     if (firstName == lastName) {
         initials = firstLetter.toUpperCase();
-    }
-    else {
+    } else {
         initials = firstLetter + secondLetter;
         initials = initials.toUpperCase();
     }
@@ -105,7 +104,7 @@ async function editContact(contactId) {
     const email = document.getElementById('c-edit-email');
     const tel = document.getElementById('c-edit-tel');
     const initials = getInitials(name.value);
-  
+
     pushEditedContact(contactId, name.value, email.value, tel.value, initials);
 }
 
@@ -117,4 +116,14 @@ async function pushEditedContact(contactId, name, email, tel, initials) {
     contacts[index].initials = initials;
 
     await saveContactsToBackend();
+}
+
+
+function showPopup() {
+    let popup = document.getElementById('createdPopup');
+    popup.classList.remove('d-none');
+
+    setTimeout(() => {
+        popup.classList.add('d-none');
+    }, 3000)
 }

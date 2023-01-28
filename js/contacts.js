@@ -51,7 +51,7 @@ async function renderContacts() {
 }
 
 function sortContacts() {
-    contacts.sort(function (a, b) {
+    contacts.sort(function(a, b) {
         return compareStrings(a.name, b.name);
     })
 }
@@ -77,7 +77,7 @@ function generateContactList() {
             firstLetter = Array.from(name)[0].toUpperCase();
             html += adSectionLetter(firstLetter);
         }
-       
+
         html += contactListHtml(id, name, email, initials, color);
     });
     return html;
@@ -90,4 +90,3 @@ function showContactDetail() {
 function goBackToContacts() {
     document.getElementById('c-view-mobile').style = 'display: none';
 }
-
