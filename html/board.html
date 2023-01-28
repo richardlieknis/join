@@ -110,7 +110,7 @@
                         </div>
                         <div class="task-overlay-edit-dueDate">
                             <span>Due date</span>
-                            <input class="input" type="date" id="currentDueDate"  onclick="openCalendar()" />
+                            <input class="input" type="date" id="currentDueDate"/>
                         </div>
                         <div class="task-overlay-edit-priority">
                             <span>Priority</span>
@@ -131,10 +131,24 @@
                         </div>
                         <div class="task-overlay-edit-assignedTo">
                             <span>Assigned to</span>
-                            <div class="assignedTo-select-button input" onclick="showOrHideContacts(event)">
+                            <div class="assignedTo-select-button input" id="assignedToSelectButton" onclick="showOrHideContacts(event)">
                                 <span>Select contacts to assign</span>
                                 <div class="contacts d-none" id="contactsContainer"></div>
                                 <img src="../src/img/dropDownArrow.svg" />
+                            </div>
+                            <div class="invite-new-contact-input-container input d-none" id="inviteNewContactInputContainer">
+                                <form onsubmit="">
+                                    <input type="email" placeholder="Contact email" required>
+                                    <div>
+                                        <button onclick="hideInviteNewContactInput()">
+                                            <img src="../src/img/close-icon.svg">
+                                        </button>
+                                        <img src="../src/img/delimiter-vertical.svg">
+                                        <button onclick="addNewContact(this)">
+                                            <img src="../src/img/hook-blue.svg">
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                             <div class="assigned-contacts" id="assignedContacts"></div>
                         </div>

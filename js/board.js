@@ -256,6 +256,7 @@ function closeTaskOverlay() {
   taskOverlayEditContentContainer.classList.add('d-none');
   hideCategories();
   hideContacts();
+  hideInviteNewContactInput();
 }
 
 render();
@@ -514,15 +515,6 @@ function generateUncheckedContactsHtml(contact, taskIndex) {
   `;
 }
 
-function generateInviteNewContactHtml(taskIndex) {
-  return `
-    <div class="invite-new-contact" onclick="dontClose(event);">
-      <span>Invite new contact</span>
-      <img src="../src/img/person-square.svg">
-    </div>
-  `;
-}
-
 async function uncheckContact(contactId, taskIndex) {
   console.log("uncheck", contactId, taskIndex);
   console.log(tasks[taskIndex].assignedTo);
@@ -538,6 +530,30 @@ async function checkContact(contactId, taskIndex) {
   renderContacts(taskIndex);
   renderCurrentAssignedContacts(taskIndex);
   await saveTasksToBackend();
+}
+
+function generateInviteNewContactHtml(taskIndex) {
+  return `
+    <div class="invite-new-contact" onclick="showInviteNewContactInput();dontClose(event);">
+      <span>Invite new contact</span>
+      <img src="../src/img/contacts-black.svg">
+    </div>
+  `;
+}
+
+function showInviteNewContactInput() {
+  const assignedToSelectButton = document.querySelector('#assignedToSelectButton');
+  const inviteNewContactInputContainer = document.querySelector('#inviteNewContactInputContainer');
+  assignedToSelectButton.classList.add('d-none');
+  inviteNewContactInputContainer.classList.remove('d-none');
+}
+
+function hideInviteNewContactInput() {
+  const assignedToSelectButton = document.querySelector('#assignedToSelectButton');
+  const inviteNewContactInputContainer = document.querySelector('#inviteNewContactInputContainer');
+  assignedToSelectButton.classList.remove('d-none');
+  inviteNewContactInputContainer.classList.add('d-none');
+  hideContacts();
 }
 
 function showOrHideContacts() {
