@@ -104,8 +104,9 @@ async function editContact(contactId) {
     const email = document.getElementById('c-edit-email');
     const tel = document.getElementById('c-edit-tel');
     const initials = getInitials(name.value);
-
-    pushEditedContact(contactId, name.value, email.value, tel.value, initials);
+  
+    await pushEditedContact(contactId, name.value, email.value, tel.value, initials);
+    // closeEditContact(contactId);
 }
 
 async function pushEditedContact(contactId, name, email, tel, initials) {
@@ -116,6 +117,16 @@ async function pushEditedContact(contactId, name, email, tel, initials) {
     contacts[index].initials = initials;
 
     await saveContactsToBackend();
+}
+
+async function deleteContact(contactId) {
+    await loadContactsFromBackend();
+
+    const index = getIndexOfArray(contacts, contactId);
+    contacts.splice(index, 1);
+
+    await saveContactsToBackend();
+
 }
 
 

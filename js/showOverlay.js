@@ -27,6 +27,7 @@ function openEditContact(contactId) {
     let editContactModul = document.getElementById('editContactModul');
     editContactModul.classList.add("slideIn");
     editContactOverlay.classList.remove('d-none');
+    document.getElementById('edit-Contact-Form').setAttribute("onsubmit", `editContact(${contactId})`);
 
     fillEditContactField(contactId);
 }
@@ -34,22 +35,22 @@ function openEditContact(contactId) {
 async function fillEditContactField(contactId) {
     await loadContactsFromBackend();
     let index = getIndexOfArray(contacts, contactId);
-    document.getElementById('c-new-name').value = contacts[index].name;
+    document.getElementById('c-edit-name').value = contacts[index].name;
     document.getElementById('edit-c-initials').innerHTML = contacts[index].initials;
     document.getElementById('edit-c-initials').classList.add(`color-${contacts[index].color}`);
     document.getElementById('editContactOverlay').setAttribute("onclick", `closeEditContact(${contactId})`);
     document.getElementById('c-edit-close').setAttribute("onclick", `closeEditContact(${contactId})`);
 
     if (contacts[index].email) {
-        document.getElementById('c-new-email').value = contacts[index].email;
+        document.getElementById('c-edit-email').value = contacts[index].email;
     } else {
-        document.getElementById('c-new-email').value = "";
+        document.getElementById('c-edit-email').value = "";
     }
 
     if (contacts[index].phone) {
-        document.getElementById('c-new-tel').value = contacts[index].phone;
+        document.getElementById('c-edit-tel').value = contacts[index].phone;
     } else {
-        document.getElementById('c-new-tel').value = "";
+        document.getElementById('c-edit-tel').value = "";
 
     }
 }
