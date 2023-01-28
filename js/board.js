@@ -542,18 +542,16 @@ function generateInviteNewContactHtml(taskIndex) {
 }
 
 function showInviteNewContactInput() {
-  const assignedToSelectButton = document.querySelector('#assignedToSelectButton');
-  const inviteNewContactInputContainer = document.querySelector('#inviteNewContactInputContainer');
-  assignedToSelectButton.classList.add('d-none');
-  inviteNewContactInputContainer.classList.remove('d-none');
+  document.querySelector('#assignedToSelectButton').classList.add('d-none');
+  document.querySelector('#inviteNewContactInputContainer').classList.remove('d-none');
 }
 
 function hideInviteNewContactInput() {
-  const assignedToSelectButton = document.querySelector('#assignedToSelectButton');
-  const inviteNewContactInputContainer = document.querySelector('#inviteNewContactInputContainer');
-  assignedToSelectButton.classList.remove('d-none');
-  inviteNewContactInputContainer.classList.add('d-none');
+  document.querySelector('#contactEmail').required = false;
+  document.querySelector('#assignedToSelectButton').classList.remove('d-none');;
+  document.querySelector('#inviteNewContactInputContainer').classList.add('d-none');
   hideContacts();
+  document.querySelector('#contactEmail').required = true;
 }
 
 function showOrHideContacts() {
