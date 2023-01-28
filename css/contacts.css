@@ -268,6 +268,7 @@ a {
   padding: 14px 10px 14px 10px;
   display: flex;
   gap: 10px;
+  display: none;
 }
 
 @media (max-width: 1350px) {
@@ -279,7 +280,7 @@ a {
     align-items: center;
     padding-top: 90px;
   }
-  
+
   .c-initial-letter {
     padding-left: 26px;
   }
@@ -298,5 +299,9 @@ a {
 
   .btn-new-contact {
     display: none;
+  }
+
+  .btn-new-mobile {
+    display: flex;
   }
 }
