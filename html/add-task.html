@@ -17,11 +17,9 @@
 <body onload="init(), renderAddTask()">
     <header w3-include-html="../templates/header.html"></header>
     <nav w3-include-html="../templates/navigation.html"></nav>
+    <div id="createdPopup" class="d-none">Task added to Board</div>
     <div id="addTaskModul" class="add-task-container modules">
         <main>
-            <div class="errorSubtask d-none">
-                <span>Please insert a Subtask!</span>
-            </div>
             <div class="main-container">
                 <span class="kanban">Kanban Project Management Tool</span>
                 <form onsubmit="createTask('todo'); return false;">
