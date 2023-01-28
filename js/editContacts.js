@@ -120,6 +120,9 @@ async function pushEditedContact(contactId, name, email, tel, initials) {
 }
 
 async function deleteContact(contactId) {
+    closeEditContact(contactId);
+    notDisplayContactDetails();
+
     await loadContactsFromBackend();
 
     const index = getIndexOfArray(contacts, contactId);

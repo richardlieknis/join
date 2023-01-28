@@ -27,7 +27,8 @@ function openEditContact(contactId) {
     let editContactModul = document.getElementById('editContactModul');
     editContactModul.classList.add("slideIn");
     editContactOverlay.classList.remove('d-none');
-    document.getElementById('edit-Contact-Form').setAttribute("onsubmit", `editContact(${contactId})`);
+    document.getElementById('edit-contact-form').setAttribute("onsubmit", `editContact(${contactId}); return false`);
+    document.getElementById('edit-contact-delete').setAttribute("onclick", `deleteContact(${contactId})`);
 
     fillEditContactField(contactId);
 }
@@ -38,8 +39,8 @@ async function fillEditContactField(contactId) {
     document.getElementById('c-edit-name').value = contacts[index].name;
     document.getElementById('edit-c-initials').innerHTML = contacts[index].initials;
     document.getElementById('edit-c-initials').classList.add(`color-${contacts[index].color}`);
-    document.getElementById('editContactOverlay').setAttribute("onclick", `closeEditContact(${contactId})`);
-    document.getElementById('c-edit-close').setAttribute("onclick", `closeEditContact(${contactId})`);
+    document.getElementById('editContactOverlay').setAttribute("onclick", `closeEditContact(${contactId}); return false`);
+    document.getElementById('c-edit-close').setAttribute("onclick", `closeEditContact(${contactId}); return false`);
 
     if (contacts[index].email) {
         document.getElementById('c-edit-email').value = contacts[index].email;
@@ -109,6 +110,16 @@ function displayContactDetails(contactId) {
 
     changeDisplayedContactDetails(contactId);
 }
+
+function notDisplayContactDetails() {
+    if (contactsDetailsDisplayed == true) {
+        let contactDetails = document.getElementById("contactDetails");
+        contactDetails.classList.remove("slideIn");
+        contactDetails.classList.add("d-none");
+        contactsDetailsDisplayed = false;
+    }
+}
+
 
 function changeDisplayedContactDetails(contactId) {
     let index = getIndexOfArray(contacts, contactId);
