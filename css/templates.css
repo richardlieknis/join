@@ -140,6 +140,7 @@ nav>.join-logo-desktop {
 
 #mobile-menu, .hide-over-800px {
     display: none;
+    margin: unset;
 }
 
 #task-checkbox-subtasks {
