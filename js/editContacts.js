@@ -106,7 +106,7 @@ async function editContact(contactId) {
     const initials = getInitials(name.value);
   
     await pushEditedContact(contactId, name.value, email.value, tel.value, initials);
-    // closeEditContact(contactId);
+    closeEditContact(contactId);
 }
 
 async function pushEditedContact(contactId, name, email, tel, initials) {
