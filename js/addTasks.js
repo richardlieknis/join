@@ -43,6 +43,15 @@ async function getContactsToAssign() {
     });
 }
 
+function showPopup() {
+    let popup = document.getElementById('createdPopup');
+    popup.classList.remove('d-none');
+
+    setTimeout(() => {
+        popup.classList.add('d-none');
+    }, 3000)
+}
+
 function choosePriority(prio) {
     let urgent = document.getElementById("urgentBtn");
     let medium = document.getElementById("mediumBtn");

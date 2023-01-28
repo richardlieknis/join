@@ -123,25 +123,27 @@ textarea {
     cursor: pointer;
 }
 
-.errorSubtask {
-    position: absolute;
+#createdPopup {
+    position: fixed;
     left: 50%;
     bottom: 50px;
-    transform: translateX(-50%);
     background-color: #2A3647;
     padding: 20px;
     border-radius: 12px;
     opacity: 0;
     color: #fff;
-    animation: pop-up 2s normal;
+    animation: pop-up 3s normal;
+    overflow: hidden;
 }
 
 @keyframes pop-up {
     0% {
         opacity: 0;
+        transform: translateY(300px);
     }
     20% {
         opacity: 1;
+        transform: translateY(0px);
     }
     80% {
         opacity: 1;
@@ -321,4 +323,3 @@ button {
         top: 35px;
     }
 }
-
