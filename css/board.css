@@ -347,6 +347,7 @@ main .title-mobile {
   display: flex;
   align-items: center;
   gap: 25px;
+  cursor: pointer;
 }
 
 .task-overlay-content .subtasks input.subtask-checkbox {

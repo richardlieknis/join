@@ -171,21 +171,21 @@ function renderAllSubtasks(taskIndex) {
   return subtasksHtml;
 }
 
-function generateSubtaskHtml(subtasksArray, subtaskId) {
+function generateSubtaskHtml(subtasksArray, subtaskIndex) {
   return `
-      <div class="subtask" id="subtask-${subtaskId}">
+      <div class="subtask" id="subtask-${subtaskIndex}">
         <input
           class="subtask-checkbox"
           type="checkbox"
-          ${checkIfDone(subtasksArray, subtaskId)}
+          ${checkIfDone(subtasksArray, subtaskIndex)}
         />
-        <span>${subtasksArray[subtaskId]}</span>
+        <span>${subtasksArray[subtaskIndex]}</span>
       </div>
     `;
 }
 
-function checkIfDone(subtasksArray, subtaskId) {
-  if (subtasksArray[subtaskId].done) return "checked";
+function checkIfDone(subtasksArray, subtaskIndex) {
+  if (subtasksArray[subtaskIndex].done) return "checked";
 }
 
 function renderPriority(taskIndex) {
