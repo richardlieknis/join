@@ -38,9 +38,11 @@ function updateHtml(status, tasksArrayToRender) {
 }
 
 function generateTaskCardtHtml(task) {
+  const currentCategory = categories.filter(category => category.name === task.category);
+  console.log(currentCategory[0].colorNumber);
   return `
         <div class="task-card" draggable="true" ondragstart="startDragging(${task.id})" onclick="openTaskOverlay(${task.id})">
-            <span class="category ${task.category}">${task.category}</span>
+            <span class="category color-${currentCategory[0].colorNumber}">${task.category}</span>
             <div class="title">${task.title}</div>
             <div class="description">
                 ${task.description}
