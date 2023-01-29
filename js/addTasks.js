@@ -180,7 +180,7 @@ function addSubtaskInput() {
     let errSubtask = document.querySelector(".errorSubtask");
     if (subtaskInput.value === "") { errSubtask.classList.remove("d-none"); return; }
     //errSubtask.classList.add("d-none");
-    subtasks.push(subtaskInput.value);
+    subtasks.push({title: subtaskInput.value, done: false});
     getSubtasks();
     deleteSubtaskInput();
 }

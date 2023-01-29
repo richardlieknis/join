@@ -34,7 +34,7 @@ function renderSubtaskCheckbox(index) {
     return `
  <div  class="subtask">
      <input id="subtask${index}" type="checkbox" />
-     <span>${subtasks[index]}</span>
+     <span>${subtasks[index].title}</span>
  </div>
  `;
 }

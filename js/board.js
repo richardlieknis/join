@@ -179,7 +179,7 @@ function generateSubtaskHtml(subtasksArray, subtaskIndex) {
           type="checkbox"
           ${checkIfDone(subtasksArray, subtaskIndex)}
         />
-        <span>${subtasksArray[subtaskIndex]}</span>
+        <span>${subtasksArray[subtaskIndex].title}</span>
       </div>
     `;
 }
