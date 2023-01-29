@@ -39,7 +39,6 @@ function updateHtml(status, tasksArrayToRender) {
 
 function generateTaskCardtHtml(task) {
   const currentCategory = categories.filter(category => category.name === task.category);
-  console.log(currentCategory[0].colorNumber);
   return `
         <div class="task-card" draggable="true" ondragstart="startDragging(${task.id})" onclick="openTaskOverlay(${task.id})">
             <span class="category color-${currentCategory[0].colorNumber}">${task.category}</span>
@@ -101,38 +100,6 @@ function getInitials(name) {
   const fullname = name.split(" ");
   const [forename, lastname] = [fullname[0], fullname[fullname.length - 1]];
   return forename[0] + lastname[0];
-}
-
-function startDragging(id) {
-  currentDraggedElement = id;
-}
-
-function allowDrop(ev) {
-  ev.preventDefault();
-}
-
-async function moveTo(status) {
-  console.log(status);
-  const taskIndex = getIndexOfArray(tasks, currentDraggedElement);
-  tasks[taskIndex].status = status;
-  console.log(tasks[taskIndex].status);
-  await saveTasksToBackend();
-  // await saveContactsToBackend();
-  render();
-}
-
-function getStatusOfDraggedElement(status) {
-  statusOfDraggedElement = status;
-}
-
-function addPlaceholder() {
-  const placeholder = document.querySelectorAll(".task-card-placeholder");
-
-  for (let place of placeholder) {
-    const status = place.classList[1].split("-")[0];
-    if (!(statusOfDraggedElement === status))
-      place.classList.remove("d-none");
-  }
 }
 
 function openTaskOverlay(taskId) {
