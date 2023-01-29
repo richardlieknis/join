@@ -46,7 +46,7 @@ function generateTaskCardtHtml(task) {
                 ${task.description}
             </div>
             <div class="subtasks-progress ${checkIfSubtasksAreEmpty(task)}">
-                <progress value="${getDoneSubtasksInPercent(task)}" max="100"><progress>
+                <progress value="${getDoneSubtasksInPercent(task)}" max="100"></progress>
                 <span>${getDoneSubtasks(task)}/${task.subtasks.length} Done</span>
             </div>
             <div class="assigned-to-and-priority-container">
@@ -66,7 +66,11 @@ function generatePlaceholderHtml(status) {
 }
 
 function checkIfSubtasksAreEmpty(task) {
-  if (!task.subtasks.length) return "d-none";
+  if (!task.subtasks.length) {
+    return "d-none";
+  } else {
+    return "";
+  }
 }
 
 function getDoneSubtasks(task) {
