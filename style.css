@@ -126,7 +126,7 @@ h1 {
 .overlay {
     z-index: 100;
     position: fixed;
-    top: 0;
+    top: 0px;
     left: 0;
     width: 100%;
     height: 100%;
@@ -398,6 +398,10 @@ form {
         }
         .position-absolute-0 {
             position: unset;
+        }
+
+        .overlay {
+            top: 79px;
         }
     }
     @media (min-width:800px) {
