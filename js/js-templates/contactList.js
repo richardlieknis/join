@@ -1,6 +1,6 @@
 function addButtonAtContactList() {
     return `
-    <button onclick="openAddContact()" class="btn-new-mobile btn-primary">
+    <button id="addContactBtn" onclick="openAddContact()" class="btn-new-mobile btn-primary">
     <span>New contact</span>
     <img src="../src/img/new-contact.svg" alt="">
     </button>

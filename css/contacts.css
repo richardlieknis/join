@@ -233,20 +233,8 @@ a {
     margin-left: 10px;
 }
 
-.c-view-mobile {
-    z-index: 10;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: #f6f7f8;
-    padding: 82px 0 0 58px;
-}
-
 .c-mobile-back {
-    position: absolute;
-    top: 36px;
-    right: 20px;
-    cursor: pointer;
+    display: none !important;
 }
 
 .btn-new-mobile {
@@ -273,6 +261,11 @@ a {
     }
     .c-view {
         display: none;
+        position: absolute;
+        height: 90%;
+        width: 100%;
+        background-color: #f6f7f8;
+        padding: 82px 0 0 58px;
     }
     .c-contact-overview {
         width: 338px;
@@ -285,5 +278,12 @@ a {
     }
     .btn-new-mobile {
         display: flex;
+    }
+    .c-mobile-back {
+        position: absolute;
+        top: 110px;
+        right: 20px;
+        cursor: pointer;
+        z-index: 100;
     }
 }
