@@ -13,6 +13,7 @@ async function setAmount() {
     document.getElementById('feedbackAmount').innerHTML = await getCategoryAmount("awaitingFeedback");
     document.getElementById('todoAmount').innerHTML = await getCategoryAmount("todo");
     document.getElementById('doneAmount').innerHTML = await getCategoryAmount("done");
+    document.getElementById('deadline').innerHTML = await getUrgentDueDate();
 }
 
 async function getAllTasks() {
@@ -49,6 +50,42 @@ async function getUrgentAmount() {
     })
     return allTasks.length;
 }
+
+async function getUrgentDueDate() {
+    let allDates = [];
+    let tasks = await getAllTasks();
+    tasks.forEach((e) => {
+        if (e.priority === "urgent") {
+            allDates.push(e.dueDate);
+        }
+    })
+    return formatDate(findNearestDate(allDates));
+}
+
+function findNearestDate(dates) {
+    const currentDate = new Date();
+    let nearestDate;
+    let minDiff = Infinity;
+
+    for (const date of dates) {
+        const diff = Math.abs(new Date(date) - currentDate);
+        if (diff < minDiff) {
+            minDiff = diff;
+            nearestDate = date;
+        }
+    }
+
+    console.log(nearestDate);
+    return nearestDate;
+}
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const options = { month: "long", day: "numeric", year: "numeric" };
+    return date.toLocaleDateString("en-US", options);
+}
+
+
 
 
 /**
