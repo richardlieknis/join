@@ -19,6 +19,8 @@ async function createContact() {
     clearContacsInputFields(name, email, tel);
     await saveContactsToBackend();
     showPopup();
+    closeAddContact();
+    renderContacts();
 }
 
 async function saveContactsToBackend() {
@@ -129,7 +131,8 @@ async function deleteContact(contactId) {
     contacts.splice(index, 1);
 
     await saveContactsToBackend();
-
+    highlightedContact = null;
+    renderContacts();
 }
 
 

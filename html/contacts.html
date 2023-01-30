@@ -20,11 +20,18 @@
     <script src="../js/contacts.js"></script>
     <script src="../js/editContacts.js"></script>
     <script src="../js/js-templates/contactList.js"></script>
+    <script src="../js/editTasks.js"></script>
+    <script src="../js/addTasks.js"></script>
+    <script src="../js/js-templates/addTask.js"></script>
+  
 </head>
 
 <body onload="init(), renderContacts()">
     <header w3-include-html="../templates/header.html"></header>
     <nav w3-include-html="../templates/navigation.html"></nav>
+    <div id="addTaskOverlay" onclick="closeAddTask()" class="overlay d-none">
+        <div onclick="dontClose(event)" w3-include-html="../templates/addTask-Temp.html"></div>
+    </div>
     <div id="createdPopup" class="d-none">Contact added</div>
 
     <main class="c-main">

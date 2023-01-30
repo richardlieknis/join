@@ -92,3 +92,62 @@ function showContactDetail() {
 function goBackToContacts() {
     document.getElementById('c-view-mobile').style = 'display: none';
 }
+
+function displayContactDetails(contactId) {
+    if (contactsDetailsDisplayed == false) {
+        let contactDetails = document.getElementById("contactDetails");
+        contactDetails.classList.add("slideIn");
+        contactDetails.classList.remove("d-none");
+        contactsDetailsDisplayed = true;
+    }
+
+    changeDisplayedContactDetails(contactId);
+}
+
+function notDisplayContactDetails() {
+    if (contactsDetailsDisplayed == true) {
+        let contactDetails = document.getElementById("contactDetails");
+        contactDetails.classList.remove("slideIn");
+        contactDetails.classList.add("d-none");
+        contactsDetailsDisplayed = false;
+    }
+}
+
+
+function changeDisplayedContactDetails(contactId) {
+    let index = getIndexOfArray(contacts, contactId);
+    removeClassWithPrefix("c-f-details-initials", "color-");
+    document.getElementById('c-f-details-name').innerHTML = contacts[index].name;
+    document.getElementById('c-f-details-initials').innerHTML = contacts[index].initials;
+    document.getElementById('c-f-details-initials').classList.add(`color-${contacts[index].color}`);
+    document.getElementById('openEditContact').setAttribute("onclick", `openEditContact(${contactId})`);
+
+    changeDisplayedEmail(index);
+    changeDisplayedPhone(index);
+}
+
+function changeDisplayedEmail(index) {
+    if (contacts[index].email) {
+        document.getElementById('c-floating-email').innerHTML = contacts[index].email;
+        document.getElementById('c-floating-email-header').innerHTML = "Email";
+    }
+    else {
+        document.getElementById('c-floating-email').innerHTML = "";
+        document.getElementById('c-floating-email-header').innerHTML = "";
+    }
+}
+
+function changeDisplayedPhone(index) {
+    if (contacts[index].phone) {
+        document.getElementById('c-floating-tel').innerHTML = contacts[index].phone;
+        document.getElementById('c-floating-tel-header').innerHTML = "Phone";
+    }
+    else {
+        document.getElementById('c-floating-tel').innerHTML = "";
+        document.getElementById('c-floating-tel-header').innerHTML = "";
+    }
+}
+
+function createContactTask() {
+    openAddTask('todo');
+}
