@@ -14,7 +14,7 @@ async function createTask(status) {
     const dueDate = document.getElementById("task-input-dueDate");
 
     await setTasksIdCounter();
-    pushToTasksArray(title.value, description.value, category.value, assignedTo.value, dueDate.value, status, categoryColor);
+    pushToTasksArray(title.value, description.value, category.value, assignedTo.value, dueDate.value, status);
     clearTasksInputFields(title, description, category, assignedTo, dueDate);
     await saveTasksToBackend();
     showPopup("Task added to Board!");
@@ -36,7 +36,7 @@ async function setTasksIdCounter() {
     await backend.setItem('taskIdCounter', taskIdCounter);
 }
 
-function pushToTasksArray(title, description, category, assignedTo, dueDate, status, catagoryColor) {
+function pushToTasksArray(title, description, category, assignedTo, dueDate, status) {
     const task = {
         id: taskIdCounter,
         title: title,
