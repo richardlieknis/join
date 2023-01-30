@@ -166,26 +166,40 @@ function renderAllSubtasks(taskIndex) {
   let subtasksHtml = "";
   const subtasksArray = [...tasks[taskIndex].subtasks];
   for (let i = 0; i < subtasksArray.length; i++) {
-    subtasksHtml += generateSubtaskHtml(subtasksArray, i);
+    if (subtasksArray[i].done) subtasksHtml += generateCheckedSubtaskHtml(tasks[taskIndex].id, subtasksArray, i);
+    if (!subtasksArray[i].done) subtasksHtml += generateUncheckedSubtaskHtml(tasks[taskIndex].id, subtasksArray, i);
   }
   return subtasksHtml;
 }
 
-function generateSubtaskHtml(subtasksArray, subtaskIndex) {
+function generateCheckedSubtaskHtml(taskId, subtasksArray, subtaskIndex) {
   return `
-      <div class="subtask" id="subtask-${subtaskIndex}">
-        <input
-          class="subtask-checkbox"
-          type="checkbox"
-          ${checkIfDone(subtasksArray, subtaskIndex)}
-        />
+      <div class="subtask" id="subtask-${subtaskIndex}" onclick="clickSubtask(${taskId}, ${subtaskIndex})">
+        <input class="subtask-checkbox" type="checkbox" checked />
         <span>${subtasksArray[subtaskIndex].title}</span>
       </div>
     `;
 }
 
-function checkIfDone(subtasksArray, subtaskIndex) {
-  if (subtasksArray[subtaskIndex].done) return "checked";
+function generateUncheckedSubtaskHtml(taskId, subtasksArray, subtaskIndex) {
+  return `
+      <div class="subtask" id="subtask-${subtaskIndex}" onclick="clickSubtask(${taskId}, ${subtaskIndex})">
+        <input class="subtask-checkbox" type="checkbox" />
+        <span>${subtasksArray[subtaskIndex].title}</span>
+      </div>
+    `;
+}
+
+async function clickSubtask(taskId, subtaskIndex) {
+  const taskIndex = getIndexOfArray(tasks, taskId);
+  if (tasks[taskIndex].subtasks[subtaskIndex].done) {
+    tasks[taskIndex].subtasks[subtaskIndex].done = false;
+  } else if (!tasks[taskIndex].subtasks[subtaskIndex].done) {
+    tasks[taskIndex].subtasks[subtaskIndex].done = true;
+  }
+  await render(taskId)
+  openTaskOverlay(taskId);
+  await saveTasksToBackend();
 }
 
 function renderPriority(taskIndex) {
