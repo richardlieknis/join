@@ -38,6 +38,7 @@ function renderAddTask() {
 async function getContactsToAssign() {
     database = JSON.parse(await loadJSONFromServer());
     let contactNames = JSON.parse(database.contacts);
+    document.getElementById("task-input-assignedTo").innerHTML = "";
     contactNames.forEach(element => {
         document.getElementById("task-input-assignedTo").innerHTML += renderContactsToAssign(element);
     });
@@ -136,6 +137,8 @@ function deleteCategoryInput() {
 
 function getCategories() {
     let taskCategoryDiv = document.getElementById('task-input-category');
+    taskCategoryDiv.innerHTML = "";
+    taskCategoryDiv.innerHTML = renderCategoryInputFull();
     categories.forEach(element => {
         taskCategoryDiv.innerHTML += renderCategoryInputOptionsExtra(element);
     });
@@ -180,7 +183,7 @@ function addSubtaskInput() {
     let errSubtask = document.querySelector(".errorSubtask");
     if (subtaskInput.value === "") { errSubtask.classList.remove("d-none"); return; }
     //errSubtask.classList.add("d-none");
-    subtasks.push({title: subtaskInput.value, done: false});
+    subtasks.push({ title: subtaskInput.value, done: false });
     getSubtasks();
     deleteSubtaskInput();
 }
