@@ -31,6 +31,8 @@ async function addUser() {
     let password = document.getElementById('password-signup');
     users.push({ name: name.value, email: email.value.toLowerCase(), password: password.value });
     await backend.setItem('users', JSON.stringify(users));
+    await createContact(name.value, email.value, "");
+
     window.location.href = 'index.html?msg=<b>You have successfully registered!</b>';
 }
 

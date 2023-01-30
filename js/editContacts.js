@@ -8,14 +8,13 @@ let contactIdCounter = 0;
 
 async function createContact(name, email, tel) {
     await loadContactsFromBackend();
-    
+
     const color = await getColor();
     const initials = getInitials(name);
 
     await setContactIdCounter();
     pushToContactsArray(name, email, tel, color, initials);
     await saveContactsToBackend();
-   
 }
 
 async function addContact() {
@@ -24,7 +23,7 @@ async function addContact() {
     const tel = document.getElementById('c-new-tel');
     await createContact(name.value, email.value, tel.value);
 
-    
+
     clearContacsInputFields(name, email, tel);
     showPopup("Contact has been added!");
     closeAddContact();
