@@ -344,6 +344,7 @@ main .title-mobile {
 }
 
 .task-overlay-content .subtask {
+  width: fit-content;
   display: flex;
   align-items: center;
   gap: 25px;
