@@ -399,10 +399,6 @@ form {
         .position-absolute-0 {
             position: unset;
         }
-
-        .overlay {
-            top: 79px;
-        }
     }
     @media (min-width:800px) {
         .kanban {
