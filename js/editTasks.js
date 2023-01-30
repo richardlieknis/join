@@ -14,7 +14,7 @@ async function createTask(status) {
     const dueDate = document.getElementById("task-input-dueDate");
 
     await setTasksIdCounter();
-    pushToTasksArray(title.value, description.value, category.value, assignedTo.value, dueDate.value, status);
+    pushToTasksArray(title.value, description.value, category.value, assignedTo.value, dueDate.value, status, categoryColor);
     clearTasksInputFields(title, description, category, assignedTo, dueDate);
     await saveTasksToBackend();
     showPopup("Task added to Board!");
