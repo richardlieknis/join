@@ -31,7 +31,7 @@ async function addUser() {
     let password = document.getElementById('password-signup');
     users.push({ name: name.value, email: email.value.toLowerCase(), password: password.value });
     await backend.setItem('users', JSON.stringify(users));
-    window.location.href = 'index.html?msg=<b>You have successfully registered!</b>';
+    window.location.href = 'index.html?msg=You have successfully registered';
 }
 
 const rmCheck = document.getElementById("rememberMe"),
