@@ -94,7 +94,7 @@ function getAssignedPersonsInitialsHtml(task) {
     for (let i = 0; i < 2; i++) {
       assignedPersonsHtml += `<div class="initials color-${assignedContacts[i].color}">${assignedContacts[i].initials}</div>`;
     }
-    assignedPersonsHtml += `<div class="initials color-1">+${assignedContacts.length  - 2}</div>`;
+    assignedPersonsHtml += `<div class="initials color-x">+${assignedContacts.length  - 2}</div>`;
       } else {  
         for (let assignedPerson of assignedContacts) {
           assignedPersonsHtml += `<div class="initials color-${assignedPerson.color}">${assignedPerson.initials}</div>`;
