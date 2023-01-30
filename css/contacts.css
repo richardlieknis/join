@@ -280,6 +280,7 @@ a {
         display: flex;
     }
     .c-mobile-back {
+        display: unset;
         position: absolute;
         top: 110px;
         right: 20px;
