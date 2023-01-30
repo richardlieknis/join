@@ -126,7 +126,7 @@ h1 {
 .overlay {
     z-index: 100;
     position: fixed;
-    top: 0px;
+    top: 79px;
     left: 0;
     width: 100%;
     height: 100%;
