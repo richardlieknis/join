@@ -275,6 +275,7 @@ function renderEditTask(taskId) {
   renderCurrentDueDate(taskIndex);
   renderCurrentPriority(taskIndex);
   renderContacts(taskIndex);
+  renderInviteNewContactInputContainer(taskId);
   renderCurrentAssignedContacts(taskIndex);
   renderEditTaskOverlayButtons(taskIndex);
   taskOverlayContentContainer.classList.add('d-none');
@@ -421,7 +422,29 @@ async function checkContact(contactId, taskIndex) {
   await saveTasksToBackend();
 }
 
-function generateInviteNewContactHtml(taskIndex) {
+function renderInviteNewContactInputContainer(taskId) {
+  const inviteNewContactInputContainer = document.querySelector('#inviteNewContactInputContainer');
+  inviteNewContactInputContainer.innerHTML = generateInviteNewContactInputContainerHtml(taskId);
+}
+
+function generateInviteNewContactInputContainerHtml(taskId) {
+  return `
+    <form onsubmit="addNewContact(${taskId});return false">
+      <input type="email" placeholder="Contact email" required id="contactEmail">
+      <div>
+          <button type="reset" onclick="hideInviteNewContactInput()">
+              <img src="../src/img/close-icon.svg">
+          </button>
+          <img src="../src/img/delimiter-vertical.svg">
+          <button type="submit">
+              <img src="../src/img/hook-blue.svg">
+          </button>
+      </div>
+    </form>
+  `;
+}
+
+function generateInviteNewContactHtml() {
   return `
     <div class="invite-new-contact" onclick="showInviteNewContactInput();dontClose(event);">
       <span>Invite new contact</span>
@@ -443,14 +466,27 @@ function hideInviteNewContactInput() {
   document.querySelector('#contactEmail').value = '';
 }
 
-async function addNewContact() {
+async function addNewContact(taskId) {
+  const taskIndex = getIndexOfArray(tasks, taskId);
   await loadContactsFromBackend();
   await setContactIdCounter();
   await getColor();
-  pushToContactsArray('', contactEmail.value, '', currentColor, '')
-  console.log(contacts);
-  await saveContactsToBackend();
-  hideInviteNewContactInput();
+  if (!checkIfContactExist(contactEmail.value)) {
+    pushToContactsArray(contactEmail.value, contactEmail.value, '', currentColor, '');
+    await saveContactsToBackend();
+    const contactToAssign = contacts.filter(contact => contact.email === contactEmail.value);
+    tasks[taskIndex].assignedTo.push(contactToAssign[0].id);
+    renderContacts(taskIndex);
+    hideInviteNewContactInput();
+    showPopup("Contact has been created");
+  } else {
+    showPopup("There is already a contact with this email address");
+  }
+}
+
+function checkIfContactExist(contactEmail) {
+  const emailsArray = contacts.map(contact => contact.email.toLowerCase());
+  return emailsArray.includes(contactEmail.toLowerCase()) ? true : false;
 }
 
 function showOrHideContacts() {
