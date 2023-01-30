@@ -21,6 +21,7 @@ const contactsContainer = document.querySelector('#contactsContainer');
 async function render() {
   if (!tasks.length) await loadTasksFromBackend();
   if (!contacts.length) await loadContactsFromBackend();
+  if (!categories.length) await loadCategoriesFromBackend();
   if (!currentTasksArray.length) {
     currentTasksArray = tasks;
   }

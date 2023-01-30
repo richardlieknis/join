@@ -137,7 +137,8 @@ function deleteCategoryInput() {
     getCategories();
 }
 
-function getCategories() {
+async function getCategories() {
+    await loadCategoriesFromBackend();
     let taskCategoryDiv = document.getElementById('task-input-category');
     taskCategoryDiv.innerHTML = "";
     taskCategoryDiv.innerHTML = renderCategoryInputFull();

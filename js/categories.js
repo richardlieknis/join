@@ -1,5 +1,7 @@
 "use strict";
 
+setURL('https://gruppe-join-422.developerakademie.net/smallest_backend');
+
 async function saveCategoriesToBackend() {
     await backend.setItem('categories', JSON.stringify(categories));
 }

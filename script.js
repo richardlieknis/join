@@ -3,27 +3,7 @@
 let users = [];
 let tasks = [];
 let contacts = [];
-let categories = [{
-        'name': 'design',
-        'colorNumber': 1
-    },
-    {
-        'name': 'sales',
-        'colorNumber': 2
-    },
-    {
-        'name': 'backoffice',
-        'colorNumber': 3
-    },
-    {
-        'name': 'media',
-        'colorNumber': 4
-    },
-    {
-        'name': 'marketing',
-        'colorNumber': 5
-    },
-];
+let categories = [];
 
 function getIndexOfArray(array, id) {
     let index;
