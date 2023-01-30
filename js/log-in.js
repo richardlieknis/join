@@ -17,7 +17,7 @@ async function loadUsers() {
 function login() {
     let email = document.getElementById('email-login');
     let password = document.getElementById('password-login');
-    let user = users.find(u => u.email == email.value && u.password == password.value);
+    let user = users.find(u => u.email.toLowerCase() == email.value.toLowerCase() && u.password == password.value);
     if (user) {
         saveLoggedUserLocal(user);
         window.location.href = 'html/summary.html';
