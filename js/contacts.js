@@ -19,7 +19,7 @@ function highlightContact(contactId) {
     initial.classList.add('c-i-small-border');
     name.classList.add('c-list-name2');
     highlightedContact = contactId;
-    
+
     displayContactDetails(contactId);
 }
 
@@ -53,7 +53,7 @@ async function renderContacts() {
 }
 
 function sortContacts() {
-    contacts.sort(function(a, b) {
+    contacts.sort(function (a, b) {
         return compareStrings(a.name, b.name);
     })
 }
@@ -86,10 +86,14 @@ function generateContactList() {
 }
 
 function showContactDetail() {
-    // document.getElementById(`c-view-mobile`).style = 'display: unset';
+        document.getElementById('c-view').style = 'display: unset';
+        document.getElementById('addContactBtn').style = 'display: none';
+        document.getElementById('contact-list').style = 'width: unset';
+
 }
 
 function goBackToContacts() {
+<<<<<<< HEAD
     document.getElementById('c-view-mobile').style = 'display: none';
 }
 
@@ -150,4 +154,10 @@ function changeDisplayedPhone(index) {
 
 function createContactTask() {
     openAddTask('todo');
+=======
+    document.getElementById('c-view').style = 'display: none;';
+    document.getElementById('addContactBtn').style = 'display: unset';
+    document.getElementById('contact-list').style = 'width: 100%';
+
+>>>>>>> 3fbed0c192794596e8bf95df9557c9d9d85673fd
 }

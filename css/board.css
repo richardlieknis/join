@@ -347,6 +347,7 @@ main .title-mobile {
   display: flex;
   align-items: center;
   gap: 25px;
+  cursor: pointer;
 }
 
 .task-overlay-content .subtasks input.subtask-checkbox {
@@ -793,6 +794,9 @@ main .title-mobile {
     display: block;
     margin: 0 0 25px 0;
   }
+  .addTask-overlay-position {
+    top: 79px !important;
+}
 }
 
 @media (max-width: 630px) {

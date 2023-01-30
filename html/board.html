@@ -12,20 +12,21 @@
     <link rel="stylesheet" href="../css/add_task.css" />
     <link rel="shortcut icon" href="../src/img/favicon.png" type="image/x-icon" />
     <script src="../js/includeHTML.js"></script>
-    <script src="../script.js"></script>
     <script src="../mini_backend.js"></script>
     <script src="../js/editTasks.js"></script>
     <script src="../js/editContacts.js"></script>
+    <script src="../js/js-templates/addTask.js"></script>
     <script src="../js/addTasks.js"></script>
     <script src="../js/js-templates/addTask.js"></script>
     <script src="../js/showOverlay.js"></script>
     <script src="../js/activeTab.js"></script>
+    <script src="../script.js"></script>
 </head>
 
 <body onload="init()">
     <header w3-include-html="../templates/header.html"></header>
     <nav w3-include-html="../templates/navigation.html"></nav>
-    <div id="addTaskOverlay" onclick="closeAddTask()" class="overlay d-none">
+    <div id="addTaskOverlay" onclick="closeAddTask()" class="overlay addTask-overlay-position d-none">
         <div onclick="dontClose(event)" w3-include-html="../templates/addTask-Temp.html"></div>
     </div>
     <main class="board-container">
@@ -138,14 +139,14 @@
                                 <img src="../src/img/dropDownArrow.svg" />
                             </div>
                             <div class="invite-new-contact-input-container input d-none" id="inviteNewContactInputContainer">
-                                <form onsubmit="">
-                                    <input type="email" placeholder="Contact email" required>
+                                <form onsubmit="addNewContact();return false">
+                                    <input type="email" placeholder="Contact email" required id="contactEmail">
                                     <div>
-                                        <button onclick="hideInviteNewContactInput()">
+                                        <button type="reset" onclick="hideInviteNewContactInput()">
                                             <img src="../src/img/close-icon.svg">
                                         </button>
                                         <img src="../src/img/delimiter-vertical.svg">
-                                        <button onclick="addNewContact(this)">
+                                        <button type="submit">
                                             <img src="../src/img/hook-blue.svg">
                                         </button>
                                     </div>
@@ -181,6 +182,7 @@
         </div>
     </main>
     <script src="../js/board.js"></script>
+    <script src="../js/dragAndDrop.js"></script>
     <script src="../js/search.js"></script>
 </body>
 

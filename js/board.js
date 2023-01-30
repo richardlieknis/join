@@ -18,112 +18,6 @@ const priorityLowButton = document.querySelector('#priority-low');
 let currentPriority;
 const contactsContainer = document.querySelector('#contactsContainer');
 
-const dummyData = [
-  {
-    id: 1,
-    category: "design",
-    title: "task a",
-    description: "Modify the contents of the main website...",
-    dueDate: "2023-02-01",
-    subtasks: [],
-    assignedTo: [1, 2],
-    priority: "low",
-    status: "todo",
-  },
-  {
-    id: 2,
-    category: "sales",
-    title: "task b",
-    description: "Make the product presentation to prospective buyers",
-    dueDate: "2023-02-01",
-    subtasks: [],
-    assignedTo: [2, 4],
-    priority: "medium",
-    status: "todo",
-  },
-  {
-    id: 3,
-    category: "backoffice",
-    title: "task c",
-    description: "Modify the contents of the main website...",
-    dueDate: "2023-02-01",
-    subtasks: [
-      { title: "subtask 1", done: true },
-      { title: "subtask 2", done: false },
-    ],
-    assignedTo: [1, 3],
-    priority: "low",
-    status: "inProgress",
-  },
-  {
-    id: 4,
-    category: "media",
-    title: "task d",
-    description: "Make the product presentation to prospective buyers",
-    dueDate: "2023-02-01",
-    subtasks: [],
-    assignedTo: [4],
-    priority: "urgent",
-    status: "inProgress",
-  },
-  {
-    id: 5,
-    category: "marketing",
-    title: "task e",
-    description: "Modify the contents of the main website...",
-    dueDate: "2023-02-01",
-    subtasks: [
-      { title: "subtask 1", done: false },
-      { title: "subtask 2", done: false },
-    ],
-    assignedTo: [1, 2, 3, 4],
-    priority: "low",
-    status: "awaitingFeedback",
-  },
-  {
-    id: 6,
-    category: "backoffice",
-    title: "task f",
-    description: "Make the product presentation to prospective buyers",
-    dueDate: "2023-02-01",
-    subtasks: [],
-    assignedTo: [3, 4],
-    priority: "urgent",
-    status: "awaitingFeedback",
-  },
-  {
-    id: 7,
-    category: "marketing",
-    title: "task g",
-    description: "Modify the contents of the main website...",
-    dueDate: "2023-02-01",
-    subtasks: [
-      { title: "subtask 1", done: true },
-      { title: "subtask 2", done: true },
-      { title: "subtask 1", done: true },
-      { title: "subtask 2", done: true },
-      { title: "subtask 1", done: true },
-      { title: "subtask 2", done: true },
-      { title: "subtask 1", done: true },
-      { title: "subtask 2", done: true },
-    ],
-    assignedTo: [2, 3, 4],
-    priority: "low",
-    status: "done",
-  },
-  {
-    id: 8,
-    category: "media",
-    title: "task h",
-    description: "Make the product presentation to prospective buyers",
-    dueDate: "2023-02-01",
-    subtasks: [],
-    assignedTo: [1],
-    priority: "urgent",
-    status: "done",
-  },
-];
-
 async function render() {
   if (!tasks.length) await loadTasksFromBackend();
   if (!contacts.length) await loadContactsFromBackend();
@@ -144,15 +38,16 @@ function updateHtml(status, tasksArrayToRender) {
 }
 
 function generateTaskCardtHtml(task) {
+  const currentCategory = categories.filter(category => category.name === task.category);
   return `
         <div class="task-card" draggable="true" ondragstart="startDragging(${task.id})" onclick="openTaskOverlay(${task.id})">
-            <span class="category ${task.category}">${task.category}</span>
+            <span class="category color-${currentCategory[0].colorNumber}">${task.category}</span>
             <div class="title">${task.title}</div>
             <div class="description">
                 ${task.description}
             </div>
             <div class="subtasks-progress ${checkIfSubtasksAreEmpty(task)}">
-                <progress value="${getDoneSubtasksInPercent(task)}" max="100"><progress>
+                <progress value="${getDoneSubtasksInPercent(task)}" max="100"></progress>
                 <span>${getDoneSubtasks(task)}/${task.subtasks.length} Done</span>
             </div>
             <div class="assigned-to-and-priority-container">
@@ -172,7 +67,11 @@ function generatePlaceholderHtml(status) {
 }
 
 function checkIfSubtasksAreEmpty(task) {
-  if (!task.subtasks.length) return "d-none";
+  if (!task.subtasks.length) {
+    return "d-none";
+  } else {
+    return "";
+  }
 }
 
 function getDoneSubtasks(task) {
@@ -191,9 +90,16 @@ function getDoneSubtasksInPercent(task) {
 function getAssignedPersonsInitialsHtml(task) {
   const assignedContacts = contacts.filter(contact => task.assignedTo.includes(contact.id));
   let assignedPersonsHtml = "";
-  for (let assignedPerson of assignedContacts) {
-    assignedPersonsHtml += `<div class="initials color-${assignedPerson.color}">${assignedPerson.initials}</div>`;
-  }
+  if (assignedContacts.length > 3) {
+    for (let i = 0; i < 2; i++) {
+      assignedPersonsHtml += `<div class="initials color-${assignedContacts[i].color}">${assignedContacts[i].initials}</div>`;
+    }
+    assignedPersonsHtml += `<div class="initials color-1">+${assignedContacts.length  - 2}</div>`;
+      } else {  
+        for (let assignedPerson of assignedContacts) {
+          assignedPersonsHtml += `<div class="initials color-${assignedPerson.color}">${assignedPerson.initials}</div>`;
+        }
+      }
   return assignedPersonsHtml;
 }
 
@@ -201,38 +107,6 @@ function getInitials(name) {
   const fullname = name.split(" ");
   const [forename, lastname] = [fullname[0], fullname[fullname.length - 1]];
   return forename[0] + lastname[0];
-}
-
-function startDragging(id) {
-  currentDraggedElement = id;
-}
-
-function allowDrop(ev) {
-  ev.preventDefault();
-}
-
-async function moveTo(status) {
-  console.log(status);
-  const taskIndex = getIndexOfArray(tasks, currentDraggedElement);
-  tasks[taskIndex].status = status;
-  console.log(tasks[taskIndex].status);
-  await saveTasksToBackend();
-  // await saveContactsToBackend();
-  render();
-}
-
-function getStatusOfDraggedElement(status) {
-  statusOfDraggedElement = status;
-}
-
-function addPlaceholder() {
-  const placeholder = document.querySelectorAll(".task-card-placeholder");
-
-  for (let place of placeholder) {
-    const status = place.classList[1].split("-")[0];
-    if (!(statusOfDraggedElement === status))
-      place.classList.remove("d-none");
-  }
 }
 
 function openTaskOverlay(taskId) {
@@ -299,26 +173,40 @@ function renderAllSubtasks(taskIndex) {
   let subtasksHtml = "";
   const subtasksArray = [...tasks[taskIndex].subtasks];
   for (let i = 0; i < subtasksArray.length; i++) {
-    subtasksHtml += generateSubtaskHtml(subtasksArray, i);
+    if (subtasksArray[i].done) subtasksHtml += generateCheckedSubtaskHtml(tasks[taskIndex].id, subtasksArray, i);
+    if (!subtasksArray[i].done) subtasksHtml += generateUncheckedSubtaskHtml(tasks[taskIndex].id, subtasksArray, i);
   }
   return subtasksHtml;
 }
 
-function generateSubtaskHtml(subtasksArray, subtaskId) {
+function generateCheckedSubtaskHtml(taskId, subtasksArray, subtaskIndex) {
   return `
-      <div class="subtask" id="subtask-${subtaskId}">
-        <input
-          class="subtask-checkbox"
-          type="checkbox"
-          ${checkIfDone(subtasksArray, subtaskId)}
-        />
-        <span>${subtasksArray[subtaskId]}</span>
+      <div class="subtask" id="subtask-${subtaskIndex}" onclick="clickSubtask(${taskId}, ${subtaskIndex})">
+        <input class="subtask-checkbox" type="checkbox" checked />
+        <span>${subtasksArray[subtaskIndex].title}</span>
       </div>
     `;
 }
 
-function checkIfDone(subtasksArray, subtaskId) {
-  if (subtasksArray[subtaskId].done) return "checked";
+function generateUncheckedSubtaskHtml(taskId, subtasksArray, subtaskIndex) {
+  return `
+      <div class="subtask" id="subtask-${subtaskIndex}" onclick="clickSubtask(${taskId}, ${subtaskIndex})">
+        <input class="subtask-checkbox" type="checkbox" />
+        <span>${subtasksArray[subtaskIndex].title}</span>
+      </div>
+    `;
+}
+
+async function clickSubtask(taskId, subtaskIndex) {
+  const taskIndex = getIndexOfArray(tasks, taskId);
+  if (tasks[taskIndex].subtasks[subtaskIndex].done) {
+    tasks[taskIndex].subtasks[subtaskIndex].done = false;
+  } else if (!tasks[taskIndex].subtasks[subtaskIndex].done) {
+    tasks[taskIndex].subtasks[subtaskIndex].done = true;
+  }
+  await render(taskId)
+  openTaskOverlay(taskId);
+  await saveTasksToBackend();
 }
 
 function renderPriority(taskIndex) {
@@ -542,18 +430,26 @@ function generateInviteNewContactHtml(taskIndex) {
 }
 
 function showInviteNewContactInput() {
-  const assignedToSelectButton = document.querySelector('#assignedToSelectButton');
-  const inviteNewContactInputContainer = document.querySelector('#inviteNewContactInputContainer');
-  assignedToSelectButton.classList.add('d-none');
-  inviteNewContactInputContainer.classList.remove('d-none');
+  document.querySelector('#assignedToSelectButton').classList.add('d-none');
+  document.querySelector('#inviteNewContactInputContainer').classList.remove('d-none');
 }
 
 function hideInviteNewContactInput() {
-  const assignedToSelectButton = document.querySelector('#assignedToSelectButton');
-  const inviteNewContactInputContainer = document.querySelector('#inviteNewContactInputContainer');
-  assignedToSelectButton.classList.remove('d-none');
-  inviteNewContactInputContainer.classList.add('d-none');
+  document.querySelector('#contactEmail').value = '-';
+  document.querySelector('#assignedToSelectButton').classList.remove('d-none');;
+  document.querySelector('#inviteNewContactInputContainer').classList.add('d-none');
   hideContacts();
+  document.querySelector('#contactEmail').value = '';
+}
+
+async function addNewContact() {
+  await loadContactsFromBackend();
+  await setContactIdCounter();
+  await getColor();
+  pushToContactsArray('', contactEmail.value, '', currentColor, '')
+  console.log(contacts);
+  await saveContactsToBackend();
+  hideInviteNewContactInput();
 }
 
 function showOrHideContacts() {

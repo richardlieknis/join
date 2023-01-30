@@ -43,14 +43,7 @@ async function getContactsToAssign() {
     });
 }
 
-function showPopup() {
-    let popup = document.getElementById('createdPopup');
-    popup.classList.remove('d-none');
 
-    setTimeout(() => {
-        popup.classList.add('d-none');
-    }, 3000)
-}
 
 function choosePriority(prio) {
     let urgent = document.getElementById("urgentBtn");
@@ -187,7 +180,7 @@ function addSubtaskInput() {
     let errSubtask = document.querySelector(".errorSubtask");
     if (subtaskInput.value === "") { errSubtask.classList.remove("d-none"); return; }
     //errSubtask.classList.add("d-none");
-    subtasks.push(subtaskInput.value);
+    subtasks.push({title: subtaskInput.value, done: false});
     getSubtasks();
     deleteSubtaskInput();
 }

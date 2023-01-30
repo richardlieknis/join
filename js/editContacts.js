@@ -18,9 +18,13 @@ async function createContact() {
     pushToContactsArray(name.value, email.value, tel.value, color, initials);
     clearContacsInputFields(name, email, tel);
     await saveContactsToBackend();
+<<<<<<< HEAD
     showPopup();
     closeAddContact();
     renderContacts();
+=======
+    showPopup("Contact has been added!");
+>>>>>>> 3fbed0c192794596e8bf95df9557c9d9d85673fd
 }
 
 async function saveContactsToBackend() {
@@ -106,7 +110,7 @@ async function editContact(contactId) {
     const email = document.getElementById('c-edit-email');
     const tel = document.getElementById('c-edit-tel');
     const initials = getInitials(name.value);
-  
+
     await pushEditedContact(contactId, name.value, email.value, tel.value, initials);
     closeEditContact(contactId);
 }

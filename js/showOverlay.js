@@ -4,14 +4,21 @@ function openAddTask(status) {
     renderAddTask(status);
     let addTaskOverlay = document.getElementById("addTaskOverlay");
     let taskModul = document.getElementById('addTaskModul');
+    let createBtn = document.getElementById('mobile-btn-addTask');
+    document.getElementById('profile').classList.add('d-none');
     taskModul.classList.add("slideIn");
+    createBtn.classList.add("slideIn");
     addTaskOverlay.classList.remove("d-none");
 }
 
 function closeAddTask() {
     let taskModul = document.getElementById('addTaskModul');
+    let createBtn = document.getElementById('mobile-btn-addTask');
     taskModul.classList.remove("slideIn");
     taskModul.classList.add("slideOut");
+    createBtn.classList.remove("slideIn");
+    createBtn.classList.add("slideOut");
+    document.getElementById('profile').classList.remove('d-none');
     setTimeout(addDisplayNoneTask, 550);
 }
 

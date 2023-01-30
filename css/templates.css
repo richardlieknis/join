@@ -160,6 +160,20 @@ nav>.join-logo-desktop {
     display: none;
 }
 
+@media (max-width: 1070px) {
+    .add-to-btn-primary {
+        z-index: 999;
+        position: absolute;
+        top: -60px;
+        height: 50px;
+        right: 15px;
+        padding: 13px 10px;
+        gap: 10px;
+        display: flex !important;
+        align-items: center;
+    }
+}
+
 @media (max-width: 870px) {
     header {
         padding-left: 50px;
@@ -244,23 +258,15 @@ nav>.join-logo-desktop {
         border-top-left-radius: 15px;
     }
 
-    .add-to-btn-primary {
-        z-index: 999;
-        position: absolute;
-        top: -65px;
-        height: 50px;
-        right: 15px;
-        padding: 13px 10px;
-        gap: 10px;
-        display: flex !important;
-        align-items: center;
-    }
-
     .mobile-hide {
         display: none !important;
     }
 
     .title-mobile {
         display: unset;
+    }
+
+    .add-to-btn-primary {
+        top: -65px;
     }
 }
