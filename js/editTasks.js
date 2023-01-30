@@ -36,12 +36,13 @@ async function setTasksIdCounter() {
     await backend.setItem('taskIdCounter', taskIdCounter);
 }
 
-function pushToTasksArray(title, description, category, assignedTo, dueDate, status) {
+function pushToTasksArray(title, description, category, assignedTo, dueDate, status, catagoryColor) {
     const task = {
         id: taskIdCounter,
         title: title,
         description: description,
         category: category,
+        categoryColor: categoryColor,
         assignedTo: [+assignedTo],
         dueDate: dueDate,
         status: status,

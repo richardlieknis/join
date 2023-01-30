@@ -152,6 +152,7 @@ function addColor(color, element) {
 
     element.classList.add("scaleColor");
     categoryColor = color;
+    console.log(color);
 }
 
 function clearTaskInputs() {
