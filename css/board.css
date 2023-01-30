@@ -794,6 +794,9 @@ main .title-mobile {
     display: block;
     margin: 0 0 25px 0;
   }
+  .addTask-overlay-position {
+    top: 79px !important;
+}
 }
 
 @media (max-width: 630px) {

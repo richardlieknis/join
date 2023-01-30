@@ -193,9 +193,5 @@
             margin-top: 20px;
             gap: 35px;
         }
-
-        .c-overlay-position {
-            top: 0 !important;
-        }
     }
 }
