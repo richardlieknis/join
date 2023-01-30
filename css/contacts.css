@@ -282,9 +282,33 @@ a {
     .c-mobile-back {
         display: unset;
         position: absolute;
-        top: 110px;
+        top: 40px;
         right: 20px;
         cursor: pointer;
         z-index: 100;
+    }
+
+    @media(max-width: 1200px) {
+        .c-mobile-back {
+            right: 70px;
+        }
+    }
+
+    @media(max-width: 1130px) {
+        .c-mobile-back {
+            right: 150px;
+        }
+    }
+
+    @media(max-width: 1050px) {
+        .c-mobile-back {
+            right: 250px;
+        }
+    }
+
+    @media(max-width: 800px) {
+        .c-mobile-back {
+            right: 20px;
+        }
     }
 }

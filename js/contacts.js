@@ -88,17 +88,13 @@ function generateContactList() {
 function showContactDetail() {
         document.getElementById('c-view').style = 'display: unset';
         document.getElementById('addContactBtn').style = 'display: none';
-        document.getElementById('contact-list').style = 'width: unset';
-        document.getElementById('backToContacts').style = 'display: unset';    
+        document.getElementById('contact-list').style = 'width: unset'; 
 }
 
 function goBackToContacts() {
     document.getElementById('c-view').style = 'display: none;';
     document.getElementById('addContactBtn').style = 'display: unset';
-    document.getElementById('contact-list').style = 'width: 100%';
-    if((window.innerWidth < 1350)){
-    document.getElementById('backToContacts').style = 'display: none';
-    }
+    document.getElementById('contact-list').style = 'width: 100%';  
 }
 
 function displayContactDetails(contactId) {
