@@ -234,7 +234,7 @@ a {
 }
 
 .c-mobile-back {
-    display: none !important;
+    display: none;
 }
 
 .btn-new-mobile {
@@ -280,7 +280,6 @@ a {
         display: flex;
     }
     .c-mobile-back {
-        display: unset !important;
         position: absolute;
         top: 110px;
         right: 20px;
