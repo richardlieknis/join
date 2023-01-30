@@ -15,13 +15,13 @@
 <body>
     <div onload="initTasks()" class="add-task-container">
 
-        <button id="mobile-btn-addTask" class="btn-primary add-to-btn-primary hide-over-800px slideIn" onclick="createTask('todo'); return false">Create Task<img src="../src/img/hook.svg" /></button>            
+        <button id="mobile-btn-addTask" class="btn-primary add-to-btn-primary hide-over-800px" onclick="createTask('todo'); return false">Create Task<img src="../src/img/hook.svg" /></button>            
 
         <div id="addTaskModul" class="main-container taskOverlay modules padding mobile-fullscreen">
             <form>
                 <div class="title">
                     <h1>Add Task</h1>
-                    <div onclick="closeAddTask()" class="closeBtn">
+                    <div id="closeAddTask" onclick="closeAddTask()" class="closeBtn">
                         <img src="../src/img/x.svg" alt="" />
                     </div>
                 </div>
