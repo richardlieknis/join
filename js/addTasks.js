@@ -113,7 +113,8 @@ function handleCategoryChange() {
     }
 }
 
-function addNewCategory() {
+async function addNewCategory() {
+    await loadCategoriesFromBackend();
     let newCategoryInput = document.getElementById('new-category-input');
     let categoryDiv = document.getElementById('category-selection');
 
@@ -126,6 +127,7 @@ function addNewCategory() {
     categories.push(createNew);
     categoryDiv.innerHTML = renderCategoryInputFull();
     getCategories();
+    await saveCategoriesToBackend();
 }
 
 function deleteCategoryInput() {
