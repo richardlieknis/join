@@ -18,13 +18,9 @@ async function createContact() {
     pushToContactsArray(name.value, email.value, tel.value, color, initials);
     clearContacsInputFields(name, email, tel);
     await saveContactsToBackend();
-<<<<<<< HEAD
-    showPopup();
+    showPopup("Contact has been added!");
     closeAddContact();
     renderContacts();
-=======
-    showPopup("Contact has been added!");
->>>>>>> 3fbed0c192794596e8bf95df9557c9d9d85673fd
 }
 
 async function saveContactsToBackend() {
