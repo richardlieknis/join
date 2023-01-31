@@ -269,10 +269,11 @@ function generateTaskOverlayButtonsHtml(taskIndex) {
 function renderEditTask(taskId) {
   const taskIndex = getIndexOfArray(tasks, taskId)
   currentPriority = tasks[taskIndex].priority;
-  renderCurrentStatus(taskIndex);
+  renderCurrentCategory(taskIndex);
   renderCategories(tasks[taskIndex].category);
   renderCurrentTitle(taskIndex);
   rendercurrentDescription(taskIndex);
+  renderCurrentStatus(taskIndex);
   renderCurrentDueDate(taskIndex);
   renderCurrentPriority(taskIndex);
   renderContacts(taskIndex);
@@ -282,7 +283,7 @@ function renderEditTask(taskId) {
   taskOverlayEditContentContainer.classList.remove('d-none');
 }
 
-function renderCurrentStatus(taskIndex) {
+function renderCurrentCategory(taskIndex) {
   currentCategoryContainer.innerHTML = tasks[taskIndex].category;
 }
 
@@ -319,6 +320,10 @@ function renderCurrentTitle(taskIndex) {
 
 function rendercurrentDescription(taskIndex) {
   document.querySelector('#currentDescription').value = tasks[taskIndex].description;
+}
+
+function renderCurrentStatus(taskIndex) {
+  
 }
 
 function renderCurrentDueDate(taskIndex) {

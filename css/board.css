@@ -488,6 +488,31 @@ main .title-mobile {
   margin-bottom: 10px;
 }
 
+.task-overlay-edit-content > div.task-overlay-edit-status-container {
+  /* display: none; */
+}
+
+.task-overlay-edit-content > div.task-overlay-edit-status-container > div.task-overlay-edit-status {
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-overlay-edit-content > div.task-overlay-edit-status-container > div.task-overlay-edit-status > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-overlay-edit-content > div.task-overlay-edit-status-container > div.task-overlay-edit-status > button {
+  flex: 1;
+  font-size: 14px;
+}
+
+.task-overlay-edit-content > div.task-overlay-edit-status-container > div.task-overlay-edit-status > span {
+  flex: 2;
+  cursor: auto;
+}
+
 .task-overlay-edit-content > div > div,
 .task-overlay-edit-content > div > input[type="date"] {
   cursor: pointer;
