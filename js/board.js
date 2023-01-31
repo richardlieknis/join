@@ -138,10 +138,10 @@ render();
 
 function renderCategory(taskIndex) {
   const categoryContainer = document.querySelector("#category");
+  const currentCategory = categories.filter(category => category.name === tasks[taskIndex].category);
   categoryContainer.className = "";
   categoryContainer.classList.add("category");
-  categoryContainer.classList.add("design");
-  // categoryContainer.classList.add(tasks[taskIndex].category);
+  categoryContainer.classList.add(`color-${currentCategory[0].colorNumber}`);
   categoryContainer.innerHTML = tasks[taskIndex].category;
 }
 
