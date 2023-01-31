@@ -288,6 +288,10 @@ a {
         z-index: 100;
     }
 
+    .width-unset {
+        width: unset;
+    }
+
     @media(max-width: 1200px) {
         .c-mobile-back {
             right: 70px;

@@ -88,13 +88,13 @@ function generateContactList() {
 function showContactDetail() {
         document.getElementById('c-view').style = 'display: unset';
         document.getElementById('addContactBtn').style = 'display: none';
-        document.getElementById('contact-list').style = 'width: unset'; 
+        document.getElementById('contact-list').classList.add('width-unset'); 
 }
 
 function goBackToContacts() {
     document.getElementById('c-view').style = 'display: none;';
     document.getElementById('addContactBtn').style = 'display: unset';
-    document.getElementById('contact-list').style = 'width: 100%';  
+    document.getElementById('contact-list').classList.remove('width-unset');  
 }
 
 function displayContactDetails(contactId) {
