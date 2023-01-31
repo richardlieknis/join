@@ -120,6 +120,7 @@ function openTaskOverlay(taskId) {
   renderPriority(taskIndex);
   renderAssignedToContainer(taskIndex);
   renderTaskOverlayButtons(taskIndex);
+  renderInviteNewContactInputContainer(taskId);
   taskOverlayContentContainer.classList.remove('d-none');
   taskOverlayEditContentContainer.classList.add('d-none');
   taskOverlayBg.classList.remove("d-none");
@@ -275,7 +276,6 @@ function renderEditTask(taskId) {
   renderCurrentDueDate(taskIndex);
   renderCurrentPriority(taskIndex);
   renderContacts(taskIndex);
-  renderInviteNewContactInputContainer(taskId);
   renderCurrentAssignedContacts(taskIndex);
   renderEditTaskOverlayButtons(taskIndex);
   taskOverlayContentContainer.classList.add('d-none');
@@ -459,7 +459,7 @@ function showInviteNewContactInput() {
 }
 
 function hideInviteNewContactInput() {
-  document.querySelector('#contactEmail').value = '-';
+  // document.querySelector('#contactEmail').value = '-';
   document.querySelector('#assignedToSelectButton').classList.remove('d-none');;
   document.querySelector('#inviteNewContactInputContainer').classList.add('d-none');
   hideContacts();
