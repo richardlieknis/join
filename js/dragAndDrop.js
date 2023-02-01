@@ -12,7 +12,7 @@ function startDragging(id) {
     const taskIndex = getIndexOfArray(tasks, currentDraggedElement);
     tasks[taskIndex].status = status;
     await saveTasksToBackend();
-    render();
+    renderTasks();
   }
   
   function getStatusOfDraggedElement(status) {

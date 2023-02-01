@@ -18,7 +18,7 @@ const priorityLowButton = document.querySelector('#priority-low');
 let currentPriority;
 const contactsContainer = document.querySelector('#contactsContainer');
 
-async function render() {
+async function renderTasks() {
   if (!tasks.length) await loadTasksFromBackend();
   if (!contacts.length) await loadContactsFromBackend();
   if (!categories.length) await loadCategoriesFromBackend();
@@ -135,7 +135,7 @@ function closeTaskOverlay() {
   hideInviteNewContactInput();
 }
 
-render();
+renderTasks();
 
 function renderCategory(taskIndex) {
   const categoryContainer = document.querySelector("#category");
@@ -206,7 +206,7 @@ async function clickSubtask(taskId, subtaskIndex) {
   } else if (!tasks[taskIndex].subtasks[subtaskIndex].done) {
     tasks[taskIndex].subtasks[subtaskIndex].done = true;
   }
-  await render(taskId)
+  await renderTasks();
   openTaskOverlay(taskId);
   await saveTasksToBackend();
 }
@@ -525,7 +525,7 @@ function generateEditTaskOverlayButtonsHtml(taskIndex) {
 async function saveChanges(taskId) {
   await editTask(taskId);
   openTaskOverlay(taskId);
-  render();
+  renderTasks();
 }
 
 async function deleteTask(taskId) {
@@ -533,5 +533,5 @@ async function deleteTask(taskId) {
   tasks.splice(taskIndex, 1);
   await saveTasksToBackend();
   closeTaskOverlay();
-  render();
+  renderTasks();
 }
