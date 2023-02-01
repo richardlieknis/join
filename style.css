@@ -403,6 +403,10 @@ form {
         .position-absolute-0 {
             position: unset;
         }
+
+        .forgot-password-resp {
+            width: 90%;
+        }
     }
     @media (min-width:800px) {
         .kanban {
