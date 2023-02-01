@@ -210,6 +210,7 @@ nav>.join-logo-desktop {
         padding: 0;
         position: fixed;
         bottom: 0;
+        z-index: 999;
     }
 
     nav>.join-logo-desktop,
