@@ -20,6 +20,7 @@ function loadSignUp() {
     signUp.innerHTML = '';
     signUp.innerHTML += signUpTemplate();
     document.getElementById('sign-up').classList.add('d-none');
+    document.getElementById('sign-up-resp').classList.add('d-none');
 }
 /**
  * This function add a User and save it on the Backend
