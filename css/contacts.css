@@ -311,6 +311,10 @@ a {
     }
 
     @media(max-width: 800px) {
+        .c-view {
+            height: 100%;
+        }
+
         .c-mobile-back {
             right: 20px;
         }
