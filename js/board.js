@@ -21,6 +21,10 @@ const priorityLowButton = document.querySelector('#priority-low');
 let currentPriority;
 const contactsContainer = document.querySelector('#contactsContainer');
 
+/**
+ * render all tasks in board
+ * 
+ */
 async function renderTasks() {
   if (!tasks.length) await loadTasksFromBackend();
   if (!contacts.length) await loadContactsFromBackend();
@@ -31,6 +35,12 @@ async function renderTasks() {
   for (let status of progressStepCategories) updateHtml(status, currentTasksArray);
 }
 
+/**
+ * update columns html in board
+ * 
+ * @param {string} status - status name of the column which should update html
+ * @param {*} tasksArrayToRender - array to render in specified status
+ */
 function updateHtml(status, tasksArrayToRender) {
   const progressStep = tasksArrayToRender.filter((task) => task.status === status);
   const progressStepHtmlContainer = document.querySelector(`#${status}-tasks`);
@@ -41,51 +51,56 @@ function updateHtml(status, tasksArrayToRender) {
   progressStepHtmlContainer.innerHTML += generatePlaceholderHtml(status);
 }
 
-
-
+/**
+ * check if subtasks array is empty
+ * 
+ * @param {object} task - task to check
+ * @returns - d-none if subtaks array is empty
+ */
 function checkIfSubtasksAreEmpty(task) {
-  if (!task.subtasks.length) {
-    return "d-none";
-  } else {
-    return "";
-  }
+  return task.subtasks.length ? "" : "d-none";
 }
 
+/**
+ * get number of done subtasks
+ * 
+ * @param {object} task - task from which the completed subtasks are to be counted
+ * @returns - count of completed subtasks
+ */
 function getDoneSubtasks(task) {
   const doneSubtasks = task.subtasks.filter((subtask) => subtask.done);
   return doneSubtasks.length;
 }
 
+/**
+ * get percent of done subtasks
+ * 
+ * @param {object} task - task from which the completed subtasks are to be counted in percent
+ * @returns - percent of completed subtasks
+ */
 function getDoneSubtasksInPercent(task) {
   const doneSubtasks = task.subtasks.filter((subtask) => subtask.done);
-  const percent = doneSubtasks.length
-    ? (100 / task.subtasks.length) * doneSubtasks.length
-    : 0;
+  const percent = doneSubtasks.length ? (100 / task.subtasks.length) * doneSubtasks.length : 0; 
   return percent;
 }
 
-function getAssignedPersonsInitialsHtml(task) {
-  const assignedContacts = contacts.filter(contact => task.assignedTo.includes(contact.id));
-  let assignedPersonsHtml = "";
-  if (assignedContacts.length > 3) {
-    for (let i = 0; i < 2; i++) {
-      assignedPersonsHtml += `<div class="initials color-${assignedContacts[i].color}">${assignedContacts[i].initials}</div>`;
-    }
-    assignedPersonsHtml += `<div class="initials color-x">+${assignedContacts.length  - 2}</div>`;
-      } else {  
-        for (let assignedPerson of assignedContacts) {
-          assignedPersonsHtml += `<div class="initials color-${assignedPerson.color}">${assignedPerson.initials}</div>`;
-        }
-      }
-  return assignedPersonsHtml;
-}
-
+/**
+ * get initals
+ * 
+ * @param {string} name - name from which the initials are needed
+ * @returns - initials
+ */
 function getInitials(name) {
   const fullname = name.split(" ");
   const [forename, lastname] = [fullname[0], fullname[fullname.length - 1]];
   return forename[0] + lastname[0];
 }
 
+/**
+ * open task overlay
+ * 
+ * @param {number} taskId - id of the task to be opened
+ */
 function openTaskOverlay(taskId) {
   const taskIndex = getIndexOfArray(tasks, taskId)
   renderCategory(taskIndex);
@@ -102,6 +117,10 @@ function openTaskOverlay(taskId) {
   taskOverlayBg.classList.remove("d-none");
 }
 
+/**
+ * close task overlay
+ * 
+ */
 function closeTaskOverlay() {
   taskOverlayBg.classList.add("d-none");
   taskOverlayContentContainer.classList.remove('d-none');
@@ -115,6 +134,11 @@ function closeTaskOverlay() {
 
 renderTasks();
 
+/**
+ * render category for task overlay
+ * 
+ * @param {number} taskIndex - index of task
+ */
 function renderCategory(taskIndex) {
   const categoryContainer = document.querySelector("#category");
   const currentCategory = categories.filter(category => category.name === tasks[taskIndex].category);
@@ -124,6 +148,12 @@ function renderCategory(taskIndex) {
   categoryContainer.innerHTML = tasks[taskIndex].category;
 }
 
+/**
+ * render part of task overlay
+ * 
+ * @param {number} taskIndex - index of task
+ * @param {string} containerId - id of part to render
+ */
 function renderContentOnly(taskIndex, containerId) {
   const container = document.querySelector(`#${containerId}`);
   container.innerHTML = "";
@@ -137,6 +167,11 @@ function renderContentOnly(taskIndex, containerId) {
   }
 }
 
+/**
+ * render subtask container
+ * 
+ * @param {number} taskIndex - index of task
+ */
 function renderSubtasksContainer(taskIndex) {
   const subtaskContainer = document.querySelector("#subtasksContainer");
   const subtaskElementsContainer = document.querySelector("#subtasks");
@@ -149,6 +184,12 @@ function renderSubtasksContainer(taskIndex) {
   }
 }
 
+/**
+ * render subtasks for task overlay
+ * 
+ * @param {number} taskIndex - index of task
+ * @returns - html of subtasks
+ */
 function renderAllSubtasks(taskIndex) {
   let subtasksHtml = "";
   const subtasksArray = [...tasks[taskIndex].subtasks];
@@ -159,6 +200,12 @@ function renderAllSubtasks(taskIndex) {
   return subtasksHtml;
 }
 
+/**
+ * check or uncheck subtask
+ * 
+ * @param {number} taskId - id of task
+ * @param {number} subtaskIndex - index of subtask which is clicked
+ */
 async function clickSubtask(taskId, subtaskIndex) {
   const taskIndex = getIndexOfArray(tasks, taskId);
   if (tasks[taskIndex].subtasks[subtaskIndex].done) {
@@ -171,6 +218,11 @@ async function clickSubtask(taskId, subtaskIndex) {
   await saveTasksToBackend();
 }
 
+/**
+ * render priority for task overlay
+ * 
+ * @param {number} taskIndex - index of task
+ */
 function renderPriority(taskIndex) {
   const priorityContainer = document.querySelector("#priority");
   priorityContainer.className = "";
@@ -180,6 +232,11 @@ function renderPriority(taskIndex) {
   priorityContainer.innerHTML += `<img src="../src/img/${tasks[taskIndex].priority}-white.svg" />`;
 }
 
+/**
+ * render assigned contacts for task overlay
+ * 
+ * @param {number} taskIndex - index of task
+ */
 function renderAssignedToContainer(taskIndex) {
   const assignedToContainer = document.querySelector("#assignedToContainer");
   const assignedPersonsContainer = document.querySelector("#assignedPersonsContainer");
@@ -192,6 +249,12 @@ function renderAssignedToContainer(taskIndex) {
   }
 }
 
+/**
+ * render contactlist
+ * 
+ * @param {number} taskIndex - index of task
+ * @returns - html of contacts
+ */
 function renderAllAssignedPersons(taskIndex) {
   let assignedPersonHtml = "";
   const assignedContacts = contacts.filter(contact => tasks[taskIndex].assignedTo.includes(contact.id));
@@ -201,11 +264,21 @@ function renderAllAssignedPersons(taskIndex) {
   return assignedPersonHtml;
 }
 
+/**
+ * render buttons of task overlay
+ * 
+ * @param {number} taskIndex - index of task
+ */
 function renderTaskOverlayButtons(taskIndex) {
   const taskOverlayButtonsContainer = document.querySelector("#taskOverlayButtons");
   taskOverlayButtonsContainer.innerHTML = generateTaskOverlayButtonsHtml(taskIndex);
 }
 
+/**
+ * open edit view of task
+ * 
+ * @param {number} taskId - id of task
+ */
 function renderEditTask(taskId) {
   const taskIndex = getIndexOfArray(tasks, taskId)
   currentPriority = tasks[taskIndex].priority;
@@ -224,10 +297,21 @@ function renderEditTask(taskId) {
   taskOverlayEditContentContainer.classList.remove('d-none');
 }
 
+/**
+ * render current category
+ * 
+ * @param {number} taskIndex - index of task
+ */
 function renderCurrentCategory(taskIndex) {
   currentCategoryContainer.innerHTML = tasks[taskIndex].category;
 }
 
+
+/**
+ * render categories list for task edit view
+ * 
+ * @param {string} categoryToIgnore - current category which should not displayd twice
+ */
 function renderCategories(categoryToIgnore) {
   categoriesContainer.innerHTML = "";
   for (let category of categories) {
@@ -242,31 +326,64 @@ function renderCategories(categoryToIgnore) {
   }
 }
 
+/**
+ * toggle category list
+ * 
+ */
 function showOrHideCategories() {
   categoriesContainer.classList.toggle('d-none');
 }
 
+/**
+ * hide category list
+ * 
+ */
 function hideCategories() {
   if (!categoriesContainer.classList.contains('d-none')) categoriesContainer.classList.add('d-none');
 }
 
+/**
+ * set category
+ * 
+ * @param {string} category - new category
+ */
 function setCategory(category) {
   currentCategoryContainer.innerHTML = category;
   renderCategories(category);
 }
 
+/**
+ * render current title for task edit view
+ * 
+ * @param {number} taskIndex - index of task
+ */
 function renderCurrentTitle(taskIndex) {
   document.querySelector('#currentTitle').value = tasks[taskIndex].title;
 }
 
+/**
+ * render current description for task edit view
+ * 
+ * @param {number} taskIndex - index of task
+ */
 function rendercurrentDescription(taskIndex) {
   document.querySelector('#currentDescription').value = tasks[taskIndex].description;
 }
 
+/**
+ * render current status for task edit view
+ * 
+ * @param {number} taskIndex - index of task
+ */
 function renderCurrentStatus(taskIndex) {
   currentStatusContainer.innerHTML = tasks[taskIndex].status;
 }
 
+/**
+ * render status list for task edit view (only in mobile view)
+ * 
+ * @param {string} statusToIgnore - current status which should not displayd twice
+ */
 function renderStatus(statusToIgnore) {
   statusContainer.innerHTML = "";
   for (let status of progressStepCategories) {
@@ -280,24 +397,46 @@ function renderStatus(statusToIgnore) {
   }
 }
 
+/**
+ * toggle status list
+ * 
+ */
 function showOrHideStatus() {
   console.log("runs");
   statusContainer.classList.toggle('d-none');
 }
 
+/**
+ * hide status list
+ * 
+ */
 function hideStatus() {
   if (!statusContainer.classList.contains('d-none')) statusContainer.classList.add('d-none');
 }
 
+/**
+ * set status
+ * 
+ * @param {string} status - new status
+ */
 function setStatus(status) {
   currentStatusContainer.innerHTML = status;
   renderStatus(status);
 }
 
+/**
+ * render current due date for task edit view
+ * 
+ * @param {number} taskIndex - index of task
+ */
 function renderCurrentDueDate(taskIndex) {
   document.querySelector('#currentDueDate').value = tasks[taskIndex].dueDate;
 }
 
+/**
+ * render priority buttons for task edit view
+ * 
+ */
 function renderCurrentPriority() {
   removeActiveClassFromPriorityButton();
   if (currentPriority === "urgent") {
@@ -312,6 +451,10 @@ function renderCurrentPriority() {
   }
 }
 
+/**
+ * remove active class from priority buttons
+ * 
+ */
 function removeActiveClassFromPriorityButton() {
   const priorityButtons = document.querySelectorAll('.priority-button');
   for (let priorityButton of priorityButtons) {
@@ -322,11 +465,21 @@ function removeActiveClassFromPriorityButton() {
   priorityLowButton.childNodes[3].src = "../src/img/low.svg";
 }
 
+/**
+ * set priority
+ * 
+ * @param {string} priority - new priority
+ */
 function setPriority(priority) {
   currentPriority = priority;
   renderCurrentPriority();
 }
 
+/**
+ * render assigned contacts
+ * 
+ * @param {number} taskIndex - index of task
+ */
 function renderCurrentAssignedContacts(taskIndex) {
   const assignedContacts = contacts.filter(contact => tasks[taskIndex].assignedTo.includes(contact.id));
   const assignedContactsContainer = document.querySelector('#assignedContacts');
@@ -336,12 +489,11 @@ function renderCurrentAssignedContacts(taskIndex) {
   }
 }
 
-function generateCurrentAssignedPersonsHtml(assignedPerson) {
-  return `
-      <div class="initials color-${assignedPerson.color}">${assignedPerson.initials}</div>
-  `;
-}
-
+/**
+ * render list of contacts
+ * 
+ * @param {number} taskIndex - index of task
+ */
 function renderContacts(taskIndex) {
   contactsContainer.innerHTML = "";
   // contactsContainer.innerHTML = `
@@ -360,6 +512,25 @@ function renderContacts(taskIndex) {
   contactsContainer.innerHTML += generateInviteNewContactHtml(taskIndex);
 }
 
+/**
+ * check contact
+ * 
+ * @param {number} contactId - id of contact
+ * @param {number} taskIndex - index of task
+ */
+async function checkContact(contactId, taskIndex) {
+  tasks[taskIndex].assignedTo.push(contactId);
+  renderContacts(taskIndex);
+  renderCurrentAssignedContacts(taskIndex);
+  await saveTasksToBackend();
+}
+
+/**
+ * uncheck contact
+ * 
+ * @param {number} contactId - id of contact
+ * @param {number} taskIndex - index of task
+ */
 async function uncheckContact(contactId, taskIndex) {
   console.log("uncheck", contactId, taskIndex);
   console.log(tasks[taskIndex].assignedTo);
@@ -370,23 +541,29 @@ async function uncheckContact(contactId, taskIndex) {
   await saveTasksToBackend();
 }
 
-async function checkContact(contactId, taskIndex) {
-  tasks[taskIndex].assignedTo.push(contactId);
-  renderContacts(taskIndex);
-  renderCurrentAssignedContacts(taskIndex);
-  await saveTasksToBackend();
-}
-
+/**
+ * render invite new contact container
+ * 
+ * @param {number} taskId - id of task
+ */
 function renderInviteNewContactInputContainer(taskId) {
   const inviteNewContactInputContainer = document.querySelector('#inviteNewContactInputContainer');
   inviteNewContactInputContainer.innerHTML = generateInviteNewContactInputContainerHtml(taskId);
 }
 
+/**
+ * show invite new contact input field
+ * 
+ */
 function showInviteNewContactInput() {
   document.querySelector('#assignedToSelectButton').classList.add('d-none');
   document.querySelector('#inviteNewContactInputContainer').classList.remove('d-none');
 }
 
+/**
+ * hide invite new contact input field
+ * 
+ */
 function hideInviteNewContactInput() {
   // document.querySelector('#contactEmail').value = '-';
   document.querySelector('#assignedToSelectButton').classList.remove('d-none');;
@@ -395,6 +572,11 @@ function hideInviteNewContactInput() {
   document.querySelector('#contactEmail').value = '';
 }
 
+/**
+ * add new contact from task overlay edit view and assign to task
+ * 
+ * @param {number} taskId - id of task
+ */
 async function addNewContact(taskId) {
   const taskIndex = getIndexOfArray(tasks, taskId);
   await loadContactsFromBackend();
@@ -413,30 +595,59 @@ async function addNewContact(taskId) {
   }
 }
 
+/**
+ * check if new contact exists in contacts array
+ * 
+ * @param {string} contactEmail - email to check
+ * @returns - true or false
+ */
 function checkIfContactExist(contactEmail) {
   const emailsArray = contacts.map(contact => contact.email.toLowerCase());
   return emailsArray.includes(contactEmail.toLowerCase()) ? true : false;
 }
 
+/**
+ * toggle contact list in task overlay edit view
+ * 
+ */
 function showOrHideContacts() {
   contactsContainer.classList.toggle('d-none');
 }
 
+/**
+ * hide contact list in task overlay edit view
+ * 
+ */
 function hideContacts() {
   if (!contactsContainer.classList.contains('d-none')) contactsContainer.classList.add('d-none');
 }
 
+/**
+ * render buttons in task overlay edit view
+ * 
+ * @param {number} taskIndex - index of task
+ */
 function renderEditTaskOverlayButtons(taskIndex) {
   const taskOverlayButtonsContainer = document.querySelector("#taskOverlayButtons");
   taskOverlayButtonsContainer.innerHTML = generateEditTaskOverlayButtonsHtml(taskIndex);
 }
 
+/**
+ * save task changes
+ * 
+ * @param {number} taskId 
+ */
 async function saveChanges(taskId) {
   await editTask(taskId);
   openTaskOverlay(taskId);
   renderTasks();
 }
 
+/**
+ * delete task
+ * 
+ * @param {number} taskId 
+ */
 async function deleteTask(taskId) {
   const taskIndex = getIndexOfArray(tasks, taskId);
   tasks.splice(taskIndex, 1);

@@ -29,6 +29,22 @@ return `
 `;
 }
 
+function getAssignedPersonsInitialsHtml(task) {
+  const assignedContacts = contacts.filter(contact => task.assignedTo.includes(contact.id));
+  let assignedPersonsHtml = "";
+  if (assignedContacts.length > 3) {
+    for (let i = 0; i < 2; i++) {
+      assignedPersonsHtml += `<div class="initials color-${assignedContacts[i].color}">${assignedContacts[i].initials}</div>`;
+    }
+    assignedPersonsHtml += `<div class="initials color-x">+${assignedContacts.length  - 2}</div>`;
+      } else {  
+        for (let assignedPerson of assignedContacts) {
+          assignedPersonsHtml += `<div class="initials color-${assignedPerson.color}">${assignedPerson.initials}</div>`;
+        }
+      }
+  return assignedPersonsHtml;
+}
+
 function generateCheckedSubtaskHtml(taskId, subtasksArray, subtaskIndex) {
 return `
     <div class="subtask" id="subtask-${subtaskIndex}" onclick="clickSubtask(${taskId}, ${subtaskIndex})">
@@ -54,6 +70,12 @@ function generateAssignedPersonsHtml(assignedContacts, assignedContactIndex) {
           <span class="full-name">${assignedContacts[assignedContactIndex].name}</span>
         </div>
       `;
+}
+
+function generateCurrentAssignedPersonsHtml(assignedPerson) {
+  return `
+      <div class="initials color-${assignedPerson.color}">${assignedPerson.initials}</div>
+  `;
 }
 
 function generateTaskOverlayButtonsHtml(taskIndex) {
