@@ -111,12 +111,13 @@
                             <span>Description</span>
                             <textarea class="input" name="task-overlay-edit-desciption" id="currentDescription" cols="47" rows="3"></textarea>
                         </div>
-                        <div class="task-overlay-edit-status-container">
+                        <div class="task-overlay-edit-status">
                             <span>Status</span>
-                            <div class="task-overlay-edit-status" id="taskOverlayEditStatus">
-                                <button class="btn-secondary"><<</button>
-                                <span>In progress</span>
-                                <button class="btn-secondary">>></button></div>
+                            <div class="status-select-button input" onclick="showOrHideStatus()">
+                                <div id="currentStatus"></div>
+                                <div class="status d-none" id="statusContainer"></div>
+                                <img src="../src/img/dropDownArrow.svg" />
+                            </div>
                         </div>
                         <div class="task-overlay-edit-dueDate">
                             <span>Due date</span>

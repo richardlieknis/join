@@ -488,29 +488,8 @@ main .title-mobile {
   margin-bottom: 10px;
 }
 
-.task-overlay-edit-content > div.task-overlay-edit-status-container {
-  /* display: none; */
-}
-
-.task-overlay-edit-content > div.task-overlay-edit-status-container > div.task-overlay-edit-status {
-  display: flex;
-  justify-content: space-between;
-}
-
-.task-overlay-edit-content > div.task-overlay-edit-status-container > div.task-overlay-edit-status > * {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.task-overlay-edit-content > div.task-overlay-edit-status-container > div.task-overlay-edit-status > button {
-  flex: 1;
-  font-size: 14px;
-}
-
-.task-overlay-edit-content > div.task-overlay-edit-status-container > div.task-overlay-edit-status > span {
-  flex: 2;
-  cursor: auto;
+.task-overlay-edit-content > div.task-overlay-edit-status {
+  display: none;
 }
 
 .task-overlay-edit-content > div > div,
@@ -519,7 +498,8 @@ main .title-mobile {
 }
 
 .task-overlay-edit-content > .task-overlay-edit-category > .category-select-button,
-.task-overlay-edit-content > .task-overlay-edit-assignedTo > .assignedTo-select-button {
+.task-overlay-edit-content > .task-overlay-edit-assignedTo > .assignedTo-select-button,
+.task-overlay-edit-content > .task-overlay-edit-status > .status-select-button {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -532,7 +512,8 @@ main .title-mobile {
   position: relative;
 }
 
-.task-overlay-edit-content > .task-overlay-edit-category > .category-select-button > .categories {
+.task-overlay-edit-content > .task-overlay-edit-category > .category-select-button > .categories,
+.task-overlay-edit-content > .task-overlay-edit-status > .status-select-button > .status {
   width: calc(100% + 2px);
   max-height: 170px;
   position: absolute;
@@ -549,14 +530,16 @@ main .title-mobile {
   overflow-y: auto;
 }
 
-.task-overlay-edit-content > .task-overlay-edit-category > .category-select-button > .categories > div {
+.task-overlay-edit-content > .task-overlay-edit-category > .category-select-button > .categories > div,
+.task-overlay-edit-content > .task-overlay-edit-status > .status-select-button > .status > div {
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 10px 20px;
 }
 
-.task-overlay-edit-content > .task-overlay-edit-category > .category-select-button > .categories > div:hover {
+.task-overlay-edit-content > .task-overlay-edit-category > .category-select-button > .categories > div:hover,
+.task-overlay-edit-content > .task-overlay-edit-status > .status-select-button > .status > div:hover {
   background: #d1d1d1;
 }
 
@@ -822,7 +805,11 @@ main .title-mobile {
   }
   .addTask-overlay-position {
     top: 79px !important;
-}
+  }
+
+  .task-overlay-edit-content > div.task-overlay-edit-status {
+    display: block;
+  }
 }
 
 @media (max-width: 630px) {

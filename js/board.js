@@ -12,6 +12,8 @@ const taskOverlayContentContainer = document.querySelector('#taskOverlayContent'
 const taskOverlayEditContentContainer = document.querySelector('#taskOverlayEditContent');
 const currentCategoryContainer = document.querySelector('#currentCategory');
 const categoriesContainer = document.querySelector('#categoriesContainer');
+const currentStatusContainer = document.querySelector('#currentStatus');
+const statusContainer = document.querySelector('#statusContainer');
 const priorityUrgentButton = document.querySelector('#priority-urgent');
 const priorityMediumButton = document.querySelector('#priority-medium');
 const priorityLowButton = document.querySelector('#priority-low');
@@ -131,7 +133,9 @@ function closeTaskOverlay() {
   taskOverlayContentContainer.classList.remove('d-none');
   taskOverlayEditContentContainer.classList.add('d-none');
   hideCategories();
+  hideStatus();
   hideContacts();
+
   hideInviteNewContactInput();
 }
 
@@ -274,6 +278,7 @@ function renderEditTask(taskId) {
   renderCurrentTitle(taskIndex);
   rendercurrentDescription(taskIndex);
   renderCurrentStatus(taskIndex);
+  renderStatus(tasks[taskIndex].status);
   renderCurrentDueDate(taskIndex);
   renderCurrentPriority(taskIndex);
   renderContacts(taskIndex);
@@ -323,7 +328,34 @@ function rendercurrentDescription(taskIndex) {
 }
 
 function renderCurrentStatus(taskIndex) {
-  
+  currentStatusContainer.innerHTML = tasks[taskIndex].status;
+}
+
+function renderStatus(statusToIgnore) {
+  statusContainer.innerHTML = "";
+  for (let status of progressStepCategories) {
+    if (status !== statusToIgnore) {
+      statusContainer.innerHTML += `
+      <div onclick="setStatus('${status}')">
+        <span>${status}</span>
+      </div>
+      `;
+    }
+  }
+}
+
+function showOrHideStatus() {
+  console.log("runs");
+  statusContainer.classList.toggle('d-none');
+}
+
+function hideStatus() {
+  if (!statusContainer.classList.contains('d-none')) statusContainer.classList.add('d-none');
+}
+
+function setStatus(status) {
+  currentStatusContainer.innerHTML = status;
+  renderStatus(status);
 }
 
 function renderCurrentDueDate(taskIndex) {

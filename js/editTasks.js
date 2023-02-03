@@ -68,16 +68,18 @@ async function editTask(taskId) {
     const category = document.getElementById('currentCategory');
     const title = document.getElementById('currentTitle');
     const description = document.getElementById('currentDescription');
+    const status = document.getElementById('currentStatus');
     const dueDate = document.getElementById('currentDueDate');
 
-    pushEditedTasks(taskId, category.textContent, title.value, description.value, dueDate.value);
+    pushEditedTasks(taskId, category.textContent, title.value, description.value, status.textContent, dueDate.value);
 }
 
-async function pushEditedTasks(taskId, category, title, description, dueDate) {
+async function pushEditedTasks(taskId, category, title, description, status, dueDate) {
     const index = getIndexOfArray(tasks, taskId);
     tasks[index].category = category;
     tasks[index].title = title;
     tasks[index].description = description;
+    tasks[index].status = status;
     tasks[index].dueDate = dueDate;
     tasks[index].priority = currentPriority;
 
