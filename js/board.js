@@ -41,34 +41,7 @@ function updateHtml(status, tasksArrayToRender) {
   progressStepHtmlContainer.innerHTML += generatePlaceholderHtml(status);
 }
 
-function generateTaskCardtHtml(task) {
-  const currentCategory = categories.filter(category => category.name === task.category);
-  return `
-        <div class="task-card" draggable="true" ondragstart="startDragging(${task.id})" onclick="openTaskOverlay(${task.id})">
-            <span class="category color-${currentCategory[0].colorNumber}">${task.category}</span>
-            <div class="title">${task.title}</div>
-            <div class="description">
-                ${task.description}
-            </div>
-            <div class="subtasks-progress ${checkIfSubtasksAreEmpty(task)}">
-                <progress value="${getDoneSubtasksInPercent(task)}" max="100"></progress>
-                <span>${getDoneSubtasks(task)}/${task.subtasks.length} Done</span>
-            </div>
-            <div class="assigned-to-and-priority-container">
-                <div class="assigned-to">
-                  ${getAssignedPersonsInitialsHtml(task)}
-                </div>
-                <div class="priority"><img src="../src/img/${task.priority}.svg" /></div>
-            </div>
-        </div>
-  `;
-}
 
-function generatePlaceholderHtml(status) {
-  return `
-        <div class="task-card-placeholder ${status}-task-card-placeholder d-none"></div>
-  `;
-}
 
 function checkIfSubtasksAreEmpty(task) {
   if (!task.subtasks.length) {
@@ -186,24 +159,6 @@ function renderAllSubtasks(taskIndex) {
   return subtasksHtml;
 }
 
-function generateCheckedSubtaskHtml(taskId, subtasksArray, subtaskIndex) {
-  return `
-      <div class="subtask" id="subtask-${subtaskIndex}" onclick="clickSubtask(${taskId}, ${subtaskIndex})">
-        <input class="subtask-checkbox" type="checkbox" checked />
-        <span>${subtasksArray[subtaskIndex].title}</span>
-      </div>
-    `;
-}
-
-function generateUncheckedSubtaskHtml(taskId, subtasksArray, subtaskIndex) {
-  return `
-      <div class="subtask" id="subtask-${subtaskIndex}" onclick="clickSubtask(${taskId}, ${subtaskIndex})">
-        <input class="subtask-checkbox" type="checkbox" />
-        <span>${subtasksArray[subtaskIndex].title}</span>
-      </div>
-    `;
-}
-
 async function clickSubtask(taskId, subtaskIndex) {
   const taskIndex = getIndexOfArray(tasks, taskId);
   if (tasks[taskIndex].subtasks[subtaskIndex].done) {
@@ -246,29 +201,9 @@ function renderAllAssignedPersons(taskIndex) {
   return assignedPersonHtml;
 }
 
-function generateAssignedPersonsHtml(assignedContacts, assignedContactIndex) {
-  return `
-      <div class="assigned-person">
-        <span class="initials color-${assignedContacts[assignedContactIndex].color}">${assignedContacts[assignedContactIndex].initials}</span>
-        <span class="full-name">${assignedContacts[assignedContactIndex].name}</span>
-      </div>
-    `;
-}
-
 function renderTaskOverlayButtons(taskIndex) {
   const taskOverlayButtonsContainer = document.querySelector("#taskOverlayButtons");
   taskOverlayButtonsContainer.innerHTML = generateTaskOverlayButtonsHtml(taskIndex);
-}
-
-function generateTaskOverlayButtonsHtml(taskIndex) {
-  return `
-      <div class="close-button" onclick="closeTaskOverlay()">
-        <img src="../src/img/close-icon.svg" />
-      </div>
-      <button class="edit-icon btn-primary" onclick="renderEditTask(${tasks[taskIndex].id})">
-        <img src="../src/img/edit-icon.svg" />
-      </button>
-  `;
 }
 
 function renderEditTask(taskId) {
@@ -425,24 +360,6 @@ function renderContacts(taskIndex) {
   contactsContainer.innerHTML += generateInviteNewContactHtml(taskIndex);
 }
 
-function generateCheckedContactsHtml(contact, taskIndex) {
-  return `
-    <div onclick="uncheckContact(${contact.id}, ${taskIndex});dontClose(event);">
-      <span>${contact.name}</span>
-      <input type="checkbox" checked/>
-    </div>
-  `;
-}
-
-function generateUncheckedContactsHtml(contact, taskIndex) {
-  return `
-    <div onclick="checkContact(${contact.id}, ${taskIndex});dontClose(event);">
-      <span>${contact.name}</span>
-      <input type="checkbox"/>
-    </div>
-  `;
-}
-
 async function uncheckContact(contactId, taskIndex) {
   console.log("uncheck", contactId, taskIndex);
   console.log(tasks[taskIndex].assignedTo);
@@ -463,32 +380,6 @@ async function checkContact(contactId, taskIndex) {
 function renderInviteNewContactInputContainer(taskId) {
   const inviteNewContactInputContainer = document.querySelector('#inviteNewContactInputContainer');
   inviteNewContactInputContainer.innerHTML = generateInviteNewContactInputContainerHtml(taskId);
-}
-
-function generateInviteNewContactInputContainerHtml(taskId) {
-  return `
-    <form onsubmit="addNewContact(${taskId});return false">
-      <input type="email" placeholder="Contact email" required id="contactEmail">
-      <div>
-          <button type="reset" onclick="hideInviteNewContactInput()">
-              <img src="../src/img/close-icon.svg">
-          </button>
-          <img src="../src/img/delimiter-vertical.svg">
-          <button type="submit">
-              <img src="../src/img/hook-blue.svg">
-          </button>
-      </div>
-    </form>
-  `;
-}
-
-function generateInviteNewContactHtml() {
-  return `
-    <div class="invite-new-contact" onclick="showInviteNewContactInput();dontClose(event);">
-      <span>Invite new contact</span>
-      <img src="../src/img/contacts-black.svg">
-    </div>
-  `;
 }
 
 function showInviteNewContactInput() {
@@ -538,21 +429,6 @@ function hideContacts() {
 function renderEditTaskOverlayButtons(taskIndex) {
   const taskOverlayButtonsContainer = document.querySelector("#taskOverlayButtons");
   taskOverlayButtonsContainer.innerHTML = generateEditTaskOverlayButtonsHtml(taskIndex);
-}
-
-function generateEditTaskOverlayButtonsHtml(taskIndex) {
-  return `
-      <div class="close-button" onclick="closeTaskOverlay()">
-        <img src="../src/img/close-icon.svg" />
-      </div>
-      <button class="edit-icon delete-button btn-secondary" onclick="deleteTask(${tasks[taskIndex].id})">
-        <img src="../src/img/trash.svg" />
-      </button>
-      <button class="edit-icon save-button btn-primary" onclick="saveChanges(${tasks[taskIndex].id})">
-        <span>OK</span>
-        <img src="../src/img/hook.svg" />
-      </button>
-  `;
 }
 
 async function saveChanges(taskId) {
