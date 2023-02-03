@@ -140,6 +140,7 @@ async function deleteContact(contactId) {
     await saveContactsToBackend();
     highlightedContact = null;
     renderContacts();
+    goBackToContacts();
 }
 
 

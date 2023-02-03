@@ -28,8 +28,8 @@ function setDateOfToday() {
 }
 
 
-function renderAddTask() {
-    getContactsToAssign();
+async function renderAddTask() {
+    await getContactsToAssign();
     getSubtasks();
     getCategories();
     setDateOfToday();

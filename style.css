@@ -37,6 +37,10 @@ h1 {
     cursor: pointer;
 }
 
+.cursor-text {
+    cursor: text;
+}
+
 ::-webkit-scrollbar {
     /* display: none; */
     background-color: transparent;
@@ -149,6 +153,10 @@ h1 {
     color: #d1d1d1;
     font-family: 'Inter', sans-serif;
     font-style: normal;
+}
+
+.mg-l-15 {
+    margin-left: 15px;
 }
 
 

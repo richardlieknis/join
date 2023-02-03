@@ -87,15 +87,15 @@ function generateContactList() {
 }
 
 function showContactDetail() {
-        document.getElementById('c-view').style = 'display: unset';
-        document.getElementById('addContactBtn').style = 'display: none';
-        document.getElementById('contact-list').classList.add('width-unset'); 
+    document.getElementById('c-view').style = 'display: unset';
+    document.getElementById('addContactBtn').style = 'display: none';
+    document.getElementById('contact-list').classList.add('width-unset');
 }
 
 function goBackToContacts() {
     document.getElementById('c-view').style = 'display: none;';
     document.getElementById('addContactBtn').style = 'display: unset';
-    document.getElementById('contact-list').classList.remove('width-unset');  
+    document.getElementById('contact-list').classList.remove('width-unset');
 }
 
 function displayContactDetails(contactId) {
@@ -153,20 +153,19 @@ function changeDisplayedPhone(index) {
     }
 }
 
-function createContactTask(contactId) {
-    openAddTask('todo');
+async function createContactTask(contactId) {
+    await openAddTask('todo');
     document.getElementById('c-view').style = 'display: none;';
     document.getElementById('addContactBtn').style = 'display: unset';
     document.getElementById('contact-list').style = 'width: 100%';
     document.getElementById('task-input-assignedTo').selected
-    // document.getElementById('task-input-assignedTo').value = contacts[getIndexOfArray(contacts, contactId)].name;
 
     setOption(document.getElementById('task-input-assignedTo'), `${contactId}`);
 }
 
 function setOption(selectElement, value) {
     let options = selectElement.options;
-    for (var i = 0, optionsLength = options.length; i < optionsLength; i++) {
+    for (let i = 0; i < options.length; i++) {
         if (options[i].value == value) {
             selectElement.selectedIndex = i;
             return true;

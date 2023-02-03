@@ -1,7 +1,7 @@
 let contactsDetailsDisplayed = false;
 
-function openAddTask(status) {
-    renderAddTask(status);
+async function openAddTask(status) {
+    await renderAddTask(status);
     let addTaskOverlay = document.getElementById("addTaskOverlay");
     let taskModul = document.getElementById('addTaskModul');
     let createBtn = document.getElementById('mobile-btn-addTask');
