@@ -13,8 +13,10 @@ function filterTasks() {
         task.description.toLowerCase().includes(input)
     );
     currentTasksArray = filteredTasks;
+    isFiltering = true;
   } else {
     currentTasksArray = tasks;
+    isFiltering = false;
   }
   renderTasks();
 }

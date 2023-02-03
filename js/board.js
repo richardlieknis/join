@@ -4,6 +4,7 @@ setURL('https://gruppe-join-422.developerakademie.net/smallest_backend');
 
 const progressStepCategories = ["todo", "inProgress", "awaitingFeedback", "done"];
 let filteredTasks = [];
+let isFiltering = false;
 let currentTasksArray = tasks;
 let currentDraggedElement;
 let statusOfDraggedElement;
@@ -24,7 +25,7 @@ async function renderTasks() {
   if (!tasks.length) await loadTasksFromBackend();
   if (!contacts.length) await loadContactsFromBackend();
   if (!categories.length) await loadCategoriesFromBackend();
-  if (!currentTasksArray.length) {
+  if (!currentTasksArray.length && !isFiltering) {
     currentTasksArray = tasks;
   }
   for (let status of progressStepCategories) updateHtml(status, currentTasksArray);
