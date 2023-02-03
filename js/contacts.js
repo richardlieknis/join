@@ -75,8 +75,9 @@ function generateContactList() {
         const email = contact.email;
         const initials = contact.initials;
         const color = contact.color;
-        if (firstLetter != Array.from(name)[0]) {
-            firstLetter = Array.from(name)[0].toUpperCase();
+        const newFirstLetter = Array.from(name)[0].toUpperCase();
+        if (firstLetter != newFirstLetter) {
+            firstLetter = newFirstLetter;
             html += adSectionLetter(firstLetter);
         }
 
