@@ -2,17 +2,28 @@ setURL('https://gruppe-join-422.developerakademie.net/smallest_backend');
 
 let taskIdCounter = 0;
 let subtasks = [];
+const title = document.getElementById("task-input-title");
+const description = document.getElementById("task-input-description");
+const category = document.getElementById("task-input-category");
+const assignedTo = getAssignedPersons();
+const dueDate = document.getElementById("task-input-dueDate");
 
 // Create tasks
 
 async function createTask(status) {
     await loadTasksFromBackend();
-    const title = document.getElementById("task-input-title");
-    const description = document.getElementById("task-input-description");
-    const category = document.getElementById("task-input-category");
-    const assignedTo = getAssignedPersons();
-    const dueDate = document.getElementById("task-input-dueDate");
+    await setTasksIdCounter();
+    pushToTasksArray(title.value, description.value, category.value, assignedTo.value, dueDate.value, status);
+    clearTasksInputFields(title, description, category, assignedTo, dueDate);
+    await saveTasksToBackend();
+    showPopup("Task added to Board!");
+    subtasks = [];
+    clearTaskInputs();
+    hideContactsTask();
+}
 
+async function createTaskAtBoard(status) {
+    await loadTasksFromBackend();
     await setTasksIdCounter();
     pushToTasksArray(title.value, description.value, category.value, assignedTo.value, dueDate.value, status);
     clearTasksInputFields(title, description, category, assignedTo, dueDate);

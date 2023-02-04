@@ -30,6 +30,8 @@ return `
 }
 
 function getAssignedPersonsInitialsHtml(task) {
+  console.log(task.assignedTo);
+  
   const assignedContacts = contacts.filter(contact => task.assignedTo.includes(contact.id));
   let assignedPersonsHtml = "";
   if (assignedContacts.length > 3) {

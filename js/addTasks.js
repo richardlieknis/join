@@ -299,3 +299,8 @@ function showOrHideContactsTask() {
         assignmentContainer.classList.toggle('d-none');
     } catch (e) {}
 }
+
+function hideContactsTask() {
+    let assignmentContainer = document.getElementById('assignmentContainer');
+    assignmentContainer.classList.add('d-none');
+  }
