@@ -56,15 +56,6 @@ function renderAddBtn() {
  `;
 }
 
-function renderContactsToAssign(element) {
-    return `
-   <option value="${element.id}">
-     ${element.name}
-     <input type="checkbox"></input>
-   </option>
-   
- `;
-}
 
 function renderCategoryInputFull() {
     return `

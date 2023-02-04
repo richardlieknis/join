@@ -76,7 +76,7 @@ function renderAssignInput() {
     return `
     <div
                   class="task-input-assignedTo"
-                  onclick="showOrHideContacts(event)"
+                  onclick="showOrHideContactsTask(event)"
                 >
                   <span>Select contacts to assign</span>
                   <div
@@ -105,14 +105,15 @@ function renderInviteContactInput() {
                 <div class="addDeleteBtnsCat">
                     <img onclick="showAssignInput()" src="../src/img/x.svg" />
                     <div class="line"></div>
-                    <img onclick="validateEmail()" style="filter: invert(1)" src="../src/img/hook.svg" alt="" />
+                    <img onclick="validateEmail(event);" style="filter: invert(1)" src="../src/img/hook.svg" alt="" />
                 </div>
             </div>
      </div>
  `;
 }
 
-async function validateEmail() {
+async function validateEmail(e) {
+    e.preventDefault();
     var email = document.getElementById("new-contact-input").value;
     var atIndex = email.indexOf("@");
     if (atIndex > 0) {
@@ -128,6 +129,7 @@ async function validateEmail() {
 
         return true;
     } else {
+
         showAssignInput();
         showPopup("Invalid E-Mail!")
         return false;
@@ -292,7 +294,7 @@ function getSubtasks() {
     }
 }
 
-function showOrHideContacts() {
+function showOrHideContactsTask() {
     let assignmentContainer = document.getElementById('assignmentContainer');
     try {
         assignmentContainer.classList.toggle('d-none');
