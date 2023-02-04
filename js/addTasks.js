@@ -2,7 +2,7 @@
 //let assignmentContainer = document.getElementById('assignmentContainer');
 
 let database;
-let priority = "low";
+let priority = "medium" ;
 let categoryColor;
 
 function setDateOfToday() {
