@@ -288,6 +288,10 @@ main .title-mobile {
   border-radius: 30px;
 }
 
+.task-overlay-content-container {
+  overflow: auto;
+}
+
 .task-overlay-content {
   grid-area: content;
   min-width: fit-content;
@@ -339,8 +343,6 @@ main .title-mobile {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  max-height: 80px;
-  overflow: auto;
 }
 
 .task-overlay-content .subtask {
@@ -409,8 +411,6 @@ main .title-mobile {
   flex-direction: column;
   align-items: flex-start;
   gap: 25px;
-  width: 95%;
-  max-height: 240px;
   overflow-x: hidden;
   overflow-y: auto;
   padding-right: 10px;
