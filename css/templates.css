@@ -172,6 +172,14 @@ nav>.join-logo-desktop {
         display: flex !important;
         align-items: center;
     }
+
+    .mobile-hide {
+        display: none !important;
+    }
+
+    .hide-over-800px {
+        display: unset !important;
+    }
 }
 
 @media (max-width: 870px) {
@@ -257,10 +265,6 @@ nav>.join-logo-desktop {
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
         border-top-left-radius: 15px;
-    }
-
-    .mobile-hide {
-        display: none !important;
     }
 
     .title-mobile {

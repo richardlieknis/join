@@ -9,6 +9,7 @@ async function openAddTask(status) {
     taskModul.classList.add("slideIn");
     createBtn.classList.add("slideIn");
     addTaskOverlay.classList.remove("d-none");
+    document.getElementById('header-overlay-addTask').classList.add('slideIn','header-resp-addTask-template');
 }
 
 function closeAddTask() {
@@ -20,6 +21,7 @@ function closeAddTask() {
     createBtn.classList.add("slideOut");
     document.getElementById('profile').classList.remove('d-none');
     setTimeout(addDisplayNoneTask, 550);
+    document.getElementById('header-overlay-addTask').classList.remove('slideIn','header-resp-addTask-template');
 }
 
 function openAddContact() {

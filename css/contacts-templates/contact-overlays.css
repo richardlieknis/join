@@ -113,7 +113,7 @@
 }
 
 @media screen {
-    @media(max-width: 800px) {
+    @media(max-width: 1000px) {
         .c-new-headline {
             font-size: 47px;
         }

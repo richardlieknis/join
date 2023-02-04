@@ -740,6 +740,20 @@ main .title-mobile {
   }
 }
 
+@media (max-width: 1070px) {
+  .addTask-overlay-position {
+    top: 79px !important;
+  }
+
+  .header-resp-addTask-template {   
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 79px;
+  }
+}
+
 @media (max-width: 1000px) {
   .headline .add-button {
     width: 40px;
@@ -806,9 +820,6 @@ main .title-mobile {
     font-size: 16px;
     display: block;
     margin: 0 0 25px 0;
-  }
-  .addTask-overlay-position {
-    top: 79px !important;
   }
 
   .task-overlay-edit-content > div.task-overlay-edit-status {
