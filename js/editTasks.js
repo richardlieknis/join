@@ -2,18 +2,21 @@ setURL('https://gruppe-join-422.developerakademie.net/smallest_backend');
 
 let taskIdCounter = 0;
 let subtasks = [];
-const title = document.getElementById("task-input-title");
-const description = document.getElementById("task-input-description");
-const category = document.getElementById("task-input-category");
-const assignedTo = getAssignedPersons();
-const dueDate = document.getElementById("task-input-dueDate");
+
 
 // Create tasks
 
 async function createTask(status) {
+    const title = document.getElementById("task-input-title");
+    const description = document.getElementById("task-input-description");
+    const category = document.getElementById("task-input-category");
+    const dueDate = document.getElementById("task-input-dueDate");
+    const assignedTo = getAssignedPersons();
     await loadTasksFromBackend();
     await setTasksIdCounter();
-    pushToTasksArray(title.value, description.value, category.value, assignedTo.value, dueDate.value, status);
+    console.log(assignedTo);
+    console.log(tasks);
+    pushToTasksArray(title.value, description.value, category.value, [...assignedTo], dueDate.value, status);
     clearTasksInputFields(title, description, category, assignedTo, dueDate);
     await saveTasksToBackend();
     showPopup("Task added to Board!");
@@ -23,16 +26,21 @@ async function createTask(status) {
 }
 
 async function createTaskAtBoard(status) {
+    const title = document.getElementById("task-input-title");
+    const description = document.getElementById("task-input-description");
+    const category = document.getElementById("task-input-category");
+    const dueDate = document.getElementById("task-input-dueDate");
+    const assignedTo = getAssignedPersons();
     await loadTasksFromBackend();
     await setTasksIdCounter();
-    pushToTasksArray(title.value, description.value, category.value, assignedTo.value, dueDate.value, status);
+    pushToTasksArray(title.value, description.value, category.value, [...assignedTo], dueDate.value, status);
     clearTasksInputFields(title, description, category, assignedTo, dueDate);
     await saveTasksToBackend();
-    closeAddTask();
     showPopup("Task added to Board!");
     currentTasksArray = tasks;
     await renderTasks();
     subtasks = [];
+    closeAddTask();
 }
 
 async function saveTasksToBackend() {
@@ -52,6 +60,7 @@ async function setTasksIdCounter() {
 }
 
 function pushToTasksArray(title, description, category, assignedTo, dueDate, status) {
+    console.log(title, description, category, assignedTo, dueDate, status);
     const task = {
         id: taskIdCounter,
         title: title,
