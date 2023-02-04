@@ -332,6 +332,8 @@ function renderCategories(categoryToIgnore) {
  */
 function showOrHideCategories() {
   categoriesContainer.classList.toggle('d-none');
+  hideStatus();
+  hideContacts();
 }
 
 /**
@@ -402,8 +404,9 @@ function renderStatus(statusToIgnore) {
  * 
  */
 function showOrHideStatus() {
-  console.log("runs");
   statusContainer.classList.toggle('d-none');
+  hideCategories();
+  hideContacts();
 }
 
 /**
@@ -612,6 +615,8 @@ function checkIfContactExist(contactEmail) {
  */
 function showOrHideContacts() {
   contactsContainer.classList.toggle('d-none');
+  hideCategories();
+  hideStatus();
 }
 
 /**
@@ -620,6 +625,21 @@ function showOrHideContacts() {
  */
 function hideContacts() {
   if (!contactsContainer.classList.contains('d-none')) contactsContainer.classList.add('d-none');
+}
+
+taskOverlayEditContentContainer.addEventListener('click', closeDropDowns);
+
+/**
+ * close dropdowns when user are clicking on task edit overlay
+ * 
+ * @param {object} e - element which was clicked
+ */
+function closeDropDowns(e) {
+  if (!e.target.className.includes("drop")) {
+    hideCategories();
+    hideStatus();
+    hideContacts();
+  }
 }
 
 /**

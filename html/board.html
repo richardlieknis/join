@@ -97,10 +97,10 @@
                     <div class="task-overlay-edit-content d-none" id="taskOverlayEditContent">
                         <div class="task-overlay-edit-category">
                             <span>Category</span>
-                            <div class="category-select-button input" onclick="showOrHideCategories()">
-                                <div id="currentCategory"></div>
-                                <div class="categories d-none" id="categoriesContainer"></div>
-                                <img src="../src/img/dropDownArrow.svg" />
+                            <div class="task-overlay-edit-category-dropdown category-select-button input" onclick="showOrHideCategories()" id="categoryDiv">
+                                <div id="currentCategory" class="task-overlay-edit-category-dropdown"></div>
+                                <div class="task-overlay-edit-category-dropdown categories d-none" id="categoriesContainer"></div>
+                                <img class="task-overlay-edit-category-dropdown" src="../src/img/dropDownArrow.svg" />
                             </div>
                         </div>
                         <div class="task-overlay-edit-title">
@@ -113,10 +113,10 @@
                         </div>
                         <div class="task-overlay-edit-status">
                             <span>Status</span>
-                            <div class="status-select-button input" onclick="showOrHideStatus()">
-                                <div id="currentStatus"></div>
-                                <div class="status d-none" id="statusContainer"></div>
-                                <img src="../src/img/dropDownArrow.svg" />
+                            <div class="task-overlay-edit-status-dropdown status-select-button input" onclick="showOrHideStatus()">
+                                <div class="task-overlay-edit-status-dropdown" id="currentStatus"></div>
+                                <div class="task-overlay-edit-status-dropdown status d-none" id="statusContainer"></div>
+                                <img class="task-overlay-edit-status-dropdown" src="../src/img/dropDownArrow.svg" />
                             </div>
                         </div>
                         <div class="task-overlay-edit-dueDate">
@@ -142,10 +142,10 @@
                         </div>
                         <div class="task-overlay-edit-assignedTo">
                             <span>Assigned to</span>
-                            <div class="assignedTo-select-button input" id="assignedToSelectButton" onclick="showOrHideContacts(event)">
-                                <span>Select contacts to assign</span>
-                                <div class="contacts d-none" id="contactsContainer"></div>
-                                <img src="../src/img/dropDownArrow.svg" />
+                            <div class="task-overlay-edit-assignedTo-dropdown assignedTo-select-button input" id="assignedToSelectButton" onclick="showOrHideContacts(event)">
+                                <span class="task-overlay-edit-assignedTo-dropdown">Select contacts to assign</span>
+                                <div class="task-overlay-edit-assignedTo-dropdown contacts d-none" id="contactsContainer"></div>
+                                <img class="task-overlay-edit-assignedTo-dropdown" src="../src/img/dropDownArrow.svg" />
                             </div>
                             <div class="invite-new-contact-input-container input d-none" id="inviteNewContactInputContainer"></div>
                             <div class="assigned-contacts" id="assignedContacts"></div>
