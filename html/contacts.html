@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join - Contacts</title>
 
-    <link rel="shortcut icon" href="../src/img/favicon.png" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="../src/img/favicon.png"
+      type="image/x-icon"
+    />
 
     <link rel="stylesheet" href="../css/contacts.css" />
-    <link rel="stylesheet" href="../css/contacts-templates/contact-overlays.css" />
+    <link
+      rel="stylesheet"
+      href="../css/contacts-templates/contact-overlays.css"
+    />
     <link rel="stylesheet" href="../css/templates.css" />
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="../css/modules.css" />
@@ -25,170 +31,278 @@
     <script src="../js/addTasks.js"></script>
     <script src="../js/js-templates/addTask.js"></script>
     <script src="../js/categories.js"></script>
-  
-</head>
+  </head>
 
-<body onload="init(), renderContacts()">
+  <body onload="init(), renderContacts()">
     <header w3-include-html="../templates/header.html"></header>
     <nav w3-include-html="../templates/navigation.html"></nav>
     <div id="addTaskOverlay" onclick="closeAddTask()" class="overlay d-none">
-        <div onclick="dontClose(event)" w3-include-html="../templates/addTask-Temp.html"></div>
+      <div
+        onclick="dontClose(event)"
+        w3-include-html="../templates/addTask-Temp.html"
+      ></div>
     </div>
-    <div id="createdPopup" class="d-none">Contact added</div>
 
     <main class="c-main">
-        <div id="contact-list" class="c-list"></div>
-       
-        <div id="c-view" class="c-view">
-            <img id="backToContacts" onclick="goBackToContacts()" class="c-mobile-back" src="../src/img/ArrowBackDark.svg" alt="">
-            <div class="c-view-head">
-                <h1>Contacts</h1>
-                <div class="c-v-line"></div>
-                <h2 class="c-h2">Better with a team</h2>
+      <div id="contact-list" class="c-list"></div>
+
+      <div id="c-view" class="c-view">
+        <img
+          id="backToContacts"
+          onclick="goBackToContacts()"
+          class="c-mobile-back"
+          src="../src/img/ArrowBackDark.svg"
+          alt=""
+        />
+        <div class="c-view-head">
+          <h1>Contacts</h1>
+          <div class="c-v-line"></div>
+          <h2 class="c-h2">Better with a team</h2>
+        </div>
+
+        <div id="contactDetails" class="c-floating d-none">
+          <div class="c-float-head">
+            <div id="c-f-details-initials" class="c-initials c-i-big">AM</div>
+            <div class="c-foad-h-right">
+              <div id="c-f-details-name" class="c-float-name">Anton Mayer</div>
+              <div id="contacts-addTask">
+                <img src="../src/img/plus-icon-blue.svg" alt="" />
+                <a class="c-add-task" href="#">Add Task</a>
+              </div>
             </div>
+          </div>
 
-            <div id="contactDetails" class="c-floating d-none">
-                <div class="c-float-head">
-                    <div id="c-f-details-initials" class="c-initials c-i-big">AM</div>
-                    <div class="c-foad-h-right">
-                        <div id="c-f-details-name" class="c-float-name">Anton Mayer</div>
-                        <div id="contacts-addTask">
-                            <img src="../src/img/plus-icon-blue.svg" alt="" />
-                            <a class="c-add-task" href="#">Add Task</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="c-floating-middle">
-                    <span class="c-float-info">Contact Information</span>
-                    <div id="openEditContact" onclick="openEditContact(6)" class="c-floating-edit">
-                        <img src="../src/img/pencile-gray.svg" alt="" />
-                        <span class="c-flat-edit-span">Edit Contact</span>
-                    </div>
-                </div>
-
-                <div class="c-floating-detail">
-                    <p id="c-floating-email-header" class="c-floating-d-top">Email</p>
-                    <p id="c-floating-email" class="c-floating-d-bottom c-list-mail">
-                        antom@gmail.com
-                    </p>
-                </div>
-                <div class="c-floating-detail">
-                    <p id="c-floating-tel-header" class="c-floating-d-top">Phone</p>
-                    <p id="c-floating-tel" class="c-floating-d-bottom">
-                        +49 1111 111 11 1
-                    </p>
-                </div>
+          <div class="c-floating-middle">
+            <span class="c-float-info">Contact Information</span>
+            <div
+              id="openEditContact"
+              onclick="openEditContact(6)"
+              class="c-floating-edit"
+            >
+              <img src="../src/img/pencile-gray.svg" alt="" />
+              <span class="c-flat-edit-span">Edit Contact</span>
             </div>
+          </div>
 
-            <button onclick="openAddContact()" class="btn-new-contact btn-primary">
+          <div class="c-floating-detail">
+            <p id="c-floating-email-header" class="c-floating-d-top">Email</p>
+            <p id="c-floating-email" class="c-floating-d-bottom c-list-mail">
+              antom@gmail.com
+            </p>
+          </div>
+          <div class="c-floating-detail">
+            <p id="c-floating-tel-header" class="c-floating-d-top">Phone</p>
+            <p id="c-floating-tel" class="c-floating-d-bottom">
+              +49 1111 111 11 1
+            </p>
+          </div>
+        </div>
+
+        <button onclick="openAddContact()" class="btn-new-contact btn-primary">
           <span>New contact</span>
           <img src="../src/img/new-contact.svg" alt="" />
         </button>
-        </div>
+      </div>
 
-        <!-- onclick attribure to close will be createt via java script -->
-        <div id="editContactOverlay" class="overlay d-none">
-            <div id="editContactModul" onclick="dontClose(event)" class="c-new-card modules">
-                <div class="c-new-c-left">
-                    <!-- <img onclick="closeEditContact()" class="close-white" src="../src/img/close-white.svg"> -->
-                    <img class="c-img-resp" src="../src/img/join-logo-white.svg" alt="" />
-                    <p class="c-new-headline">Edit contact</p>
-                    <div class="c-new-line"></div>
+      <!-- onclick attribure to close will be createt via java script -->
+      <div id="editContactOverlay" class="overlay d-none">
+        <div
+          id="editContactModul"
+          onclick="dontClose(event)"
+          class="c-new-card modules"
+        >
+          <div class="c-new-c-left">
+            <!-- <img onclick="closeEditContact()" class="close-white" src="../src/img/close-white.svg"> -->
+            <img
+              class="c-img-resp"
+              src="../src/img/join-logo-white.svg"
+              alt=""
+            />
+            <p class="c-new-headline">Edit contact</p>
+            <div class="c-new-line"></div>
+          </div>
+          <div class="c-new-c-right">
+            <div
+              id="edit-c-initials"
+              class="c-initials c-i-big c-new-initials"
+            ></div>
+
+            <div class="c-new-input">
+              <img
+                id="c-edit-close"
+                class="c-new-close pointer"
+                src="../src/img/close-icon.svg"
+                alt=""
+              />
+
+              <form
+                id="edit-contact-form"
+                action=""
+                style="align-items: flex-start"
+                onsubmit="editContact(); return false"
+              >
+                <div class="c-new-input-div input">
+                  <input
+                    required
+                    type="text"
+                    class="c-new-input"
+                    placeholder="Name"
+                    name=""
+                    id="c-edit-name"
+                  />
+                  <img src="../src/img/input-field-name.svg" alt="" />
                 </div>
-                <div class="c-new-c-right">
-                    <div id="edit-c-initials" class="c-initials c-i-big c-new-initials"></div>
 
-                    <div class="c-new-input">
-                        <img id="c-edit-close" class="c-new-close pointer" src="../src/img/close-icon.svg" alt="" />
+                <div class="c-new-input-div input">
+                  <input
+                    type="email"
+                    class="c-new-input"
+                    placeholder="Email"
+                    name=""
+                    id="c-edit-email"
+                  />
+                  <img src="../src/img/input-field-email.svg" alt="" />
+                </div>
 
-                        <form id="edit-contact-form" action="" style="align-items: flex-start" onsubmit="editContact(); return false">
-                            <div class="c-new-input-div input">
-                                <input required type="text" class="c-new-input" placeholder="Name" name="" id="c-edit-name" />
-                                <img src="../src/img/input-field-name.svg" alt="" />
-                            </div>
+                <div class="c-new-input-div input">
+                  <input
+                    type="tel"
+                    class="c-new-input"
+                    placeholder="Phone"
+                    name=""
+                    id="c-edit-tel"
+                  />
+                  <img src="../src/img/input-field-tel.svg" alt="" />
+                </div>
 
-                            <div class="c-new-input-div input">
-                                <input type="email" class="c-new-input" placeholder="Email" name="" id="c-edit-email" />
-                                <img src="../src/img/input-field-email.svg" alt="" />
-                            </div>
-
-                            <div class="c-new-input-div input">
-                                <input type="tel" class="c-new-input" placeholder="Phone" name="" id="c-edit-tel" />
-                                <img src="../src/img/input-field-tel.svg" alt="" />
-                            </div>
-
-                            <div class="c-btn-resp">
-                                <button id="edit-contact-delete" type="reset" class="c-new-btn-1 btn-secondary gap-18">
+                <div class="c-btn-resp">
+                  <button
+                    id="edit-contact-delete"
+                    type="reset"
+                    class="c-new-btn-1 btn-secondary gap-18"
+                  >
                     Delete<img src="../src/img/x.svg" />
                   </button>
-                                <button type="submit" class="c-new-btn-2 btn-primary mg-l-15">
+                  <button type="submit" class="c-new-btn-2 btn-primary mg-l-15">
                     Save<img src="../src/img/hook.svg" />
                   </button>
-                            </div>
-                        </form>
-                    </div>
                 </div>
+              </form>
             </div>
+          </div>
         </div>
+      </div>
 
-        <div id="addContactOverlay" onclick="closeAddContact()" class="overlay c-overlay-position d-none">
-            <div id="addContactModul" onclick="dontClose(event)" class="c-new-card modules">
-                <div class="c-new-c-left">
-                    <img onclick="closeAddContact()" class="close-white" src="../src/img/close-white.svg" />
-                    <img class="c-img-resp" src="../src/img/join-logo-white.svg" alt="" />
-                    <p class="c-new-headline">Add contact</p>
-                    <p class="c-new-subtible">Tasks are better with a team</p>
-                    <div class="c-new-line"></div>
-                </div>
-                <div class="c-new-c-right">
-                    <div class="c-initials c-i-big color-0 c-new-initials">
-                        <svg width="42" height="55" viewBox="0 0 42 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div
+        id="addContactOverlay"
+        onclick="closeAddContact()"
+        class="overlay c-overlay-position d-none"
+      >
+        <div
+          id="addContactModul"
+          onclick="dontClose(event)"
+          class="c-new-card modules"
+        >
+          <div class="c-new-c-left">
+            <img
+              onclick="closeAddContact()"
+              class="close-white"
+              src="../src/img/close-white.svg"
+            />
+            <img
+              class="c-img-resp"
+              src="../src/img/join-logo-white.svg"
+              alt=""
+            />
+            <p class="c-new-headline">Add contact</p>
+            <p class="c-new-subtible">Tasks are better with a team</p>
+            <div class="c-new-line"></div>
+          </div>
+          <div class="c-new-c-right">
+            <div class="c-initials c-i-big color-0 c-new-initials">
+              <svg
+                width="42"
+                height="55"
+                viewBox="0 0 42 55"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M0.333336 54.8334C0.333336 49.3522 2.51071 44.0956 6.38646 40.2198C10.2622 36.3441 15.5189 34.1667 21 34.1667C26.4811 34.1667 31.7378 36.3441 35.6135 40.2198C39.4893 44.0956 41.6667 49.3522 41.6667 54.8334H36.5C36.5 50.7225 34.867 46.78 31.9602 43.8732C29.0533 40.9664 25.1109 39.3334 21 39.3334C16.8891 39.3334 12.9467 40.9664 10.0398 43.8732C7.13303 46.78 5.5 50.7225 5.5 54.8334H0.333336ZM21 31.5834C12.4363 31.5834 5.5 24.6471 5.5 16.0834C5.5 7.51962 12.4363 0.583374 21 0.583374C29.5638 0.583374 36.5 7.51962 36.5 16.0834C36.5 24.6471 29.5638 31.5834 21 31.5834ZM21 26.4167C26.7092 26.4167 31.3333 21.7925 31.3333 16.0834C31.3333 10.3742 26.7092 5.75004 21 5.75004C15.2908 5.75004 10.6667 10.3742 10.6667 16.0834C10.6667 21.7925 15.2908 26.4167 21 26.4167Z"
                   fill="white"
                 />
               </svg>
-                    </div>
+            </div>
 
-                    <div class="c-new-input">
-                        <img onclick="closeAddContact()" class="c-new-close pointer" src="../src/img/close-icon.svg" alt="" />
+            <div class="c-new-input">
+              <img
+                onclick="closeAddContact()"
+                class="c-new-close pointer"
+                src="../src/img/close-icon.svg"
+                alt=""
+              />
 
-                        <form action="" style="align-items: flex-start" onsubmit="addContact(); return false">
-                            <div class="c-new-input-div input">
-                                <input required type="text" class="c-new-input" placeholder="Name" name="" id="c-new-name" />
-                                <img src="../src/img/input-field-name.svg" alt="" />
-                            </div>
+              <form
+                action=""
+                style="align-items: flex-start"
+                onsubmit="addContact(); return false"
+              >
+                <div class="c-new-input-div input">
+                  <input
+                    required
+                    type="text"
+                    class="c-new-input"
+                    placeholder="Name"
+                    name=""
+                    id="c-new-name"
+                  />
+                  <img src="../src/img/input-field-name.svg" alt="" />
+                </div>
 
-                            <div class="c-new-input-div input">
-                                <input type="email" class="c-new-input" placeholder="Email" name="" id="c-new-email" />
-                                <img src="../src/img/input-field-email.svg" alt="" />
-                            </div>
+                <div class="c-new-input-div input">
+                  <input
+                    type="email"
+                    class="c-new-input"
+                    placeholder="Email"
+                    name=""
+                    id="c-new-email"
+                  />
+                  <img src="../src/img/input-field-email.svg" alt="" />
+                </div>
 
-                            <div class="c-new-input-div input">
-                                <input type="tel" class="c-new-input" placeholder="Phone" name="" id="c-new-tel" />
-                                <img src="../src/img/input-field-tel.svg" alt="" />
-                            </div>
+                <div class="c-new-input-div input">
+                  <input
+                    type="tel"
+                    class="c-new-input"
+                    placeholder="Phone"
+                    name=""
+                    id="c-new-tel"
+                  />
+                  <img src="../src/img/input-field-tel.svg" alt="" />
+                </div>
 
-                            <div class="c-btn-resp">
-                                <button type="reset" onclick="closeAddContact()" class="c-new-btn-1 btn-secondary gap-18">
+                <div class="c-btn-resp">
+                  <button
+                    type="reset"
+                    onclick="closeAddContact()"
+                    class="c-new-btn-1 btn-secondary gap-18"
+                  >
                     Cancel<img src="../src/img/x.svg" />
                   </button>
-                                <button type="submit" class="c-new-btn-2 btn-primary mg-l-15">
+                  <button type="submit" class="c-new-btn-2 btn-primary mg-l-15">
                     Create contact<img src="../src/img/hook.svg" />
                   </button>
-                            </div>
-                        </form>
-                    </div>
                 </div>
+              </form>
             </div>
+          </div>
         </div>
+      </div>
     </main>
 
     <script src="../js/includeHTML.js"></script>
 
     <script src="../js/showOverlay.js"></script>
     <script src="../js/activeTab.js"></script>
-</body>
-
+  </body>
 </html>

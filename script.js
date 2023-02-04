@@ -46,7 +46,7 @@ function showPopup(msg) {
     popup.classList.remove('d-none');
 
     setTimeout(() => {
-        popup.classList.add('d-none');
+        popup.remove();
     }, 3000)
 }
 

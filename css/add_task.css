@@ -1,15 +1,17 @@
 main {
-    overflow: auto;
+    overflow-y: auto;
 }
 
 .main-container {
-    margin: 60px 40px 0 40px;
+    padding: 0px 40px 0 40px;
+    overflow-y: auto;
 }
 
 .input-container {
     display: flex;
     gap: 30px;
     width: 60%;
+    /* height: 550px; */
 }
 
 .inputBlock {
@@ -72,6 +74,58 @@ select:focus {
     font-size: 18px;
     font-family: 'inter';
     cursor: pointer;
+}
+
+.task-input-assignedTo {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    border: 1px solid #d1d1d1;
+    height: 50px;
+    padding: 0px 15px;
+    font-size: 18px;
+    font-family: 'inter';
+    cursor: pointer;
+    position: relative;
+}
+
+.contactsToAssign {
+    width: calc(100% - 30px);
+    max-height: 130px;
+    position: absolute;
+    top: 35px;
+    left: -1px;
+    padding: 0px 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.contactToAssign {
+    margin-top: 10px;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: unset !important;
+}
+
+.inviteBtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.inviteBtn img {
+    width: 20px;
 }
 
 option {
@@ -269,7 +323,7 @@ button {
         width: 100%;
     }
     .main-container {
-        margin: 60px 40px
+        padding: 60px 40px
     }
 }
 

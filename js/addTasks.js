@@ -1,7 +1,8 @@
 "use strict"
-
+//let assignmentContainer = document.getElementById('assignmentContainer');
 
 let database;
+let allContacts = [];
 let priority;
 let categoryColor;
 
@@ -29,20 +30,111 @@ function setDateOfToday() {
 
 
 async function renderAddTask() {
-    await getContactsToAssign();
+    allContacts = await getContactsToAssign();
+    renderContactsToAssign(allContacts);
+    await getCategories();
     getSubtasks();
-    getCategories();
     setDateOfToday();
 }
 
 async function getContactsToAssign() {
     database = JSON.parse(await loadJSONFromServer());
     let contactNames = JSON.parse(database.contacts);
-    document.getElementById("task-input-assignedTo").innerHTML = "";
-    contactNames.forEach(element => {
-        document.getElementById("task-input-assignedTo").innerHTML += renderContactsToAssign(element);
-    });
+    return contactNames;
 }
+
+function renderContactsToAssign(contacts) {
+    let assignmentContainer = document.getElementById('assignmentContainer');
+    assignmentContainer.innerHTML = "";
+    contacts.forEach(e => {
+        assignmentContainer.innerHTML += renderContactsTemp(e);
+    });
+    assignmentContainer.innerHTML += renderInviteContactTemp();
+}
+
+function toggleAssignmentInput() {
+    let taskInput = document.getElementById('task-input-assignedTo');
+    taskInput.innerHTML = renderInviteContactInput();
+}
+
+function showAssignInput() {
+    let taskInput = document.getElementById('task-input-assignedTo');
+    taskInput.innerHTML = renderAssignInput();
+    renderContactsToAssign(allContacts);
+}
+
+function renderContactsTemp(contacts) {
+    return `
+    <div onclick="dontClose(event)" class="contactToAssign">
+        <div>${contacts.name}</div>
+        <input id="${contacts.id}" type="checkbox">
+    </div>
+    `;
+}
+
+function renderAssignInput() {
+    return `
+    <div
+                  class="task-input-assignedTo"
+                  onclick="showOrHideContacts(event)"
+                >
+                  <span>Select contacts to assign</span>
+                  <div
+                    class="contactsToAssign d-none"
+                    id="assignmentContainer"
+                  ></div>
+                  <img src="../src/img/dropDownArrow.svg" />
+                </div>
+    `;
+}
+
+function renderInviteContactTemp() {
+    return `
+        <div class="inviteBtn" onclick="toggleAssignmentInput()">
+            <span>Invite new contact</span>
+            <img src="../src/img/contacts-black.svg">
+        </div>
+    `;
+}
+
+function renderInviteContactInput() {
+    return `
+    <div class="addSubTask">
+            <input id="new-contact-input" type="email" placeholder="Contact eMail" />
+            <div class="addSubTaskBtn">
+                <div class="addDeleteBtnsCat">
+                    <img onclick="showAssignInput()" src="../src/img/x.svg" />
+                    <div class="line"></div>
+                    <img onclick="validateEmail()" style="filter: invert(1)" src="../src/img/hook.svg" alt="" />
+                </div>
+            </div>
+     </div>
+ `;
+}
+
+async function validateEmail() {
+    var email = document.getElementById("new-contact-input").value;
+    var atIndex = email.indexOf("@");
+    if (atIndex > 0) {
+        var nameParts = email.substring(0, atIndex).replace(/[.-]/g, ' ').split(" ");
+        var name = "";
+        for (var i = 0; i < nameParts.length; i++) {
+            name += nameParts[i].charAt(0).toUpperCase() + nameParts[i].slice(1).toLowerCase() + " ";
+        }
+
+        createContact(name, email, "");
+        showAssignInput();
+        showPopup("Contact added!")
+
+        return true;
+    } else {
+        showAssignInput();
+        showPopup("Invalid E-Mail!")
+        return false;
+    }
+}
+
+
 
 
 
@@ -198,4 +290,11 @@ function getSubtasks() {
     for (let i = 0; i < subtasks.length; i++) {
         document.getElementById("task-checkbox-subtasks").innerHTML += renderSubtaskCheckbox(i);
     }
+}
+
+function showOrHideContacts() {
+    let assignmentContainer = document.getElementById('assignmentContainer');
+    try {
+        assignmentContainer.classList.toggle('d-none');
+    } catch (e) {}
 }

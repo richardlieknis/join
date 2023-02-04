@@ -142,13 +142,3 @@ async function deleteContact(contactId) {
     renderContacts();
     goBackToContacts();
 }
-
-
-function showPopup() {
-    let popup = document.getElementById('createdPopup');
-    popup.classList.remove('d-none');
-
-    setTimeout(() => {
-        popup.classList.add('d-none');
-    }, 3000)
-}
