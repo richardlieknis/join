@@ -410,7 +410,7 @@ main .title-mobile {
   align-items: flex-start;
   gap: 25px;
   width: 95%;
-  max-height: 180px;
+  max-height: 240px;
   overflow-x: hidden;
   overflow-y: auto;
   padding-right: 10px;
