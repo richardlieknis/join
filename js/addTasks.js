@@ -248,7 +248,6 @@ function addColor(color, element) {
 
     element.classList.add("scaleColor");
     categoryColor = color;
-    console.log(color);
 }
 
 function clearTaskInputs() {
@@ -259,6 +258,7 @@ function clearTaskInputs() {
     priority = null;
     setDateOfToday();
     choosePriority("none");
+    hideContactsTask();
 }
 
 function addNewSubtask() {

@@ -14,33 +14,19 @@ async function createTask(status) {
     const assignedTo = getAssignedPersons();
     await loadTasksFromBackend();
     await setTasksIdCounter();
-    console.log(assignedTo);
-    console.log(tasks);
     pushToTasksArray(title.value, description.value, category.value, [...assignedTo], dueDate.value, status);
     clearTasksInputFields(title, description, category, assignedTo, dueDate);
     await saveTasksToBackend();
     showPopup("Task added to Board!");
     subtasks = [];
     clearTaskInputs();
-    hideContactsTask();
 }
 
 async function createTaskAtBoard(status) {
-    const title = document.getElementById("task-input-title");
-    const description = document.getElementById("task-input-description");
-    const category = document.getElementById("task-input-category");
-    const dueDate = document.getElementById("task-input-dueDate");
-    const assignedTo = getAssignedPersons();
-    await loadTasksFromBackend();
-    await setTasksIdCounter();
-    pushToTasksArray(title.value, description.value, category.value, [...assignedTo], dueDate.value, status);
-    clearTasksInputFields(title, description, category, assignedTo, dueDate);
-    await saveTasksToBackend();
-    showPopup("Task added to Board!");
+    await createTask(status);
+    closeAddTask();
     currentTasksArray = tasks;
     await renderTasks();
-    subtasks = [];
-    closeAddTask();
 }
 
 async function saveTasksToBackend() {
@@ -60,7 +46,6 @@ async function setTasksIdCounter() {
 }
 
 function pushToTasksArray(title, description, category, assignedTo, dueDate, status) {
-    console.log(title, description, category, assignedTo, dueDate, status);
     const task = {
         id: taskIdCounter,
         title: title,

@@ -1,7 +1,7 @@
 let contactsDetailsDisplayed = false;
 
 async function openAddTask(status) {
-    document.querySelector('#createTaskForm').setAttribute("onsubmit", `createTask('${status}'); return false;`); 
+    document.querySelector('#createTaskForm').setAttribute("onsubmit", `createTaskAtBoard('${status}'); return false;`); 
     await renderAddTask(status);
     let addTaskOverlay = document.getElementById("addTaskOverlay");
     let taskModul = document.getElementById('addTaskModul');
