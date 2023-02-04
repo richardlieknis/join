@@ -208,14 +208,18 @@ function renderAllSubtasks(taskIndex) {
  */
 async function clickSubtask(taskId, subtaskIndex) {
   const taskIndex = getIndexOfArray(tasks, taskId);
+  await toggleTaskDone(taskIndex, subtaskIndex);
+  await renderTasks();
+  openTaskOverlay(taskId);
+  await saveTasksToBackend();
+}
+
+async function toggleTaskDone(taskIndex, subtaskIndex) {
   if (tasks[taskIndex].subtasks[subtaskIndex].done) {
     tasks[taskIndex].subtasks[subtaskIndex].done = false;
   } else if (!tasks[taskIndex].subtasks[subtaskIndex].done) {
     tasks[taskIndex].subtasks[subtaskIndex].done = true;
   }
-  await renderTasks();
-  openTaskOverlay(taskId);
-  await saveTasksToBackend();
 }
 
 /**
