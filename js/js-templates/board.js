@@ -107,6 +107,15 @@ function generateCheckedContactsHtml(contact, taskIndex) {
     `;
 }
 
+function generateCategoriesHtml(category) {
+  return `
+    <div onclick="setCategory('${category.name}')">
+      <span>${category.name}</span>
+      <div class="category-color color-${category.colorNumber}"></div>
+    </div>
+  `;
+}
+
 function generateInviteNewContactInputContainerHtml(taskId) {
     return `
       <form onsubmit="addNewContact(${taskId});return false">
