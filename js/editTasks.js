@@ -21,6 +21,7 @@ async function createTask(status) {
     showPopup("Task added to Board!");
     currentTasksArray = tasks;
     await renderTasks();
+    subtasks = [];
 }
 
 async function saveTasksToBackend() {
@@ -46,7 +47,7 @@ function pushToTasksArray(title, description, category, assignedTo, dueDate, sta
         description: description,
         category: category,
         categoryColor: categoryColor,
-        assignedTo: [+assignedTo],
+        assignedTo: assignedTo,
         dueDate: dueDate,
         status: status,
         priority: priority,
