@@ -20,6 +20,7 @@ const priorityMediumButton = document.querySelector('#priority-medium');
 const priorityLowButton = document.querySelector('#priority-low');
 let currentPriority;
 const contactsContainer = document.querySelector('#contactsContainer');
+const createTaskButton = document.querySelector('#createTaskButton');
 
 /**
  * render all tasks in board
@@ -39,7 +40,7 @@ async function renderTasks() {
  * update columns html in board
  * 
  * @param {string} status - status name of the column which should update html
- * @param {*} tasksArrayToRender - array to render in specified status
+ * @param {Array} tasksArrayToRender - array to render in specified status
  */
 function updateHtml(status, tasksArrayToRender) {
   const progressStep = tasksArrayToRender.filter((task) => task.status === status);
@@ -317,7 +318,11 @@ function renderCurrentCategory(taskIndex) {
  * @param {string} categoryToIgnore - current category which should not displayd twice
  */
 function renderCategories(categoryToIgnore) {
-  categoriesContainer.innerHTML = "";
+  categoriesContainer.innerHTML = `
+    <div onclick="addNewCategoryOnTaskOverlay()">
+      <span>New Category</span>
+    </div>
+  `;
   for (let category of categories) {
     if (category.name !== categoryToIgnore) {
       categoriesContainer.innerHTML += `

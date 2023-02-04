@@ -97,11 +97,12 @@
                     <div class="task-overlay-edit-content d-none" id="taskOverlayEditContent">
                         <div class="task-overlay-edit-category">
                             <span>Category</span>
-                            <div class="task-overlay-edit-category-dropdown category-select-button input" onclick="showOrHideCategories()" id="categoryDiv">
+                            <div class="task-overlay-edit-category-dropdown category-select-button input" id="categorySelectButton" onclick="showOrHideCategories()">
                                 <div id="currentCategory" class="task-overlay-edit-category-dropdown"></div>
                                 <div class="task-overlay-edit-category-dropdown categories d-none" id="categoriesContainer"></div>
                                 <img class="task-overlay-edit-category-dropdown" src="../src/img/dropDownArrow.svg" />
                             </div>
+                            <div id="addNewCategoryInput"></div>
                         </div>
                         <div class="task-overlay-edit-title">
                             <span>Title</span>

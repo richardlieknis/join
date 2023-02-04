@@ -17,7 +17,10 @@ async function createTask(status) {
     pushToTasksArray(title.value, description.value, category.value, assignedTo.value, dueDate.value, status);
     clearTasksInputFields(title, description, category, assignedTo, dueDate);
     await saveTasksToBackend();
+    closeAddTask();
     showPopup("Task added to Board!");
+    currentTasksArray = tasks;
+    await renderTasks();
 }
 
 async function saveTasksToBackend() {
