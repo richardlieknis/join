@@ -353,6 +353,7 @@ form {
     color: #fff;
     animation: pop-up 3s normal;
     overflow: hidden;
+    z-index: 999;
 }
 
 @keyframes pop-up {
@@ -411,7 +412,6 @@ form {
         .position-absolute-0 {
             position: unset;
         }
-
         .forgot-password-resp {
             width: 90%;
         }
