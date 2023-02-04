@@ -84,7 +84,7 @@ select:focus {
     border-radius: 10px;
     border: 1px solid #d1d1d1;
     height: 50px;
-    padding: 0px 15px;
+    padding: 0px 5px 0px 15px;
     font-size: 18px;
     font-family: 'inter';
     cursor: pointer;
