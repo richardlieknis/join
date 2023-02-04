@@ -118,6 +118,8 @@ async function editContact(contactId) {
     const initials = getInitials(name.value);
 
     await pushEditedContact(contactId, name.value, email.value, tel.value, initials);
+    changeDisplayedContactDetails(contactId);
+    renderContacts();
     closeEditContact(contactId);
 }
 
