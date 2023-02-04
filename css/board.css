@@ -831,3 +831,15 @@ main .title-mobile {
     padding-left: 25px;
   }
 }
+
+@media (max-width: 450px) {
+  .task-overlay {
+    width: 100%;
+    justify-content: center;
+    overflow-y: auto;
+  }
+
+  .edit-icon {
+    bottom: 0;
+  }
+}
