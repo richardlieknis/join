@@ -160,8 +160,8 @@ function renderEditTask(taskId) {
   renderContacts(taskIndex);
   renderCurrentAssignedContacts(taskIndex);
   renderEditTaskOverlayButtons(taskIndex);
-  taskOverlayContentContainer.classList.add("d-none");
-  taskOverlayEditContentContainer.classList.remove("d-none");
+  document.querySelector('#taskOverlayContent').classList.add("d-none");
+  document.querySelector('#taskOverlayEditContent').classList.remove("d-none");
 }
 
 /**
@@ -170,7 +170,7 @@ function renderEditTask(taskId) {
  * @param {number} taskIndex - index of task
  */
 function renderCurrentCategory(taskIndex) {
-  currentCategoryContainer.innerHTML = tasks[taskIndex].category;
+  document.querySelector('#currentCategory').innerHTML = tasks[taskIndex].category;
 }
 
 /**
@@ -212,7 +212,7 @@ function rendercurrentDescription(taskIndex) {
  * @param {number} taskIndex - index of task
  */
 function renderCurrentStatus(taskIndex) {
-  currentStatusContainer.innerHTML = tasks[taskIndex].status;
+  document.querySelector('#currentStatus').innerHTML = tasks[taskIndex].status;
 }
 
 /**
@@ -249,14 +249,14 @@ function renderCurrentDueDate(taskIndex) {
 function renderCurrentPriority() {
   removeActiveClassFromPriorityButton();
   if (currentPriority === "urgent") {
-    priorityUrgentButton.classList.add("active");
-    priorityUrgentButton.childNodes[3].src = "../src/img/urgent-white.svg";
+    document.querySelector('#priority-urgent').classList.add("active");
+    document.querySelector('#priority-urgent').childNodes[3].src = "../src/img/urgent-white.svg";
   } else if (currentPriority === "medium") {
-    priorityMediumButton.classList.add("active");
-    priorityMediumButton.childNodes[3].src = "../src/img/medium-white.svg";
+    document.querySelector('#priority-medium').classList.add("active");
+    document.querySelector('#priority-medium').childNodes[3].src = "../src/img/medium-white.svg";
   } else if (currentPriority === "low") {
-    priorityLowButton.classList.add("active");
-    priorityLowButton.childNodes[3].src = "../src/img/low-white.svg";
+    document.querySelector('#priority-low').classList.add("active");
+    document.querySelector('#priority-low').childNodes[3].src = "../src/img/low-white.svg";
   }
 }
 

@@ -8,18 +8,7 @@ let isFiltering = false;
 let currentTasksArray = tasks;
 let currentDraggedElement;
 let statusOfDraggedElement;
-const taskOverlayBg = document.querySelector("#taskOverlayBg");
-const taskOverlayContentContainer = document.querySelector('#taskOverlayContent');
-const taskOverlayEditContentContainer = document.querySelector('#taskOverlayEditContent');
-const currentCategoryContainer = document.querySelector('#currentCategory');
-const categoriesContainer = document.querySelector('#categoriesContainer');
-const currentStatusContainer = document.querySelector('#currentStatus');
-const statusContainer = document.querySelector('#statusContainer');
-const priorityUrgentButton = document.querySelector('#priority-urgent');
-const priorityMediumButton = document.querySelector('#priority-medium');
-const priorityLowButton = document.querySelector('#priority-low');
 let currentPriority;
-const contactsContainer = document.querySelector('#contactsContainer');
 const createTaskButton = document.querySelector('#createTaskButton');
 
 /**
@@ -113,9 +102,9 @@ function openTaskOverlay(taskId) {
   renderAssignedToContainer(taskIndex);
   renderTaskOverlayButtons(taskIndex);
   renderInviteNewContactInputContainer(taskId);
-  taskOverlayContentContainer.classList.remove('d-none');
-  taskOverlayEditContentContainer.classList.add('d-none');
-  taskOverlayBg.classList.remove("d-none");
+  document.querySelector('#taskOverlayContent').classList.remove('d-none');
+  document.querySelector('#taskOverlayEditContent').classList.add('d-none');
+  document.querySelector('#taskOverlayBg').classList.remove('d-none');
 }
 
 /**
@@ -123,9 +112,9 @@ function openTaskOverlay(taskId) {
  * 
  */
 function closeTaskOverlay() {
-  taskOverlayBg.classList.add("d-none");
-  taskOverlayContentContainer.classList.remove('d-none');
-  taskOverlayEditContentContainer.classList.add('d-none');
+  document.querySelector("#taskOverlayBg").classList.add("d-none");
+  document.querySelector('#taskOverlayContent').classList.remove('d-none');
+  document.querySelector('#taskOverlayEditContent').classList.add('d-none');
   hideCategories();
   hideStatus();
   hideContacts();
@@ -162,7 +151,7 @@ async function toggleTaskDone(taskIndex, subtaskIndex) {
  * 
  */
 function showOrHideCategories() {
-  categoriesContainer.classList.toggle('d-none');
+  document.querySelector('#categoriesContainer').classList.toggle('d-none');
   hideStatus();
   hideContacts();
 }
@@ -172,7 +161,7 @@ function showOrHideCategories() {
  * 
  */
 function hideCategories() {
-  if (!categoriesContainer.classList.contains('d-none')) categoriesContainer.classList.add('d-none');
+  if (!document.querySelector('#categoriesContainer').classList.contains('d-none')) document.querySelector('#categoriesContainer').classList.add('d-none');
 }
 
 /**
@@ -181,7 +170,7 @@ function hideCategories() {
  * @param {string} category - new category
  */
 function setCategory(category) {
-  currentCategoryContainer.innerHTML = category;
+  document.querySelector('#currentCategory').innerHTML = category;
   renderCategories(category);
 }
 
@@ -190,7 +179,7 @@ function setCategory(category) {
  * 
  */
 function showOrHideStatus() {
-  statusContainer.classList.toggle('d-none');
+  document.querySelector('#statusContainer').classList.toggle('d-none');
   hideCategories();
   hideContacts();
 }
@@ -200,7 +189,7 @@ function showOrHideStatus() {
  * 
  */
 function hideStatus() {
-  if (!statusContainer.classList.contains('d-none')) statusContainer.classList.add('d-none');
+  if (!document.querySelector('#statusContainer').classList.contains('d-none')) document.querySelector('#statusContainer').classList.add('d-none');
 }
 
 /**
@@ -209,7 +198,7 @@ function hideStatus() {
  * @param {string} status - new status
  */
 function setStatus(status) {
-  currentStatusContainer.innerHTML = status;
+  document.querySelector('#currentStatus').innerHTML = status;
   renderStatus(status);
 }
 
@@ -222,9 +211,9 @@ function removeActiveClassFromPriorityButton() {
   for (let priorityButton of priorityButtons) {
     priorityButton.classList.remove('active');
   }
-  priorityUrgentButton.childNodes[3].src = "../src/img/urgent.svg";
-  priorityMediumButton.childNodes[3].src = "../src/img/medium.svg";
-  priorityLowButton.childNodes[3].src = "../src/img/low.svg";
+  document.querySelector('#priority-urgent').childNodes[3].src = "../src/img/urgent.svg";
+  document.querySelector('#priority-medium').childNodes[3].src = "../src/img/medium.svg";
+  document.querySelector('#priority-low').childNodes[3].src = "../src/img/low.svg";
 }
 
 /**
@@ -324,7 +313,7 @@ function checkIfContactExist(contactEmail) {
  * 
  */
 function showOrHideContacts() {
-  contactsContainer.classList.toggle('d-none');
+  document.querySelector('#contactsContainer').classList.toggle('d-none');
   hideCategories();
   hideStatus();
 }
@@ -334,9 +323,9 @@ function showOrHideContacts() {
  * 
  */
 function hideContacts() {
-  if (!contactsContainer.classList.contains('d-none')) contactsContainer.classList.add('d-none');
+  if (!document.querySelector('#contactsContainer').classList.contains('d-none')) document.querySelector('#contactsContainer').classList.add('d-none');
 }
-taskOverlayEditContentContainer.addEventListener('click', closeDropDowns);
+document.querySelector('#taskOverlayEditContent').addEventListener('click', closeDropDowns);
 
 /**
  * close dropdowns when user are clicking on task edit overlay
