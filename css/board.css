@@ -798,6 +798,10 @@ main .title-mobile {
     padding-top: 30px;
   }
 
+  main.board-container {
+    padding-bottom: 70px;
+  }
+
   main .title-mobile {
     font-size: 16px;
     display: block;
@@ -822,7 +826,7 @@ main .title-mobile {
 }
 
 @media (max-width: 500px) {
-  main {
+  main.board-container {
     padding-right: 25px;
     padding-left: 25px;
   }
