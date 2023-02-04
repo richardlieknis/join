@@ -8,7 +8,10 @@ let contactIdCounter = 0;
 
 async function createContact(name, email, tel) {
     await loadContactsFromBackend();
-
+    name = name.trim();
+    email = email.trim();
+    tel = tel.trim();
+    
     const color = await getColor();
     const initials = getInitials(name);
 

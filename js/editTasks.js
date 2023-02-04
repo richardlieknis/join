@@ -67,7 +67,7 @@ function getAssignedPersons() {
     let assignedTo = [];
 
     availavlePersons.forEach(i => {
-        if (getElementById(i).checked) {
+        if (document.getElementById(i).checked) {
             assignedTo.push(i);
         }
     });
