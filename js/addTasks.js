@@ -2,7 +2,6 @@
 //let assignmentContainer = document.getElementById('assignmentContainer');
 
 let database;
-let allContacts = [];
 let priority;
 let categoryColor;
 
@@ -30,8 +29,8 @@ function setDateOfToday() {
 
 
 async function renderAddTask() {
-    allContacts = await getContactsToAssign();
-    renderContactsToAssign(allContacts);
+    contacts = await getContactsToAssign();
+    renderContactsToAssign(contacts);
     await getCategories();
     getSubtasks();
     setDateOfToday();
@@ -60,7 +59,7 @@ function toggleAssignmentInput() {
 function showAssignInput() {
     let taskInput = document.getElementById('task-input-assignedTo');
     taskInput.innerHTML = renderAssignInput();
-    renderContactsToAssign(allContacts);
+    renderContactsToAssign(contacts);
 }
 
 function renderContactsTemp(contacts) {
