@@ -100,3 +100,52 @@ function renderCategoryInput() {
  </div>
  `;
 }
+
+function renderContactsTemp(contacts) {
+    return `
+    <div onclick="dontClose(event)" class="contactToAssign">
+        <div>${contacts.name}</div>
+        <input id="${contacts.id}" type="checkbox">
+    </div>
+    `;
+}
+
+function renderAssignInput() {
+    return `
+    <div
+                  class="task-input-assignedTo"
+                  onclick="showOrHideContactsTask(event)"
+                >
+                  <span>Select contacts to assign</span>
+                  <div
+                    class="contactsToAssign d-none"
+                    id="assignmentContainer"
+                  ></div>
+                  <img src="../src/img/dropDownArrow.svg" />
+                </div>
+    `;
+}
+
+function renderInviteContactTemp() {
+    return `
+        <div class="inviteBtn" onclick="toggleAssignmentInput()">
+            <span>Invite new contact</span>
+            <img src="../src/img/contacts-black.svg">
+        </div>
+    `;
+}
+
+function renderInviteContactInput() {
+    return `
+    <div class="addSubTask">
+            <input id="new-contact-input" type="email" placeholder="Contact eMail" />
+            <div class="addSubTaskBtn">
+                <div class="addDeleteBtnsCat">
+                    <img onclick="showAssignInput()" src="../src/img/x.svg" />
+                    <div class="line"></div>
+                    <img onclick="validateEmail(event);" style="filter: invert(1)" src="../src/img/hook.svg" alt="" />
+                </div>
+            </div>
+     </div>
+ `;
+}

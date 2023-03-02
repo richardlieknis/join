@@ -1,32 +1,28 @@
 "use strict"
-//let assignmentContainer = document.getElementById('assignmentContainer');
 
 let database;
-let priority = "medium" ;
+let priority = "medium";
 let categoryColor;
+
+let subtaskBtn = document.getElementById("addSubTaskBtn");
+let urgent = document.getElementById("urgentBtn");
+let medium = document.getElementById("mediumBtn");
+let low = document.getElementById("lowBtn");
 
 function setDateOfToday() {
     let today = new Date();
-
     let dd = today.getDate();
-    let mm = today.getMonth() + 1; //January is 0!
+    let mm = today.getMonth() + 1;
     let yyyy = today.getFullYear();
 
-    if (dd < 10) {
-        dd = '0' + dd
-    }
-
-    if (mm < 10) {
-        mm = '0' + mm
-    }
-
+    if (dd < 10) { dd = '0' + dd }
+    if (mm < 10) { mm = '0' + mm }
     // today = yyyy + '/' + mm + '/' + dd;
     today = yyyy + '-' + mm + '-' + dd;
     document.getElementById('task-input-dueDate').value = today;
     document.getElementById('task-input-dueDate').min = new Date().toISOString().split("T")[0];
 
 }
-
 
 async function renderAddTask() {
     contacts = await getContactsToAssign();
@@ -40,6 +36,28 @@ async function getContactsToAssign() {
     database = JSON.parse(await loadJSONFromServer());
     let contactNames = JSON.parse(database.contacts);
     return contactNames;
+}
+
+async function validateEmail(e) {
+    e.preventDefault();
+    var email = document.getElementById("new-contact-input").value;
+    var atIndex = email.indexOf("@");
+    if (atIndex > 0) {
+        var nameParts = email.substring(0, atIndex).replace(/[.-]/g, ' ').split(" ");
+        var name = "";
+        for (var i = 0; i < nameParts.length; i++) {
+            name += nameParts[i].charAt(0).toUpperCase() + nameParts[i].slice(1).toLowerCase() + " ";
+        }
+        createContact(name, email, "");
+        showAssignInput();
+        showPopup("Contact added!")
+
+        return true;
+    } else {
+        showAssignInput();
+        showPopup("Invalid E-Mail!")
+        return false;
+    }
 }
 
 function renderContactsToAssign(contacts) {
@@ -62,139 +80,71 @@ function showAssignInput() {
     renderContactsToAssign(contacts);
 }
 
-function renderContactsTemp(contacts) {
-    return `
-    <div onclick="dontClose(event)" class="contactToAssign">
-        <div>${contacts.name}</div>
-        <input id="${contacts.id}" type="checkbox">
-    </div>
-    `;
-}
-
-function renderAssignInput() {
-    return `
-    <div
-                  class="task-input-assignedTo"
-                  onclick="showOrHideContactsTask(event)"
-                >
-                  <span>Select contacts to assign</span>
-                  <div
-                    class="contactsToAssign d-none"
-                    id="assignmentContainer"
-                  ></div>
-                  <img src="../src/img/dropDownArrow.svg" />
-                </div>
-    `;
-}
-
-function renderInviteContactTemp() {
-    return `
-        <div class="inviteBtn" onclick="toggleAssignmentInput()">
-            <span>Invite new contact</span>
-            <img src="../src/img/contacts-black.svg">
-        </div>
-    `;
-}
-
-function renderInviteContactInput() {
-    return `
-    <div class="addSubTask">
-            <input id="new-contact-input" type="email" placeholder="Contact eMail" />
-            <div class="addSubTaskBtn">
-                <div class="addDeleteBtnsCat">
-                    <img onclick="showAssignInput()" src="../src/img/x.svg" />
-                    <div class="line"></div>
-                    <img onclick="validateEmail(event);" style="filter: invert(1)" src="../src/img/hook.svg" alt="" />
-                </div>
-            </div>
-     </div>
- `;
-}
-
-async function validateEmail(e) {
-    e.preventDefault();
-    var email = document.getElementById("new-contact-input").value;
-    var atIndex = email.indexOf("@");
-    if (atIndex > 0) {
-        var nameParts = email.substring(0, atIndex).replace(/[.-]/g, ' ').split(" ");
-        var name = "";
-        for (var i = 0; i < nameParts.length; i++) {
-            name += nameParts[i].charAt(0).toUpperCase() + nameParts[i].slice(1).toLowerCase() + " ";
-        }
-
-        createContact(name, email, "");
-        showAssignInput();
-        showPopup("Contact added!")
-
-        return true;
-    } else {
-
-        showAssignInput();
-        showPopup("Invalid E-Mail!")
-        return false;
-    }
-}
-
-
-
-
-
 function choosePriority(prio) {
-    let urgent = document.getElementById("urgentBtn");
-    let medium = document.getElementById("mediumBtn");
-    let low = document.getElementById("lowBtn");
-
     priority = prio;
-
     switch (prio) {
         case "urgent":
-            urgent.style.backgroundColor = "#f83525";
-            medium.style.backgroundColor = "#fff";
-            low.style.backgroundColor = "#fff";
-            urgent.style.color = "#fff";
-            medium.style.color = "#000";
-            low.style.color = "#000";
-            urgent.innerHTML = renderPrioBtnClicked("urgent");
-            medium.innerHTML = renderPrioBtnUnclicked("medium");
-            low.innerHTML = renderPrioBtnUnclicked("low");
+            urgentPrioStyle();
             break;
         case "medium":
-            medium.style.backgroundColor = "#ff7a00";
-            urgent.style.backgroundColor = "#fff";
-            low.style.backgroundColor = "#fff";
-            urgent.style.color = "#000";
-            medium.style.color = "#fff";
-            low.style.color = "#000";
-            medium.innerHTML = renderPrioBtnClicked("medium");
-            urgent.innerHTML = renderPrioBtnUnclicked("urgent");
-            low.innerHTML = renderPrioBtnUnclicked("low");
+            mediumPrioStyle();
             break;
         case "low":
-            low.style.backgroundColor = "#02cf2f";
-            medium.style.backgroundColor = "#fff";
-            urgent.style.backgroundColor = "#fff";
-            urgent.style.color = "#000";
-            medium.style.color = "#000";
-            low.style.color = "#fff";
-            low.innerHTML = renderPrioBtnClicked("low");
-            medium.innerHTML = renderPrioBtnUnclicked("medium");
-            urgent.innerHTML = renderPrioBtnUnclicked("urgent");
+            lowPrioStyle();
             break;
         case "none":
-            low.style.backgroundColor = "#fff";
-            medium.style.backgroundColor = "#fff";
-            urgent.style.backgroundColor = "#fff";
-            urgent.style.color = "#000";
-            medium.style.color = "#000";
-            low.style.color = "#000";
-            low.innerHTML = renderPrioBtnUnclicked("low");
-            medium.innerHTML = renderPrioBtnUnclicked("medium");
-            urgent.innerHTML = renderPrioBtnUnclicked("urgent");
-
-
+            nonePrioStyle();
         default:
             break;
     }
+}
+
+function urgentPrioStyle() {
+    urgent.style.backgroundColor = "#f83525";
+    medium.style.backgroundColor = "#fff";
+    low.style.backgroundColor = "#fff";
+    urgent.style.color = "#fff";
+    medium.style.color = "#000";
+    low.style.color = "#000";
+    urgent.innerHTML = renderPrioBtnClicked("urgent");
+    medium.innerHTML = renderPrioBtnUnclicked("medium");
+    low.innerHTML = renderPrioBtnUnclicked("low");
+}
+
+function mediumPrioStyle() {
+    medium.style.backgroundColor = "#ff7a00";
+    urgent.style.backgroundColor = "#fff";
+    low.style.backgroundColor = "#fff";
+    urgent.style.color = "#000";
+    medium.style.color = "#fff";
+    low.style.color = "#000";
+    medium.innerHTML = renderPrioBtnClicked("medium");
+    urgent.innerHTML = renderPrioBtnUnclicked("urgent");
+    low.innerHTML = renderPrioBtnUnclicked("low");
+}
+
+function lowPrioStyle() {
+    low.style.backgroundColor = "#02cf2f";
+    medium.style.backgroundColor = "#fff";
+    urgent.style.backgroundColor = "#fff";
+    urgent.style.color = "#000";
+    medium.style.color = "#000";
+    low.style.color = "#fff";
+    low.innerHTML = renderPrioBtnClicked("low");
+    medium.innerHTML = renderPrioBtnUnclicked("medium");
+    urgent.innerHTML = renderPrioBtnUnclicked("urgent");
+}
+
+function nonePrioStyle() {
+    low.style.backgroundColor = "#fff";
+    medium.style.backgroundColor = "#fff";
+    urgent.style.backgroundColor = "#fff";
+    urgent.style.color = "#000";
+    medium.style.color = "#000";
+    low.style.color = "#000";
+    low.innerHTML = renderPrioBtnUnclicked("low");
+    medium.innerHTML = renderPrioBtnUnclicked("medium");
+    urgent.innerHTML = renderPrioBtnUnclicked("urgent");
 }
 
 function handleCategoryChange() {
@@ -223,13 +173,6 @@ async function addNewCategory() {
     await saveCategoriesToBackend();
 }
 
-function deleteCategoryInput() {
-    let categoryDiv = document.getElementById('category-selection');
-    document.getElementById("new-category-input").value = "";
-    categoryDiv.innerHTML = renderCategoryInputFull();
-    getCategories();
-}
-
 async function getCategories() {
     await loadCategoriesFromBackend();
     let taskCategoryDiv = document.getElementById('task-input-category');
@@ -238,6 +181,13 @@ async function getCategories() {
     categories.forEach(element => {
         taskCategoryDiv.innerHTML += renderCategoryInputOptionsExtra(element);
     });
+}
+
+function deleteCategoryInput() {
+    let categoryDiv = document.getElementById('category-selection');
+    document.getElementById("new-category-input").value = "";
+    categoryDiv.innerHTML = renderCategoryInputFull();
+    getCategories();
 }
 
 function addColor(color, element) {
@@ -254,7 +204,6 @@ function clearTaskInputs() {
     document.getElementById('task-input-title').value = '';
     document.getElementById('task-input-description').value = '';
     document.getElementById('task-input-category').selectedIndex = 0;
-    document.getElementById('task-input-assignedTo').selectedIndex = 0;
     priority = null;
     setDateOfToday();
     choosePriority("none");
@@ -262,13 +211,11 @@ function clearTaskInputs() {
 }
 
 function addNewSubtask() {
-    let subtaskBtn = document.getElementById("addSubTaskBtn");
     subtaskBtn.style.width = "100px";
     subtaskBtn.innerHTML = renderAddDeleteBtns();
 }
 
 function deleteSubtaskInput() {
-    let subtaskBtn = document.getElementById("addSubTaskBtn");
     subtaskBtn.style.width = "50px";
     document.getElementById("task-input-subtasks").value = "";
     subtaskBtn.innerHTML = renderAddBtn();
@@ -277,9 +224,7 @@ function deleteSubtaskInput() {
 
 function addSubtaskInput() {
     let subtaskInput = document.getElementById("task-input-subtasks");
-    let errSubtask = document.querySelector(".errorSubtask");
-    if (subtaskInput.value === "") { errSubtask.classList.remove("d-none"); return; }
-    //errSubtask.classList.add("d-none");
+    if (subtaskInput.value === "") { return; }
     subtasks.push({ title: subtaskInput.value, done: false });
     getSubtasks();
     deleteSubtaskInput();
@@ -303,4 +248,4 @@ function showOrHideContactsTask() {
 function hideContactsTask() {
     let assignmentContainer = document.getElementById('assignmentContainer');
     assignmentContainer.classList.add('d-none');
-  }
+}

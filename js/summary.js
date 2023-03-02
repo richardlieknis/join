@@ -51,6 +51,10 @@ async function getUrgentAmount() {
     return allTasks.length;
 }
 
+/**
+ * Get all Tasks with urgent priority
+ * @returns formated Date 'March 2, 2023'
+ */
 async function getUrgentDueDate() {
     let allDates = [];
     let tasks = await getAllTasks();
@@ -62,6 +66,11 @@ async function getUrgentDueDate() {
     return formatDate(findNearestDate(allDates));
 }
 
+/**
+ * Reads all Dates and return nearest Date to current
+ * @param {string} dates 
+ * @returns 
+ */
 function findNearestDate(dates) {
     const currentDate = new Date();
     let nearestDate;
@@ -74,11 +83,14 @@ function findNearestDate(dates) {
             nearestDate = date;
         }
     }
-
-    console.log(nearestDate);
     return nearestDate;
 }
 
+/**
+ * 
+ * @param {string} dateString 
+ * @returns formated Date
+ */
 function formatDate(dateString) {
     const date = new Date(dateString);
     const options = { month: "long", day: "numeric", year: "numeric" };
@@ -150,251 +162,3 @@ function greetingWithNameDesk() {
 function greetingWithNameMobile() {
     document.getElementById('userNameMobile').innerHTML = localStorage.getItem('loggedUser');
 }
-
-
-// Nur zu Testzwecken
-
-const dummyData = [{
-        id: 0,
-        label: "design",
-        title: "task a",
-        description: "Modify the contents of the main website...",
-        dueDate: "05-08-2022",
-        subtasks: [],
-        assignedTo: [{
-                name: "Sandra Müller",
-                email: "sandra.mueller@gmx.de",
-                phone: "+4994937394",
-                color: "blue",
-                initials: "SM",
-            },
-            {
-                name: "Manuel Vogel",
-                email: "manu.vogel@gmail.com",
-                phone: "+49934798347",
-                color: "pink",
-                initials: "MV",
-            },
-        ],
-        priority: "low",
-        category: "todo",
-    },
-    {
-        id: 1,
-        label: "sales",
-        title: "task b",
-        description: "Make the product presentation to prospective buyers",
-        dueDate: "05-08-2022",
-        subtasks: [],
-        assignedTo: [{
-                name: "Anton Sommer",
-                email: "anton.so@gmx.net",
-                phone: "+4998747394",
-                color: "dark-blue",
-                initials: "AS",
-            },
-            {
-                name: "Denise Eibold",
-                email: "denise.e@gmail.com",
-                phone: "+494556657",
-                color: "red",
-                initials: "DE",
-            },
-            {
-                name: "Sandra Müller",
-                email: "sandra.mueller@gmx.de",
-                phone: "+4994937394",
-                color: "blue",
-                initials: "SM",
-            },
-            {
-                name: "Manuel Vogel",
-                email: "manu.vogel@gmail.com",
-                phone: "+49934798347",
-                color: "pink",
-                initials: "MV",
-            },
-        ],
-        priority: "medium",
-        category: "todo",
-    },
-    {
-        id: 2,
-        label: "backoffice",
-        title: "task c",
-        description: "Modify the contents of the main website...",
-        dueDate: "05-08-2022",
-        subtasks: [
-            { title: "subtask 1", done: true },
-            { title: "subtask 2", done: false },
-        ],
-        assignedTo: [{
-                name: "Sandra Müller",
-                email: "sandra.mueller@gmx.de",
-                phone: "+4994937394",
-                color: "blue",
-                initials: "SM",
-            },
-            {
-                name: "Manuel Vogel",
-                email: "manu.vogel@gmail.com",
-                phone: "+49934798347",
-                color: "pink",
-                initials: "MV",
-            },
-        ],
-        priority: "low",
-        category: "awaitingFeedback",
-    },
-    {
-        id: 3,
-        label: "media",
-        title: "task d",
-        description: "Make the product presentation to prospective buyers",
-        dueDate: "05-08-2022",
-        subtasks: [],
-        assignedTo: [{
-                name: "Anton Sommer",
-                email: "anton.so@gmx.net",
-                phone: "+4998747394",
-                color: "dark-blue",
-                initials: "AS",
-            },
-            {
-                name: "Denise Eibold",
-                email: "denise.e@gmail.com",
-                phone: "+494556657",
-                color: "red",
-                initials: "DE",
-            },
-        ],
-        priority: "urgent",
-        category: "inProgress",
-    },
-    {
-        id: 4,
-        label: "marketing",
-        title: "task e",
-        description: "Modify the contents of the main website...",
-        dueDate: "05-08-2022",
-        subtasks: [
-            { title: "subtask 1", done: false },
-            { title: "subtask 2", done: false },
-        ],
-        assignedTo: [{
-                name: "Sandra Müller",
-                email: "sandra.mueller@gmx.de",
-                phone: "+4994937394",
-                color: "blue",
-                initials: "SM",
-            },
-            {
-                name: "Manuel Vogel",
-                email: "manu.vogel@gmail.com",
-                phone: "+49934798347",
-                color: "pink",
-                initials: "MV",
-            },
-        ],
-        priority: "low",
-        category: "awaitingFeedback",
-    },
-    {
-        id: 5,
-        label: "backoffice",
-        title: "task f",
-        description: "Make the product presentation to prospective buyers",
-        dueDate: "05-08-2022",
-        subtasks: [],
-        assignedTo: [{
-                name: "Anton Sommer",
-                email: "anton.so@gmx.net",
-                phone: "+4998747394",
-                color: "dark-blue",
-                initials: "AS",
-            },
-            {
-                name: "Denise Eibold",
-                email: "denise.e@gmail.com",
-                phone: "+494556657",
-                color: "red",
-                initials: "DE",
-            },
-        ],
-        priority: "urgent",
-        category: "awaitingFeedback",
-    },
-    {
-        id: 6,
-        label: "marketing",
-        title: "task g",
-        description: "Modify the contents of the main website...",
-        dueDate: "05-08-2022",
-        subtasks: [
-            { title: "subtask 1", done: true },
-            { title: "subtask 2", done: true },
-            { title: "subtask 1", done: true },
-            { title: "subtask 2", done: true },
-            { title: "subtask 1", done: true },
-            { title: "subtask 2", done: true },
-            { title: "subtask 1", done: true },
-            { title: "subtask 2", done: true },
-        ],
-        assignedTo: [{
-                name: "Sandra Müller",
-                email: "sandra.mueller@gmx.de",
-                phone: "+4994937394",
-                color: "blue",
-                initials: "SM",
-            },
-            {
-                name: "Manuel Vogel",
-                email: "manu.vogel@gmail.com",
-                phone: "+49934798347",
-                color: "pink",
-                initials: "SM",
-            },
-            {
-                name: "Anton Sommer",
-                email: "anton.so@gmx.net",
-                phone: "+4998747394",
-                color: "dark-blue",
-                initials: "AS",
-            },
-            {
-                name: "Denise Eibold",
-                email: "denise.e@gmail.com",
-                phone: "+494556657",
-                color: "red",
-                initials: "DE",
-            },
-        ],
-        priority: "low",
-        category: "done",
-    },
-    {
-        id: 7,
-        label: "media",
-        title: "task h",
-        description: "Make the product presentation to prospective buyers",
-        dueDate: "05-08-2022",
-        subtasks: [],
-        assignedTo: [{
-                name: "Anton Sommer",
-                email: "anton.so@gmx.net",
-                phone: "+4998747394",
-                color: "dark-blue",
-                initials: "AS",
-            },
-            {
-                name: "Denise Eibold",
-                email: "denise.e@gmail.com",
-                phone: "+494556657",
-                color: "red",
-                initials: "DE",
-            },
-        ],
-        priority: "urgent",
-        category: "done",
-    },
-];
