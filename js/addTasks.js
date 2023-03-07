@@ -169,8 +169,8 @@ async function addNewCategory() {
 
     categories.push(createNew);
     categoryDiv.innerHTML = renderCategoryInputFull();
-    getCategories();
     await saveCategoriesToBackend();
+    getCategories();
 }
 
 async function getCategories() {
