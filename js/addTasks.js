@@ -5,7 +5,7 @@ let priority = "medium";
 let categoryColor;
 
 let subtaskBtn = document.getElementById("addSubTaskBtn");
-let urgent = document.getElementById("urgentBtn");
+let urgent = document.getElementById('urgentBtn');
 let medium = document.getElementById("mediumBtn");
 let low = document.getElementById("lowBtn");
 
