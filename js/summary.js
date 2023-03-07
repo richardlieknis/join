@@ -11,7 +11,7 @@ async function setAmount() {
     document.getElementById('feedbackAmount').innerHTML = await getCategoryAmount("awaitingFeedback");
     document.getElementById('todoAmount').innerHTML = await getCategoryAmount("todo");
     document.getElementById('doneAmount').innerHTML = await getCategoryAmount("done");
-    document.getElementById('deadline').innerHTML = await getUrgentDueDate();
+    document.getElementById('deadline').innerHTML = await getUrgentDueDate() || '';
 }
 
 async function getAllTasks() {
@@ -61,7 +61,12 @@ async function getUrgentDueDate() {
             allDates.push(e.dueDate);
         }
     })
-    return formatDate(findNearestDate(allDates));
+    if (allDates.length === 0) {
+        return null;
+    }
+    else {
+        return formatDate(findNearestDate(allDates));
+    }
 }
 
 /**
