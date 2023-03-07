@@ -1,6 +1,4 @@
 "use strict"
-setURL('https://gruppe-join-422.developerakademie.net/smallest_backend');
-
 let currentColor = 1;
 let contactIdCounter = 0;
 

@@ -1,4 +1,3 @@
-setURL('https://gruppe-join-422.developerakademie.net/smallest_backend');
 /**
  * This function is used for the message after successful registration
  * 

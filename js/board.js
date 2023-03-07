@@ -1,7 +1,5 @@
 "use strict";
 
-setURL('https://gruppe-join-422.developerakademie.net/smallest_backend');
-
 const progressStepCategories = ["todo", "inProgress", "awaitingFeedback", "done"];
 let filteredTasks = [];
 let isFiltering = false;

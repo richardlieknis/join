@@ -5,6 +5,8 @@ let tasks = [];
 let contacts = [];
 let categories = [];
 
+setURL('https://gruppe-join-422.developerakademie.net/smallest_backend');
+
 function getIndexOfArray(array, id) {
     let index;
     for (let i = 0; i < array.length; i++) {

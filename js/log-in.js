@@ -1,5 +1,3 @@
-setURL('https://gruppe-join-422.developerakademie.net/smallest_backend');
-
 /**
  * This function load all Users from the Backend
  * 
