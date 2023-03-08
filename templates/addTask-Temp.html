@@ -1,145 +1,123 @@
-    <div onload="initTasks()" class="add-task-container">
-      <button
-        id="mobile-btn-addTask"
-        class="btn-primary add-to-btn-primary hide-over-800px"
-        onclick="createTaskAtBoard('todo'); return false"
-      >
-        Create Task<img src="../src/img/hook.svg" />
-      </button>
+<!DOCTYPE html>
+<html lang="en">
 
-      <div
-        id="addTaskModul"
-        class="main-container taskOverlay modules padding mobile-fullscreen"
-      >
-        <form id="createTaskForm" onsubmit="createTask('todo'); return false;">
-          <div class="title">
-            <h1>Add Task</h1>
-            <div id="closeAddTask" onclick="closeAddTask()" class="closeBtn">
-              <img src="../src/img/x.svg" alt="" />
-            </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/add_task.css" />
+  <link rel="stylesheet" href="../css/templates.css" />
+  <link rel="stylesheet" href="../css/modules.css" />
+  <link rel="stylesheet" href="../css/fonts.css" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+  <div onload="initTasks()" class="add-task-container">
+
+
+    <div id="addTaskModul" class="main-container taskOverlay modules padding mobile-fullscreen">
+      <form id="createTaskForm" onsubmit="createTask('todo'); return false;">
+        <button id="mobile-btn-addTask" class="btn-primary add-to-btn-primary hide-over-800px add-task-contact-btn"
+          onclick="createTaskAtBoard('todo'); return false">
+          Create Task<img src="../src/img/hook.svg" />
+        </button>
+        <div class="title">
+          <h1>Add Task</h1>
+          <div id="closeAddTask" onclick="closeAddTask()" class="closeBtn">
+            <img src="../src/img/x.svg" alt="" />
           </div>
+        </div>
 
-          <div class="input-container">
-            <div class="left">
-              <div class="inputBlock">
-                <span class="inputTitle">Title</span>
-                <input
-                  required
-                  id="task-input-title"
-                  type="text"
-                  placeholder="Enter a title"
-                />
-              </div>
-              <div class="inputBlock">
-                <span class="inputTitle">Description</span>
-                <textarea
-                  required
-                  id="task-input-description"
-                  placeholder="Enter a description"
-                ></textarea>
-              </div>
-              <div class="inputBlock">
-                <span class="inputTitle">Category</span>
-                <div id="category-selection">
-                  <select
-                    style="width: 100%"
-                    required
-                    id="task-input-category"
-                    onchange="handleCategoryChange()"
-                  >
-                    <option disabled selected>
-                      Select or create a Category!
-                    </option>
-                    <option value="newCategory">New Category</option>
-                  </select>
-                </div>
-              </div>
-              <div class="inputBlock">
-                <span class="inputTitle">Assigned to</span>
-                <div id="task-input-assignedTo">
-                  <div
-                    class="task-input-assignedTo"
-                    onclick="showOrHideContactsTask(event)"
-                  >
-                    <span>Select contacts to assign</span>
-                    <div
-                      class="contactsToAssign d-none"
-                      id="assignmentContainer"
-                    ></div>
-                    <img height="10px" src="../src/img/dropDownArrow2.ico" />
-                  </div>
-                </div>
+        <div class="input-container">
+          <div class="left">
+            <div class="inputBlock">
+              <span class="inputTitle">Title</span>
+              <input required id="task-input-title" type="text" placeholder="Enter a title" />
+            </div>
+            <div class="inputBlock">
+              <span class="inputTitle">Description</span>
+              <textarea required id="task-input-description" placeholder="Enter a description"></textarea>
+            </div>
+            <div class="inputBlock">
+              <span class="inputTitle">Category</span>
+              <div id="category-selection">
+                <select style="width: 100%" required id="task-input-category" onchange="handleCategoryChange()">
+                  <option disabled selected>
+                    Select or create a Category!
+                  </option>
+                  <option value="newCategory">New Category</option>
+                </select>
               </div>
             </div>
-            <div class="line"></div>
-            <div class="right">
-              <div class="inputBlock">
-                <span class="inputTitle">Due date</span>
-                <input required type="date" id="task-input-dueDate" />
-              </div>
-              <div class="inputBlock">
-                <span class="inputTitle">Prio</span>
-                <div id="prioBtns" class="prioBtns">
-                  <div
-                    onclick="choosePriority('urgent')"
-                    id="urgentBtn"
-                    class="prioBtn"
-                  >
-                    <span>Urgent</span>
-                    <img src="../src/img/urgent.svg" />
-                  </div>
-                  <div
-                    onclick="choosePriority('medium')"
-                    id="mediumBtn"
-                    class="prioBtn"
-                  >
-                    <span>Medium</span>
-                    <img src="../src/img/medium.svg" />
-                  </div>
-                  <div
-                    onclick="choosePriority('low')"
-                    id="lowBtn"
-                    class="prioBtn"
-                  >
-                    <span>Low</span>
-                    <img src="../src/img/low.svg" />
-                  </div>
-                </div>
-              </div>
-              <div class="inputBlock">
-                <span class="inputTitle">Subtasks</span>
-
-                <div class="addSubTask">
-                  <input id="task-input-subtasks" type="text" />
-                  <div id="addSubTaskBtn" class="addSubTaskBtn">
-                    <div class="addDeleteBtns">
-                      <img
-                        onclick="addNewSubtask()"
-                        src="../src/img/plus.svg"
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div id="task-checkbox-subtasks">
-                  <!-- RENDER IN JS -->
+            <div class="inputBlock">
+              <span class="inputTitle">Assigned to</span>
+              <div id="task-input-assignedTo">
+                <div class="task-input-assignedTo" onclick="showOrHideContactsTask(event)">
+                  <span>Select contacts to assign</span>
+                  <div class="contactsToAssign d-none" id="assignmentContainer"></div>
+                  <img height="10px" src="../src/img/dropDownArrow2.ico" />
                 </div>
               </div>
             </div>
           </div>
-          <div
-            class="mobile-hide buttons relative-btns"
-            style="position: relative; bottom: 20px; right: 20px"
-          >
-            <div onclick="clearTaskInputs()" class="clearBtn">
-              <button>Clear</button>
-              <img src="../src/img/x.svg" />
+          <div class="line"></div>
+          <div class="right">
+            <div class="inputBlock">
+              <span class="inputTitle">Due date</span>
+              <input required type="date" id="task-input-dueDate" />
             </div>
-            <div class="createBtn">
-              <button>Create Task</button>
-              <img src="../src/img/hook.svg" />
+            <div class="inputBlock">
+              <span class="inputTitle">Prio</span>
+              <div id="prioBtns" class="prioBtns">
+                <div onclick="choosePriority('urgent')" id="urgentBtn" class="prioBtn">
+                  <span>Urgent</span>
+                  <img src="../src/img/urgent.svg" />
+                </div>
+                <div onclick="choosePriority('medium')" id="mediumBtn" class="prioBtn">
+                  <span>Medium</span>
+                  <img src="../src/img/medium.svg" />
+                </div>
+                <div onclick="choosePriority('low')" id="lowBtn" class="prioBtn">
+                  <span>Low</span>
+                  <img src="../src/img/low.svg" />
+                </div>
+              </div>
+            </div>
+            <div class="inputBlock">
+              <span class="inputTitle">Subtasks</span>
+
+              <div class="addSubTask">
+                <input id="task-input-subtasks" type="text" />
+                <div id="addSubTaskBtn" class="addSubTaskBtn">
+                  <div class="addDeleteBtns">
+                    <img onclick="addNewSubtask()" src="../src/img/plus.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div id="task-checkbox-subtasks">
+                <!-- RENDER IN JS -->
+              </div>
             </div>
           </div>
-        </form>
-      </div>
+        </div>
+        <div class="mobile-hide buttons relative-btns" style="position: relative; bottom: 20px; right: 20px">
+          <div onclick="clearTaskInputs()" class="clearBtn">
+            <button>Clear</button>
+            <img src="../src/img/x.svg" />
+          </div>
+          <div class="createBtn">
+            <button>Create Task</button>
+            <img src="../src/img/hook.svg" />
+          </div>
+        </div>
+      </form>
     </div>
+  </div>
+  <script src="../js/js-templates/addTask.js"></script>
+  <script src="../js/addTasks.js"></script>
+
+  <script src="../js/editTasks.js"></script>
+</body>
+
+</html>

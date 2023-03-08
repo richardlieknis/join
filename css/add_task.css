@@ -310,6 +310,21 @@ button {
 }
 
 @media (max-width: 1070px) {
+    .closeBtn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0 0 0 8px;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 20;
+        color: #fff;
+        cursor: pointer;
+    }
+
     .buttons {
         position: absolute;
         bottom: unset;

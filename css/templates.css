@@ -180,19 +180,13 @@ nav>.join-logo-desktop {
     .hide-over-800px {
         display: unset !important;
     }
-}
 
-@media (max-width: 870px) {
-    header {
-        padding-left: 50px;
-    }
-}
-
-@media (max-width: 800px) {
-    body {
-        grid-template-columns: auto;
-        grid-template-rows: 80px auto 80px;
-        grid-template-areas: "header""main""nav";
+    nav {
+        height: 80px;
+        padding: 0;
+        position: fixed;
+        bottom: 0;
+        z-index: 10;
     }
 
     header {
@@ -211,14 +205,6 @@ nav>.join-logo-desktop {
 
     header .help {
         display: none;
-    }
-
-    nav {
-        height: 80px;
-        padding: 0;
-        position: fixed;
-        bottom: 0;
-        z-index: 10;
     }
 
     nav>.join-logo-desktop,
@@ -273,5 +259,19 @@ nav>.join-logo-desktop {
 
     .add-to-btn-primary {
         top: -65px;
+    }
+}
+
+@media (max-width: 870px) {
+    header {
+        padding-left: 50px;
+    }
+}
+
+@media (max-width: 800px) {
+    body {
+        grid-template-columns: auto;
+        grid-template-rows: 80px auto 80px;
+        grid-template-areas: "header""main""nav";
     }
 }

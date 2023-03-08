@@ -159,8 +159,6 @@ async function createContactTask(contactId) {
     document.getElementById('addContactBtn').style = 'display: unset';
     document.getElementById('contact-list').style = 'width: 100%';
     document.getElementById('task-input-assignedTo').selected
-
-    setOption(document.getElementById('task-input-assignedTo'), `${contactId}`);
 }
 
 function setOption(selectElement, value) {

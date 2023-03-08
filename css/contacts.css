@@ -285,7 +285,7 @@ a {
         top: 40px;
         right: 20px;
         cursor: pointer;
-        z-index: 100;
+        z-index: 99;
     }
 
     .width-unset {
