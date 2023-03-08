@@ -155,7 +155,7 @@
             <div class="todo" id="todo" ondragstart="getStatusOfDraggedElement('todo')" ondrop="moveTo('todo')"
                 ondrag="addPlaceholder()" ondragover="allowDrop(event)">
                 <div class="progress-header">
-                    <span>To do</span>
+                    <span><b>To do</b></span>
                     <div onclick="openAddTask('todo')" w3-include-html="../templates/plus-button.html"></div>
                 </div>
 
@@ -165,7 +165,7 @@
             <div class="in-progress" id="inProgress" ondragstart="getStatusOfDraggedElement('inProgress')"
                 ondrop="moveTo('inProgress')" ondrag="addPlaceholder()" ondragover="allowDrop(event)">
                 <div class="progress-header">
-                    <span>In progress</span>
+                    <span><b>In progress</b></span>
                     <div onclick="openAddTask('inProgress')" w3-include-html="../templates/plus-button.html"></div>
                 </div>
 
@@ -176,7 +176,7 @@
                 ondragstart="getStatusOfDraggedElement('awaitingFeedback')" ondrop="moveTo('awaitingFeedback')"
                 ondrag="addPlaceholder()" ondragover="allowDrop(event)">
                 <div class="progress-header">
-                    <span>Awaiting Feedback</span>
+                    <span><b>Awaiting Feedback</b></span>
                     <div onclick="openAddTask('awaitingFeedback')" w3-include-html="../templates/plus-button.html">
                     </div>
                 </div>
@@ -187,7 +187,7 @@
             <div class="done" id="done" ondragstart="getStatusOfDraggedElement('done')" ondrop="moveTo('done')"
                 ondrag="addPlaceholder()" ondragover="allowDrop(event)">
                 <div class="progress-header">
-                    <span>Done</span>
+                    <span><b>Done</b></span>
                     <div onclick="openAddTask('done')" w3-include-html="../templates/plus-button.html"></div>
                 </div>
 

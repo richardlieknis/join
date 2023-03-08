@@ -89,7 +89,6 @@ select:focus {
     font-family: 'inter';
     cursor: pointer;
     position: relative;
-    z-index: 1;
 }
 
 .contactsToAssign {

@@ -31,12 +31,13 @@
   <header id="header-overlay-addTask" w3-include-html="../templates/header.html"></header>
   <nav w3-include-html="../templates/navigation.html"></nav>
   <div id="addTaskOverlay" onclick="closeAddTask()" class="overlay d-none">
-    <button type="submit" form="createTaskForm" id="mobile-btn-addTask" class="btn-primary add-to-btn-primary hide-over-800px add-task-contact-btn">
-    Create Task<img src="../src/img/hook.svg" />
-  </button>
+    <button type="submit" form="createTaskForm" id="mobile-btn-addTask"
+      class="btn-primary add-to-btn-primary hide-over-800px add-task-contact-btn">
+      Create Task<img src="../src/img/hook.svg" />
+      </button>
 
     <div onclick="dontClose(event)">
-      <div id="addTaskModul" class="main-container taskOverlay modules padding mobile-fullscreen">
+      <div id="addTaskModul" class="main-container taskOverlay modules mobile-fullscreen">
         <form id="createTaskForm" onsubmit="createTask('todo'); return false;">
           <div class="title">
             <h1>Add Task</h1>
@@ -189,7 +190,7 @@
     <div id="editContactOverlay" class="overlay d-none">
       <div id="editContactModul" onclick="dontClose(event)" class="c-new-card modules">
         <div class="c-new-c-left">
-          <!-- <img onclick="closeEditContact()" class="close-white" src="../src/img/close-white.svg"> -->
+          <img id="c-new-c-left-closeBtn" onclick="closeEditContact()" class="close-white" src="../src/img/close-white.svg">
           <img class="c-img-resp" src="../src/img/join-logo-white.svg" alt="" />
           <p class="c-new-headline">Edit contact</p>
           <div class="c-new-line"></div>

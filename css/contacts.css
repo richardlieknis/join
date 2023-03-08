@@ -239,7 +239,7 @@ a {
 
 .btn-new-mobile {
     position: fixed;
-    top: 95px;
+    top: 102px;
     right: 25px;
     padding: 14px 10px 14px 10px;
     display: flex;
@@ -256,9 +256,11 @@ a {
         align-items: center;
         padding-top: 90px;
     }
+
     .c-initial-letter {
         padding-left: 26px;
     }
+
     .c-view {
         display: none;
         position: absolute;
@@ -267,18 +269,23 @@ a {
         background-color: #f6f7f8;
         padding: 82px 0 0 58px;
     }
+
     .c-contact-overview {
         width: 338px;
     }
+
     .c-contact-overview-2 {
         width: 338px;
     }
+
     .btn-new-contact {
         display: none;
     }
+
     .btn-new-mobile {
         display: flex;
     }
+
     .c-mobile-back {
         display: unset;
         position: absolute;
@@ -311,12 +318,14 @@ a {
     }
 
     @media(max-width: 800px) {
-        .c-view {
-            height: 100%;
-        }
-
         .c-mobile-back {
             right: 20px;
+        }
+    }
+
+    @media(max-width: 1070px) {
+        .c-view {
+            height: calc(100% + 80px);
         }
     }
 }

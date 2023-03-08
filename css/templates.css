@@ -136,6 +136,7 @@ nav>.join-logo-desktop {
     cursor: pointer;
     color: #7B818A;
     font-weight: 700;
+    padding: 5px 0 3px 0;
 }
 
 #mobile-menu, .hide-over-800px {

@@ -147,10 +147,10 @@ function generateEditTaskOverlayButtonsHtml(taskIndex) {
         <div class="close-button" onclick="closeTaskOverlay()">
           <img src="../src/img/close-icon.svg" />
         </div>
-        <button class="edit-icon delete-button btn-secondary" onclick="deleteTask(${tasks[taskIndex].id})">
+        <button class="edit-icon delete-button btn-secondary z-1" onclick="deleteTask(${tasks[taskIndex].id})">
           <img src="../src/img/trash.svg" />
         </button>
-        <button class="edit-icon save-button btn-primary" onclick="saveChanges(${tasks[taskIndex].id})">
+        <button class="edit-icon save-button btn-primary z-1" onclick="saveChanges(${tasks[taskIndex].id})">
           <span>OK</span>
           <img src="../src/img/hook.svg" />
         </button>

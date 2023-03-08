@@ -1,7 +1,7 @@
 let contactsDetailsDisplayed = false;
 
 async function openAddTask(status) {
-    document.querySelector('#createTaskForm').setAttribute("onsubmit", `createTaskAtBoard('${status}'); return false;`); 
+    document.querySelector('#createTaskForm').setAttribute("onsubmit", `createTaskAtBoard('${status}'); return false;`);
     await renderAddTask(status);
     let addTaskOverlay = document.getElementById("addTaskOverlay");
     let taskModul = document.getElementById('addTaskModul');
@@ -23,6 +23,7 @@ function closeAddTask() {
     document.getElementById('profile').classList.remove('d-none');
     setTimeout(addDisplayNoneTask, 550);
     document.getElementById('header-overlay-addTask').classList.remove('header-resp-addTask-template');
+    addOverlayOnclick();
 }
 
 function openAddContact() {
@@ -39,8 +40,10 @@ function openEditContact(contactId) {
     editContactOverlay.classList.remove('d-none');
     document.getElementById('edit-contact-form').setAttribute("onsubmit", `editContact(${contactId}); return false`);
     document.getElementById('edit-contact-delete').setAttribute("onclick", `deleteContact(${contactId})`);
+    document.getElementById('c-new-c-left-closeBtn').setAttribute("onclick", `closeEditContact(${contactId})`);
 
     fillEditContactField(contactId);
+    document.body.classList.add("disable-scroll");
 }
 
 async function fillEditContactField(contactId) {
@@ -106,6 +109,7 @@ function closeEditContact(contactId) {
     let contactModul = document.getElementById('editContactModul');
     contactModul.classList.remove("slideIn");
     contactModul.classList.add("slideOut");
+    document.body.classList.remove("disable-scroll");
 
     setTimeout(editDisplayNoneContact, 550);
 }

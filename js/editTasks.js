@@ -27,6 +27,7 @@ async function createTaskAtBoard(status) {
     try {
         await renderTasks();
     } catch (error) {}
+    addOverlayOnclick();
 }
 
 async function saveTasksToBackend() {

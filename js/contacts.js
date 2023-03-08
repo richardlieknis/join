@@ -159,6 +159,11 @@ async function createContactTask(contactId) {
     document.getElementById('addContactBtn').style = 'display: unset';
     document.getElementById('contact-list').style = 'width: 100%';
     document.getElementById('task-input-assignedTo').selected
+    // document.getElementById('addTaskOverlay').onclick = null;
+}
+
+function addOverlayOnclick() {
+    document.getElementById('addTaskOverlay').setAttribute("onclick", 'closeAddTask()');
 }
 
 function setOption(selectElement, value) {

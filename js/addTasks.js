@@ -84,67 +84,31 @@ function choosePriority(prio) {
     priority = prio;
     switch (prio) {
         case "urgent":
-            urgentPrioStyle();
+            PrioStyle("#f83525", "#fff", "#fff", "#fff", "#000", "#000");
             break;
         case "medium":
-            mediumPrioStyle();
+            PrioStyle("#fff", "#f83525", "#fff", "#000", "#fff", "#000");
             break;
         case "low":
-            lowPrioStyle();
+            PrioStyle("#fff", "#fff", "#f83525", "#000", "#000", "#fff");
             break;
         case "none":
-            nonePrioStyle();
+            PrioStyle("#fff", "#fff", "#fff", "#000", "#000", "#000");
         default:
             break;
     }
 }
 
-function urgentPrioStyle() {
-    urgent.style.backgroundColor = "#f83525";
-    medium.style.backgroundColor = "#fff";
-    low.style.backgroundColor = "#fff";
-    urgent.style.color = "#fff";
-    medium.style.color = "#000";
-    low.style.color = "#000";
+function PrioStyle(urgendBg, mediumBg, lowBg, urgendColor, mediumColor, lowColor) {
+    urgent.style.backgroundColor = urgendBg;
+    medium.style.backgroundColor = mediumBg;
+    low.style.backgroundColor = lowBg;
+    urgent.style.color = urgendColor;
+    medium.style.color = mediumColor;
+    low.style.color = lowColor;
     urgent.innerHTML = renderPrioBtnClicked("urgent");
     medium.innerHTML = renderPrioBtnUnclicked("medium");
     low.innerHTML = renderPrioBtnUnclicked("low");
-}
-
-function mediumPrioStyle() {
-    medium.style.backgroundColor = "#ff7a00";
-    urgent.style.backgroundColor = "#fff";
-    low.style.backgroundColor = "#fff";
-    urgent.style.color = "#000";
-    medium.style.color = "#fff";
-    low.style.color = "#000";
-    medium.innerHTML = renderPrioBtnClicked("medium");
-    urgent.innerHTML = renderPrioBtnUnclicked("urgent");
-    low.innerHTML = renderPrioBtnUnclicked("low");
-}
-
-function lowPrioStyle() {
-    low.style.backgroundColor = "#02cf2f";
-    medium.style.backgroundColor = "#fff";
-    urgent.style.backgroundColor = "#fff";
-    urgent.style.color = "#000";
-    medium.style.color = "#000";
-    low.style.color = "#fff";
-    low.innerHTML = renderPrioBtnClicked("low");
-    medium.innerHTML = renderPrioBtnUnclicked("medium");
-    urgent.innerHTML = renderPrioBtnUnclicked("urgent");
-}
-
-function nonePrioStyle() {
-    low.style.backgroundColor = "#fff";
-    medium.style.backgroundColor = "#fff";
-    urgent.style.backgroundColor = "#fff";
-    urgent.style.color = "#000";
-    medium.style.color = "#000";
-    low.style.color = "#000";
-    low.innerHTML = renderPrioBtnUnclicked("low");
-    medium.innerHTML = renderPrioBtnUnclicked("medium");
-    urgent.innerHTML = renderPrioBtnUnclicked("urgent");
 }
 
 function handleCategoryChange() {
@@ -242,7 +206,7 @@ function showOrHideContactsTask() {
     let assignmentContainer = document.getElementById('assignmentContainer');
     try {
         assignmentContainer.classList.toggle('d-none');
-    } catch (e) {}
+    } catch (e) { }
 }
 
 function hideContactsTask() {
