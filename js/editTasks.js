@@ -24,7 +24,9 @@ async function createTaskAtBoard(status) {
     await createTask(status);
     closeAddTask();
     currentTasksArray = tasks;
-    await renderTasks();
+    try {
+        await renderTasks();
+    } catch (error) {}
 }
 
 async function saveTasksToBackend() {

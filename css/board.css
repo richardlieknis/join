@@ -442,7 +442,7 @@ main .title-mobile {
   width: 30px;
   height: 30px;
   position: absolute;
-  top: 40px;
+  top: 25px;
   right: 40px;
   cursor: pointer;
   display: flex;
@@ -468,7 +468,7 @@ main .title-mobile {
 
 .task-overlay-edit-content {
   flex-direction: column;
-  padding: 50px 100px;
+  padding: 26px 36px;
   width: 100%;
   height: 100%;
   gap: 20px;

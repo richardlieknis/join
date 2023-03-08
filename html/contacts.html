@@ -23,13 +23,12 @@
   <script src="../script.js"></script>
   <script src="../js/js-templates/contactList.js"></script>
   <script src="../js/editTasks.js"></script>
-  <script src="../js/addTasks.js"></script>
   <script src="../js/js-templates/addTask.js"></script>
   <script src="../js/categories.js"></script>
 </head>
 
 <body onload="init(), renderContacts()">
-  <header w3-include-html="../templates/header.html"></header>
+  <header id="header-overlay-addTask" w3-include-html="../templates/header.html"></header>
   <nav w3-include-html="../templates/navigation.html"></nav>
   <div id="addTaskOverlay" onclick="closeAddTask()" class="overlay d-none">
     <button type="submit" form="createTaskForm" id="mobile-btn-addTask" class="btn-primary add-to-btn-primary hide-over-800px add-task-contact-btn">
@@ -288,6 +287,8 @@
 
   <script src="../js/showOverlay.js"></script>
   <script src="../js/activeTab.js"></script>
+  <script src="../js/addTasks.js"></script>
+
 </body>
 
 </html>
