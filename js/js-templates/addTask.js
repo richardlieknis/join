@@ -1,19 +1,19 @@
 function renderPrioBtnClicked(prio) {
-    return `
+    return /*html*/`
  <span>${prio.charAt(0).toUpperCase() + prio.slice(1)}</span>
  <img src="../src/img/${prio}-white.svg" width="18px"/>
  `;
 }
 
 function renderPrioBtnUnclicked(prio) {
-    return `
+    return /*html*/`
  <span>${prio.charAt(0).toUpperCase() + prio.slice(1)}</span>
  <img src="../src/img/${prio}.svg" width="18px"/>
  `;
 }
 
 function renderPrioBtns() {
-    return `
+    return /*html*/`
      <div onclick="choosePriority('urgent')" id="urgentBtn" class="prioBtn">
              <span>Urgent</span>
              <img src="../src/img/urgent.svg" />
@@ -31,7 +31,7 @@ function renderPrioBtns() {
 
 
 function renderSubtaskCheckbox(index) {
-    return `
+    return /*html*/`
  <div  class="subtask">
      <span>${subtasks[index].title}</span>
  </div>
@@ -39,7 +39,7 @@ function renderSubtaskCheckbox(index) {
 }
 
 function renderAddDeleteBtns() {
-    return `
+    return /*html*/`
  <div class="addDeleteBtns">
      <img onclick="deleteSubtaskInput()" src="../src/img/x.svg" />
      <div class="line"></div>
@@ -48,7 +48,7 @@ function renderAddDeleteBtns() {
 }
 
 function renderAddBtn() {
-    return `
+    return /*html*/`
  <div class="addDeleteBtns">
      <img onclick="addNewSubtask()" src="../src/img/plus.svg" alt="" />
  </div>
@@ -57,27 +57,40 @@ function renderAddBtn() {
 
 
 function renderCategoryInputFull() {
-    return `
- <select style="width: 100%" required id="task-input-category" onchange="handleCategoryChange()">
-                   <option disabled selected>
-                     Select or create a Category!
-                   </option>
-                   <option value="newCategory">New Category</option>
-                 </select>
+    return /*html*/`
+    
+    <div id="category-selection">               
+        <div onclick="createNewCategory()" style="margin-top: 15px" value="newCategory">New Category</div>
+            <div class="contactsToAssign d-none" id="task-input-category"></div>
+        </div>
+    </div>
  `;
 }
 
+function createNewCategoryTemp() {
+    return /*html*/`
+    <div id="category-selection">
+    <div class="task-input-assignedTo" onclick="showOrHideCategoryTask(event)">
+                <div id="selectedCategory">Select or create a Category</div>
+            <div class="contactsToAssign z-1 d-none" id="task-input-category"></div>
+            <img height="10px" src="../src/img/dropDownArrow2.ico" />
+        </div>
+    </div>
+ `
+}
+
 function renderCategoryInputOptionsExtra(category) {
-    return `
-                   <option value="${category.name}" class="color-${category.colorNumber}">
+    return /*html*/`
+                   <div onclick="selectCategory(event)" class="categoryHover" value="${category.name}">
                    ${category.name.charAt(0).toUpperCase() + category.name.slice(1)}
-                   </option>
+                   <div class="color-dot color-${category.colorNumber}"></div>
+                </div>
  `;
 }
 
 
 function renderCategoryInput() {
-    return `
+    return /*html*/`
  <div class="addSubTask">
          <input id="new-category-input" type="text" />
          <div class="addSubTaskBtn">
@@ -101,7 +114,7 @@ function renderCategoryInput() {
 }
 
 function renderContactsTemp(contacts) {
-    return `
+    return /*html*/`
     <div onclick="dontClose(event)" class="contactToAssign">
         <div>${contacts.name}</div>
         <input id="${contacts.id}" type="checkbox">
@@ -110,7 +123,7 @@ function renderContactsTemp(contacts) {
 }
 
 function renderAssignInput() {
-    return `
+    return /*html*/`
     <div
                   class="task-input-assignedTo"
                   onclick="showOrHideContactsTask(event)"
@@ -120,13 +133,13 @@ function renderAssignInput() {
                     class="contactsToAssign d-none"
                     id="assignmentContainer"
                   ></div>
-                  <img src="../src/img/dropDownArrow.svg" />
+                  <img height="10px" src="../src/img/dropDownArrow2.ico" />
                 </div>
     `;
 }
 
 function renderInviteContactTemp() {
-    return `
+    return /*html*/`
         <div class="inviteBtn" onclick="toggleAssignmentInput()">
             <span>Invite new contact</span>
             <img src="../src/img/contacts-black.svg">
@@ -135,7 +148,7 @@ function renderInviteContactTemp() {
 }
 
 function renderInviteContactInput() {
-    return `
+    return /*html*/`
     <div class="addSubTask">
             <input id="new-contact-input" type="email" placeholder="Contact eMail" />
             <div class="addSubTaskBtn">

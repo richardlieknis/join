@@ -302,6 +302,27 @@ button {
     height: unset;
 }
 
+.categoryContainer {
+    width: calc(100% - 30px);
+    max-height: 130px;
+    position: absolute;
+    top: 35px;
+    left: -1px;
+    padding: 0px 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.categoryHover:hover {
+    background-color: lightgrey;
+}
+
 @media (max-width: 1800px) {
     .input-container {
         width: 100%;

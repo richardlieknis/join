@@ -62,6 +62,13 @@ h1 {
     z-index: 1;
 }
 
+.color-dot {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
 .color-x {
     background-color: #2A3647;
 }

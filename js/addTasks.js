@@ -120,6 +120,17 @@ function handleCategoryChange() {
     }
 }
 
+function selectCategory(event) {
+    let selectedCategoryHtml = event.target.innerHTML;
+    document.getElementById('selectedCategory').innerHTML = selectedCategoryHtml;
+    document.getElementById("task-input-category").classList.add('dNone');
+  }
+
+  function createNewCategory() {
+    let categoryInput = document.getElementById('category-selection');
+    categoryInput.innerHTML = renderCategoryInput();
+}
+
 async function addNewCategory() {
     await loadCategoriesFromBackend();
     let newCategoryInput = document.getElementById('new-category-input');
@@ -130,9 +141,9 @@ async function addNewCategory() {
         name: newCategoryInput.value,
         colorNumber: categoryColor || 1,
     }
-
     categories.push(createNew);
     categoryDiv.innerHTML = renderCategoryInputFull();
+    categoryDiv.innerHTML = createNewCategoryTemp();
     await saveCategoriesToBackend();
     getCategories();
 }
@@ -151,6 +162,7 @@ function deleteCategoryInput() {
     let categoryDiv = document.getElementById('category-selection');
     document.getElementById("new-category-input").value = "";
     categoryDiv.innerHTML = renderCategoryInputFull();
+    categoryDiv.innerHTML = createNewCategoryTemp();
     getCategories();
 }
 
@@ -200,6 +212,13 @@ function getSubtasks() {
     for (let i = 0; i < subtasks.length; i++) {
         document.getElementById("task-checkbox-subtasks").innerHTML += renderSubtaskCheckbox(i);
     }
+}
+
+function showOrHideCategoryTask() {
+    let categoryContainer = document.getElementById('task-input-category');
+    try {
+        categoryContainer.classList.toggle('d-none');
+    } catch (e) { }
 }
 
 function showOrHideContactsTask() {
