@@ -124,9 +124,9 @@ function selectCategory(event) {
     let selectedCategoryHtml = event.target.innerHTML;
     document.getElementById('selectedCategory').innerHTML = selectedCategoryHtml;
     document.getElementById("task-input-category").classList.add('dNone');
-  }
+}
 
-  function createNewCategory() {
+function createNewCategory() {
     let categoryInput = document.getElementById('category-selection');
     categoryInput.innerHTML = renderCategoryInput();
 }
@@ -218,14 +218,14 @@ function showOrHideCategoryTask() {
     let categoryContainer = document.getElementById('task-input-category');
     try {
         categoryContainer.classList.toggle('d-none');
-    } catch (e) { }
+    } catch (e) {}
 }
 
 function showOrHideContactsTask() {
     let assignmentContainer = document.getElementById('assignmentContainer');
     try {
         assignmentContainer.classList.toggle('d-none');
-    } catch (e) { }
+    } catch (e) {}
 }
 
 function hideContactsTask() {

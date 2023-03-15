@@ -8,6 +8,7 @@ async function createTask(status) {
     const title = document.getElementById("task-input-title");
     const description = document.getElementById("task-input-description");
     const category = document.getElementById("task-input-category");
+    console.log(category.value);
     const dueDate = document.getElementById("task-input-dueDate");
     const assignedTo = getAssignedPersons();
     await loadTasksFromBackend();
@@ -52,7 +53,6 @@ function pushToTasksArray(title, description, category, assignedTo, dueDate, sta
         title: title,
         description: description,
         category: category,
-        categoryColor: categoryColor,
         assignedTo: assignedTo,
         dueDate: dueDate,
         status: status,
