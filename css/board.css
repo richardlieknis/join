@@ -442,8 +442,8 @@ main .title-mobile {
   width: 30px;
   height: 30px;
   position: absolute;
-  top: 25px;
-  right: 40px;
+  top: 5px;
+  right: 10px;
   cursor: pointer;
   display: flex;
   justify-content: center;
