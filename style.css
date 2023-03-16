@@ -110,7 +110,7 @@ h1 {
     border: none;
     border-radius: 10px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 400;
     font-size: 21px;
     color: #ffffff;
     cursor: pointer;
@@ -131,7 +131,7 @@ h1 {
     background-color: #f6f7f8;
     border: 1px solid #2a3647;
     color: #2a3647;
-    border-radius: 8px;
+    border-radius: 10px;
     transition: background 150ms ease-in-out, box-shadow 150ms ease-in-out;
     cursor: pointer;
     font-weight: 400;
