@@ -11,24 +11,33 @@ async function createTask(status) {
     console.log(category.value);
     const dueDate = document.getElementById("task-input-dueDate");
     const assignedTo = getAssignedPersons();
-    await loadTasksFromBackend();
-    await setTasksIdCounter();
-    pushToTasksArray(title.value, description.value, selectedCategory, [...assignedTo], dueDate.value, status);
-    clearTasksInputFields(title, description, category, assignedTo, dueDate);
-    await saveTasksToBackend();
-    showPopup("Task added to Board!");
-    subtasks = [];
-    clearTaskInputs();
+
+    if (!selectedCategory) {
+        document.getElementById('chooseCategory').innerHTML = 'Please choose a category';
+    } else {
+        await loadTasksFromBackend();
+        await setTasksIdCounter();
+        pushToTasksArray(title.value, description.value, selectedCategory, [...assignedTo], dueDate.value, status);
+        clearTasksInputFields(title, description, category, assignedTo, dueDate);
+        await saveTasksToBackend();
+        showPopup("Task added to Board!");
+        subtasks = [];
+        clearTaskInputs();
     }
+}
 
 async function createTaskAtBoard(status) {
     await createTask(status);
-    closeAddTask();
-    currentTasksArray = tasks;
-    try {
-        await renderTasks();
-    } catch (error) {}
-    addOverlayOnclick();
+    if (!selectedCategory) {
+        document.getElementById('chooseCategory').innerHTML = 'Please choose a category';
+    } else {
+        closeAddTask();
+        currentTasksArray = tasks;
+        try {
+            await renderTasks();
+        } catch (error) { }
+        addOverlayOnclick();
+    }
 }
 
 async function saveTasksToBackend() {

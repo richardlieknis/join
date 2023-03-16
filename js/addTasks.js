@@ -3,7 +3,7 @@
 let database;
 let priority = "medium";
 let categoryColor;
-let selectedCategory;
+let selectedCategory = null;
 
 let subtaskBtn = document.getElementById("addSubTaskBtn");
 let urgent = document.getElementById('urgentBtn');

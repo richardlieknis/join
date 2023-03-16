@@ -76,6 +76,7 @@ function createNewCategoryTemp() {
             <img height="10px" src="../src/img/dropDownArrow2.ico" />
         </div>
     </div>
+    <p id="chooseCategory"></p>
  `
 }
 

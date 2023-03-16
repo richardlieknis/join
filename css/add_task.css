@@ -323,6 +323,13 @@ button {
     background-color: lightgrey;
 }
 
+#chooseCategory {
+    color: red;
+    position: relative;
+    bottom: 15px;
+    padding: 0px 5px 0px 15px;
+}
+
 @media (max-width: 1800px) {
     .input-container {
         width: 100%;
@@ -350,14 +357,17 @@ button {
         bottom: unset;
         z-index: 100;
     }
+
     .input-container {
         flex-direction: column;
         width: 100%;
     }
+
     .left,
     .right {
         width: 100%;
     }
+
     .main-container {
         padding: 60px 40px
     }
@@ -373,12 +383,15 @@ button {
     .clearBtn {
         display: none;
     }
+
     h1 {
         line-height: 30px;
     }
+
     header {
         width: unset !important;
     }
+
     .buttons {
         top: 35px;
     }
