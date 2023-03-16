@@ -18,7 +18,7 @@ async function createTask(status) {
         await loadTasksFromBackend();
         await setTasksIdCounter();
         pushToTasksArray(title.value, description.value, selectedCategory, [...assignedTo], dueDate.value, status);
-        clearTasksInputFields(title, description, category, assignedTo, dueDate);
+        clearTasksInputFields(title, description, assignedTo, dueDate);
         await saveTasksToBackend();
         showPopup("Task added to Board!");
         subtasks = [];
@@ -72,10 +72,10 @@ function pushToTasksArray(title, description, selectedCategory, assignedTo, dueD
     taskIdCounter++;
 }
 
-function clearTasksInputFields(title, description, category, assignedTo, dueDate) {
+function clearTasksInputFields(title, description, assignedTo, dueDate) {
     title.value = "";
     description.value = "";
-    category.value = "";
+    document.getElementById('category-selection').innerHTML = createNewCategoryTemp();
     assignedTo.value = "";
     dueDate.value = "";
     choosePriority("none")
