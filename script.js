@@ -24,7 +24,7 @@ function logoutPopUp() {
     } else {
         userMenu.classList.add('d-none');
     }
-    if (window.innerWidth <= 800) {
+    if (window.innerWidth <= 1070) {
         let mobileMenu = document.getElementById('mobile-menu');
         if (mobileMenu.classList.contains('d-none')) {
             mobileMenu.classList.remove('d-none');
