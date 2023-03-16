@@ -27,6 +27,7 @@ a {
 }
 
 .c-list {
+    height: 100vh;
     width: 453px;
     min-width: 453px;
     padding: 0 48px 0 48px;
