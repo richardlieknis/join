@@ -3,6 +3,7 @@
 let database;
 let priority = "medium";
 let categoryColor;
+let selectedCategory;
 
 let subtaskBtn = document.getElementById("addSubTaskBtn");
 let urgent = document.getElementById('urgentBtn');
@@ -121,9 +122,9 @@ function handleCategoryChange() {
 }
 
 function selectCategory(event) {
-    let selectedCategoryHtml = event.target.innerHTML;
-    document.getElementById('selectedCategory').innerHTML = selectedCategoryHtml;
-    document.getElementById("task-input-category").classList.add('dNone');
+    selectedCategory = event.target.getAttribute("value");
+    const categoryHtml = event.target.innerHTML;
+    document.getElementById("selectedCategory").innerHTML = `${categoryHtml}`;
 }
 
 function createNewCategory() {
