@@ -247,6 +247,12 @@ a {
     display: none;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 @media (max-width: 1350px) {
     .c-list {
         width: 100%;
