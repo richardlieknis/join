@@ -115,6 +115,7 @@ h1 {
     color: #ffffff;
     cursor: pointer;
     transition: background 150ms ease-in-out, box-shadow 150ms ease-in-out;
+    align-items: center;
 }
 
 .btn-primary:active {

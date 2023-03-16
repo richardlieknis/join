@@ -112,6 +112,10 @@
     display: none;
 }
 
+.c-overlay {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
 @media screen {
     @media(max-width: 1000px) {
         .c-new-headline {
@@ -123,6 +127,7 @@
         }
 
         .c-new-card {
+            max-width: 600px;
             flex-direction: column;
             height: 100%;
             overflow-x: hidden;
@@ -132,6 +137,7 @@
         }
 
         .c-new-c-left {
+            position: relative;
             height: 35%;
             width: 100%;
             border-bottom-left-radius: unset;
