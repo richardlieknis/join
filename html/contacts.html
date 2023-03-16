@@ -58,12 +58,13 @@
               <div class="inputBlock">
                 <span class="inputTitle">Category</span>
                 <div id="category-selection">
-                  <select style="width: 100%" required id="task-input-category" onchange="handleCategoryChange()">
-                    <option disabled selected>
-                      Select or create a Category!
-                    </option>
-                    <option value="newCategory">New Category</option>
-                  </select>
+                  <div class="task-input-assignedTo" onclick="showOrHideCategoryTask(event)">
+                    <div id="selectedCategory">Select or create a Category</div>
+                    <div class="contactsToAssign d-none z-1" id="task-input-category">
+                     
+                    </div>
+                    <img height="10px" src="../src/img/dropDownArrow2.ico" />
+                  </div>
                 </div>
               </div>
               <div class="inputBlock">

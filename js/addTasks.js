@@ -188,7 +188,7 @@ function clearTaskInputs() {
 }
 
 function addNewSubtask() {
-    subtaskBtn.style.width = "100px";
+    subtaskBtn.style.width = "50px";
     subtaskBtn.innerHTML = renderAddDeleteBtns();
 }
 
