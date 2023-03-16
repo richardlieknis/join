@@ -442,8 +442,8 @@ main .title-mobile {
   width: 30px;
   height: 30px;
   position: absolute;
-  top: 5px;
-  right: 10px;
+  top: 15px;
+  right: 15px;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -474,6 +474,7 @@ main .title-mobile {
   gap: 20px;
   overflow-y: auto;
   overflow-x: hidden;
+  margin-top: 20px;
 }
 
 .task-overlay-edit-content > div {
