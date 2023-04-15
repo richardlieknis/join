@@ -78,7 +78,7 @@ function clearTasksInputFields(title, description, assignedTo, dueDate) {
     document.getElementById('category-selection').innerHTML = createNewCategoryTemp();
     assignedTo.value = "";
     dueDate.value = "";
-    choosePriority("none")
+    choosePriority("none");
 }
 
 function getAssignedPersons() {
